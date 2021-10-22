@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MyGymApp</string>
+    <string name="user_hint">Usuario</string>
+    <string name="password_hint">Contraseña</string>
 </resources>

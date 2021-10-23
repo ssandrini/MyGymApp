@@ -3,4 +3,7 @@
     <string name="app_name">MyGymApp</string>
     <string name="user_hint">Usuario</string>
     <string name="password_hint">Contraseña</string>
+    <string name="log_in">Iniciar sesión</string>
+    <string name="register">Registrarme ahora</string>
+    <string name="register_text">¿Todavía no tienes una cuenta?</string>
 </resources>

@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">MyGymApp</string>
-    <string name="user_hint">User</string>
+    <string name="user_hint">Username</string>
     <string name="password_hint">Password</string>
+    <string name="log_in">Log In</string>
+    <string name="register">Register now</string>
+    <string name="register_text">Dont have an account yet?</string>
 </resources>

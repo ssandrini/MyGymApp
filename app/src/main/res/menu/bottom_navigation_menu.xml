@@ -6,6 +6,11 @@
         android:icon="@drawable/ic_home"
         android:title="Home"/>
     <item
+        android:id="@+id/page_routines"
+        android:enabled="true"
+        android:icon="@drawable/ic_dumbbell"
+        android:title="Routines"/>
+    <item
         android:id="@+id/page_favs"
         android:enabled="true"
         android:icon="@drawable/ic_favs"

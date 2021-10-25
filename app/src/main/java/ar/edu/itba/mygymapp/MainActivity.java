@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
             activityMainBinding.myTextView.setText(R.string.app_name);
          */
 
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         ActivityMainBinding activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(activityMainBinding.getRoot());
 

@@ -1,274 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".home">
 
-    <LinearLayout
-        app:layout_constraintTop_toTopOf="parent"
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_margin="8dp"
+        android:layout_marginTop="12dp"
+        android:padding="8dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="8dp"
-            >
+            android:orientation="vertical">
+
+            <!-- Media -->
 
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="140dp"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-                <!-- Media -->
+                <!-- Title, secondary and supporting text -->
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="194dp"
+                    android:id="@+id/routineImg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/r1"
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
                     android:contentDescription="@string/register"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/logo" />
+                    android:scaleType="centerCrop" />
 
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <!-- Title, secondary and supporting text -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Routine"
-                        android:textAppearance="?attr/textAppearanceHeadline6" />
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Rating: 1 out of 5"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="Made by: Dagos"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary" />
-
-                </LinearLayout>
-
-                <!-- Buttons -->
-                <LinearLayout
+                <TextView
+                    android:id="@+id/routineName"
+                    app:layout_constraintBottom_toTopOf="@+id/routineScore"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:orientation="horizontal">
+                    android:padding="2dp"
+                    android:text="Routine"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
 
-                    <com.google.android.material.button.MaterialButton
-                        style="?attr/borderlessButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        app:icon="@drawable/ic_favs" />
+                <TextView
+                    android:id="@+id/routineScore"
+                    app:layout_constraintStart_toStartOf="@+id/routineName"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="44dp"
+                    android:padding="2dp"
+                    android:text="Score: 1 out of 5"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
 
-                    <com.google.android.material.button.MaterialButton
-                        style="?attr/borderlessButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:icon="@drawable/ic_share"
+                <TextView
+                    android:id="@+id/routineUser"
+                    app:layout_constraintStart_toStartOf="@+id/routineScore"
+                    app:layout_constraintTop_toBottomOf="@+id/routineScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:padding="2dp"
+                    android:text="Made by: Dagos"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
 
-                        />
-                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="8dp">
-
-
+            <!-- Buttons -->
             <LinearLayout
-                android:layout_width="match_parent"
+
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
 
-                <!-- Media -->
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="194dp"
-                    android:contentDescription="@string/register"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/logo" />
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <!-- Title, secondary and supporting text -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Routine"
-                        android:textAppearance="?attr/textAppearanceHeadline6" />
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Rating: 1 out of 5"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="Made by: Dagos"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary" />
-
-                </LinearLayout>
-
-                <!-- Buttons -->
-                <LinearLayout
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/materialButton"
+                    style="?attr/borderlessButtonStyle"
+                    app:icon="@drawable/ic_favs"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content" />
 
-                    <com.google.android.material.button.MaterialButton
-                        style="?attr/borderlessButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        app:icon="@drawable/ic_favs" />
+                <com.google.android.material.button.MaterialButton
+                    style="?attr/borderlessButtonStyle"
+                    app:icon="@drawable/ic_share"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="wrap_content"
 
-                    <com.google.android.material.button.MaterialButton
-                        style="?attr/borderlessButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:icon="@drawable/ic_share"
-
-                        />
-                </LinearLayout>
-
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="8dp">
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <!-- Media -->
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="194dp"
-                    android:contentDescription="@string/register"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/logo" />
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <!-- Title, secondary and supporting text -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Routine"
-                        android:textAppearance="?attr/textAppearanceHeadline6" />
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Rating: 1 out of 5"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="Made by: Dagos"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary" />
-
-                </LinearLayout>
-
-                <!-- Buttons -->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:orientation="horizontal">
-
-                    <com.google.android.material.button.MaterialButton
-                        style="?attr/borderlessButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        app:icon="@drawable/ic_favs" />
-
-                    <com.google.android.material.button.MaterialButton
-                        style="?attr/borderlessButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:icon="@drawable/ic_share"
-
-                        />
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-
-
-    </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -278,5 +118,4 @@
         app:layout_constraintVertical_bias="0.957"
         app:menu="@menu/bottom_navigation_menu"
         tools:layout_editor_absoluteX="0dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

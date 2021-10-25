@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 
 import ar.edu.itba.mygymapp.databinding.ActivityMainBinding;
 
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             activityMainBinding.myTextView.setText(R.string.app_name);
          */
 
-
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         ActivityMainBinding activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(activityMainBinding.getRoot());
 

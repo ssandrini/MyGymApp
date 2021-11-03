@@ -1,6 +1,7 @@
 package ar.edu.itba.mygymapp;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,10 @@ public class DestacadasRecViewAdapter extends RecyclerView.Adapter<DestacadasRec
     private ArrayList<Routine> destacadas = new ArrayList<>();
 
     public DestacadasRecViewAdapter() {
+        destacadas.add(new Routine("Calistenia", "5 out of 5", "Dagos", "r1.png"));
+        destacadas.add(new Routine("Home workout", "5 out of 5", "Dax", "r2.png"));
+        destacadas.add(new Routine("Pecs killer", "5 out of 5", "Santi", "r3.png"));
+        destacadas.add(new Routine("Booty", "5 out of 5", "Solcha", "r4.png"));
     }
 
     @NonNull
@@ -32,6 +37,7 @@ public class DestacadasRecViewAdapter extends RecyclerView.Adapter<DestacadasRec
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         holder.routineName.setText(destacadas.get(position).getName());
         holder.routineScore.setText(destacadas.get(position).getScore());
         holder.routineUser.setText(destacadas.get(position).getUser());

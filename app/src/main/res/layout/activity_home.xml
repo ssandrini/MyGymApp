@@ -7,115 +7,19 @@
     android:orientation="vertical"
     tools:context=".home">
 
-
-    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginTop="12dp"
-        android:padding="8dp"
-        app:cardElevation="10dp"
-        app:cardCornerRadius="10dp">
+        android:layout_height="match_parent"
+        android:id="@+id/destacadasRecView">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    </androidx.recyclerview.widget.RecyclerView>
 
-            <!-- Media -->
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <!-- Title, secondary and supporting text -->
-
-                <ImageView
-                    android:id="@+id/routineImg"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:srcCompat="@drawable/r1"
-                    android:layout_width="160dp"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/register"
-                    android:scaleType="centerCrop" />
-
-                <TextView
-                    android:id="@+id/routineName"
-                    app:layout_constraintBottom_toTopOf="@+id/routineScore"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="2dp"
-                    android:text="Routine"
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
-
-                <TextView
-                    android:id="@+id/routineScore"
-                    app:layout_constraintStart_toStartOf="@+id/routineName"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="44dp"
-                    android:padding="2dp"
-                    android:text="Score: 1 out of 5"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
-
-                <TextView
-                    android:id="@+id/routineUser"
-                    app:layout_constraintStart_toStartOf="@+id/routineScore"
-                    app:layout_constraintTop_toBottomOf="@+id/routineScore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:padding="2dp"
-                    android:text="Made by: Dagos"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <!-- Buttons -->
-            <LinearLayout
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:orientation="horizontal">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/materialButton"
-                    style="?attr/borderlessButtonStyle"
-                    app:icon="@drawable/ic_favs"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <com.google.android.material.button.MaterialButton
-                    style="?attr/borderlessButtonStyle"
-                    app:icon="@drawable/ic_share"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_width="wrap_content"
-
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.957"
-        app:menu="@menu/bottom_navigation_menu"
-        tools:layout_editor_absoluteX="0dp" />
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/bottom_navigation"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.957"-->
+<!--        app:menu="@menu/bottom_navigation_menu"-->
+<!--        tools:layout_editor_absoluteX="0dp" />-->
 </LinearLayout>

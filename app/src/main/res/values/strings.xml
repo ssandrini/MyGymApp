@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyGymApp</string>
+    <string name="app_name">MyGym</string>
     <string name="user_hint">Username</string>
     <string name="password_hint">Password</string>
     <string name="log_in">Log In</string>

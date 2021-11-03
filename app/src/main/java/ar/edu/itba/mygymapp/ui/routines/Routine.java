@@ -1,4 +1,4 @@
-package ar.edu.itba.mygymapp;
+package ar.edu.itba.mygymapp.ui.routines;
 
 public class Routine {
     private String name, detail, score, difficulty, user, category, image;

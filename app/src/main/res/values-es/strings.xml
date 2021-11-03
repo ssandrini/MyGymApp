@@ -9,4 +9,9 @@
     <string name="invalid_username">Usuario invalido</string>
     <string name="invalid_password">Contraseña invalido</string>
     <string name="invalid_login">Credenciales invalidas</string>
+    <string name="section_myroutines">Mis rutinas</string>
+    <string name="section_explore">Explorar</string>
+    <string name="section_myexercises">Mis ejercicios</string>
+    <string name="nav_header_desc">Foto del usuario</string>
+    <string name="nav_header_title">Usuario</string>
 </resources>

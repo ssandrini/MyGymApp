@@ -8,18 +8,18 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="ar.edu.itba.mygymapp.ui.home.HomeFragment"
-        android:label="Explorar"
+        android:label="@string/section_explore"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="ar.edu.itba.mygymapp.ui.gallery.GalleryFragment"
-        android:label="Mis rutinas"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_myroutines"
+        android:name="ar.edu.itba.mygymapp.ui.myroutines.MyRoutinesFragment"
+        android:label="@string/section_myroutines"
+        tools:layout="@layout/fragment_my_routines" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="ar.edu.itba.mygymapp.ui.slideshow.SlideshowFragment"
-        android:label="Mis ejercicios"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_myexercises"
+        android:name="ar.edu.itba.mygymapp.ui.myexercises.MyExercisesFragment"
+        android:label="@string/section_myexercises"
+        tools:layout="@layout/fragment_my_exercises" />
 </navigation>

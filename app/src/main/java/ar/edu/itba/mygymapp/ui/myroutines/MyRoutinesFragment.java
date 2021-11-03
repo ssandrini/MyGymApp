@@ -1,4 +1,4 @@
-package ar.edu.itba.mygymapp.ui.slideshow;
+package ar.edu.itba.mygymapp.ui.myroutines;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,24 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import ar.edu.itba.mygymapp.R;
-import ar.edu.itba.mygymapp.databinding.FragmentSlideshowBinding;
+import ar.edu.itba.mygymapp.databinding.FragmentMyRoutinesBinding;
 
-public class SlideshowFragment extends Fragment {
+public class MyRoutinesFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
-    private FragmentSlideshowBinding binding;
+    private MyRoutinesViewModel myRoutinesViewModel;
+    private FragmentMyRoutinesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        myRoutinesViewModel =
+                new ViewModelProvider(this).get(MyRoutinesViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentMyRoutinesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.textGallery;
+        myRoutinesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

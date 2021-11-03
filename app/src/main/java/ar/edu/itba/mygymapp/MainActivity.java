@@ -4,35 +4,60 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.view.Window;
+import android.widget.EditText;
+import android.widget.Toast;
+
 
 import ar.edu.itba.mygymapp.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        /*
-            Luego del binding voy a poder acceder a todos los elementos
-            del html, por ejemplo a los textView, botones, etc.
-            Ejemplo:
-            activityMainBinding.myTextView.setText(R.string.app_name);
-         */
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        ActivityMainBinding activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(activityMainBinding.getRoot());
-
+        binding.loginBtn.setOnClickListener(this::login);
+        binding.registerBtn.setOnClickListener(this::goToRegister);
     }
 
     public void login(View view) {
+        EditText userView, passView;
+        String username, password;
+        boolean error = false;
+
+        userView = binding.username;
+        passView = binding.password;
+        username = userView.getText().toString();
+        password = passView.getText().toString();
+
+        if (username.trim().length() == 0) {
+            userView.setError(getText(R.string.invalid_username));
+            error = true;
+        }
+        if (password.trim().length() == 0) {
+            passView.setError(getText(R.string.invalid_password));
+            error = true;
+        }
+        if (error) {
+            Toast.makeText(getApplicationContext(), getText(R.string.invalid_login), Toast.LENGTH_SHORT).show();
+            return ;
+        }
+
+        goToHome();
+    }
+
+    public void goToHome() {
         Intent intent = new Intent(this, home.class);
         startActivity(intent);
     }
 
-    public void register(View view) {
+    public void goToRegister(View view) {
         Intent intent = new Intent(this, register.class);
         startActivity(intent);
     }

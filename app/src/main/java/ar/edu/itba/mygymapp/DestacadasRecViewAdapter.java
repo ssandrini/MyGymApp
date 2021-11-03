@@ -41,6 +41,7 @@ public class DestacadasRecViewAdapter extends RecyclerView.Adapter<DestacadasRec
         holder.routineName.setText(destacadas.get(position).getName());
         holder.routineScore.setText(destacadas.get(position).getScore());
         holder.routineUser.setText(destacadas.get(position).getUser());
+
 //        holder.parent.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -62,7 +63,7 @@ public class DestacadasRecViewAdapter extends RecyclerView.Adapter<DestacadasRec
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView routineName, routineScore, routineUser;
         private MaterialCardView parent;
-
+        private ImageView routineImg;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             routineName = itemView.findViewById(R.id.routineName);

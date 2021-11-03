@@ -6,4 +6,7 @@
     <string name="log_in">Iniciar sesión</string>
     <string name="register">Registrarme ahora</string>
     <string name="register_text">¿Todavía no tienes una cuenta?</string>
+    <string name="invalid_username">Usuario invalido</string>
+    <string name="invalid_password">Contraseña invalido</string>
+    <string name="invalid_login">Credenciales invalidas</string>
 </resources>

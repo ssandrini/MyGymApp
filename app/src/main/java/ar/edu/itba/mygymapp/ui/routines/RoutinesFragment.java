@@ -15,17 +15,13 @@ import java.util.ArrayList;
 import ar.edu.itba.mygymapp.databinding.FragmentRoutinesBinding;
 
 public class RoutinesFragment extends Fragment {
-
-    private RoutinesViewModel routinesViewModel;
     private FragmentRoutinesBinding binding;
+    private RoutinesViewModel routinesViewModel;
     private RoutinesAdapter routinesAdapter;
-
     private ArrayList<Routine> routines = new ArrayList<>();
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        routinesViewModel =
-                new ViewModelProvider(this).get(RoutinesViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        routinesViewModel = new ViewModelProvider(this).get(RoutinesViewModel.class);
 
         binding = FragmentRoutinesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -36,15 +32,6 @@ public class RoutinesFragment extends Fragment {
 
         binding.routinesRecView.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.routinesRecView.setAdapter(routinesAdapter);
-
-//        final TextView textView = binding.textGallery;
-//        myRoutinesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
-
 
         return root;
     }

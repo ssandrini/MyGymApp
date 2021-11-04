@@ -18,4 +18,8 @@
     <string name="email">Mail</string>
     <string name="pwdConfirm">Confirmar contraseña</string>
     <string name="action_search">Buscar</string>
+    <string name="loremipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="section_highlights">Destacadas</string>
+    <string name="myRoutines_title">Mis rutinas</string>
+    <string name="recents_title">Recientes</string>
 </resources>

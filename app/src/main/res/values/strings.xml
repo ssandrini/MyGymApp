@@ -19,4 +19,7 @@
     <string name="pwdConfirm">Repeat password</string>
     <string name="action_search">Search</string>
     <string name="loremipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="section_highlights">Highlights</string>
+    <string name="myRoutines_title">My routines</string>
+    <string name="recents_title">Recents</string>
 </resources>

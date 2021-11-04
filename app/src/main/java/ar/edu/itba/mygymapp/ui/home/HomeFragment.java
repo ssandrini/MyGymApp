@@ -9,42 +9,51 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 
 import ar.edu.itba.mygymapp.databinding.FragmentHomeBinding;
-import ar.edu.itba.mygymapp.ui.exercises.Exercise;
-import ar.edu.itba.mygymapp.ui.exercises.ExercisesAdapter;
 import ar.edu.itba.mygymapp.ui.routines.Routine;
 import ar.edu.itba.mygymapp.ui.routines.RoutinesAdapter;
 import ar.edu.itba.mygymapp.ui.routines.RoutineActivity;
 
 public class HomeFragment extends Fragment {
-
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
-    private RoutinesAdapter routinesAdapter;
+
+    private RoutinesAdapter myRoutinesAdapter;
+    private RoutinesAdapter highlightsAdapter;
+    private RoutinesAdapter recentsAdapter;
 
     private ArrayList<Routine> routines = new ArrayList<>();
+    /*
+        En realidad voy a tener 3 arrayList que voy a obtener del store/api
+     */
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        routinesAdapter = new RoutinesAdapter();
+        myRoutinesAdapter = new RoutinesAdapter();
+        highlightsAdapter = new RoutinesAdapter();
+        recentsAdapter = new RoutinesAdapter();
+
         populateRoutines();
-        routinesAdapter.setRoutines(routines);
+        myRoutinesAdapter.setRoutines(routines);
+        highlightsAdapter.setRoutines(routines);
+        recentsAdapter.setRoutines(routines);
+
 
         binding.myroutinesRecView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        binding.myroutinesRecView.setAdapter(routinesAdapter);
+        binding.myroutinesRecView.setAdapter(myRoutinesAdapter);
 
+        binding.highlightsRecView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        binding.highlightsRecView.setAdapter(highlightsAdapter);
 
+        binding.recentsRecView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        binding.recentsRecView.setAdapter(recentsAdapter);
         return root;
     }
 

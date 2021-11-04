@@ -13,7 +13,7 @@ public class Routine {
     private Object metadata;
     private boolean favourite;
 
-    public Routine(int id, String name, String detail, long date, int averageRating, boolean isPublic, String difficulty, User user, Category category, Object metadata, boolean favourite) {
+    public Routine(int id, String name, String detail, int averageRating, boolean isPublic, String difficulty, User user, Category category, Object metadata, boolean favourite) {
         this.id = id;
         this.name = name;
         this.detail = detail;

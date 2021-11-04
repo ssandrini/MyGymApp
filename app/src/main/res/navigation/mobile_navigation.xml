@@ -22,4 +22,11 @@
         android:name="ar.edu.itba.mygymapp.ui.myexercises.MyExercisesFragment"
         android:label="@string/section_myexercises"
         tools:layout="@layout/fragment_my_exercises" />
+
+    <fragment
+        android:id="@+id/nav_favourites"
+        android:name="ar.edu.itba.mygymapp.ui.favourites.FavouritesFragment"
+        android:label="@string/section_favourites"
+        tools:layout="@layout/fragment_favourites" />
+
 </navigation>

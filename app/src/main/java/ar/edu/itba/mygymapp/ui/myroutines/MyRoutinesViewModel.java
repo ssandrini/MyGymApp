@@ -10,7 +10,7 @@ public class MyRoutinesViewModel extends ViewModel {
 
     public MyRoutinesViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("My routines");
     }
 
     public LiveData<String> getText() {

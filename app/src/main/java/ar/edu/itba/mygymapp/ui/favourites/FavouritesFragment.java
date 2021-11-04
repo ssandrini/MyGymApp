@@ -11,14 +11,12 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import ar.edu.itba.mygymapp.databinding.FragmentFavouritesBinding;
-import ar.edu.itba.mygymapp.databinding.FragmentHomeBinding;
-import ar.edu.itba.mygymapp.ui.home.HomeViewModel;
-import ar.edu.itba.mygymapp.ui.routines.DestacadasRecViewAdapter;
+import ar.edu.itba.mygymapp.ui.routines.RoutinesAdapter;
 
 public class FavouritesFragment extends Fragment {
     private FavouritesViewModel favouritesViewModel;
     private FragmentFavouritesBinding binding;
-    DestacadasRecViewAdapter adapter;
+    RoutinesAdapter adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -28,7 +26,7 @@ public class FavouritesFragment extends Fragment {
         binding = FragmentFavouritesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        adapter = new DestacadasRecViewAdapter();
+        adapter = new RoutinesAdapter();
         binding.destacadasRecView.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.destacadasRecView.setAdapter(adapter);
 

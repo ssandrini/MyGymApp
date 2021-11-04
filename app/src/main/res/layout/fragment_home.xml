@@ -20,6 +20,7 @@
     </TextView>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:paddingLeft="10dp"
         android:id="@+id/destacadasRecView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -38,9 +39,11 @@
     </TextView>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/destacadasRecView2">
+        android:id="@+id/exercisesRecView">
 
     </androidx.recyclerview.widget.RecyclerView>
 

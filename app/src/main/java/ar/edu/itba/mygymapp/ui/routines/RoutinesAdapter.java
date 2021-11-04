@@ -15,15 +15,19 @@ import java.util.ArrayList;
 
 import ar.edu.itba.mygymapp.R;
 
-public class DestacadasRecViewAdapter extends RecyclerView.Adapter<DestacadasRecViewAdapter.ViewHolder> {
+public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHolder> {
 
     private ArrayList<Routine> destacadas = new ArrayList<>();
 
-    public DestacadasRecViewAdapter() {
+    public RoutinesAdapter() {
         destacadas.add(new Routine("Calistenia", "5 out of 5", "Dagos", "r1.png"));
-//        destacadas.add(new Routine("Home workout", "5 out of 5", "Dax", "r2.png"));
-//        destacadas.add(new Routine("Pecs killer", "5 out of 5", "Santi", "r3.png"));
-//        destacadas.add(new Routine("Booty", "5 out of 5", "Solcha", "r4.png"));
+        destacadas.add(new Routine("Home", "5 out of 5", "Dax", "r2.png"));
+        destacadas.add(new Routine("Pecs killer", "5 out of 5", "Santi", "r3.png"));
+        destacadas.add(new Routine("Legs", "5 out of 5", "Solcha", "r4.png"));
+        destacadas.add(new Routine("Calistenia", "5 out of 5", "Dagos", "r1.png"));
+        destacadas.add(new Routine("Home", "5 out of 5", "Dax", "r2.png"));
+        destacadas.add(new Routine("Pecs killer", "5 out of 5", "Santi", "r3.png"));
+        destacadas.add(new Routine("Legs", "5 out of 5", "Solcha", "r4.png"));
     }
 
     @NonNull

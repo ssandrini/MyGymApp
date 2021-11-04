@@ -16,4 +16,6 @@
     <string name="section_favourites">Favourites</string>
     <string name="email">Email</string>
     <string name="pwdConfirm">Repeat password</string>
+    <string name="action_search">Search</string>
+    <string name="loremipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
 </resources>

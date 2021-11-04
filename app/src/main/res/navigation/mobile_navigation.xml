@@ -29,4 +29,5 @@
         android:label="@string/section_favourites"
         tools:layout="@layout/fragment_favourites" />
 
+
 </navigation>

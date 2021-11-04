@@ -14,4 +14,8 @@
     <string name="section_myexercises">Mis ejercicios</string>
     <string name="nav_header_desc">Foto del usuario</string>
     <string name="nav_header_title">Usuario</string>
+    <string name="section_favourites">Favoritos</string>
+    <string name="email">Mail</string>
+    <string name="pwdConfirm">Confirmar contraseña</string>
+    <string name="action_search">Search</string>
 </resources>

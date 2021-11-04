@@ -17,18 +17,7 @@ import ar.edu.itba.mygymapp.R;
 
 public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHolder> {
 
-    private ArrayList<Routine> destacadas = new ArrayList<>();
-
-    public RoutinesAdapter() {
-        destacadas.add(new Routine("Calistenia", "5 out of 5", "Dagos", "r1.png"));
-        destacadas.add(new Routine("Home", "5 out of 5", "Dax", "r2.png"));
-        destacadas.add(new Routine("Pecs killer", "5 out of 5", "Santi", "r3.png"));
-        destacadas.add(new Routine("Legs", "5 out of 5", "Solcha", "r4.png"));
-        destacadas.add(new Routine("Calistenia", "5 out of 5", "Dagos", "r1.png"));
-        destacadas.add(new Routine("Home", "5 out of 5", "Dax", "r2.png"));
-        destacadas.add(new Routine("Pecs killer", "5 out of 5", "Santi", "r3.png"));
-        destacadas.add(new Routine("Legs", "5 out of 5", "Solcha", "r4.png"));
-    }
+    private ArrayList<Routine> routines = new ArrayList<>();
 
     @NonNull
     @Override
@@ -41,9 +30,9 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.routineName.setText(destacadas.get(position).getName());
-        holder.routineScore.setText(destacadas.get(position).getScore());
-        holder.routineUser.setText(destacadas.get(position).getUser());
+        holder.routineName.setText(routines.get(position).getName());
+        holder.routineScore.setText(routines.get(position).getScore());
+        holder.routineUser.setText(routines.get(position).getUser());
 
 //        holder.parent.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -55,11 +44,11 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return destacadas.size();
+        return routines.size();
     }
 
-    public void setDestacadas(ArrayList<Routine> destacadas) {
-        this.destacadas = destacadas;
+    public void setRoutines(ArrayList<Routine> destacadas) {
+        this.routines = destacadas;
         // notifyDataSetChanged();  para notificarle al view adaptor que la data proveniente de la api ya cambio
     }
 

@@ -8,9 +8,10 @@
     <string name="invalid_username">Invalid username</string>
     <string name="invalid_password">Invalid password</string>
     <string name="invalid_login">Invalid credentials</string>
-    <string name="section_myroutines">My routines</string>
+    <string name="section_routines">Routines</string>
     <string name="section_explore">Explore</string>
-    <string name="section_myexercises">My exercises</string>
+
+    <string name="section_profile">Profile</string>
     <string name="nav_header_desc">User image</string>
     <string name="nav_header_title">User</string>
     <string name="section_favourites">Favourites</string>

@@ -10,13 +10,18 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import java.util.ArrayList;
+
 import ar.edu.itba.mygymapp.databinding.FragmentFavouritesBinding;
+import ar.edu.itba.mygymapp.ui.routines.Routine;
 import ar.edu.itba.mygymapp.ui.routines.RoutinesAdapter;
 
 public class FavouritesFragment extends Fragment {
     private FavouritesViewModel favouritesViewModel;
     private FragmentFavouritesBinding binding;
     RoutinesAdapter adapter;
+
+    private ArrayList<Routine> routines = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -27,8 +32,11 @@ public class FavouritesFragment extends Fragment {
         View root = binding.getRoot();
 
         adapter = new RoutinesAdapter();
-        binding.destacadasRecView.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.destacadasRecView.setAdapter(adapter);
+        populateRoutines();
+        adapter.setRoutines(routines);
+
+        binding.favsRecView.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.favsRecView.setAdapter(adapter);
 
         return root;
     }
@@ -37,5 +45,16 @@ public class FavouritesFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    private void populateRoutines() {
+        routines.add(new Routine("Calistenia", "5 out of 5", "Dagos", "r1.png"));
+        routines.add(new Routine("Home", "5 out of 5", "Dax", "r2.png"));
+        routines.add(new Routine("Pecs killer", "5 out of 5", "Santi", "r3.png"));
+        routines.add(new Routine("Legs", "5 out of 5", "Solcha", "r4.png"));
+        routines.add(new Routine("Calistenia", "5 out of 5", "Dagos", "r1.png"));
+        routines.add(new Routine("Home", "5 out of 5", "Dax", "r2.png"));
+        routines.add(new Routine("Pecs killer", "5 out of 5", "Santi", "r3.png"));
+        routines.add(new Routine("Legs", "5 out of 5", "Solcha", "r4.png"));
     }
 }

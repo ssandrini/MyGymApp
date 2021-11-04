@@ -13,15 +13,11 @@
 
     <fragment
         android:id="@+id/nav_myroutines"
-        android:name="ar.edu.itba.mygymapp.ui.myroutines.MyRoutinesFragment"
-        android:label="@string/section_myroutines"
-        tools:layout="@layout/fragment_my_routines" />
+        android:name="ar.edu.itba.mygymapp.ui.routines.RoutinesFragment"
+        android:label="@string/section_routines"
+        tools:layout="@layout/fragment_routines" />
 
-    <fragment
-        android:id="@+id/nav_myexercises"
-        android:name="ar.edu.itba.mygymapp.ui.myexercises.MyExercisesFragment"
-        android:label="@string/section_myexercises"
-        tools:layout="@layout/fragment_my_exercises" />
+
 
     <fragment
         android:id="@+id/nav_favourites"
@@ -29,5 +25,10 @@
         android:label="@string/section_favourites"
         tools:layout="@layout/fragment_favourites" />
 
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="ar.edu.itba.mygymapp.ui.profile.ProfileFragment"
+        android:label="@string/section_profile"
+        tools:layout="@layout/fragment_profile" />
 
 </navigation>

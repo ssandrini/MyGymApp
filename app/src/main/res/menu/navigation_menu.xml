@@ -11,15 +11,17 @@
         <item
             android:id="@+id/nav_myroutines"
             android:icon="@drawable/ic_routine"
-            android:title="@string/section_myroutines" />
-        <item
-            android:id="@+id/nav_myexercises"
-            android:icon="@drawable/ic_dumbbell"
-            android:title="@string/section_myexercises" />
+            android:title="@string/section_routines" />
+
         <item
             android:id="@+id/nav_favourites"
             android:icon="@drawable/ic_favs"
             android:title="@string/section_favourites" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_account"
+            android:title="@string/section_profile"
+            />
     </group>
 </menu>
 <!--<?xml version="1.0" encoding="utf-8"?>-->

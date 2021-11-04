@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:text="@string/section_myroutines"
+        android:text="@string/section_routines"
         android:textStyle="bold"
         android:textSize="@dimen/headerTextSize"
         android:padding="40px"
@@ -21,30 +21,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:paddingLeft="10dp"
-        android:id="@+id/destacadasRecView"
+        android:id="@+id/myroutinesRecView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/section_myexercises"
-        android:textStyle="bold"
-        android:textSize="@dimen/headerTextSize"
-        android:padding="40px"
-        >
 
-    </TextView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/exercisesRecView">
-
-    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

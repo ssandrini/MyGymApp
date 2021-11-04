@@ -1,16 +1,15 @@
-package ar.edu.itba.mygymapp.ui.myroutines;
+package ar.edu.itba.mygymapp.ui.profile;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class MyRoutinesViewModel extends ViewModel {
-
+public class ProfileViewModel extends ViewModel {
     private MutableLiveData<String> mText;
 
-    public MyRoutinesViewModel() {
+    public ProfileViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("My routines");
+        mText.setValue("Profile");
     }
 
     public LiveData<String> getText() {

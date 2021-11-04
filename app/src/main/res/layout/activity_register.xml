@@ -1,108 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:background="@color/colorAccent"
-    android:focusableInTouchMode="true"
-    android:gravity="center">
+    tools:context=".ui.login.LoginActivity">
 
+    <ImageView
+        android:layout_width="301dp"
+        android:layout_height="179dp"
 
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.164" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="99dp"
+        android:layout_height="54dp"
+
+        android:src="@drawable/ic_account"
+        app:layout_constraintBottom_toTopOf="@+id/username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="225dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="236dp"
+        android:ems="10"
+        android:hint="@string/user_hint"
+
+        android:inputType="textPersonName"
+        android:maxLength="20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        android:layout_width="225dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/username"
+        app:layout_constraintStart_toStartOf="@+id/username"
+        app:layout_constraintTop_toBottomOf="@+id/username" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="225dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/password_hint"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+
+    <EditText
+        android:id="@+id/password2"
+        android:layout_width="225dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/pwdConfirm"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    <Button
+        android:id="@+id/registerBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_marginTop="36dp"
+        android:text="@string/register"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password2" />
 
 
-        <ImageView
-            android:layout_width="301dp"
-            android:layout_height="179dp"
-            android:paddingLeft="80dp"
-            android:src="@drawable/logo" />
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="20dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputName"
-                    style="@style/parent"
-                    android:layout_marginTop="@dimen/loginViewsMargin">
-
-                    <EditText
-                        android:id="@+id/editTextName"
-                        style="@style/modifiedEditText"
-                        android:hint="Name"
-                        android:inputType="textPersonName"
-                        android:maxLines="1" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputEmail"
-                    style="@style/parent"
-                    android:layout_marginTop="@dimen/loginViewsMargin">
-
-                    <EditText
-                        android:id="@+id/editTextEmail"
-                        style="@style/modifiedEditText"
-                        android:hint="Username"
-                        android:inputType="textEmailAddress"
-                        android:maxLines="1" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputMobile"
-                    style="@style/parent"
-                    android:layout_marginTop="@dimen/loginViewsMargin">
-
-                    <EditText
-                        android:id="@+id/editTextMobile"
-                        style="@style/modifiedEditText"
-                        android:hint="Mobile Number"
-                        android:inputType="phone"
-                        android:maxLines="1" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputPassword"
-                    style="@style/parent"
-                    android:layout_marginTop="@dimen/loginViewsMargin">
-
-                    <EditText
-                        android:id="@+id/editTextPassword"
-                        style="@style/modifiedEditText"
-                        android:hint="Reapeat pswrd"
-                        android:inputType="textPassword"
-                        android:maxLines="1" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
-                    android:id="@+id/cirRegisterButton"
-                    style="@style/loginButton"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/loginViewsMargin"
-                    android:text="Register"
-                    app:initialCornerAngle="27dp"
-                    app:spinning_bar_color="#FFF"
-                    app:spinning_bar_padding="6dp"
-                    app:spinning_bar_width="4dp" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

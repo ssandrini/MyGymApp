@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.databinding.ActivityRoutineBinding;
+import ar.edu.itba.mygymapp.ui.cycles.Cycle;
+import ar.edu.itba.mygymapp.ui.cycles.CyclesAdapter;
 import ar.edu.itba.mygymapp.ui.exercises.Exercise;
 import ar.edu.itba.mygymapp.ui.exercises.ExercisesAdapter;
 
@@ -22,7 +24,7 @@ public class RoutineActivity extends AppCompatActivity {
 
     private ActivityRoutineBinding binding;
     private ExercisesAdapter exercisesAdapter;
-
+    private CyclesAdapter cyclesAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +38,19 @@ public class RoutineActivity extends AppCompatActivity {
         exercises.add(new Exercise("Flexiones de brazo", "Ejercicio", "Para el pecho"));
         exercises.add(new Exercise("Dominadas", "Ejercicio", "Para la espalda"));
 
-        exercisesAdapter = new ExercisesAdapter(exercises);
-        binding.exercisesRecView.setLayoutManager(new LinearLayoutManager(this));
-        binding.exercisesRecView.setAdapter(exercisesAdapter);
+
+        ArrayList<Cycle> cycles = new ArrayList<>();
+        cycles.add(new Cycle("Ciclo A", exercises));
+        cycles.add(new Cycle("Ciclo B", exercises));
+        cycles.add(new Cycle("Ciclo C", exercises));
+
+        cyclesAdapter = new CyclesAdapter(cycles);
+        binding.cyclesRecView.setLayoutManager(new LinearLayoutManager(this));
+        binding.cyclesRecView.setAdapter(cyclesAdapter);
+
+//        exercisesAdapter = new ExercisesAdapter(exercises);
+//        binding.exercisesRecView.setLayoutManager(new LinearLayoutManager(this));
+//        binding.exercisesRecView.setAdapter(exercisesAdapter);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

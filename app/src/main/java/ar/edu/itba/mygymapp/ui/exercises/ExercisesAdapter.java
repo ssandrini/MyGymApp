@@ -74,7 +74,7 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
         private MaterialCardView parent;
 
         private ImageView expandMoreBtn, expandLessBtn;
-        private ConstraintLayout expandedConstraintLayout;
+        private ConstraintLayout expandedConstraintLayout, collapsedRelLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -85,6 +85,17 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
             expandMoreBtn = itemView.findViewById(R.id.expandMoreBtn);
             expandLessBtn = itemView.findViewById(R.id.expandLessBtn);
             expandedConstraintLayout = itemView.findViewById(R.id.expandedConstraintLayout);
+            collapsedRelLayout = itemView.findViewById(R.id.collapsedRelLayout);
+
+            collapsedRelLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Exercise exercise = exercises.get(getAdapterPosition());
+                    exercise.setExpanded(!exercise.isExpanded());
+                    notifyItemChanged(getAdapterPosition());
+                }
+            });
+
             expandMoreBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

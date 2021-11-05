@@ -69,7 +69,7 @@ public class CyclesAdapter extends RecyclerView.Adapter<CyclesAdapter.ViewHolder
         private MaterialCardView parent;
         private TextView cycleName;
         private RecyclerView cycleExsRecView;
-        private RelativeLayout expandedRelativeLayout;
+        private RelativeLayout expandedRelativeLayout, collapsedRelLayout;
         private ImageView expandCycle, collapseCycle;
 
         public ViewHolder(@NonNull View itemView) {
@@ -80,8 +80,16 @@ public class CyclesAdapter extends RecyclerView.Adapter<CyclesAdapter.ViewHolder
             expandedRelativeLayout = itemView.findViewById(R.id.expandedRelativeLayout);
             expandCycle = itemView.findViewById(R.id.expandCycle);
             collapseCycle = itemView.findViewById(R.id.collapseCycle);
+            collapsedRelLayout = itemView.findViewById(R.id.collapsedRelLayout);
 
-
+            collapsedRelLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Cycle cycle = cycles.get(getAdapterPosition());
+                    cycle.setExpanded(!cycle.isExpanded());
+                    notifyItemChanged(getAdapterPosition());
+                }
+            });
 
             expandCycle.setOnClickListener(new View.OnClickListener() {
                 @Override

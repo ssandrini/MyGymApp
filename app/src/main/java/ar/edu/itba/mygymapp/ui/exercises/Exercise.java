@@ -2,11 +2,21 @@ package ar.edu.itba.mygymapp.ui.exercises;
 
 public class Exercise {
     private String name, type, detail;
+    private boolean isExpanded;
 
     public Exercise(String name, String type, String detail) {
         this.name = name;
         this.type = type;
         this.detail = detail;
+        this.isExpanded = false;
+    }
+
+    public boolean isExpanded() {
+        return isExpanded;
+    }
+
+    public void setExpanded(boolean expanded) {
+        isExpanded = expanded;
     }
 
     public String getName() {

@@ -7,7 +7,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.transition.TransitionManager;
 
 import com.google.android.material.card.MaterialCardView;
 
@@ -39,6 +41,16 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
         holder.type.setText(exercises.get(position).getType());
         holder.detail.setText(exercises.get(position).getDetail());
 
+        if (exercises.get(position).isExpanded()) {
+            TransitionManager.beginDelayedTransition(holder.parent);
+            holder.expandedConstraintLayout.setVisibility(View.VISIBLE);
+            holder.expandMoreBtn.setVisibility(View.GONE);
+        } else {
+            TransitionManager.beginDelayedTransition(holder.parent);
+            holder.expandedConstraintLayout.setVisibility(View.GONE);
+            holder.expandMoreBtn.setVisibility(View.VISIBLE);
+        }
+
 //        holder.parent.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -61,12 +73,35 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
         private TextView name, type, detail;
         private MaterialCardView parent;
 
+        private ImageView expandMoreBtn, expandLessBtn;
+        private ConstraintLayout expandedConstraintLayout;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name);
             type = itemView.findViewById(R.id.type);
             detail = itemView.findViewById(R.id.detail);
-//            parent = itemView.findViewById(R.id.parent);
+            parent = itemView.findViewById(R.id.parent);
+            expandMoreBtn = itemView.findViewById(R.id.expandMoreBtn);
+            expandLessBtn = itemView.findViewById(R.id.expandLessBtn);
+            expandedConstraintLayout = itemView.findViewById(R.id.expandedConstraintLayout);
+            expandMoreBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Exercise exercise = exercises.get(getAdapterPosition());
+                    exercise.setExpanded(!exercise.isExpanded());
+                    notifyItemChanged(getAdapterPosition());
+                }
+            });
+
+            expandLessBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Exercise exercise = exercises.get(getAdapterPosition());
+                    exercise.setExpanded(!exercise.isExpanded());
+                    notifyItemChanged(getAdapterPosition());
+                }
+            });
         }
     }
 }

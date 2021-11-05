@@ -1,6 +1,7 @@
 package ar.edu.itba.mygymapp.ui.routines;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -50,6 +52,32 @@ public class RoutinesFragment extends Fragment {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         MenuItem searchItem = menu.findItem(R.id.action_search);
+        searchItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem menuItem) {
+                // Do something when expanded
+                return true;  // Return true to expand action view
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem menuItem) {
+                // Do something when action item collapses
+                return true;  // Return true to collapse action view
+            }
+        });
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            public boolean onQueryTextChange(String newText) {
+                routinesAdapter.getFilter().filter(newText);
+                return false;
+            }
+
+            public boolean onQueryTextSubmit(String query) {
+
+                searchItem.collapseActionView();
+                return true;
+            }
+        });
         if(searchItem != null)
             searchItem.setVisible(true);
         //super.onPrepareOptionsMenu(menu);  CREO que esta línea no va.

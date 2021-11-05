@@ -56,32 +56,6 @@ public class MainActivity extends AppCompatActivity {
         // Agrego el menu de search y sus acciones.
         // Todavía no estoy seguro de que las acciones se agreguen acá.
         MenuItem searchItem = menu.findItem(R.id.action_search);
-        searchItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
-            @Override
-            public boolean onMenuItemActionExpand(MenuItem menuItem) {
-                // Do something when expanded
-                return true;  // Return true to expand action view
-            }
-
-            @Override
-            public boolean onMenuItemActionCollapse(MenuItem menuItem) {
-                // Do something when action item collapses
-                return true;  // Return true to collapse action view
-            }
-        });
-        SearchView searchView = (SearchView) searchItem.getActionView();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            public boolean onQueryTextChange(String newText) {
-                Log.d(TAG, "onQueryTextChange -> " + newText);
-                return false;
-            }
-
-            public boolean onQueryTextSubmit(String query) {
-                Log.d(TAG, "onQueryTextSubmit -> " + query);
-                searchItem.collapseActionView();
-                return true;
-            }
-        });
 
         // deshabilito el search, sólo lo voy a habilitar en la seccion Rutinas
         searchItem.setVisible(false);

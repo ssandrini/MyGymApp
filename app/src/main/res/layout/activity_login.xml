@@ -39,10 +39,11 @@
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
+        android:drawableRight="@drawable/ic_login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
         app:layout_constraintVertical_bias="0.323"
-
+        android:fontFamily="@font/google_sans_bold"
         />
 
     <TextView
@@ -64,6 +65,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/register"
 
+        android:fontFamily="@font/google_sans_bold"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

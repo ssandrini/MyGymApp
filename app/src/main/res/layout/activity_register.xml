@@ -7,9 +7,10 @@
     tools:context=".ui.login.LoginActivity">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="301dp"
-        android:layout_height="179dp"
 
+        android:layout_height="179dp"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/username"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,18 +22,20 @@
         android:layout_width="99dp"
         android:layout_height="54dp"
 
+        android:layout_marginTop="20dp"
         android:src="@drawable/ic_account"
         app:layout_constraintBottom_toTopOf="@+id/username"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/username"
         android:layout_width="225dp"
         android:layout_height="63dp"
-        android:layout_marginTop="236dp"
+        android:layout_marginTop="300dp"
         android:ems="10"
         android:hint="@string/user_hint"
 
@@ -81,8 +84,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
+        android:fontFamily="@font/google_sans_bold"
         android:text="@string/register"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password2" />

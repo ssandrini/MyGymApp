@@ -8,6 +8,7 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:fontFamily">@font/google_sans</item>
     </style>
     <style name="viewParent">
         <item name="android:layout_width">wrap_content</item>

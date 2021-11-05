@@ -28,4 +28,6 @@
     <string name="invalid_confirmation">Invalid email or code</string>
     <string name="invalid_email">Invalid email</string>
     <string name="invalid_code">Invalid code</string>
+    <string name="action_share">Share</string>
+    <string name="action_fav">Add to favourites</string>
 </resources>

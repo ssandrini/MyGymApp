@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         setSupportActionBar(binding.appBar.toolbar);
 
         DrawerLayout drawer = binding.drawerLayout;
@@ -84,9 +83,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        MenuItem favItem = menu.findItem(R.id.action_fav);
+        MenuItem shareItem = menu.findItem(R.id.action_share);
+
         // deshabilito el search, sólo lo voy a habilitar en la seccion Rutinas
         searchItem.setVisible(false);
-
+        favItem.setVisible(false);
+        shareItem.setVisible(false);
 
 
         return super.onCreateOptionsMenu(menu);

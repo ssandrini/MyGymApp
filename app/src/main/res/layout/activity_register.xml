@@ -1,84 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".ui.register.register">
 
     <ImageView
+
         android:id="@+id/imageView"
         android:layout_width="301dp"
-
+            android:layout_marginBottom="30dp"
         android:layout_height="179dp"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/username"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:src="@drawable/logo" />
 
-    <ImageView
-        android:layout_width="99dp"
-        android:layout_height="54dp"
 
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_account"
-        app:layout_constraintBottom_toTopOf="@+id/username"
-        app:layout_constraintEnd_toEndOf="parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal">
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0" />
+        <ImageView
+            android:layout_marginRight="20dp"
+            android:layout_width="40dp"
+            android:layout_height="63dp"
+            android:src="@drawable/ic_account">
 
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="225dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="264dp"
-        android:ems="10"
-        android:hint="@string/user_hint"
+        </ImageView>
 
-        android:inputType="textPersonName"
-        android:maxLength="20"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="225dp"
+            android:layout_height="63dp"
 
-    <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="225dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="@+id/username"
-        app:layout_constraintStart_toStartOf="@+id/username"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+            android:ems="10"
+            android:hint="@string/user_hint"
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="225dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="@string/password_hint"
-        android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+            android:inputType="textPersonName"
+            android:maxLength="20" />
 
-    <EditText
-        android:id="@+id/password2"
-        android:layout_width="225dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="@string/pwdConfirm"
-        android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_marginRight="20dp"
+            android:layout_width="40dp"
+            android:layout_height="63dp"
+            android:src="@drawable/ic_mail">
+
+        </ImageView>
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="225dp"
+            android:layout_height="63dp"
+
+            android:ems="10"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_marginRight="20dp"
+            android:layout_width="40dp"
+            android:layout_height="63dp"
+            android:src="@drawable/ic_password">
+
+        </ImageView>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="225dp"
+            android:layout_height="63dp"
+
+            android:ems="10"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_marginRight="20dp"
+            android:layout_width="40dp"
+            android:layout_height="63dp"
+            android:src="@drawable/ic_password">
+
+        </ImageView>
+
+        <EditText
+            android:id="@+id/password2"
+            android:layout_width="225dp"
+            android:layout_height="63dp"
+            android:ems="10"
+            android:hint="@string/pwdConfirm"
+            android:inputType="textPassword"
+           />
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/registerBtn"
@@ -92,7 +132,4 @@
         app:layout_constraintTop_toBottomOf="@+id/password2" />
 
 
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

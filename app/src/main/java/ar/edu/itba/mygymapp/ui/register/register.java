@@ -20,7 +20,6 @@ public class register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding=ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         binding.registerBtn.setOnClickListener(this::registration);
     }
 
@@ -57,11 +56,17 @@ public class register extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), getText(R.string.invalid_password_confirmation), Toast.LENGTH_SHORT).show();
             return;
         }
-        goToMainActivity();
+
+        goToConfirmationActivity();
     }
 
     public void goToMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToConfirmationActivity() {
+        Intent intent = new Intent(this, ConfirmationActivity.class);
         startActivity(intent);
     }
 }

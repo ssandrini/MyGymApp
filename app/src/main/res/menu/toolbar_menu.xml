@@ -8,16 +8,4 @@
         app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
-    <item android:id="@+id/action_share"
-        android:title="@string/action_share"
-        android:icon="@drawable/ic_search"/>
-       <!-- app:showAsAction="ifRoom|collapseActionView"
-        app:actionViewClass="androidx.appcompat.widget.SearchView" /> -->
-
-    <item android:id="@+id/action_fav"
-        android:title="@string/action_fav"
-        android:icon="@drawable/ic_search"/>
-        <!--app:showAsAction="ifRoom|collapseActionView"
-        app:actionViewClass="androidx.appcompat.widget.SearchView" /> -->
-
 </menu>

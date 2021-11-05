@@ -42,12 +42,10 @@ public class RoutineActivity extends AppCompatActivity {
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
-        MenuItem searchItem = menu.findItem(R.id.action_search);
+        getMenuInflater().inflate(R.menu.toolbar_routine, menu);
         MenuItem favItem = menu.findItem(R.id.action_fav);
         MenuItem shareItem = menu.findItem(R.id.action_share);
 
-        searchItem.setVisible(false);
         favItem.setVisible(true);
         shareItem.setVisible(true);
 

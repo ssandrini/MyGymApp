@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.164" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:layout_width="99dp"
@@ -35,7 +35,7 @@
         android:id="@+id/username"
         android:layout_width="225dp"
         android:layout_height="63dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="264dp"
         android:ems="10"
         android:hint="@string/user_hint"
 
@@ -77,7 +77,8 @@
         android:hint="@string/pwdConfirm"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        />
 
     <Button
         android:id="@+id/registerBtn"
@@ -89,6 +90,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password2" />
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

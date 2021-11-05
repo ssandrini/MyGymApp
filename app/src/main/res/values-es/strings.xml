@@ -30,4 +30,6 @@
     <string name="invalid_code">Código inválido</string>
     <string name="action_share">Share</string>
     <string name="action_fav">Add to favourites</string>
+    <string name="invalid_registration">Credenciales invalidas</string>
+    <string name="invalid_password_confirmation">Las contraseñas no coinciden</string>
 </resources>

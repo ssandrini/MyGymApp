@@ -52,9 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
 
+        // Agrego el menu de search y sus acciones.
+        // Todavía no estoy seguro de que las acciones se agreguen acá.
         MenuItem searchItem = menu.findItem(R.id.action_search);
         searchItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
             @Override
@@ -82,6 +83,11 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        // deshabilito el search, sólo lo voy a habilitar en la seccion Rutinas
+        searchItem.setVisible(false);
+
+
 
         return super.onCreateOptionsMenu(menu);
     }

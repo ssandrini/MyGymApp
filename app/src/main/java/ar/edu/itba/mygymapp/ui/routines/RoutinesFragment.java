@@ -2,6 +2,8 @@ package ar.edu.itba.mygymapp.ui.routines;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 
+import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.databinding.FragmentRoutinesBinding;
 
 public class RoutinesFragment extends Fragment {
@@ -33,6 +36,8 @@ public class RoutinesFragment extends Fragment {
         binding.routinesRecView.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.routinesRecView.setAdapter(routinesAdapter);
 
+        setHasOptionsMenu(true);
+
         return root;
     }
 
@@ -40,6 +45,14 @@ public class RoutinesFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        if(searchItem != null)
+            searchItem.setVisible(true);
+        //super.onPrepareOptionsMenu(menu);  CREO que esta línea no va.
     }
 
     private void populateRoutines() {

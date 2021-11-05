@@ -8,4 +8,28 @@
         app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
+    <item
+        android:id="@+id/action_options"
+        android:title="@string/order_by"
+        app:showAsAction="never">
+
+        <menu>
+            <group  android:checkableBehavior="single">
+                <item
+                    android:id="@+id/date"
+                    android:title="@string/date" />
+                <item
+                    android:id="@+id/score"
+                    android:title="@string/score" />
+                <item
+                    android:id="@+id/difficulty"
+                    android:title="@string/difficulty" />
+                <item
+                    android:id="@+id/category"
+                    android:title="@string/category" />
+            </group>
+        </menu>
+
+    </item>
+
 </menu>

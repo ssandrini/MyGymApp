@@ -1,5 +1,6 @@
 package ar.edu.itba.mygymapp.ui.routines;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Locale;
 
 import ar.edu.itba.mygymapp.R;
@@ -82,6 +85,7 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
             return filterResults;
         }
 
+        @SuppressLint("NotifyDataSetChanged")
         @Override
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
             routines.clear();
@@ -89,6 +93,13 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
             notifyDataSetChanged();
         }
     };
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void sort(Comparator<Routine> comparator) {
+        routines.sort(comparator);
+        notifyDataSetChanged();
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView routineName, routineScore, routineUser;
         private MaterialCardView parent;

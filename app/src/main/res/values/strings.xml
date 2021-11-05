@@ -32,4 +32,9 @@
     <string name="action_fav">Add to favourites</string>
     <string name="invalid_registration">Invalid credentials</string>
     <string name="invalid_password_confirmation">Passwords don´t match</string>
+    <string name="order_by">Order by</string>
+    <string name="date">Date</string>
+    <string name="score">Score</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="category">Category</string>
 </resources>

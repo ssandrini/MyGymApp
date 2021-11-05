@@ -1,5 +1,7 @@
 package ar.edu.itba.mygymapp.ui.routines;
 
+import java.util.Comparator;
+
 public class Routine {
     private String name, detail, score, difficulty, user, category, image;
 
@@ -8,6 +10,19 @@ public class Routine {
         this.score = score;
         this.user = user;
         this.image = image;
+    }
+
+    private static Comparator<Routine> scoreComparator = new Comparator<Routine>() {
+        @Override
+        public int compare(Routine routine, Routine t1) {
+            Double r1Score = Double.parseDouble(routine.getScore());
+            Double r2Score = Double.parseDouble(t1.getScore());
+            return r1Score.compareTo(r2Score);
+        }
+    };
+
+    public static Comparator<Routine> getScoreComparator() {
+        return scoreComparator;
     }
 
     public String getName() {

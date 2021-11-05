@@ -52,12 +52,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
-
-        // Agrego el menu de search y sus acciones.
-        // Todavía no estoy seguro de que las acciones se agreguen acá.
         MenuItem searchItem = menu.findItem(R.id.action_search);
-
-        // deshabilito el search, sólo lo voy a habilitar en la seccion Rutinas
+        MenuItem optionsItem = menu.findItem(R.id.action_options);
+        optionsItem.setVisible(false);
         searchItem.setVisible(false);
 
         return super.onCreateOptionsMenu(menu);

@@ -90,9 +90,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/cyclesRecView"
+                android:paddingBottom="10dp"
                 >
 
             </androidx.recyclerview.widget.RecyclerView>
+            <Button android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/google_sans_bold"
+                android:text="Play">
+
+
+            </Button>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyGymApp">
         <activity android:name=".ui.register.register" android:exported="true" />
+        <activity android:name=".ui.register.ConfirmationActivity" android:exported="true" />
         <activity android:name=".MainActivity" android:exported="true" />
         <activity android:name=".ui.routines.RoutineActivity" android:exported="true" />
         <activity

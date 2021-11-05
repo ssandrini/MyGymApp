@@ -22,4 +22,10 @@
     <string name="section_highlights">Highlights</string>
     <string name="myRoutines_title">My routines</string>
     <string name="recents_title">Recents</string>
+    <string name="code">Code</string>
+    <string name="email_hint">Email</string>
+    <string name="confirm">Confirm</string>
+    <string name="invalid_confirmation">Invalid email or code</string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="invalid_code">Invalid code</string>
 </resources>

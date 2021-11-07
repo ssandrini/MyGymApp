@@ -1,6 +1,8 @@
 package ar.edu.itba.mygymapp.backend.models;
 
-public class Category {
+import java.util.Comparator;
+
+public class Category implements Comparable<Category> {
 
     private int id;
     private String name;
@@ -34,5 +36,10 @@ public class Category {
 
     public void setDetail(String detail) {
         this.detail = detail;
+    }
+
+    @Override
+    public int compareTo(Category category) {
+        return this.getName().compareTo(category.getName());
     }
 }

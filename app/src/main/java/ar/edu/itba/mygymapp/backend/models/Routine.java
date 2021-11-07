@@ -1,29 +1,87 @@
 package ar.edu.itba.mygymapp.backend.models;
 
-public class Routine {
+import java.util.Comparator;
 
+public class Routine {
     private int id;
     private String name;
     private String detail;
-    private int averageRating;
+    private Double score;
     private boolean isPublic;
     private String difficulty;
     private User user;
     private Category category;
     private Object metadata;
     private boolean favourite;
+    private static final Comparator<Routine> scoreComparator = new Comparator<Routine>() {
+        @Override
+        public int compare(Routine routine, Routine t1) {
+            return routine.getScore().compareTo(t1.getScore());
+        }
+    };
+    private static final Comparator<Routine> dateComparator = new Comparator<Routine>() {
+        @Override
+        public int compare(Routine routine, Routine t1) {
+            return 0;
+        }
+    };
+    private static final Comparator<Routine> categoryComparator = new Comparator<Routine>() {
+        @Override
+        public int compare(Routine routine, Routine t1) {
+            return routine.getCategory().compareTo(t1.getCategory());
+        }
+    };
+    private static final Comparator<Routine> difficultyComparator = new Comparator<Routine>() {
+        @Override
+        public int compare(Routine routine, Routine t1) {
+            return routine.mapDifficulty().compareTo(t1.mapDifficulty());
+        }
+    };
 
-    public Routine(int id, String name, String detail, int averageRating, boolean isPublic, String difficulty, User user, Category category, Object metadata, boolean favourite) {
+    public static Comparator<Routine> getScoreComparator() {
+        return scoreComparator;
+    }
+
+    public static Comparator<Routine> getDateComparator() {
+        return dateComparator;
+    }
+
+    public static Comparator<Routine> getDifficultyComparator() {
+        return difficultyComparator;
+    }
+
+    public static Comparator<Routine> getCategoryComparator() {
+        return categoryComparator;
+    }
+
+    public Routine(int id, String name, String detail, Double score, boolean isPublic, String difficulty, User user, Category category, Object metadata, boolean favourite) {
         this.id = id;
         this.name = name;
         this.detail = detail;
-        this.averageRating = averageRating;
+        this.score = score;
         this.isPublic = isPublic;
         this.difficulty = difficulty;
         this.user = user;
         this.category = category;
         this.metadata = metadata;
         this.favourite = favourite;
+    }
+
+    public Integer mapDifficulty() {
+        switch (this.getDifficulty()) {
+            case "rookie":
+                return 1;
+            case "beginner":
+                return 2;
+            case "intermediate":
+                return 3;
+            case "advanced":
+                return 4;
+            case "expert":
+                return 5;
+            default:
+                return 0;
+        }
     }
 
     public int getId() {
@@ -50,12 +108,12 @@ public class Routine {
         this.detail = detail;
     }
 
-    public int getAverageRating() {
-        return averageRating;
+    public Double getScore() {
+        return score;
     }
 
-    public void setAverageRating(int averageRating) {
-        this.averageRating = averageRating;
+    public void setScore(Double score) {
+        this.score = score;
     }
 
     public boolean isPublic() {

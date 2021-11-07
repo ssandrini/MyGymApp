@@ -37,4 +37,13 @@
     <string name="score">Puntaje</string>
     <string name="difficulty">Dificultad</string>
     <string name="category">Categoría</string>
+
+    <string name="profile_first_name">Nombre</string>
+    <string name="profile_last_name">Apellido</string>
+    <string name="profile_save">Guardar</string>
+    <string name="profile_phone">Telefono</string>
+    <string name="profile_photo">Cambiar avatar</string>
+
+
+
 </resources>

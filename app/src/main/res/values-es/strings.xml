@@ -44,6 +44,7 @@
     <string name="profile_phone">Telefono</string>
     <string name="profile_photo">Cambiar avatar</string>
     <string name="verification">Verificación de cuenta</string>
+    <string name="verification_text">Gracias por registrarte en MyGym, acabamos de enviarte un mail a la dirección especificada previamente. Porfavor ingrese el codigo de verificacion y su mail debajo.</string>
 
 
 </resources>

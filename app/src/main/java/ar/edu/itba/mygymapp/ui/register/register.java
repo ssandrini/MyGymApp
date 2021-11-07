@@ -2,6 +2,7 @@ package ar.edu.itba.mygymapp.ui.register;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -40,7 +41,7 @@ public class register extends AppCompatActivity {
             userView.setError(getText(R.string.invalid_username));
             error = true;
         }
-        if(mail.trim().length()==0){
+        if(mail.trim().length()==0|| !Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
             mailView.setError(getText(R.string.invalid_email));
             error = true;
         }
@@ -48,12 +49,16 @@ public class register extends AppCompatActivity {
             passView.setError(getText(R.string.invalid_password));
             error = true;
         }
-        if (password.compareTo(password2)!=0) {
-            confirmPass.setError(getText(R.string.invalid_password_confirmation));
-            error = true;
+        if(password2.trim().length()==0){
+            confirmPass.setError(getText(R.string.invalid_password));
+        }else {
+            if (password.compareTo(password2) != 0) {
+                confirmPass.setError(getText(R.string.invalid_password_confirmation));
+                error = true;
+            }
         }
         if (error) {
-            Toast.makeText(getApplicationContext(), getText(R.string.invalid_password_confirmation), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getText(R.string.invalid_registration), Toast.LENGTH_SHORT).show();
             return;
         }
 

@@ -42,7 +42,6 @@
     <string name="score">Score</string>
     <string name="difficulty">Difficulty</string>
     <string name="category">Category</string>
-    <string name="gender">Gender</string>
-    <string name="femenine">Femenine</string>
-    <string name="masculine">Masculine</string>
+    <string name="verification">Account verification</string>
+    <string name="verification_text">Thank you for registering at MyGym, we´ve sent you an email to the adress specified before. Please coppy the verification code and the same mail below.</string>
 </resources>

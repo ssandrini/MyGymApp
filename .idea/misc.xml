@@ -4,14 +4,29 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.58125" />
+        <entry key="..\:/Users/Lolo/Documents/GitHub/MyGymApp/app/src/main/res/layout/activity_confirmation.xml" value="0.33" />
+        <entry key="..\:/Users/Lolo/Documents/GitHub/MyGymApp/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Lolo/Documents/GitHub/MyGymApp/app/src/main/res/layout/activity_profile.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Lolo/Documents/GitHub/MyGymApp/app/src/main/res/layout/activity_register.xml" value="0.33" />
+        <entry key="..\:/Users/Lolo/Documents/GitHub/MyGymApp/app/src/main/res/layout/activity_routine.xml" value="0.10298102981029811" />
+        <entry key="..\:/Users/Lolo/Documents/GitHub/MyGymApp/app/src/main/res/layout/burger_navigation.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Lolo/Documents/GitHub/MyGymApp/app/src/main/res/layout/content_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Lolo/Documents/GitHub/MyGymApp/app/src/main/res/layout/cycle_list_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Lolo/Documents/GitHub/MyGymApp/app/src/main/res/layout/exercise_list_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Lolo/Documents/GitHub/MyGymApp/app/src/main/res/layout/fragment_favourites.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/drawable-anydpi/ic_favs.xml" value="0.1125" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/drawable-anydpi/ic_search.xml" value="0.1125" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/drawable-anydpi/ic_share.xml" value="0.1125" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2203125" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/activity_confirmation.xml" value="0.19293478260869565" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/confirmation.xml" value="0.22" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/fragment_profile.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/menu/toolbar_menu.xml" value="0.19814814814814816" />
         <entry key="app/src/main/res/drawable-anydpi/ic_add.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_explore.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_home.xml" value="0.5375" />
-        <entry key="app/src/main/res/drawable-anydpi/ic_login.xml" value="0.31145833333333334" />
-        <entry key="app/src/main/res/drawable-anydpi/ic_share.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.321025641025641" />
         <entry key="app/src/main/res/drawable-xhdpi/side_nav_bar.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable/button_background_blue.xml" value="0.25" />
@@ -28,29 +43,28 @@
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.5515625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.5515625" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.55" />
-        <entry key="app/src/main/res/layout/activity_routine.xml" value="0.24283305227655985" />
+        <entry key="app/src/main/res/layout/activity_routine.xml" value="0.375" />
         <entry key="app/src/main/res/layout/app_bar.xml" value="0.5647743813682679" />
         <entry key="app/src/main/res/layout/burger_navigation.xml" value="0.5515625" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.5515625" />
         <entry key="app/src/main/res/layout/content_menu.xml" value="0.3333333333333333" />
-        <entry key="app/src/main/res/layout/exercise_list_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/cycle_list_item.xml" value="0.6632124352331606" />
+        <entry key="app/src/main/res/layout/exercise_list_item.xml" value="0.625" />
         <entry key="app/src/main/res/layout/fragment_favourites.xml" value="0.24201680672268908" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2537037037037037" />
         <entry key="app/src/main/res/layout/fragment_my_exercises.xml" value="0.3409090909090909" />
         <entry key="app/src/main/res/layout/fragment_my_routines.xml" value="0.5515625" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.5515625" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.5515625" />
         <entry key="app/src/main/res/layout/register.xml" value="0.1381340579710145" />
-        <entry key="app/src/main/res/layout/routine_list_item.xml" value="0.28869047619047616" />
+        <entry key="app/src/main/res/layout/routine_list_item.xml" value="0.335" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.5140845070422535" />
-        <entry key="app/src/main/res/menu/gender_menu.xml" value="0.2953125" />
         <entry key="app/src/main/res/menu/navigation_menu.xml" value="0.5515625" />
         <entry key="app/src/main/res/menu/toolbar_menu.xml" value="0.5515625" />
-        <entry key="app/src/main/res/menu/toolbar_routine.xml" value="0.2953125" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1287037037037037" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1287037037037037" />
       </map>

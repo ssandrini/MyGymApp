@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_gender"
+        android:title="@string/gender"
+        app:showAsAction="never">
+
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/femenine"
+                    android:title="@string/femenine"/>
+                <item
+                    android:id="@+id/masculine"
+                    android:title="@string/masculine"/>
+            </group>
+        </menu>
+
+    </item>
+</menu>

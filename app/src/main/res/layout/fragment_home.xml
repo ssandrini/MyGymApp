@@ -7,64 +7,149 @@
     tools:context=".ui.home.HomeFragment"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/section_highlights"
-        android:textStyle="bold"
-        android:textSize="@dimen/headerTextSize"
-        android:fontFamily="@font/google_sans_bold"
-        android:padding="40px"
-        >
-    </TextView>
-    <androidx.recyclerview.widget.RecyclerView
-        android:paddingLeft="10dp"
-        android:id="@+id/highlightsRecView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <LinearLayout android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Good morning, John!"
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+                android:fontFamily="@font/google_sans_bold"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                />
 
-        android:text="@string/myRoutines_title"
-        android:textStyle="bold"
-        android:textSize="@dimen/headerTextSize"
-        android:fontFamily="@font/google_sans_bold"
-        android:padding="40px"
-        >
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="How about doing Calisthenics today?"
 
-    </TextView>
+                android:fontFamily="@font/google_sans"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:paddingBottom="10dp"
+                />
+            <include
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:paddingLeft="10dp"
-        android:id="@+id/myroutinesRecView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+                layout="@layout/routine_list_item"
+                >
 
-    </androidx.recyclerview.widget.RecyclerView>
+            </include>
+        </LinearLayout>
+        <View
+            android:layout_marginTop="20dp"
+            android:background="@color/purple_200"
+            android:layout_height="1dp"
+            android:layout_width="wrap_content"
+            />
+        <View
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/google_sans_bold"
-        android:text="@string/recents_title"
-        android:textStyle="bold"
-        android:textSize="@dimen/headerTextSize"
-        android:padding="40px"
-        >
+            android:background="@color/colorAccent"
+            android:layout_height="8dp"
+            android:layout_width="wrap_content"
+            />
+        <View
 
-    </TextView>
+            android:background="@color/purple_200"
+            android:layout_height="1dp"
+            android:layout_width="wrap_content"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section_highlights"
+            android:textStyle="bold"
+            android:textSize="@dimen/headerTextSize"
+            android:fontFamily="@font/google_sans_bold"
+            android:padding="40px"
+            >
+        </TextView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:paddingLeft="10dp"
+            android:id="@+id/highlightsRecView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:paddingLeft="10dp"
-        android:id="@+id/recentsRecView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        </androidx.recyclerview.widget.RecyclerView>
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <View
+            android:layout_marginTop="20dp"
+            android:background="@color/purple_200"
+            android:layout_height="1dp"
+            android:layout_width="wrap_content"
+            />
+        <View
+
+            android:background="@color/colorAccent"
+            android:layout_height="8dp"
+            android:layout_width="wrap_content"
+            />
+        <View
+
+            android:background="@color/purple_200"
+            android:layout_height="1dp"
+            android:layout_width="wrap_content"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="@string/myRoutines_title"
+            android:textStyle="bold"
+            android:textSize="@dimen/headerTextSize"
+            android:fontFamily="@font/google_sans_bold"
+            android:padding="40px"
+            >
+
+        </TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:paddingLeft="10dp"
+            android:id="@+id/myroutinesRecView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+        <View
+            android:layout_marginTop="20dp"
+            android:background="@color/purple_200"
+            android:layout_height="1dp"
+            android:layout_width="wrap_content"
+            />
+        <View
+
+            android:background="@color/colorAccent"
+            android:layout_height="8dp"
+            android:layout_width="wrap_content"
+            />
+        <View
+
+            android:background="@color/purple_200"
+            android:layout_height="1dp"
+            android:layout_width="wrap_content"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/google_sans_bold"
+            android:text="@string/recents_title"
+            android:textStyle="bold"
+            android:textSize="@dimen/headerTextSize"
+            android:padding="40px"
+            >
+
+        </TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:paddingLeft="10dp"
+            android:id="@+id/recentsRecView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
 
 
 

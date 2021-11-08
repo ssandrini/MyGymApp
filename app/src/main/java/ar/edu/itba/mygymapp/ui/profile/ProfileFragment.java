@@ -71,7 +71,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
             lnView.setError("Invalid last name");
             error = true;
         }
-        if(phone.trim().length() != 11){
+        if(phone.trim().length() == 0){
             phoneView.setError("Invalid phone number");
             error = true;
         }

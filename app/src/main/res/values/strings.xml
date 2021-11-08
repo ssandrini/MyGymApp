@@ -17,9 +17,16 @@
     <string name="profile_save">Save</string>\
     <string name="profile_phone">Phone</string>
     <string name="profile_photo">Change avatar</string>
-    <string name="gender">Genero</string>
-    <string name="femenine">Femenino</string>
-    <string name="masculine">Masculino</string>
+
+    <string-array name="genders">
+        <item>Not Specified</item>
+        <item>Femenine</item>
+        <item>Masculine</item>
+    </string-array>
+
+    <string name="gender">Gender</string>
+    <string name="femenine">Femenine</string>
+    <string name="masculine">Masculine</string>
 
     <string name="nav_header_desc">User image</string>
     <string name="nav_header_title">User</string>

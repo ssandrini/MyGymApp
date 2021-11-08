@@ -3,11 +3,15 @@ package ar.edu.itba.mygymapp.ui.profile;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupMenu;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,10 +28,9 @@ import ar.edu.itba.mygymapp.databinding.FragmentProfileBinding;
 import ar.edu.itba.mygymapp.ui.favourites.FavouritesViewModel;
 import ar.edu.itba.mygymapp.ui.routines.RoutinesAdapter;
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements AdapterView.OnItemSelectedListener{
     private ProfileViewModel profileViewModel;
     private FragmentProfileBinding binding;
-//    private Button gender;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -38,14 +41,13 @@ public class ProfileFragment extends Fragment {
         View root = binding.getRoot();
 
         binding.saveBtn.setOnClickListener(this::saveProfile);
-//        gender = binding.button2;
-//        gender.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                PopupMenu menu = new PopupMenu(ProfileFragment.this, gender);
-//                menu.getMenuInflater().inflate(, menu.getMenu());
-//            }
-//        });
+
+        Spinner spinner = binding.gender;
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(), R.array.genders, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+
         return root;
     }
 
@@ -83,5 +85,16 @@ public class ProfileFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        String text = adapterView.getItemAtPosition(i).toString();
+        Toast.makeText(adapterView.getContext(),text,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

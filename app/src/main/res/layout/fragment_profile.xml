@@ -57,7 +57,7 @@
             android:id="@+id/avatar"
             android:layout_width="100dp"
             android:layout_height="110dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="28dp"
             android:layout_marginEnd="156dp"
             android:scaleType="centerCrop"
             android:src="@drawable/avatar"
@@ -118,18 +118,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lastName" />
 
-        <EditText
+        <Spinner
             android:id="@+id/gender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="95dp"
+            android:layout_width="218dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="@string/profile_phone"
-            android:inputType="phone"
             android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+            android:tooltipText="@string/gender"
+            app:layout_constraintStart_toStartOf="@+id/genderText"
+            app:layout_constraintTop_toBottomOf="@+id/genderText" />
 
         <Button
             android:id="@+id/saveBtn"
@@ -143,6 +141,17 @@
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gender" />
+
+        <TextView
+            android:id="@+id/genderText"
+            android:layout_width="76dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="13dp"
+            android:minHeight="48dp"
+            android:text="@string/gender"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="@+id/editTextPhone"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
 
 
         <androidx.constraintlayout.widget.Guideline

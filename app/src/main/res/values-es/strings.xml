@@ -43,6 +43,11 @@
     <string name="profile_save">Guardar</string>
     <string name="profile_phone">Telefono</string>
     <string name="profile_photo">Cambiar avatar</string>
+    <string-array name="genders">
+        <item>Sin especificar</item>
+        <item>Femenino</item>
+        <item>Masculino</item>
+    </string-array>
     <string name="gender">Genero</string>
     <string name="femenine">Femenino</string>
     <string name="masculine">Masculino</string>

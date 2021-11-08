@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,6 +18,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.databinding.FragmentFavouritesBinding;
 import ar.edu.itba.mygymapp.databinding.FragmentProfileBinding;
 import ar.edu.itba.mygymapp.ui.favourites.FavouritesViewModel;
@@ -35,6 +37,7 @@ public class ProfileFragment extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        binding.saveBtn.setOnClickListener(this::saveProfile);
 //        gender = binding.button2;
 //        gender.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -44,6 +47,36 @@ public class ProfileFragment extends Fragment {
 //            }
 //        });
         return root;
+    }
+
+    public void saveProfile(View view){
+        EditText fnView, lnView, phoneView;
+        String firstName, lastName, phone;
+        boolean error = false;
+
+        fnView = binding.firstName;
+        lnView = binding.lastName;
+        phoneView = binding.editTextPhone;
+        firstName = fnView.getText().toString();
+        lastName = lnView.getText().toString();
+        phone = phoneView.getText().toString();
+
+        if (firstName.trim().length() == 0) {
+            fnView.setError("Invalid first name");
+            error = true;
+        }
+        if (lastName.trim().length() == 0) {
+            lnView.setError("Invalid last name");
+            error = true;
+        }
+        if(phone.trim().length() != 11){
+            phoneView.setError("Invalid phone number");
+            error = true;
+        }
+        if (error) {
+            Toast.makeText(getActivity(),"Invalid data", Toast.LENGTH_SHORT).show();
+            return ;
+        }
     }
 
     @Override

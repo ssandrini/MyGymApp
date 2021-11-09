@@ -37,24 +37,8 @@
 
             </include>
         </LinearLayout>
-        <View
-            android:layout_marginTop="20dp"
-            android:background="@color/purple_200"
-            android:layout_height="1dp"
-            android:layout_width="wrap_content"
-            />
-        <View
 
-            android:background="@color/colorAccent"
-            android:layout_height="8dp"
-            android:layout_width="wrap_content"
-            />
-        <View
-
-            android:background="@color/purple_200"
-            android:layout_height="1dp"
-            android:layout_width="wrap_content"
-            />
+        <include layout="@layout/home_sections_divider"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,25 +57,7 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
-        <View
-            android:layout_marginTop="20dp"
-            android:background="@color/purple_200"
-            android:layout_height="1dp"
-            android:layout_width="wrap_content"
-            />
-        <View
-
-            android:background="@color/colorAccent"
-            android:layout_height="8dp"
-            android:layout_width="wrap_content"
-            />
-        <View
-
-            android:background="@color/purple_200"
-            android:layout_height="1dp"
-            android:layout_width="wrap_content"
-            />
-
+        <include layout="@layout/home_sections_divider"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -112,24 +78,7 @@
             android:layout_height="wrap_content">
 
         </androidx.recyclerview.widget.RecyclerView>
-        <View
-            android:layout_marginTop="20dp"
-            android:background="@color/purple_200"
-            android:layout_height="1dp"
-            android:layout_width="wrap_content"
-            />
-        <View
-
-            android:background="@color/colorAccent"
-            android:layout_height="8dp"
-            android:layout_width="wrap_content"
-            />
-        <View
-
-            android:background="@color/purple_200"
-            android:layout_height="1dp"
-            android:layout_width="wrap_content"
-            />
+        <include layout="@layout/home_sections_divider"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

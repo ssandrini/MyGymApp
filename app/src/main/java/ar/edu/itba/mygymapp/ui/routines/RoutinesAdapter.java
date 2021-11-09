@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +44,7 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.routineName.setText(routines.get(position).getName());
-        holder.routineScore.setText(routines.get(position).getScore().toString());
+        holder.routineScore.setRating(routines.get(position).getScore().floatValue());
         holder.routineDuration.setText(routines.get(position).getDurationStr());
 
         holder.parent.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +109,8 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView routineName, routineScore, routineDuration;
+        private TextView routineName,  routineDuration;
+        private RatingBar routineScore;
         private MaterialCardView parent;
         private ImageView routineImg;
         public ViewHolder(@NonNull View itemView) {

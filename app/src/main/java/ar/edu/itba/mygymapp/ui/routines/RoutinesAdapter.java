@@ -42,7 +42,7 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
 
         holder.routineName.setText(routines.get(position).getName());
         holder.routineScore.setText(routines.get(position).getScore());
-        holder.routineDuration.setText(routines.get(position).getUser());
+        holder.routineDuration.setText(routines.get(position).getDuration());
 
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override

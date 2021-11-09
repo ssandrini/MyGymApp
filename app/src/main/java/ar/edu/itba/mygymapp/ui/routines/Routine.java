@@ -4,12 +4,12 @@ import java.io.Serializable;
 import java.util.Comparator;
 
 public class Routine implements Serializable {
-    private String name, detail, score, difficulty, user, category, image;
+    private String name, detail, score, difficulty, user, category, image, duration;
 
-    public Routine(String name, String score, String user, String image) {
+    public Routine(String name, String score, String duration, String image) {
         this.name = name;
         this.score = score;
-        this.user = user;
+        this.duration = duration;
         this.image = image;
     }
 
@@ -80,6 +80,14 @@ public class Routine implements Serializable {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
 
     @Override

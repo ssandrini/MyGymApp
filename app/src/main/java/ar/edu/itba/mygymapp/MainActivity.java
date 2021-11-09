@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void goToRoutineActivity(View view) {
-        Intent intent = new Intent(this, RoutineActivity.class);
-        startActivity(intent);
+
     }
 }

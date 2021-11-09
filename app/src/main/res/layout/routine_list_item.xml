@@ -13,7 +13,6 @@
         app:cardBackgroundColor="@color/purple_200"
         app:cardElevation="10dp"
         app:cardCornerRadius="10dp"
-        android:onClick="goToRoutineActivity"
         >
 
         <LinearLayout

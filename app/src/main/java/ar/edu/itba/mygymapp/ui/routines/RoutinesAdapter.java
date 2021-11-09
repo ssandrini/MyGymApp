@@ -1,6 +1,7 @@
 package ar.edu.itba.mygymapp.ui.routines;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +22,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Locale;
 
+import ar.edu.itba.mygymapp.MainActivity;
 import ar.edu.itba.mygymapp.R;
 
 public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHolder> implements Filterable {
@@ -41,12 +44,13 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
         holder.routineScore.setText(routines.get(position).getScore());
         holder.routineUser.setText(routines.get(position).getUser());
 
-//        holder.parent.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(context, destacadas.get(position).getName(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        holder.parent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), RoutineActivity.class);
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -109,7 +113,7 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
             routineName = itemView.findViewById(R.id.routineName);
             routineScore = itemView.findViewById(R.id.routineScore);
             routineUser = itemView.findViewById(R.id.routineUser);
-            parent = itemView.findViewById(R.id.parent);
+            parent = itemView.findViewById(R.id.card);
         }
     }
 }

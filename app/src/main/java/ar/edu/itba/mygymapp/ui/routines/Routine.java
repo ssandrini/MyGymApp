@@ -1,8 +1,9 @@
 package ar.edu.itba.mygymapp.ui.routines;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class Routine {
+public class Routine implements Serializable {
     private String name, detail, score, difficulty, user, category, image;
 
     public Routine(String name, String score, String user, String image) {

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_height="wrap_content"
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
     android:layout_width="300dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,7 +13,7 @@
         android:padding="8dp"
         app:cardBackgroundColor="@color/purple_200"
         app:cardElevation="10dp"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="25dp"
         >
 
         <LinearLayout
@@ -34,12 +35,14 @@
 
                 <ImageView
                     android:id="@+id/routineImg"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:srcCompat="@drawable/r1"
-                    android:layout_width="160dp"
+                    android:layout_width="120dp"
                     android:layout_height="match_parent"
+                    android:layout_marginEnd="1dp"
                     android:contentDescription="@string/register"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="@+id/routineDuration"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/r1" />
 
                 <TextView
                     android:id="@+id/routineName"
@@ -56,55 +59,52 @@
 
                 <TextView
                     android:id="@+id/routineScore"
-                    app:layout_constraintStart_toStartOf="@+id/routineName"
-                    app:layout_constraintTop_toTopOf="parent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="44dp"
+                    android:layout_marginTop="16dp"
                     android:padding="2dp"
-                    android:fontFamily="@font/google_sans"
-                    android:text="Score: 1 out of 5"
+                    android:text="Score"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:layout_constraintStart_toStartOf="@+id/routineName"
+                    app:layout_constraintTop_toBottomOf="@id/routineName" />
 
                 <TextView
-                    android:id="@+id/routineUser"
-                    app:layout_constraintStart_toStartOf="@+id/routineScore"
-                    app:layout_constraintTop_toBottomOf="@+id/routineScore"
+                    android:id="@+id/routineDuration"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:padding="2dp"
-                    android:fontFamily="@font/google_sans"
-                    android:text="Made by: Dagos"
+                    android:text="Duration"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:layout_constraintStart_toStartOf="@+id/routineScore"
+                    app:layout_constraintTop_toBottomOf="@+id/routineScore" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!-- Buttons -->
-<!--            <LinearLayout-->
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
+                android:orientation="horizontal">
 
-<!--                android:orientation="horizontal">-->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/materialButton"
+                    style="?attr/borderlessButtonStyle"
+                    app:icon="@drawable/ic_favs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-<!--                <com.google.android.material.button.MaterialButton-->
-<!--                    android:id="@+id/materialButton"-->
-<!--                    style="?attr/borderlessButtonStyle"-->
-<!--                    app:icon="@drawable/ic_favs"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content" />-->
+                <com.google.android.material.button.MaterialButton
+                    style="?attr/borderlessButtonStyle"
+                    app:icon="@drawable/ic_share"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="wrap_content"
 
-<!--                <com.google.android.material.button.MaterialButton-->
-<!--                    style="?attr/borderlessButtonStyle"-->
-<!--                    app:icon="@drawable/ic_share"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    android:layout_width="wrap_content"-->
-
-<!--                    android:layout_height="wrap_content" />-->
-<!--            </LinearLayout>-->
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
 
         </LinearLayout>

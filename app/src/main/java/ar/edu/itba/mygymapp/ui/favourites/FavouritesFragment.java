@@ -48,13 +48,13 @@ public class FavouritesFragment extends Fragment {
     }
 
     private void populateRoutines() {
-        routines.add(new Routine("Calistenia", "5 out of 5", "Dagos", "r1.png"));
-        routines.add(new Routine("Home", "5 out of 5", "Dax", "r2.png"));
-        routines.add(new Routine("Pecs killer", "5 out of 5", "Santi", "r3.png"));
-        routines.add(new Routine("Legs", "5 out of 5", "Solcha", "r4.png"));
-        routines.add(new Routine("Calistenia", "5 out of 5", "Dagos", "r1.png"));
-        routines.add(new Routine("Home", "5 out of 5", "Dax", "r2.png"));
-        routines.add(new Routine("Pecs killer", "5 out of 5", "Santi", "r3.png"));
-        routines.add(new Routine("Legs", "5 out of 5", "Solcha", "r4.png"));
+        routines.add(new Routine("Calistenia", "5 out of 5", "12-15min", "r1.png"));
+        routines.add(new Routine("Home", "5 out of 5", "12-15min", "r2.png"));
+        routines.add(new Routine("Pecs killer", "5 out of 5", "12-15min", "r3.png"));
+        routines.add(new Routine("Legs", "5 out of 5", "12-15min", "r4.png"));
+        routines.add(new Routine("Calistenia", "5 out of 5", "12-15min", "r1.png"));
+        routines.add(new Routine("Home", "5 out of 5", "12-15min", "r2.png"));
+        routines.add(new Routine("Pecs killer", "5 out of 5", "12-15min", "r3.png"));
+        routines.add(new Routine("Legs", "5 out of 5", "12-15min", "r4.png"));
     }
 }

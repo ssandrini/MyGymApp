@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.routines.RoutineActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -22,14 +22,13 @@
             app:expandedTitleMarginEnd="100dp"
             app:expandedTitleMarginStart="16dp"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
-            app:title="Rutina"
-            >
+            app:title="Rutina">
 
-            <ImageView android:layout_height="250dp"
+            <ImageView
                 android:layout_width="match_parent"
+                android:layout_height="250dp"
                 android:scaleType="fitEnd"
-                android:src="@drawable/r1"
-                />
+                android:src="@drawable/r1" />
 
 
             <androidx.appcompat.widget.Toolbar
@@ -54,50 +53,59 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_gravity="center_horizontal"
-            android:padding="14dp"
             android:layout_marginTop="10dp"
-            >
+            android:orientation="vertical"
+            android:padding="14dp">
 
             <TextView
+                android:id="@+id/rName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dificultad: Dificil"
-                android:gravity="center"
                 android:padding="4dp"
-                android:textStyle="italic"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                />
+                android:text="Rutina"
+                android:textAppearance="?attr/textAppearanceHeadline4"
+                android:textStyle="bold" />
+
             <TextView
+                android:id="@+id/rDifficulty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/loremipsum"
-                android:gravity="center"
                 android:padding="4dp"
-                android:textAppearance="?attr/textAppearanceBody1"
-                >
-            </TextView>
+                android:text="Dificil"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textStyle="italic" />
+
             <RatingBar
-                android:padding="4dp"
+                android:id="@+id/rScore"
+                style="?android:attr/ratingBarStyleIndicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                style = "?android:attr/ratingBarStyleIndicator"
-                android:numStars = "5"
-                android:rating   = "4"
-                />
+                android:numStars="5"
+                android:padding="4dp"
+                android:rating="4" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <TextView
+                android:id="@+id/rDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/cyclesRecView"
+                android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                >
+                android:text="@string/loremipsum"
+                android:textAppearance="?attr/textAppearanceBody1"></TextView>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cyclesRecView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp">
 
             </androidx.recyclerview.widget.RecyclerView>
-            <Button android:layout_height="wrap_content"
-                 android:layout_width="wrap_content"
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/google_sans_bold"
                 android:text="Play">

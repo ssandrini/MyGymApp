@@ -42,12 +42,13 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
 
         holder.routineName.setText(routines.get(position).getName());
         holder.routineScore.setText(routines.get(position).getScore());
-        holder.routineUser.setText(routines.get(position).getUser());
+        holder.routineDuration.setText(routines.get(position).getUser());
 
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), RoutineActivity.class);
+                intent.putExtra("routineObject", routines.get(holder.getAdapterPosition()));
                 view.getContext().startActivity(intent);
             }
         });
@@ -105,14 +106,14 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView routineName, routineScore, routineUser;
+        private TextView routineName, routineScore, routineDuration;
         private MaterialCardView parent;
         private ImageView routineImg;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             routineName = itemView.findViewById(R.id.routineName);
             routineScore = itemView.findViewById(R.id.routineScore);
-            routineUser = itemView.findViewById(R.id.routineUser);
+            routineDuration = itemView.findViewById(R.id.routineDuration);
             parent = itemView.findViewById(R.id.card);
         }
     }

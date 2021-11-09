@@ -52,6 +52,7 @@ public class RoutineActivity extends AppCompatActivity {
         binding.rScore.setRating(routine.getScore().floatValue());
         binding.rDetail.setText(routine.getDetail());
         binding.collapsingToolbarLayout.setTitle(routine.getName());
+
         ArrayList<CycleExercise> exercises = new ArrayList<>();
         exercises.add(new CycleExercise("Flexiones", "Ejercicio", "Para el pecho", 0, 1, 2, 3, null));
         exercises.add(new CycleExercise("Dominadas", "Ejercicio", "Para la espalda", 1, 2, 3, 4, null));
@@ -60,13 +61,12 @@ public class RoutineActivity extends AppCompatActivity {
         cycles.add(new Cycle(1, "Ciclo B", "Calentando2", "Entrenando", 2, 10, null, exercises));
         cycles.add(new Cycle(2, "Ciclo C", "Calentando3", "Enfriamiento", 3, 10, null, exercises));
 
-        cyclesAdapter = new CyclesAdapter(cycles);
+        routine.setCycles(cycles);
+
+        cyclesAdapter = new CyclesAdapter(routine.getCycles());
         binding.cyclesRecView.setLayoutManager(new LinearLayoutManager(this));
         binding.cyclesRecView.setAdapter(cyclesAdapter);
-
-//        exercisesAdapter = new ExercisesAdapter(exercises);
-//        binding.exercisesRecView.setLayoutManager(new LinearLayoutManager(this));
-//        binding.exercisesRecView.setAdapter(exercisesAdapter);
+        
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -41,7 +41,9 @@
         <item name="android:paddingLeft">5dp</item>
     </style>
     <style name="routineActivity" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
-
+        <item name="android:fontFamily">
+            @font/google_sans
+        </item>
 
     </style>
     <style name="NavigationText" parent="@android:style/TextAppearance.Medium">

@@ -26,9 +26,10 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="220dp"
                 android:scaleType="fitEnd"
-                android:src="@drawable/r1" />
+                android:src="@drawable/r1"
+                />
 
 
             <androidx.appcompat.widget.Toolbar
@@ -37,6 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
+                app:titleTextAppearance="@style/NavigationText"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
             </androidx.appcompat.widget.Toolbar>

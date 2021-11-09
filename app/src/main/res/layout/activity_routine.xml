@@ -14,8 +14,10 @@
         >
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:collapsedTitleTextAppearance="@style/routineActivity"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginEnd="100dp"
             app:expandedTitleMarginStart="16dp"

@@ -15,7 +15,11 @@
         <item name="android:fontFamily">@font/google_sans</item>
     </style>
 
-    <style name="Theme.NavDrawer.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.NavDrawer.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:fontFamily">@font/google_sans</item>
+    </style>
 
-    <style name="Theme.NavDrawer.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.NavDrawer.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:fontFamily">@font/google_sans</item>
+    </style>
 </resources>

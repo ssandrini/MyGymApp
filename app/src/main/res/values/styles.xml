@@ -40,4 +40,15 @@
         <item name="android:textColor">@color/colorAccent</item>
         <item name="android:paddingLeft">5dp</item>
     </style>
+    <style name="routineActivity" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+
+
+    </style>
+    <style name="NavigationText" parent="@android:style/TextAppearance.Medium">
+
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">
+            @font/google_sans
+        </item>
+    </style>
 </resources>

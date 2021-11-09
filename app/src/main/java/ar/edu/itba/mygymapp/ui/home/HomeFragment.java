@@ -54,6 +54,8 @@ public class HomeFragment extends Fragment {
 
         binding.recentsRecView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         binding.recentsRecView.setAdapter(recentsAdapter);
+
+
         return root;
     }
 

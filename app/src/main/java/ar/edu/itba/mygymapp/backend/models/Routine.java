@@ -1,8 +1,9 @@
 package ar.edu.itba.mygymapp.backend.models;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class Routine {
+public class Routine implements Serializable  {
     private int id;
     private String name;
     private String detail;
@@ -13,6 +14,8 @@ public class Routine {
     private Category category;
     private Object metadata;
     private boolean favourite;
+    private int[] duration ;
+
     private static final Comparator<Routine> scoreComparator = new Comparator<Routine>() {
         @Override
         public int compare(Routine routine, Routine t1) {
@@ -65,6 +68,7 @@ public class Routine {
         this.category = category;
         this.metadata = metadata;
         this.favourite = favourite;
+        this.duration = new int[] {15, 10};
     }
 
     public Integer mapDifficulty() {
@@ -82,6 +86,26 @@ public class Routine {
             default:
                 return 0;
         }
+    }
+
+    public String getDurationStr() {
+        int baseDuration = getDuration()[0];
+        int endDuration = baseDuration + 10;
+        StringBuilder res = new StringBuilder();
+        res.append(baseDuration);
+        res.append(" - ");
+        res.append(endDuration);
+        res.append(" min");
+        return res.toString();
+    }
+
+    public int[] getDuration() {
+
+        return duration;
+    }
+
+    public void setDuration(int[] duration) {
+        this.duration = duration;
     }
 
     public int getId() {

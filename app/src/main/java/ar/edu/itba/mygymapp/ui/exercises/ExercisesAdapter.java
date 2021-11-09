@@ -16,13 +16,15 @@ import com.google.android.material.card.MaterialCardView;
 import java.util.ArrayList;
 
 import ar.edu.itba.mygymapp.R;
-
+import ar.edu.itba.mygymapp.backend.models.CycleExercise;
 
 public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.ViewHolder> {
 
-    private ArrayList<Exercise> exercises;
+    private ArrayList<CycleExercise
+> exercises;
 
-    public ExercisesAdapter(ArrayList<Exercise> exercises) {
+    public ExercisesAdapter(ArrayList<CycleExercise
+> exercises) {
         this.exercises = exercises;
     }
 
@@ -64,7 +66,8 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
         return exercises.size();
     }
 
-    public void setExercises(ArrayList<Exercise> exercises) {
+    public void setExercises(ArrayList<CycleExercise
+> exercises) {
         this.exercises = exercises;
         // notifyDataSetChanged();  para notificarle al view adaptor que la data proveniente de la api ya cambio
     }
@@ -90,7 +93,8 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
             collapsedRelLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Exercise exercise = exercises.get(getAdapterPosition());
+                    CycleExercise
+ exercise = exercises.get(getAdapterPosition());
                     exercise.setExpanded(!exercise.isExpanded());
                     notifyItemChanged(getAdapterPosition());
                 }
@@ -99,7 +103,8 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
             expandMoreBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Exercise exercise = exercises.get(getAdapterPosition());
+                    CycleExercise
+ exercise = exercises.get(getAdapterPosition());
                     exercise.setExpanded(!exercise.isExpanded());
                     notifyItemChanged(getAdapterPosition());
                 }
@@ -108,7 +113,8 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
             expandLessBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Exercise exercise = exercises.get(getAdapterPosition());
+                    CycleExercise
+ exercise = exercises.get(getAdapterPosition());
                     exercise.setExpanded(!exercise.isExpanded());
                     notifyItemChanged(getAdapterPosition());
                 }

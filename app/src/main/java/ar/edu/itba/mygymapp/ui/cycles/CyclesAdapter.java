@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.ui.exercises.ExercisesAdapter;
+import ar.edu.itba.mygymapp.backend.models.Cycle;
 
 public class CyclesAdapter extends RecyclerView.Adapter<CyclesAdapter.ViewHolder> {
 
@@ -41,7 +42,6 @@ public class CyclesAdapter extends RecyclerView.Adapter<CyclesAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
 
         holder.cycleName.setText(cycles.get(position).getName());
 

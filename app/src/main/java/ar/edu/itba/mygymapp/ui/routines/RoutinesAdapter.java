@@ -25,6 +25,8 @@ import java.util.Locale;
 import ar.edu.itba.mygymapp.MainActivity;
 import ar.edu.itba.mygymapp.R;
 
+import ar.edu.itba.mygymapp.backend.models.Routine;
+
 public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHolder> implements Filterable {
 
     private ArrayList<Routine> routines = new ArrayList<>();
@@ -41,8 +43,8 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.routineName.setText(routines.get(position).getName());
-        holder.routineScore.setText(routines.get(position).getScore());
-        holder.routineDuration.setText(routines.get(position).getDuration());
+        holder.routineScore.setText(routines.get(position).getScore().toString());
+        holder.routineDuration.setText(routines.get(position).getDurationStr());
 
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override

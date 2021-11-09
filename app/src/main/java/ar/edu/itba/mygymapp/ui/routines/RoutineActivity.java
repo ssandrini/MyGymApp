@@ -14,11 +14,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 
+import ar.edu.itba.mygymapp.backend.models.Routine;
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.databinding.ActivityRoutineBinding;
-import ar.edu.itba.mygymapp.ui.cycles.Cycle;
+import ar.edu.itba.mygymapp.backend.models.Cycle;
 import ar.edu.itba.mygymapp.ui.cycles.CyclesAdapter;
-import ar.edu.itba.mygymapp.ui.exercises.Exercise;
+import ar.edu.itba.mygymapp.backend.models.CycleExercise;
+
 import ar.edu.itba.mygymapp.ui.exercises.ExercisesAdapter;
 
 public class RoutineActivity extends AppCompatActivity {
@@ -26,6 +28,7 @@ public class RoutineActivity extends AppCompatActivity {
     private ActivityRoutineBinding binding;
     private ExercisesAdapter exercisesAdapter;
     private CyclesAdapter cyclesAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,14 +47,15 @@ public class RoutineActivity extends AppCompatActivity {
 //        binding.rScore.setText(routine.getScore());
         binding.rDetail.setText(getResources().getString(R.string.loremipsum));
 
-        ArrayList<Exercise> exercises = new ArrayList<>();
-        exercises.add(new Exercise("Flexiones de brazo", "Ejercicio", "Para el pecho"));
-        exercises.add(new Exercise("Dominadas", "Ejercicio", "Para la espalda"));
-
+        ArrayList<CycleExercise
+                > exercises = new ArrayList<>();
+        exercises.add(new CycleExercise("Flexiones", "Ejercicio", "Para el pecho", 0, 1, 2, 3, null));
+        exercises.add(new CycleExercise("Dominadas", "Ejercicio", "Para la espalda", 1, 2, 3, 4, null));
         ArrayList<Cycle> cycles = new ArrayList<>();
-        cycles.add(new Cycle("Ciclo A", exercises));
-        cycles.add(new Cycle("Ciclo B", exercises));
-        cycles.add(new Cycle("Ciclo C", exercises));
+        cycles.add(new Cycle(0, "Ciclo A", "Calentando", "Calentamiento", 1, 10, null, exercises ));
+        cycles.add(new Cycle(1, "Ciclo B", "Calentando2", "Entrenando", 2, 10, null, exercises ));
+        cycles.add(new Cycle(2, "Ciclo C", "Calentando3", "Enfriamiento", 3, 10, null, exercises ));
+
 
         cyclesAdapter = new CyclesAdapter(cycles);
         binding.cyclesRecView.setLayoutManager(new LinearLayoutManager(this));

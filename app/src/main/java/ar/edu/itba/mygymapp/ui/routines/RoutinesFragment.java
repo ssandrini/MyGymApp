@@ -18,6 +18,7 @@ import java.util.Collections;
 
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.databinding.FragmentRoutinesBinding;
+import ar.edu.itba.mygymapp.backend.models.Routine;
 
 public class RoutinesFragment extends Fragment {
     private FragmentRoutinesBinding binding;
@@ -116,13 +117,12 @@ public class RoutinesFragment extends Fragment {
     }
 
     private void populateRoutines() {
-        routines.add(new Routine("Calistenia", "5", "Dagos", "r1.png"));
-        routines.add(new Routine("Home", "2", "Dax", "r2.png"));
-        routines.add(new Routine("Pecs killer", "4.5", "Santi", "r3.png"));
-        routines.add(new Routine("Legs", "3.3", "Solcha", "r4.png"));
-        routines.add(new Routine("Calistenia2", "1", "Dagos", "r1.png"));
-        routines.add(new Routine("Home2", "4.7", "Dax", "r2.png"));
-        routines.add(new Routine("Pecs killer2", "5", "Santi", "r3.png"));
-        routines.add(new Routine("Legs2", "3", "Solcha", "r4.png"));
+        routines.add(new Routine(0, "Calistenia", "Get those moves", 4.3, true, "rookie", null, null, null, true));
+        routines.add(new Routine(0, "Calistenia", "Get those moves", 4.3, true, "rookie", null, null, null, true));
+
+        routines.add(new Routine(0, "Calistenia", "Get those moves", 4.3, true, "rookie", null, null, null, true));
+
+        routines.add(new Routine(0, "Calistenia", "Get those moves", 4.3, true, "rookie", null, null, null, true));
+
     }
 }

@@ -1,5 +1,7 @@
 package ar.edu.itba.mygymapp.backend.models;
 
+import java.util.ArrayList;
+
 public class Cycle {
 
     private int id;
@@ -9,8 +11,14 @@ public class Cycle {
     private int order;
     private int repetitions;
     private Object metadata;
+    private ArrayList<CycleExercise> exercises;
+    private boolean isExpanded;
 
     public Cycle(int id, String name, String detail, String type, int order, int repetitions, Object metadata) {
+        this(id, name, detail, type, order, repetitions, metadata, new ArrayList<CycleExercise>());
+    }
+
+    public Cycle(int id, String name, String detail, String type, int order, int repetitions, Object metadata, ArrayList<CycleExercise> exercises) {
         this.id = id;
         this.name = name;
         this.detail = detail;
@@ -18,6 +26,24 @@ public class Cycle {
         this.order = order;
         this.repetitions = repetitions;
         this.metadata = metadata;
+        this.exercises = exercises;
+        this.isExpanded = false;
+    }
+
+    public ArrayList<CycleExercise> getExercises() {
+        return exercises;
+    }
+
+    public void setExercises(ArrayList<CycleExercise> exercises) {
+        this.exercises = exercises;
+    }
+
+    public boolean isExpanded() {
+        return isExpanded;
+    }
+
+    public void setExpanded(boolean expanded) {
+        isExpanded = expanded;
     }
 
     public int getId() {

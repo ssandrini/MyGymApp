@@ -12,6 +12,8 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+
 import java.util.ArrayList;
 
 import ar.edu.itba.mygymapp.backend.models.Routine;
@@ -24,7 +26,6 @@ import ar.edu.itba.mygymapp.backend.models.CycleExercise;
 import ar.edu.itba.mygymapp.ui.exercises.ExercisesAdapter;
 
 public class RoutineActivity extends AppCompatActivity {
-
     private ActivityRoutineBinding binding;
     private ExercisesAdapter exercisesAdapter;
     private CyclesAdapter cyclesAdapter;
@@ -35,8 +36,12 @@ public class RoutineActivity extends AppCompatActivity {
 
         binding = ActivityRoutineBinding.inflate(getLayoutInflater());
         View root = binding.getRoot();
+        CollapsingToolbarLayout cToolbar = binding.collapsingToolbarLayout;
         Toolbar toolbar = binding.toolbarMain;
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         setContentView(root);
 
         Intent i = getIntent();
@@ -46,7 +51,7 @@ public class RoutineActivity extends AppCompatActivity {
         binding.rDifficulty.setText(routine.getDifficulty());
         binding.rScore.setRating(routine.getScore().floatValue());
         binding.rDetail.setText(routine.getDetail());
-
+        binding.collapsingToolbarLayout.setTitle(routine.getName());
         ArrayList<CycleExercise> exercises = new ArrayList<>();
         exercises.add(new CycleExercise("Flexiones", "Ejercicio", "Para el pecho", 0, 1, 2, 3, null));
         exercises.add(new CycleExercise("Dominadas", "Ejercicio", "Para la espalda", 1, 2, 3, 4, null));
@@ -54,7 +59,6 @@ public class RoutineActivity extends AppCompatActivity {
         cycles.add(new Cycle(0, "Ciclo A", "Calentando", "Calentamiento", 1, 10, null, exercises));
         cycles.add(new Cycle(1, "Ciclo B", "Calentando2", "Entrenando", 2, 10, null, exercises));
         cycles.add(new Cycle(2, "Ciclo C", "Calentando3", "Enfriamiento", 3, 10, null, exercises));
-
 
         cyclesAdapter = new CyclesAdapter(cycles);
         binding.cyclesRecView.setLayoutManager(new LinearLayoutManager(this));
@@ -67,6 +71,7 @@ public class RoutineActivity extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_routine, menu);
+
         MenuItem favItem = menu.findItem(R.id.action_fav);
         MenuItem shareItem = menu.findItem(R.id.action_share);
 

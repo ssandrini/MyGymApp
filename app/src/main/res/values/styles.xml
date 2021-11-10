@@ -65,4 +65,7 @@
         <item name="colorControlNormal">@color/black</item>
         <item name="colorControlActivated">#787C77</item>
     </style>
+    <style name="profileCard">
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>

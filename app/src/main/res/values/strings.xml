@@ -14,9 +14,10 @@
     <string name="section_profile">Profile</string>
     <string name="profile_first_name">First Name</string>
     <string name="profile_last_name">Last Name</string>
-    <string name="profile_save">Save</string>\
+    <string name="profile_save">Save</string>
     <string name="profile_phone">Phone</string>
     <string name="profile_photo">Change avatar</string>
+    <string name="edit_profile">Edit</string>
 
     <string-array name="genders">
         <item>Not Specified</item>

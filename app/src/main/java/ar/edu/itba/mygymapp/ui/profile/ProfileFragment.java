@@ -40,7 +40,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
     private ProfileViewModel profileViewModel;
     private FragmentProfileBinding binding;
     private View root;
-    private Button BSelectImage;
+    private ImageView BSelectImage;
     int SELECT_PICTURE = 200;
     // One Preview Image
     private ImageView IVPreviewImage;
@@ -74,7 +74,13 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
                 imageChooser();
             }
         });
-
+        binding.editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.infoLayout.setVisibility(View.GONE);
+                binding.editLayout.setVisibility(View.VISIBLE);
+            }
+        });
         return root;
     }
 
@@ -116,16 +122,14 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
 
 
     public void saveProfile(View view){
-        EditText fnView, lnView, phoneView;
-        String firstName, lastName, phone;
+        EditText fnView, lnView;
+        String firstName, lastName;
         boolean error = false;
 
         fnView = binding.firstName;
         lnView = binding.lastName;
-        phoneView = binding.editTextPhone;
         firstName = fnView.getText().toString();
         lastName = lnView.getText().toString();
-        phone = phoneView.getText().toString();
 
         if (firstName.trim().length() == 0) {
             fnView.setError("Invalid first name");
@@ -133,10 +137,6 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
         }
         if (lastName.trim().length() == 0) {
             lnView.setError("Invalid last name");
-            error = true;
-        }
-        if(phone.trim().length() == 0){
-            phoneView.setError("Invalid phone number");
             error = true;
         }
         if (error) {

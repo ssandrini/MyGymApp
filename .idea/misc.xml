@@ -7,6 +7,15 @@
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2203125" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/activity_routine.xml" value="0.24096385542168675" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/app_bar.xml" value="0.15353260869565216" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/avatar.xml" value="0.10597826086956522" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/fragment_profile.xml" value="0.15353260869565216" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/fragment_routines.xml" value="0.19972826086956522" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/nav_header_main.xml" value="0.2" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/review_layout.xml" value="0.25" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/routine_list_item.xml" value="0.15353260869565216" />
         <entry key="app/src/main/res/drawable-anydpi/ic_add.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_calendar.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_explore.xml" value="0.5833333333333334" />
@@ -35,7 +44,6 @@
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.55" />
         <entry key="app/src/main/res/layout/activity_routine.xml" value="0.4928517682468021" />
-        <entry key="app/src/main/res/layout/activity_scheduler.xml" value="0.45" />
         <entry key="app/src/main/res/layout/app_bar.xml" value="0.25" />
         <entry key="app/src/main/res/layout/avatar.xml" value="0.5515625" />
         <entry key="app/src/main/res/layout/burger_navigation.xml" value="0.625" />
@@ -53,7 +61,7 @@
         <entry key="app/src/main/res/layout/home_sections_divider.xml" value="0.45" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.5" />
         <entry key="app/src/main/res/layout/register.xml" value="0.1381340579710145" />
-        <entry key="app/src/main/res/layout/routine_list_item.xml" value="0.6684539767649688" />
+        <entry key="app/src/main/res/layout/routine_list_item.xml" value="1.5" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.5140845070422535" />
         <entry key="app/src/main/res/menu/gender_menu.xml" value="0.2953125" />
         <entry key="app/src/main/res/menu/navigation_menu.xml" value="0.75" />

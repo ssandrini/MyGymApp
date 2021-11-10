@@ -76,6 +76,19 @@ public class RoutineActivity extends AppCompatActivity {
             calIntent.putExtra(ID_PARENT_EXTRA, 2);
             startActivity(calIntent);
         });
+
+
+        binding.reviewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDialog();
+            }
+        });
+    }
+
+    public void openDialog() {
+        ReviewDialog reviewDialog = new ReviewDialog();
+        reviewDialog.show(getSupportFragmentManager(), "Review Dialog");
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

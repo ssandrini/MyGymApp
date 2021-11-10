@@ -7,13 +7,18 @@ public class User {
     private String gender;
     private String avatarUrl;
 
-    public User(int id, String firstName, String lastName, String username, String gender, String avatarUrl) {
+    public User(int id, String firstName, String lastName, String username, String gender) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.gender = gender;
-        this.avatarUrl = avatarUrl;
+        StringBuilder s = new StringBuilder();
+        s.append("https://ui-avatars.com/api/?name=");
+        s.append(firstName);
+        s.append("+");
+        s.append(lastName);
+        this.avatarUrl = s.toString();
     }
 
     public String getFirstName() {

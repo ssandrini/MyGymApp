@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -42,10 +43,13 @@ public class MainActivity extends AppCompatActivity {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         View headerView = navigationView.getHeaderView(0);
-        View includeHeader = headerView.findViewById(R.id.includeHeader);
-        ImageView userImageView = includeHeader.findViewById(R.id.userImageView);
-        userImageView.setImageResource(R.drawable.logo);
+        ImageView userImageView = headerView.findViewById(R.id.userImageView);
+//        userImageView.setImageResource(R.drawable.logo);
+//        userImageView.setImageURI(UserStore.getUser().getAvatarUrl());
         TextView headerText = headerView.findViewById(R.id.usernameHeader);
+
+
+        Glide.with(this).asBitmap().load(UserStore.getUser().getAvatarUrl()).placeholder(R.drawable.avatar).into(userImageView);
         headerText.setText(UserStore.getUser().getUsername());
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.

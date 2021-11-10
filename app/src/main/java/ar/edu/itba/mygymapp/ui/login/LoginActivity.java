@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
             return ;
         }
 
-        User user = new User(0, "Leonardo", "Dagostino", "agusdagos", "male", "https://avatars.dicebear.com/api/identicon/agusdagos.svg");
+        User user = new User(0, "Santi", "Sandrini", "ssandrini", "male");
         UserStore.setUser(user);
         goToMainActivity();
     }

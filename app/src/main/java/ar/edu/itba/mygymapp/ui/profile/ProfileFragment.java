@@ -27,7 +27,10 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.bumptech.glide.Glide;
+
 import ar.edu.itba.mygymapp.R;
+import ar.edu.itba.mygymapp.backend.store.UserStore;
 import ar.edu.itba.mygymapp.databinding.FragmentFavouritesBinding;
 import ar.edu.itba.mygymapp.databinding.FragmentProfileBinding;
 import ar.edu.itba.mygymapp.ui.favourites.FavouritesViewModel;
@@ -36,6 +39,7 @@ import ar.edu.itba.mygymapp.ui.routines.RoutinesAdapter;
 public class ProfileFragment extends Fragment implements AdapterView.OnItemSelectedListener{
     private ProfileViewModel profileViewModel;
     private FragmentProfileBinding binding;
+    private View root;
     private Button BSelectImage;
     int SELECT_PICTURE = 200;
     // One Preview Image
@@ -46,8 +50,10 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
                 new ViewModelProvider(this).get(ProfileViewModel.class);
 
         binding = FragmentProfileBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        root = binding.getRoot();
 
+        ImageView userImageView = binding.avatar;
+        Glide.with(this).asBitmap().load(UserStore.getUser().getAvatarUrl()).placeholder(R.drawable.avatar).into(userImageView);
         binding.saveBtn.setOnClickListener(this::saveProfile);
 
         Spinner spinner = binding.gender;

@@ -17,9 +17,10 @@
                     android:layout_marginTop="20dp"
                     android:gravity="center"
                     android:orientation="vertical">
-                        <TextView android:layout_height="wrap_content"
+                        <TextView
+                            android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
-                            android:text="Good morning, Mr West! 👋 "
+                            android:text="Good morning, User! 👋 "
                             android:id="@+id/welcomeHeader"
                             android:fontFamily="@font/google_sans_bold"
                             android:textAppearance="?attr/textAppearanceHeadline5"

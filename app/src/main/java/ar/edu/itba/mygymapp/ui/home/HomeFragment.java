@@ -12,7 +12,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
+import ar.edu.itba.mygymapp.backend.store.UserStore;
 import ar.edu.itba.mygymapp.databinding.FragmentHomeBinding;
 
 import ar.edu.itba.mygymapp.ui.routines.RoutinesAdapter;
@@ -37,6 +39,24 @@ public class HomeFragment extends Fragment {
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("Good ");
+        Calendar c = Calendar.getInstance();
+        int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
+        if(timeOfDay >= 0 && timeOfDay < 12){
+            sb.append("morning");
+        }else if(timeOfDay >= 12 && timeOfDay < 16){
+            sb.append("afternoon");
+        }else if(timeOfDay >= 16 && timeOfDay < 21){
+            sb.append("evening");
+        }else if(timeOfDay >= 21 && timeOfDay < 24){
+            sb.append("night");
+        }
+        sb.append(", ");
+        sb.append(UserStore.getUser().getUsername());
+        sb.append("! \uD83D\uDC4B ");
+        binding.welcomeHeader.setText(sb.toString());
 
         myRoutinesAdapter = new RoutinesAdapter();
         highlightsAdapter = new RoutinesAdapter();

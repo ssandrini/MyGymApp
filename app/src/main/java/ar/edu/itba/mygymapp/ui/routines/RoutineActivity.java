@@ -24,8 +24,12 @@ import ar.edu.itba.mygymapp.ui.cycles.CyclesAdapter;
 import ar.edu.itba.mygymapp.backend.models.CycleExercise;
 
 import ar.edu.itba.mygymapp.ui.exercises.ExercisesAdapter;
+import ar.edu.itba.mygymapp.ui.scheduler.SchedulerActivity;
 
 public class RoutineActivity extends AppCompatActivity {
+
+    static final private String ID_PARENT_EXTRA = "com.example.fithub_mobile.ID_PARENT";
+
     private ActivityRoutineBinding binding;
     private ExercisesAdapter exercisesAdapter;
     private CyclesAdapter cyclesAdapter;
@@ -66,7 +70,12 @@ public class RoutineActivity extends AppCompatActivity {
         cyclesAdapter = new CyclesAdapter(routine.getCycles());
         binding.cyclesRecView.setLayoutManager(new LinearLayoutManager(this));
         binding.cyclesRecView.setAdapter(cyclesAdapter);
-        
+
+        binding.calendarBtn.setOnClickListener(view -> {
+            Intent calIntent = new Intent(this, SchedulerActivity.class);
+            calIntent.putExtra(ID_PARENT_EXTRA, 2);
+            startActivity(calIntent);
+        });
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

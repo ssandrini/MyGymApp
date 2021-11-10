@@ -91,23 +91,23 @@ public class RoutinesFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.score:
                 routinesAdapter.sort(Routine.getScoreComparator());
-                if(item.isChecked()) {
+                if (item.isChecked()) {
                     item.setChecked(true);
                 } else
                     item.setChecked(false);
                 return true;
             case R.id.date:
-                if(item.isChecked()) {
+                if (item.isChecked()) {
                     item.setChecked(true);
                 } else
                     item.setChecked(false);
             case R.id.difficulty:
-                if(item.isChecked()) {
+                if (item.isChecked()) {
                     item.setChecked(true);
                 } else
                     item.setChecked(false);
             case R.id.category:
-                if(item.isChecked()) {
+                if (item.isChecked()) {
                     item.setChecked(true);
                 } else
                     item.setChecked(false);
@@ -118,11 +118,9 @@ public class RoutinesFragment extends Fragment {
 
     private void populateRoutines() {
         routines.add(new Routine(0, "Calistenia", "Get those moves", 4.3, true, "rookie", null, null, null, true));
-        routines.add(new Routine(0, "Calistenia", "Get those moves", 4.3, true, "rookie", null, null, null, true));
-
-        routines.add(new Routine(0, "Calistenia", "Get those moves", 4.3, true, "rookie", null, null, null, true));
-
-        routines.add(new Routine(0, "Calistenia", "Get those moves", 4.3, true, "rookie", null, null, null, true));
+        routines.add(new Routine(0, "Boxeo", "Get those moves", 3.3, true, "rookie", null, null, null, true));
+        routines.add(new Routine(0, "Home", "Get those moves", 2.7, true, "rookie", null, null, null, true));
+        routines.add(new Routine(0, "HIIT", "Get those moves", 1.5, true, "rookie", null, null, null, true));
 
     }
 }

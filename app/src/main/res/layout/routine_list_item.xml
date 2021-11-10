@@ -63,8 +63,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-
+                    android:progressBackgroundTint="@color/black"
                     android:numStars="5"
+                    android:theme="@style/RatingBar2"
                     style="?android:attr/ratingBarStyleSmall"
                     android:isIndicator="true"
                     app:layout_constraintStart_toStartOf="@+id/routineName"

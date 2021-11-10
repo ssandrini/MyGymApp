@@ -13,6 +13,7 @@
         <activity android:name=".ui.register.ConfirmationActivity" android:exported="true" />
         <activity android:name=".MainActivity" android:exported="true" />
         <activity android:name=".ui.routines.RoutineActivity" android:exported="true" />
+        <activity android:name=".ui.scheduler.SchedulerActivity" android:exported="true" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true">

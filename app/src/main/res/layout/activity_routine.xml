@@ -28,18 +28,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:scaleType="fitEnd"
-                android:src="@drawable/r1"
-                />
+                android:src="@drawable/r1" />
 
 
             <androidx.appcompat.widget.Toolbar
-                app:navigationIcon="?attr/homeAsUpIndicator"
                 android:id="@+id/toolbar_main"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:titleTextAppearance="@style/NavigationText"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+                app:navigationIcon="?attr/homeAsUpIndicator"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextAppearance="@style/NavigationText">
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -70,20 +69,60 @@
                 android:textAppearance="?attr/textAppearanceHeadline4"
                 android:textStyle="bold" />
 
-            <RatingBar
-                android:id="@+id/rScore"
-                android:layout_width="wrap_content"
+            <LinearLayout
+              android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+
+                >
+                <RatingBar
+                    android:id="@+id/rScore"
+                    android:theme="@style/RatingBar2"
+                    style="?android:attr/ratingBarStyleIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:numStars="5"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp" />
+
+                <Button
+                    android:id="@+id/reviewBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Review">
+
+                </Button>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/reviewLayout"
                 android:layout_height="wrap_content"
-                android:numStars="5"
-                android:layout_marginLeft="5dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                style="?android:attr/ratingBarStyleIndicator"
-                android:isIndicator="true"
-                 />
+                 android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+                <RatingBar
+                    android:id="@+id/rScoreVote"
+                    android:theme="@style/RatingBar2"
+                    style="?android:attr/ratingBarStyleIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
 
+                    android:numStars="5"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Escribe tu review"
+                    >
 
-
+                </TextView>
+            </LinearLayout>
             <TextView
                 android:id="@+id/rDetail"
                 android:layout_width="match_parent"
@@ -92,22 +131,23 @@
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:text="@string/loremipsum"
-                android:textAppearance="?attr/textAppearanceBody1"></TextView>
+                android:textAppearance="?attr/textAppearanceBody1" />
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/rDifficulty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:text="Dificil"
-                android:layout_marginLeft="5dp"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                android:visibility="gone" />
 
 
-            <include layout="@layout/classic_divider"/>
+            <include layout="@layout/classic_divider" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/cyclesRecView"
                 android:layout_width="match_parent"
@@ -120,28 +160,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:padding="20dp"
                 android:gravity="center"
-                >
+                android:padding="20dp">
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/calendarBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="30dp"
-                    app:srcCompat="@drawable/ic_calendar_today_white_24dp"
                     android:backgroundTint="@color/purple_500"
+                    app:srcCompat="@drawable/ic_calendar_today_white_24dp"
 
                     />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
                     android:layout_marginLeft="30dp"
                     android:backgroundTint="@color/purple_500"
                     app:srcCompat="@drawable/ic_play" />
 
 
             </LinearLayout>
+
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

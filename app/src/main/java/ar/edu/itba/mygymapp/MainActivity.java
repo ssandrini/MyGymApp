@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -18,6 +20,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import ar.edu.itba.mygymapp.backend.store.UserStore;
 import ar.edu.itba.mygymapp.databinding.ActivityMainBinding;
 import ar.edu.itba.mygymapp.ui.routines.RoutineActivity;
 
@@ -38,6 +41,12 @@ public class MainActivity extends AppCompatActivity {
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
+        View headerView = navigationView.getHeaderView(0);
+        View includeHeader = headerView.findViewById(R.id.includeHeader);
+        ImageView userImageView = includeHeader.findViewById(R.id.userImageView);
+        userImageView.setImageResource(R.drawable.logo);
+        TextView headerText = headerView.findViewById(R.id.usernameHeader);
+        headerText.setText(UserStore.getUser().getUsername());
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(

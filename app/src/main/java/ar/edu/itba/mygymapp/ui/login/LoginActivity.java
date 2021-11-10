@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import ar.edu.itba.mygymapp.MainActivity;
 import ar.edu.itba.mygymapp.R;
+import ar.edu.itba.mygymapp.backend.models.User;
+import ar.edu.itba.mygymapp.backend.store.UserStore;
 import ar.edu.itba.mygymapp.databinding.ActivityLoginBinding;
 import ar.edu.itba.mygymapp.ui.register.register;
 
@@ -51,6 +53,8 @@ public class LoginActivity extends AppCompatActivity {
             return ;
         }
 
+        User user = new User(0, "Leonardo", "Dagostino", "agusdagos", "male", "https://avatars.dicebear.com/api/identicon/agusdagos.svg");
+        UserStore.setUser(user);
         goToMainActivity();
     }
 

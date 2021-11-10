@@ -106,6 +106,10 @@ public class Routine implements Serializable {
         this.cycles = cycles;
     }
 
+    public void addCycle(Cycle cycle) {
+        this.cycles.add(cycle);
+    }
+
     public String getDurationStr() {
         int baseDuration = getDuration()[0];
         int endDuration = baseDuration + 10;

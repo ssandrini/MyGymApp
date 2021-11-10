@@ -38,6 +38,10 @@ public class Cycle {
         this.exercises = exercises;
     }
 
+    public void addExercise(CycleExercise ex) {
+        this.exercises.add(ex);
+    }
+
     public boolean isExpanded() {
         return isExpanded;
     }

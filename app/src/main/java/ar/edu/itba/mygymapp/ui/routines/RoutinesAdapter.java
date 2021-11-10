@@ -68,6 +68,7 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
         // notifyDataSetChanged();  para notificarle al view adaptor que la data proveniente de la api ya cambio
     }
 
+    // Este filter es para la búsqueda de rutinas:
     @Override
     public Filter getFilter() {
         return filter;
@@ -85,6 +86,8 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
                 for(Routine routine : allRoutines) {
                     if(routine.getName().toLowerCase().contains(charSequence.toString().toLowerCase()))
                         filteredList.add(routine);
+                    else if( Soundex.similarity(routine.getName().toUpperCase(), charSequence.toString().toUpperCase()) > 0.5)
+                        filteredList.add(routine);
                 }
             }
 
@@ -97,7 +100,8 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
         @Override
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
             routines.clear();
-            routines.addAll((Collection<? extends Routine>) filterResults.values);
+            if(filterResults != null && filterResults.values != null)
+                routines.addAll((Collection<? extends Routine>) filterResults.values);
             notifyDataSetChanged();
         }
     };
@@ -119,6 +123,43 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
             routineScore = itemView.findViewById(R.id.routineScore);
             routineDuration = itemView.findViewById(R.id.routineDuration);
             parent = itemView.findViewById(R.id.card);
+        }
+    }
+
+    private static class Soundex {
+        //                                   A,  B,  C,  D,  E,  F,  G,  H,  I,  J,  K,  L,  M,  N,  O,  P,  Q,  R,  S,  T,  U,  V,  W,  X,  Y,  Z
+        private static final char data[] = {'0','1','2','3','0','1','2','0','0','2','2','4','5','5','0','1','2','6','2','3','0','1','0','2','0','2'};
+
+        public static String encode (String input) {
+
+            char [] ans = {'0','0','0','0'};
+            ans[0] = input.charAt(0);
+
+            char lastCode = data[ input.charAt(0) - 65 ];
+            int index = 1;
+            char current;
+
+            for(int i = 1; i < input.length() && index < 4; i++, lastCode = current) {
+                current = data [ input.charAt(i) - 65 ];
+                if( current != '0' && current != lastCode ) {
+                    ans[index++] = current;
+                }
+            }
+
+            return new String(ans);
+        }
+
+        public static double similarity(String in1, String in2) {
+
+            String in1Enc = encode(in1);
+            String in2Enc = encode(in2);
+            double ans = 0;
+            for(int i = 0; i < 4 ; i++) {
+                if (in1Enc.charAt(i) == in2Enc.charAt(i)) {
+                    ans += 0.25;
+                }
+            }
+            return ans;
         }
     }
 }

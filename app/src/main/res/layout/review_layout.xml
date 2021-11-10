@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minWidth="320dp"
-    android:minHeight="450dp">
+    android:minHeight="350dp">
 
 
     <androidx.cardview.widget.CardView
@@ -28,6 +28,7 @@
             app:cardCornerRadius="75dp">
 
             <ImageView
+                android:id="@+id/userAvatarReview"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:scaleType="centerCrop"
@@ -38,20 +39,19 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/usernameReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:layout_gravity="center"
 
-        android:text="@string/nav_header_title"
+        android:layout_marginBottom="32dp"
 
+        android:text="@string/nav_header_title"
         android:textAppearance="?attr/textAppearanceHeadline5"
         app:layout_constraintBottom_toTopOf="@+id/ratingBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/routineName"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -62,7 +62,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.428"
+        app:layout_constraintVertical_bias="0.495"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
@@ -83,26 +83,11 @@
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ratingBar"
-        app:layout_constraintVertical_bias="0.284"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="RtlSymmetry" />
-
-    <TextView
-        android:id="@+id/routineName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/google_sans_bold"
-        android:paddingTop="2dp"
-        android:paddingBottom="2dp"
-        android:text="Routine"
-        android:textAppearance="?attr/textAppearanceHeadline4"
-        app:layout_constraintBottom_toTopOf="@+id/ratingBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.165" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

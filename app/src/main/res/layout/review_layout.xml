@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:background="#E8E8E8"
         android:gravity="top|start"
-        android:hint="Share details of your own experience "
+        android:hint="@string/share_details_of_your_own_experience"
         android:inputType="textMultiLine"
         android:lines="8"
         android:maxLines="10"

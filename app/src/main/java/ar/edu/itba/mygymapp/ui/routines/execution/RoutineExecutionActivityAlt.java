@@ -44,19 +44,24 @@ public class RoutineExecutionActivityAlt extends AppCompatActivity {
         for (Cycle cycle : routine.getCycles()) {
             exercises.addAll(cycle.getExercises());
         }
+        CycleExercise aux = exercises.get(0);
         exercises.remove(0);
         adapter = new ExercisesQueueAdapter(exercises);
-
+        exercises.add(0,aux);
         binding.queueRecView.setLayoutManager(new LinearLayoutManager(this));
         binding.queueRecView.setAdapter(adapter);
 
         binding.previousBtn.setOnClickListener(view -> {
-
+            if(currentExercise > 0) {
+                adapter.previous(exercises.get(currentExercise));
+                currentExercise--;
+                setCurrentExercise(exercises.get(currentExercise));
+            }
         });
 
         binding.nextBtn.setOnClickListener(view -> {
 
-            if (currentExercise < exercises.size()) {
+            if (currentExercise < exercises.size() -1) {
 
                 currentExercise++;
                 setCurrentExercise(adapter.next());

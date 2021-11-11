@@ -1,5 +1,6 @@
 package ar.edu.itba.mygymapp.ui.exercises;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,9 +74,10 @@ public class ExercisesQueueAdapter extends RecyclerView.Adapter<ExercisesQueueAd
         return res;
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void previous(CycleExercise exercise) {
         exercises.add(0, exercise);
-        notifyItemInserted(0);
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

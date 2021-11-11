@@ -25,11 +25,11 @@
 
      <RelativeLayout android:layout_height="wrap_content"
          android:layout_width="wrap_content">
+
          <androidx.constraintlayout.widget.ConstraintLayout
+             android:id="@+id/collapsedRelLayout"
              android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-            android:id="@+id/collapsedRelLayout"
-             >
+             android:layout_height="wrap_content">
 
              <ImageView
                  android:layout_width="25dp"

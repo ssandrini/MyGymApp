@@ -26,6 +26,7 @@ import ar.edu.itba.mygymapp.backend.models.CycleExercise;
 
 import ar.edu.itba.mygymapp.ui.exercises.ExercisesAdapter;
 import ar.edu.itba.mygymapp.ui.routines.execution.RoutineExecutionActivity;
+import ar.edu.itba.mygymapp.ui.routines.execution.RoutineExecutionActivityAlt;
 import ar.edu.itba.mygymapp.ui.scheduler.SchedulerActivity;
 
 public class RoutineActivity extends AppCompatActivity {
@@ -81,7 +82,7 @@ public class RoutineActivity extends AppCompatActivity {
         });
 
         binding.playBtn.setOnClickListener(view -> {
-           Intent exIntent = new Intent(this, RoutineExecutionActivity.class);
+           Intent exIntent = new Intent(this, RoutineExecutionActivityAlt.class);
 //           exIntent.putExtra("abc", routine);
 //           Log.e("DESPUES DEL PUT", "paso");
            startActivity(exIntent);

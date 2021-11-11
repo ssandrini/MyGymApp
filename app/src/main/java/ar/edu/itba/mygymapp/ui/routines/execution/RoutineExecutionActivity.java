@@ -40,7 +40,6 @@ public class RoutineExecutionActivity extends AppCompatActivity {
         root = binding.getRoot();
         setContentView(root);
 
-
         routine = RoutineStore.getRoutines().get(0);
         cyclesLength = routine.getCycles().size();
 

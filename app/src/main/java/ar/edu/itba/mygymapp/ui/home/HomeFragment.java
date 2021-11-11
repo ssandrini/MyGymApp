@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import ar.edu.itba.mygymapp.MainActivity;
 import ar.edu.itba.mygymapp.backend.store.UserStore;
 import ar.edu.itba.mygymapp.databinding.FragmentHomeBinding;
 
@@ -58,9 +59,9 @@ public class HomeFragment extends Fragment {
         sb.append("! \uD83D\uDC4B ");
         binding.welcomeHeader.setText(sb.toString());
 
-        myRoutinesAdapter = new RoutinesAdapter();
-        highlightsAdapter = new RoutinesAdapter();
-        recentsAdapter = new RoutinesAdapter();
+        myRoutinesAdapter = new RoutinesAdapter(getContext());
+        highlightsAdapter = new RoutinesAdapter(getContext());
+        recentsAdapter = new RoutinesAdapter(getContext());
 
         populateRoutines();
         myRoutinesAdapter.setRoutines(routines);

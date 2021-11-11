@@ -32,7 +32,7 @@ public class RoutinesFragment extends Fragment {
         binding = FragmentRoutinesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        routinesAdapter = new RoutinesAdapter();
+        routinesAdapter = new RoutinesAdapter(getContext());
         populateRoutines();
         routinesAdapter.setRoutines(routines);
 

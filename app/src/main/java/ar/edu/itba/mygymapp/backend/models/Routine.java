@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Random;
+
 
 public class Routine implements Serializable {
     private int id;
@@ -17,6 +19,7 @@ public class Routine implements Serializable {
     private Object metadata;
     private boolean favourite;
     private int[] duration;
+    private String routineImageUrl;
     private ArrayList<Cycle> cycles;
 
     private static final Comparator<Routine> scoreComparator = new Comparator<Routine>() {
@@ -43,6 +46,8 @@ public class Routine implements Serializable {
             return routine.mapDifficulty().compareTo(t1.mapDifficulty());
         }
     };
+
+    public static ArrayList<String> routineImages = new ArrayList<>();
 
     public static Comparator<Routine> getScoreComparator() {
         return scoreComparator;
@@ -72,6 +77,7 @@ public class Routine implements Serializable {
         this.metadata = metadata;
         this.favourite = favourite;
         this.duration = new int[]{15, 10};
+        this.routineImageUrl = chooseImage();
 
     }
 
@@ -98,6 +104,32 @@ public class Routine implements Serializable {
         }
     }
 
+    private String chooseImage() {
+        routineImages.add("https://imgur.com/oASE3GD");
+        routineImages.add("https://i.imgur.com/oASE3GD.png");
+        routineImages.add("https://i.imgur.com/ai0es5T.png");
+        routineImages.add("https://i.imgur.com/H9oKNDZ.png");
+        routineImages.add("https://i.imgur.com/UHka8EZ.png");
+        routineImages.add("https://i.imgur.com/UZaGvjH.png");
+        Random random = new Random();
+        return routineImages.get(random.nextInt(routineImages.size()));
+    }
+
+    public String getRoutineImageUrl() {
+        return routineImageUrl;
+    }
+
+    public void setRoutineImageUrl(String routineImageUrl) {
+        this.routineImageUrl = routineImageUrl;
+    }
+
+    public static ArrayList<String> getRoutineImages() {
+        return routineImages;
+    }
+
+    public static void setRoutineImages(ArrayList<String> routineImages) {
+        Routine.routineImages = routineImages;
+    }
 
     public ArrayList<Cycle> getCycles() {
         return cycles;

@@ -25,10 +25,10 @@
             app:title="Rutina">
 
             <ImageView
+                android:id="@+id/routineImageView"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
-                android:scaleType="fitEnd"
-                android:src="@drawable/r1" />
+                android:scaleType="fitEnd" />
 
 
             <androidx.appcompat.widget.Toolbar

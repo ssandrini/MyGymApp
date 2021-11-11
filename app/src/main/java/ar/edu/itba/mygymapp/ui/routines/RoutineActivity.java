@@ -12,6 +12,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import java.util.ArrayList;
@@ -57,6 +58,7 @@ public class RoutineActivity extends AppCompatActivity {
         binding.rScore.setRating(routine.getScore().floatValue());
         binding.rDetail.setText(routine.getDetail());
         binding.collapsingToolbarLayout.setTitle(routine.getName());
+        Glide.with(this).asBitmap().load(routine.getRoutineImageUrl()).placeholder(R.drawable.r1).into(binding.routineImageView);
 
         ArrayList<CycleExercise> exercises = new ArrayList<>();
         exercises.add(new CycleExercise("Flexiones", "Ejercicio", "Para el pecho", 0, 1, 20, 10, null));

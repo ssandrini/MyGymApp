@@ -1,6 +1,7 @@
 package ar.edu.itba.mygymapp.ui.routines;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +34,12 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
 
     private ArrayList<Routine> routines = new ArrayList<>();
     private ArrayList<Routine> allRoutines;
+    private Context mContext;
+
+    public RoutinesAdapter(Context mContext) {
+        this.mContext = mContext;
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -48,6 +55,11 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
         holder.routineScore.setRating(routines.get(position).getScore().floatValue());
         holder.routineDuration.setText(routines.get(position).getDurationStr());
 
+        Glide.with(holder.parent.getContext())
+                .asBitmap()
+                .load(routines.get(position).getRoutineImageUrl())
+                .placeholder(R.drawable.r1)
+                .into(holder.routineImg);
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,6 +135,7 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
             routineName = itemView.findViewById(R.id.routineName);
             routineScore = itemView.findViewById(R.id.routineScore);
             routineDuration = itemView.findViewById(R.id.routineDuration);
+            routineImg = itemView.findViewById(R.id.routineImg);
             parent = itemView.findViewById(R.id.card);
         }
     }

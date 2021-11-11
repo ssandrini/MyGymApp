@@ -31,7 +31,7 @@ public class FavouritesFragment extends Fragment {
         binding = FragmentFavouritesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        adapter = new RoutinesAdapter();
+        adapter = new RoutinesAdapter(getContext());
         populateRoutines();
         adapter.setRoutines(routines);
 

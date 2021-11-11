@@ -2,6 +2,7 @@ package ar.edu.itba.mygymapp.ui.routines.execution;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -15,14 +16,17 @@ import ar.edu.itba.mygymapp.backend.models.CycleExercise;
 import ar.edu.itba.mygymapp.backend.models.Routine;
 import ar.edu.itba.mygymapp.backend.store.RoutineStore;
 import ar.edu.itba.mygymapp.databinding.RoutineExecutionAltBinding;
-import ar.edu.itba.mygymapp.ui.exercises.ExercisesAdapter;
+import ar.edu.itba.mygymapp.ui.exercises.ExercisesQueueAdapter;
+
 
 public class RoutineExecutionActivityAlt extends AppCompatActivity {
 
     private RoutineExecutionAltBinding binding;
     private View root;
     private Routine routine;
-    private ExercisesAdapter adapter;
+    private ExercisesQueueAdapter adapter;
+    private ArrayList<CycleExercise> exercises;
+    private int currentExercise = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,15 +40,28 @@ public class RoutineExecutionActivityAlt extends AppCompatActivity {
 
         setCurrentExercise(routine.getCycles().get(0).getExercises().get(0));
 
-        ArrayList<CycleExercise> exercises = new ArrayList<>();
+        exercises = new ArrayList<>();
         for (Cycle cycle : routine.getCycles()) {
             exercises.addAll(cycle.getExercises());
         }
         exercises.remove(0);
-        adapter = new ExercisesAdapter(exercises);
+        adapter = new ExercisesQueueAdapter(exercises);
 
         binding.queueRecView.setLayoutManager(new LinearLayoutManager(this));
         binding.queueRecView.setAdapter(adapter);
+
+        binding.previousBtn.setOnClickListener(view -> {
+
+        });
+
+        binding.nextBtn.setOnClickListener(view -> {
+
+            if (currentExercise < exercises.size()) {
+
+                currentExercise++;
+                setCurrentExercise(adapter.next());
+            }
+        });
     }
 
     private void setCurrentExercise(CycleExercise exercise) {

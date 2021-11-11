@@ -20,11 +20,9 @@ import ar.edu.itba.mygymapp.backend.models.CycleExercise;
 
 public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.ViewHolder> {
 
-    private ArrayList<CycleExercise
-> exercises;
+    private ArrayList<CycleExercise> exercises;
 
-    public ExercisesAdapter(ArrayList<CycleExercise
-> exercises) {
+    public ExercisesAdapter(ArrayList<CycleExercise> exercises) {
         this.exercises = exercises;
     }
 
@@ -66,10 +64,9 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
         return exercises.size();
     }
 
-    public void setExercises(ArrayList<CycleExercise
-> exercises) {
+    public void setExercises(ArrayList<CycleExercise> exercises) {
         this.exercises = exercises;
-        // notifyDataSetChanged();  para notificarle al view adaptor que la data proveniente de la api ya cambio
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -94,7 +91,7 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
                 @Override
                 public void onClick(View view) {
                     CycleExercise
- exercise = exercises.get(getAdapterPosition());
+                            exercise = exercises.get(getAdapterPosition());
                     exercise.setExpanded(!exercise.isExpanded());
                     notifyItemChanged(getAdapterPosition());
                 }
@@ -104,7 +101,7 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
                 @Override
                 public void onClick(View view) {
                     CycleExercise
- exercise = exercises.get(getAdapterPosition());
+                            exercise = exercises.get(getAdapterPosition());
                     exercise.setExpanded(!exercise.isExpanded());
                     notifyItemChanged(getAdapterPosition());
                 }
@@ -114,7 +111,7 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
                 @Override
                 public void onClick(View view) {
                     CycleExercise
- exercise = exercises.get(getAdapterPosition());
+                            exercise = exercises.get(getAdapterPosition());
                     exercise.setExpanded(!exercise.isExpanded());
                     notifyItemChanged(getAdapterPosition());
                 }

@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         routines.add(new Routine(0, "HIIT", "Get those moves", 1.5, true, "rookie", null, null, null, true));
 
         ArrayList<CycleExercise> exercises = new ArrayList<>();
+        exercises.add(new CycleExercise("Sentadillas", "Ejercicio", "Para las piernas", 2, 3, 60, 5, null));
         exercises.add(new CycleExercise("Flexiones", "Ejercicio", "Para el pecho", 0, 1, 20, 10, null));
         exercises.add(new CycleExercise("Dominadas", "Ejercicio", "Para la espalda", 1, 2, 30, 5, null));
         ArrayList<Cycle> cycles = new ArrayList<>();

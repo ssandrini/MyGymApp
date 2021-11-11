@@ -106,4 +106,18 @@ public class Cycle {
         this.metadata = metadata;
     }
 
+    @Override
+    public String toString() {
+        return "Cycle{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", detail='" + detail + '\'' +
+                ", type='" + type + '\'' +
+                ", order=" + order +
+                ", repetitions=" + repetitions +
+                ", metadata=" + metadata +
+                ", exercises=" + exercises +
+                ", isExpanded=" + isExpanded +
+                '}';
+    }
 }

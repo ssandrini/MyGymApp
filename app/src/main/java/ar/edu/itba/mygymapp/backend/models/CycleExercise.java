@@ -92,4 +92,18 @@ public class CycleExercise {
         this.metadata = metadata;
     }
 
+    @Override
+    public String toString() {
+        return "CycleExercise{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", detail='" + detail + '\'' +
+                ", isExpanded=" + isExpanded +
+                ", id=" + id +
+                ", order=" + order +
+                ", duration=" + duration +
+                ", repetitions=" + repetitions +
+                ", metadata=" + metadata +
+                '}';
+    }
 }

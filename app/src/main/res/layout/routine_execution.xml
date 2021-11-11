@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.routines.execution.RoutineExecutionActivity"
+    >
+
+    <LinearLayout
+        android:id="@+id/cycleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_200"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/cycleName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/google_sans_bold"
+            android:text="Ciclo"
+            android:textAppearance="?attr/textAppearanceHeadline3">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/cycleIter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1/n"
+
+            android:textAppearance="?attr/textAppearanceHeadline6">
+
+        </TextView>
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/exerciseCard"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        app:cardBackgroundColor="#009688"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@id/cycleLayout"
+        tools:layout_editor_absoluteX="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/exerciseName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/google_sans_bold"
+                android:text="Ejercicio"
+                android:textAppearance="?attr/textAppearanceHeadline4">
+
+            </TextView>
+            <TextView
+                android:id="@+id/exerciseDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/google_sans"
+                android:text="Descripcion"
+                android:textAppearance="?attr/textAppearanceHeadline5">
+
+            </TextView>
+
+            <LinearLayout android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                android:layout_marginTop="30dp"
+                >
+                <ImageView
+                    android:id="@+id/exerciseImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/r1"
+                    android:layout_weight="3"
+                    >
+
+                </ImageView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="5">
+
+                    <TextView
+                        android:id="@+id/exerciseDuration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:gravity="center"
+                        android:text="20''"
+                        android:textAppearance="?attr/textAppearanceHeadline2">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/exerciseReps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:gravity="center"
+                        android:text="x12"
+                        android:textAppearance="?attr/textAppearanceHeadline2">
+
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/purple_200"
+        android:gravity="center"
+        android:orientation="horizontal"
+
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/previousBtn"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_previous">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/nextBtn"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_next">
+
+        </ImageView>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

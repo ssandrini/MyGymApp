@@ -24,6 +24,7 @@ import ar.edu.itba.mygymapp.ui.cycles.CyclesAdapter;
 import ar.edu.itba.mygymapp.backend.models.CycleExercise;
 
 import ar.edu.itba.mygymapp.ui.exercises.ExercisesAdapter;
+import ar.edu.itba.mygymapp.ui.routines.execution.RoutineExecutionActivity;
 import ar.edu.itba.mygymapp.ui.scheduler.SchedulerActivity;
 
 public class RoutineActivity extends AppCompatActivity {
@@ -58,8 +59,8 @@ public class RoutineActivity extends AppCompatActivity {
         binding.collapsingToolbarLayout.setTitle(routine.getName());
 
         ArrayList<CycleExercise> exercises = new ArrayList<>();
-        exercises.add(new CycleExercise("Flexiones", "Ejercicio", "Para el pecho", 0, 1, 2, 3, null));
-        exercises.add(new CycleExercise("Dominadas", "Ejercicio", "Para la espalda", 1, 2, 3, 4, null));
+        exercises.add(new CycleExercise("Flexiones", "Ejercicio", "Para el pecho", 0, 1, 20, 10, null));
+        exercises.add(new CycleExercise("Dominadas", "Ejercicio", "Para la espalda", 1, 2, 30, 5, null));
         ArrayList<Cycle> cycles = new ArrayList<>();
         cycles.add(new Cycle(0, "Ciclo A", "Calentando", "Calentamiento", 1, 10, null, exercises));
         cycles.add(new Cycle(1, "Ciclo B", "Calentando2", "Entrenando", 2, 10, null, exercises));
@@ -77,6 +78,12 @@ public class RoutineActivity extends AppCompatActivity {
             startActivity(calIntent);
         });
 
+        binding.playBtn.setOnClickListener(view -> {
+           Intent exIntent = new Intent(this, RoutineExecutionActivity.class);
+//           exIntent.putExtra("abc", routine);
+//           Log.e("DESPUES DEL PUT", "paso");
+           startActivity(exIntent);
+        });
 
         binding.reviewBtn.setOnClickListener(new View.OnClickListener() {
             @Override

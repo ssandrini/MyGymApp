@@ -2,6 +2,7 @@ package ar.edu.itba.mygymapp.backend.models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class Routine implements Serializable {
@@ -208,5 +209,23 @@ public class Routine implements Serializable {
 
     public void setFavourite(boolean favourite) {
         this.favourite = favourite;
+    }
+
+    @Override
+    public String toString() {
+        return "Routine{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", detail='" + detail + '\'' +
+                ", score=" + score +
+                ", isPublic=" + isPublic +
+                ", difficulty='" + difficulty + '\'' +
+                ", user=" + user +
+                ", category=" + category +
+                ", metadata=" + metadata +
+                ", favourite=" + favourite +
+                ", duration=" + Arrays.toString(duration) +
+                ", cycles=" + cycles +
+                '}';
     }
 }

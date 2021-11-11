@@ -17,6 +17,7 @@
         <activity android:name=".MainActivity" android:exported="true" />
         <activity android:name=".ui.routines.RoutineActivity" android:exported="true" />
         <activity android:name=".ui.scheduler.SchedulerActivity" android:exported="true" />
+        <activity android:name=".ui.routines.execution.RoutineExecutionActivity" android:exported="true" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true">

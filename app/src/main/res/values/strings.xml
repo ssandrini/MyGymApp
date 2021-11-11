@@ -18,6 +18,8 @@
     <string name="profile_phone">Phone</string>
     <string name="profile_photo">Change avatar</string>
     <string name="edit_profile">Edit</string>
+    <string name="cancel_edit">Cancel</string>
+
 
     <string-array name="genders">
         <item>Not Specified</item>

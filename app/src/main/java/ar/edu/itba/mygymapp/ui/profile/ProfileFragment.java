@@ -31,7 +31,6 @@ import com.bumptech.glide.Glide;
 
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.backend.store.UserStore;
-import ar.edu.itba.mygymapp.databinding.FragmentFavouritesBinding;
 import ar.edu.itba.mygymapp.databinding.FragmentProfileBinding;
 import ar.edu.itba.mygymapp.ui.favourites.FavouritesViewModel;
 import ar.edu.itba.mygymapp.ui.routines.RoutinesAdapter;
@@ -79,6 +78,13 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
             public void onClick(View view) {
                 binding.infoLayout.setVisibility(View.GONE);
                 binding.editLayout.setVisibility(View.VISIBLE);
+            }
+        });
+        binding.cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.infoLayout.setVisibility(View.VISIBLE);
+                binding.editLayout.setVisibility(View.GONE);
             }
         });
         return root;

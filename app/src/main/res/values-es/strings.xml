@@ -54,7 +54,7 @@
     <string name="verification">Verificación de cuenta</string>
     <string name="verification_text">Gracias por registrarte en MyGym, acabamos de enviarte un mail a la dirección especificada previamente. Porfavor ingrese el codigo de verificacion y su mail debajo.</string>
     <string name="edit_profile">Editar</string>
-    <string name="share_details_of_your_own_experience">Share details of your own experience</string>
+    <string name="cancel_edit">Cancelar</string>
 
 
 </resources>

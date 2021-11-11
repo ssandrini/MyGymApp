@@ -1,5 +1,6 @@
 package ar.edu.itba.mygymapp.ui.routines.execution;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.mut_jaeryo.circletimer.CircleTimer;
@@ -76,6 +78,18 @@ public class RoutineExecutionActivity extends AppCompatActivity {
 //        Intent i = getIntent();
 //        routine = (Routine) i.getSerializableExtra("abc");
 
+
+        binding.closeBtn.setOnClickListener(view -> {
+            new AlertDialog.Builder(this,  R.style.AlertDialogStyle).setTitle("Are you sure you want to exit?").setCancelable(false)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+        });
 
         binding.previousBtn.setOnClickListener(new Back());
 

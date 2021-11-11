@@ -68,4 +68,9 @@
     <style name="profileCard">
         <item name="android:textSize">17sp</item>
     </style>
+    <style name="AlertDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:colorBackground">@color/purple_200</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorPrimary">@color/black</item>
+    </style>
 </resources>

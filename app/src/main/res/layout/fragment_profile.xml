@@ -67,12 +67,13 @@
     </View>
 
     <LinearLayout
+        android:minHeight="270dp"
         android:id="@+id/edit_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="gone"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:gravity="center">
 
         <EditText
@@ -144,6 +145,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:minHeight="270dp"
         android:id="@+id/info_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

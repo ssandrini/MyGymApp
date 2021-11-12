@@ -4,14 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
-
+import ar.edu.itba.mygymapp.backend.apimodels.Error;
+import android.util.Patterns;
 import ar.edu.itba.mygymapp.MainActivity;
 import ar.edu.itba.mygymapp.R;
+import ar.edu.itba.mygymapp.backend.App;
+import ar.edu.itba.mygymapp.backend.apimodels.Credentials;
 import ar.edu.itba.mygymapp.backend.models.User;
+import ar.edu.itba.mygymapp.backend.repository.Resource;
+import ar.edu.itba.mygymapp.backend.repository.Status;
 import ar.edu.itba.mygymapp.backend.store.UserStore;
 import ar.edu.itba.mygymapp.databinding.ActivityLoginBinding;
 import ar.edu.itba.mygymapp.ui.register.register;
@@ -44,18 +49,44 @@ public class LoginActivity extends AppCompatActivity {
             userView.setError(getText(R.string.invalid_username));
             error = true;
         }
-        if (password.trim().length() == 0) {
+        if (password.trim().length() == 0 ) {
             passView.setError(getText(R.string.invalid_password));
             error = true;
         }
+
         if (error) {
             Toast.makeText(getApplicationContext(), getText(R.string.invalid_login), Toast.LENGTH_SHORT).show();
             return ;
         }
 
-        User user = new User(0, "Santi", "Sandrini", "ssandrini", "male");
-        UserStore.setUser(user);
-        goToMainActivity();
+        Credentials credentials = new Credentials(username, password);
+        App app = (App)getApplication();
+        app.getUserRepository().login(credentials).observe(this, r -> {
+            if (r.getStatus() == Status.SUCCESS) {
+                app.getPreferences().setAuthToken(r.getData().getToken());
+                User user = new User(0, "Santi", "Sandrini", "ssandrini", "male");
+                UserStore.setUser(user);
+                goToMainActivity();
+            } else {
+                defaultResourceHandler(r);
+                if (r.getStatus() == Status.ERROR)
+                    Toast.makeText(getApplicationContext(),getText(R.string.invalid_login),Toast.LENGTH_LONG).show();
+            }
+        });
+
+    }
+
+    private void defaultResourceHandler(Resource<?> resource) {
+        switch (resource.getStatus()) {
+            case LOADING:
+                Log.d("LOGIN", "CARGANDO LOGIN");
+                break;
+            case ERROR:
+                Error error = resource.getError();
+                assert error != null;
+                Log.d("LOGIN", error.getDescription() + error.getCode() + "");
+                break;
+        }
     }
 
     public void goToMainActivity() {

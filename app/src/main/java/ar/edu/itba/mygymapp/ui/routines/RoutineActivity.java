@@ -75,8 +75,6 @@ public class RoutineActivity extends AppCompatActivity {
                 binding.collapsingToolbarLayout.setTitle(routine.getName());
                 Glide.with(this).asBitmap().load(routine.getRoutineImageUrl()).placeholder(R.drawable.r1).into(binding.routineImageView);
 
-                ArrayList<CycleExercise> exercises = new ArrayList<>();
-
                 app.getCycleRepository().getCycles(routineId).observe(this, rCycle -> {
                     if (rCycle.getStatus() == Status.SUCCESS) {
                         ArrayList<Cycle> cycles = new ArrayList<>();
@@ -91,6 +89,11 @@ public class RoutineActivity extends AppCompatActivity {
                                     }
                                     aux.setExercises(cycleExercises);
                                     cycles.add(aux);
+                                    routine.setCycles(cycles);
+                                    cyclesAdapter = new CyclesAdapter(routine.getCycles());
+                                    binding.cyclesRecView.setLayoutManager(new LinearLayoutManager(this));
+                                    binding.cyclesRecView.setAdapter(cyclesAdapter);
+                                    cyclesAdapter.notifyDataSetChanged();
                                 } else {
                                     defaultResourceHandler(r);
                                     if (r.getStatus() == Status.ERROR)
@@ -98,10 +101,7 @@ public class RoutineActivity extends AppCompatActivity {
                                 }
                             });
                         }
-                        routine.setCycles(cycles);
-                        cyclesAdapter = new CyclesAdapter(routine.getCycles());
-                        binding.cyclesRecView.setLayoutManager(new LinearLayoutManager(this));
-                        binding.cyclesRecView.setAdapter(cyclesAdapter);
+
                     } else {
                         defaultResourceHandler(r);
                         if (r.getStatus() == Status.ERROR)

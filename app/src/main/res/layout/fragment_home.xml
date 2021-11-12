@@ -30,7 +30,7 @@
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             android:text="How about doing Calisthenics today?"
-
+                            android:id="@+id/recomendedRoutine"
                             android:fontFamily="@font/google_sans"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:paddingBottom="10dp"

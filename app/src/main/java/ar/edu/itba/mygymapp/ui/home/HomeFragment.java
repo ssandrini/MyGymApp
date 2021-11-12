@@ -2,6 +2,8 @@ package ar.edu.itba.mygymapp.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +34,7 @@ public class HomeFragment extends Fragment {
     private RoutinesAdapter myRoutinesAdapter;
     private RoutinesAdapter highlightsAdapter;
     private RoutinesAdapter recentsAdapter;
+    private View root;
 
     private ArrayList<Routine> routines = new ArrayList<>();
     /*
@@ -56,11 +59,20 @@ public class HomeFragment extends Fragment {
         }else if(timeOfDay >= 21 && timeOfDay < 24){
             sb.append("night");
         }
+
         sb.append(", ");
         sb.append(app.getUserRepository().getUser().getUsername());
         sb.append("! \uD83D\uDC4B ");
         binding.welcomeHeader.setText(sb.toString());
+        DisplayMetrics displayMetrics= root.getContext().getResources().getDisplayMetrics();
+        float dpWidth=displayMetrics.widthPixels/displayMetrics.density;
+        float dpHeight=displayMetrics.heightPixels/displayMetrics.density;
+        Log.d("tamaño:",String.valueOf(dpWidth));
+        if(dpWidth>=700){
+            binding.welcomeHeader.setTextSize(30);
+           binding.recomendedRoutine.setTextSize(17);
 
+        }
         myRoutinesAdapter = new RoutinesAdapter(getContext());
         highlightsAdapter = new RoutinesAdapter(getContext());
         recentsAdapter = new RoutinesAdapter(getContext());

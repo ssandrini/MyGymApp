@@ -6,9 +6,12 @@ import androidx.lifecycle.LiveData;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import ar.edu.itba.mygymapp.backend.apimodels.Error;
 import ar.edu.itba.mygymapp.MainActivity;
@@ -25,16 +28,26 @@ public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
     private SharedPreferences sharedPreferences;
-
+    private View root;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sharedPreferences = getSharedPreferences("login",MODE_PRIVATE);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        root=binding.getRoot();
+        DisplayMetrics displayMetrics= root.getContext().getResources().getDisplayMetrics();
+        float dpWidth=displayMetrics.widthPixels/displayMetrics.density;
+        float dpHeight=displayMetrics.heightPixels/displayMetrics.density;
+        Log.d("tamaño:",String.valueOf(dpWidth));
+        if(dpWidth>=700){
+            binding.loginBtn.setTextSize(23);
+            binding.registerBtn.setTextSize(23);
+            binding.textView.setTextSize(20);
+            binding.username.setTextSize(23);
+            binding.password.setTextSize(23);
 
-
-
+        }
         binding.loginBtn.setOnClickListener(this::login);
         binding.registerBtn.setOnClickListener(this::goToRegister);
     }

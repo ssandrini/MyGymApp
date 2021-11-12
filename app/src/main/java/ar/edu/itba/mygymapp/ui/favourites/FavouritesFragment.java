@@ -1,6 +1,8 @@
 package ar.edu.itba.mygymapp.ui.favourites;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
@@ -40,7 +43,14 @@ public class FavouritesFragment extends Fragment {
         adapter = new RoutinesAdapter(getContext());
         adapter.setRoutines(routines);
 
-        binding.favsRecView.setLayoutManager(new LinearLayoutManager(getContext()));
+        DisplayMetrics displayMetrics= root.getContext().getResources().getDisplayMetrics();
+        float dpWidth=displayMetrics.widthPixels/displayMetrics.density;
+        Log.d("tamaño:",String.valueOf(dpWidth));
+        if(dpWidth>=700){
+            binding.favsRecView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        }else {
+            binding.favsRecView.setLayoutManager(new LinearLayoutManager(getContext()));
+        }
         binding.favsRecView.setAdapter(adapter);
         initRoutines();
         return root;

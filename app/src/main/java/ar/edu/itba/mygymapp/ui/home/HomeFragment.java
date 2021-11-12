@@ -14,8 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import ar.edu.itba.mygymapp.MainActivity;
-import ar.edu.itba.mygymapp.backend.store.UserStore;
+import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.databinding.FragmentHomeBinding;
 
 import ar.edu.itba.mygymapp.ui.routines.RoutinesAdapter;
@@ -26,7 +25,7 @@ import ar.edu.itba.mygymapp.backend.models.Routine;
 public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
-
+    private App app;
     private RoutinesAdapter myRoutinesAdapter;
     private RoutinesAdapter highlightsAdapter;
     private RoutinesAdapter recentsAdapter;
@@ -40,7 +39,7 @@ public class HomeFragment extends Fragment {
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
+        app = (App) getActivity().getApplication();
         StringBuilder sb = new StringBuilder();
         sb.append("Good ");
         Calendar c = Calendar.getInstance();
@@ -55,7 +54,7 @@ public class HomeFragment extends Fragment {
             sb.append("night");
         }
         sb.append(", ");
-        sb.append(UserStore.getUser().getUsername());
+        sb.append(app.getUserRepository().getUser().getUsername());
         sb.append("! \uD83D\uDC4B ");
         binding.welcomeHeader.setText(sb.toString());
 

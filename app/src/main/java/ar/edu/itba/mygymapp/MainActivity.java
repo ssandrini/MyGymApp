@@ -23,25 +23,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
+import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.models.Cycle;
 import ar.edu.itba.mygymapp.backend.models.CycleExercise;
 import ar.edu.itba.mygymapp.backend.models.Routine;
 import ar.edu.itba.mygymapp.backend.store.RoutineStore;
-import ar.edu.itba.mygymapp.backend.store.UserStore;
 import ar.edu.itba.mygymapp.databinding.ActivityMainBinding;
-import ar.edu.itba.mygymapp.ui.routines.RoutineActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "AppBar";
-
+    private App app;
     private AppBarConfiguration mAppBarConfiguration, tAppBarConfiguration;
     private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        app = (App) this.getApplication();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBar.toolbar);
@@ -52,13 +51,11 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = binding.navView;
         View headerView = navigationView.getHeaderView(0);
         ImageView userImageView = headerView.findViewById(R.id.userImageView);
-//        userImageView.setImageResource(R.drawable.logo);
-//        userImageView.setImageURI(UserStore.getUser().getAvatarUrl());
         TextView headerText = headerView.findViewById(R.id.usernameHeader);
 
 
-        Glide.with(this).asBitmap().load(UserStore.getUser().getAvatarUrl()).placeholder(R.drawable.avatar).into(userImageView);
-        headerText.setText(UserStore.getUser().getUsername());
+        Glide.with(this).asBitmap().load(app.getUserRepository().getUser().getAvatarUrl()).placeholder(R.drawable.avatar).into(userImageView);
+        headerText.setText(app.getUserRepository().getUser().getUsername());
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(

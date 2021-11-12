@@ -1,35 +1,39 @@
 package ar.edu.itba.mygymapp.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 import ar.edu.itba.mygymapp.backend.apimodels.Error;
-import android.util.Patterns;
 import ar.edu.itba.mygymapp.MainActivity;
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.apimodels.Credentials;
-import ar.edu.itba.mygymapp.backend.models.User;
+import ar.edu.itba.mygymapp.backend.apimodels.FullUser;
 import ar.edu.itba.mygymapp.backend.repository.Resource;
 import ar.edu.itba.mygymapp.backend.repository.Status;
-import ar.edu.itba.mygymapp.backend.store.UserStore;
 import ar.edu.itba.mygymapp.databinding.ActivityLoginBinding;
 import ar.edu.itba.mygymapp.ui.register.register;
 
 public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
+    private SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        sharedPreferences = getSharedPreferences("login",MODE_PRIVATE);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
 
         binding.loginBtn.setOnClickListener(this::login);
         binding.registerBtn.setOnClickListener(this::goToRegister);
@@ -64,9 +68,19 @@ public class LoginActivity extends AppCompatActivity {
         app.getUserRepository().login(credentials).observe(this, r -> {
             if (r.getStatus() == Status.SUCCESS) {
                 app.getPreferences().setAuthToken(r.getData().getToken());
-                User user = new User(0, "Santi", "Sandrini", "ssandrini", "male");
-                UserStore.setUser(user);
-                goToMainActivity();
+                //sharedPreferences.edit().putBoolean("logged",true).apply();
+
+                app.getUserRepository().getCurrentUser().observe(this, res -> {
+                    if (res.getStatus() == Status.SUCCESS) {
+                        FullUser user;
+                        user = res.getData();
+                        app.getUserRepository().setUser(user);
+                        goToMainActivity();
+                    } else {
+                        Resource.defaultResourceHandler(res);
+                    }
+                });
+
             } else {
                 defaultResourceHandler(r);
                 if (r.getStatus() == Status.ERROR)

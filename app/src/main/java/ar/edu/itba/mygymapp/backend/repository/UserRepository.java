@@ -18,10 +18,19 @@ import ar.edu.itba.mygymapp.backend.models.RegisterCredentials;
 
 public class UserRepository {
 
+    private FullUser user;
     private final ApiUserService apiService;
-
     public UserRepository(App app) {
         this.apiService = ApiClient.create(app, ApiUserService.class);
+        user = null;
+    }
+
+    public FullUser getUser() {
+        return user;
+    }
+
+    public void setUser(FullUser user) {
+        this.user = user;
     }
 
     public LiveData<Resource<Token>> login(Credentials credentials) {
@@ -75,17 +84,6 @@ public class UserRepository {
             @Override
             protected LiveData<ApiResponse<FullUser>> createCall() {
                 return apiService.getCurrentUser();
-            }
-        }.asLiveData();
-    }
-
-    public LiveData<Resource<PagedList<FullRoutine>>> getUserRoutines() {
-        return new NetworkBoundResource<PagedList<FullRoutine>, PagedList<FullRoutine>>()
-        {
-            @NonNull
-            @Override
-            protected LiveData<ApiResponse<PagedList<FullRoutine>>> createCall() {
-                return apiService.getUserRoutines();
             }
         }.asLiveData();
     }

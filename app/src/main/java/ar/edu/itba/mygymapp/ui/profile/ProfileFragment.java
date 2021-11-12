@@ -23,6 +23,7 @@ import com.bumptech.glide.Glide;
 
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.backend.App;
+import ar.edu.itba.mygymapp.backend.apimodels.FullUser;
 import ar.edu.itba.mygymapp.databinding.FragmentProfileBinding;
 
 public class ProfileFragment extends Fragment implements AdapterView.OnItemSelectedListener{
@@ -43,10 +44,16 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         root = binding.getRoot();
 
+        FullUser user = app.getUserRepository().getUser();
         ImageView userImageView = binding.avatar;
-        Glide.with(this).asBitmap().load(app.getUserRepository().getUser().getAvatarUrl()).placeholder(R.drawable.avatar).into(userImageView);
-        binding.saveBtn.setOnClickListener(this::saveProfile);
+        Glide.with(this).asBitmap().load(user.getAvatarUrl()).placeholder(R.drawable.avatar).into(userImageView);
+        binding.profileUsername.setText(user.getUsername());
+        binding.profileEmail.setText(user.getEmail());
+        binding.setFname.setText(user.getFirstName());
+        binding.setLname.setText(user.getLastName());
+        binding.setGender.setText(user.getGender());
 
+        binding.saveBtn.setOnClickListener(this::saveProfile);
         Spinner spinner = binding.gender;
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(), R.array.genders, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

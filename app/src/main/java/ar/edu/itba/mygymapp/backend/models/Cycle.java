@@ -30,6 +30,8 @@ public class Cycle {
         this.isExpanded = false;
     }
 
+
+
     public ArrayList<CycleExercise> getExercises() {
         return exercises;
     }

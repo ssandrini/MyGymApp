@@ -78,8 +78,7 @@ public class Routine implements Serializable {
         this.metadata = metadata;
         this.favourite = favourite;
         this.duration = new int[]{15, 10};
-        this.routineImageUrl = chooseImage();
-
+        this.routineImageUrl = routineImageUrl != null ? routineImageUrl : chooseImage();
     }
 
     public Routine(int id, String name, String detail, Integer score, boolean isPublic, String difficulty, PublicUser user, Category category, Object metadata, boolean favourite, ArrayList<Cycle> cycles) {

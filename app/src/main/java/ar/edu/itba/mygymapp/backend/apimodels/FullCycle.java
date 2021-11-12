@@ -3,6 +3,8 @@ package ar.edu.itba.mygymapp.backend.apimodels;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import ar.edu.itba.mygymapp.backend.models.Cycle;
+
 public class FullCycle {
 
     @SerializedName("id")
@@ -29,13 +31,11 @@ public class FullCycle {
 
     /**
      * No args constructor for use in serialization
-     *
      */
     public FullCycle() {
     }
 
     /**
-     *
      * @param metadata
      * @param name
      * @param id
@@ -111,4 +111,14 @@ public class FullCycle {
         this.metadata = metadata;
     }
 
+    public Cycle toCycle() {
+        return new Cycle(getId(),
+                getName(),
+                getDetail(),
+                getType(),
+                getOrder(),
+                getRepetitions(),
+                getMetadata()
+        );
+    }
 }

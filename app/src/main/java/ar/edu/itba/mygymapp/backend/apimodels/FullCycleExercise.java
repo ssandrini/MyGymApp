@@ -5,6 +5,8 @@ import android.util.Log;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import ar.edu.itba.mygymapp.backend.models.CycleExercise;
+
 public class FullCycleExercise implements Comparable<FullCycleExercise> {
 
     @SerializedName("exercise")
@@ -52,6 +54,7 @@ public class FullCycleExercise implements Comparable<FullCycleExercise> {
         this.repetitions = repetitions;
         this.metadata = metadata;
     }
+
 
     public FullExercise getExercise() {
         return exercise;
@@ -138,5 +141,9 @@ public class FullCycleExercise implements Comparable<FullCycleExercise> {
             return c;
 
         return this.getOrder() - o.getOrder();
+    }
+
+    public CycleExercise toCycleExercise() {
+        return new CycleExercise(getExercise().getName(), getExercise().getDetail(), getExercise().getType(), getExercise().getId(), getOrder(), getDuration(), getRepetitions(), getMetadata());
     }
 }

@@ -21,6 +21,8 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 import java.util.ArrayList;
 
 import ar.edu.itba.mygymapp.backend.App;
+import ar.edu.itba.mygymapp.backend.apimodels.FullCycle;
+import ar.edu.itba.mygymapp.backend.apimodels.FullCycleExercise;
 import ar.edu.itba.mygymapp.backend.apimodels.FullUser;
 import ar.edu.itba.mygymapp.backend.models.Routine;
 import ar.edu.itba.mygymapp.R;
@@ -44,6 +46,7 @@ public class RoutineActivity extends AppCompatActivity {
     private ExercisesAdapter exercisesAdapter;
     private CyclesAdapter cyclesAdapter;
     private Routine routine;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +62,7 @@ public class RoutineActivity extends AppCompatActivity {
         setContentView(root);
 
         Intent i = getIntent();
-        Integer routineId = i.getIntExtra("routineId",-1);
+        Integer routineId = i.getIntExtra("routineId", -1);
         // falta el chequeo de si da -1
 
         app.getRoutineRepository().getRoutine(routineId).observe(this, r -> {
@@ -73,22 +76,43 @@ public class RoutineActivity extends AppCompatActivity {
                 Glide.with(this).asBitmap().load(routine.getRoutineImageUrl()).placeholder(R.drawable.r1).into(binding.routineImageView);
 
                 ArrayList<CycleExercise> exercises = new ArrayList<>();
-                exercises.add(new CycleExercise("Flexiones", "Ejercicio", "Para el pecho", 0, 1, 20, 10, null));
-                exercises.add(new CycleExercise("Dominadas", "Ejercicio", "Para la espalda", 1, 2, 30, 5, null));
-                ArrayList<Cycle> cycles = new ArrayList<>();
-                cycles.add(new Cycle(0, "Ciclo A", "Calentando", "Calentamiento", 1, 10, null, exercises));
-                cycles.add(new Cycle(1, "Ciclo B", "Calentando2", "Entrenando", 2, 10, null, exercises));
-                cycles.add(new Cycle(2, "Ciclo C", "Calentando3", "Enfriamiento", 3, 10, null, exercises));
 
-                routine.setCycles(cycles);
-                cyclesAdapter = new CyclesAdapter(routine.getCycles());
-                binding.cyclesRecView.setLayoutManager(new LinearLayoutManager(this));
-                binding.cyclesRecView.setAdapter(cyclesAdapter);
+                app.getCycleRepository().getCycles(routineId).observe(this, rCycle -> {
+                    if (rCycle.getStatus() == Status.SUCCESS) {
+                        ArrayList<Cycle> cycles = new ArrayList<>();
+                        for (FullCycle fullCycle : rCycle.getData().getContent()) {
+                            Cycle aux = fullCycle.toCycle();
+
+                            app.getCycleRepository().getCycleExercises(fullCycle.getId()).observe(this, rEx -> {
+                                if (rEx.getStatus() == Status.SUCCESS) {
+                                    ArrayList<CycleExercise> cycleExercises = new ArrayList<>();
+                                    for (FullCycleExercise fullCycleExercise : rEx.getData().getContent()) {
+                                        cycleExercises.add(fullCycleExercise.toCycleExercise());
+                                    }
+                                    aux.setExercises(cycleExercises);
+                                    cycles.add(aux);
+                                } else {
+                                    defaultResourceHandler(r);
+                                    if (r.getStatus() == Status.ERROR)
+                                        Toast.makeText(getApplicationContext(), "No cargo el ejercicio del ciclo", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
+                        routine.setCycles(cycles);
+                        cyclesAdapter = new CyclesAdapter(routine.getCycles());
+                        binding.cyclesRecView.setLayoutManager(new LinearLayoutManager(this));
+                        binding.cyclesRecView.setAdapter(cyclesAdapter);
+                    } else {
+                        defaultResourceHandler(r);
+                        if (r.getStatus() == Status.ERROR)
+                            Toast.makeText(getApplicationContext(),"No cargo el ciclo",Toast.LENGTH_LONG).show();
+                    }
+                });
 
             } else {
                 defaultResourceHandler(r);
                 if (r.getStatus() == Status.ERROR)
-                    Toast.makeText(getApplicationContext(),getText(R.string.invalid_login),Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getText(R.string.invalid_login), Toast.LENGTH_LONG).show();
             }
         });
 
@@ -99,10 +123,10 @@ public class RoutineActivity extends AppCompatActivity {
         });
 
         binding.playBtn.setOnClickListener(view -> {
-           Intent exIntent = new Intent(this, RoutineExecutionActivityAlt.class);
+            Intent exIntent = new Intent(this, RoutineExecutionActivityAlt.class);
 //           exIntent.putExtra("abc", routine);
 //           Log.e("DESPUES DEL PUT", "paso");
-           startActivity(exIntent);
+            startActivity(exIntent);
         });
 
         binding.reviewBtn.setOnClickListener(new View.OnClickListener() {

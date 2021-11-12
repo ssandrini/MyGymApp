@@ -3,6 +3,7 @@ package ar.edu.itba.mygymapp.backend.models;
 public class CycleExercise {
     private String name, type, detail;
     private boolean isExpanded = false;
+
     private int id;
     private int order;
     private int duration;

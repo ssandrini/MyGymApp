@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import ar.edu.itba.mygymapp.backend.App;
+import ar.edu.itba.mygymapp.backend.apimodels.FullRoutine;
+import ar.edu.itba.mygymapp.backend.repository.Resource;
+import ar.edu.itba.mygymapp.backend.repository.Status;
 import ar.edu.itba.mygymapp.databinding.FragmentHomeBinding;
 
 import ar.edu.itba.mygymapp.ui.routines.RoutinesAdapter;
@@ -62,7 +65,6 @@ public class HomeFragment extends Fragment {
         highlightsAdapter = new RoutinesAdapter(getContext());
         recentsAdapter = new RoutinesAdapter(getContext());
 
-        populateRoutines();
         myRoutinesAdapter.setRoutines(routines);
         highlightsAdapter.setRoutines(routines);
         recentsAdapter.setRoutines(routines);
@@ -77,7 +79,7 @@ public class HomeFragment extends Fragment {
         binding.recentsRecView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         binding.recentsRecView.setAdapter(recentsAdapter);
 
-
+        initRoutines();
         return root;
     }
 
@@ -92,12 +94,21 @@ public class HomeFragment extends Fragment {
         startActivity(intent);
     }
 
-    private void populateRoutines() {
-        routines.add(new Routine(0, "Boxeo", "Get those moves", 3.3, true, "rookie", null, null, null, true));
-        routines.add(new Routine(0, "Home", "Get those moves", 2.7, true, "rookie", null, null, null, true));
+    public void initRoutines() {
+        app.getRoutineRepository().getRoutines().observe(getViewLifecycleOwner(), r -> {
+            if (r.getStatus() == Status.SUCCESS) {
+                assert r.getData() != null;
+                for (FullRoutine fr :r.getData().getContent()) {
+                    routines.add(fr.toRoutine());
+                };
 
-        routines.add(new Routine(0, "Calistenia", "Get those moves", 4.3, true, "rookie", null, null, null, true));
-           routines.add(new Routine(0, "HIIT", "Get those moves", 1.5, true, "rookie", null, null, null, true));
+                myRoutinesAdapter.notifyDataSetChanged();
+                highlightsAdapter.notifyDataSetChanged();
+                recentsAdapter.notifyDataSetChanged();
 
+            } else {
+                Resource.defaultResourceHandler(r);
+            }
+        });
     }
 }

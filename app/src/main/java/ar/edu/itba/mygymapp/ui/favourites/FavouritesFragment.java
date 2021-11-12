@@ -12,6 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 
+import ar.edu.itba.mygymapp.backend.App;
+import ar.edu.itba.mygymapp.backend.apimodels.FullRoutine;
+import ar.edu.itba.mygymapp.backend.repository.Resource;
+import ar.edu.itba.mygymapp.backend.repository.Status;
 import ar.edu.itba.mygymapp.databinding.FragmentFavouritesBinding;
 import ar.edu.itba.mygymapp.backend.models.Routine;
 import ar.edu.itba.mygymapp.ui.routines.RoutinesAdapter;
@@ -19,12 +23,14 @@ import ar.edu.itba.mygymapp.ui.routines.RoutinesAdapter;
 public class FavouritesFragment extends Fragment {
     private FavouritesViewModel favouritesViewModel;
     private FragmentFavouritesBinding binding;
+    private App app;
     RoutinesAdapter adapter;
 
     private ArrayList<Routine> routines = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        app = (App) getActivity().getApplication();
         favouritesViewModel =
                 new ViewModelProvider(this).get(FavouritesViewModel.class);
 
@@ -32,12 +38,11 @@ public class FavouritesFragment extends Fragment {
         View root = binding.getRoot();
 
         adapter = new RoutinesAdapter(getContext());
-        populateRoutines();
         adapter.setRoutines(routines);
 
         binding.favsRecView.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.favsRecView.setAdapter(adapter);
-
+        initRoutines();
         return root;
     }
 
@@ -47,20 +52,20 @@ public class FavouritesFragment extends Fragment {
         binding = null;
     }
 
-    private void populateRoutines() {
-        routines.add(new Routine(0, "Home", "Get those moves", 2.7, true, "rookie", null, null, null, true));
-        routines.add(new Routine(0, "HIIT", "Get those moves", 1.5, true, "rookie", null, null, null, true));
+    public void initRoutines() {
+        app.getRoutineRepository().getRoutines().observe(getViewLifecycleOwner(), r -> {
+            if (r.getStatus() == Status.SUCCESS) {
+                assert r.getData() != null;
+                for (FullRoutine fr :r.getData().getContent()) {
+                    routines.add(fr.toRoutine());
+                };
 
-        routines.add(new Routine(0, "Calistenia", "Get those moves", 4.3, true, "rookie", null, null, null, true));
-        routines.add(new Routine(0, "Boxeo", "Get those moves", 3.3, true, "rookie", null, null, null, true));
+                adapter.notifyDataSetChanged();
 
-
-        //        routines.add(new Routine("Home", "5 out of 5", "12-15min", "r2.png"));
-//        routines.add(new Routine("Pecs killer", "5 out of 5", "12-15min", "r3.png"));
-//        routines.add(new Routine("Legs", "5 out of 5", "12-15min", "r4.png"));
-//        routines.add(new Routine("Calistenia", "5 out of 5", "12-15min", "r1.png"));
-//        routines.add(new Routine("Home", "5 out of 5", "12-15min", "r2.png"));
-//        routines.add(new Routine("Pecs killer", "5 out of 5", "12-15min", "r3.png"));
-//        routines.add(new Routine("Legs", "5 out of 5", "12-15min", "r4.png"));
+            } else {
+                Resource.defaultResourceHandler(r);
+            }
+        });
     }
+
 }

@@ -9,11 +9,9 @@ import ar.edu.itba.mygymapp.backend.api.ApiResponse;
 import ar.edu.itba.mygymapp.backend.api.ApiUserService;
 import ar.edu.itba.mygymapp.backend.apimodels.Credentials;
 import ar.edu.itba.mygymapp.backend.apimodels.EmailConfirmation;
-import ar.edu.itba.mygymapp.backend.apimodels.FullRoutine;
 import ar.edu.itba.mygymapp.backend.apimodels.FullUser;
-import ar.edu.itba.mygymapp.backend.apimodels.PagedList;
 import ar.edu.itba.mygymapp.backend.apimodels.Token;
-import ar.edu.itba.mygymapp.backend.models.RegisterCredentials;
+import ar.edu.itba.mygymapp.backend.apimodels.RegisterCredentials;
 
 
 public class UserRepository {

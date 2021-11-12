@@ -84,6 +84,14 @@ public class FullUser {
         this.date = date;
         this.lastActivity = lastActivity;
         this.verified = verified;
+        /*
+        StringBuilder s = new StringBuilder();
+        s.append("https://ui-avatars.com/api/?name=");
+        s.append(firstName);
+        s.append("+");
+        s.append(lastName);
+        this.avatarUrl = s.toString();
+         */
     }
 
     public int getId() {

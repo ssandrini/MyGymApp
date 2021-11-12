@@ -64,7 +64,7 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), RoutineActivity.class);
-                intent.putExtra("routineObject", routines.get(holder.getAdapterPosition()));
+                intent.putExtra("routineId", routines.get(holder.getAdapterPosition()).getId());
                 view.getContext().startActivity(intent);
             }
         });
@@ -78,7 +78,7 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
     public void setRoutines(ArrayList<Routine> destacadas) {
         this.routines = destacadas;
         this.allRoutines = new ArrayList<>(destacadas);
-        // notifyDataSetChanged();  para notificarle al view adaptor que la data proveniente de la api ya cambio
+        notifyDataSetChanged();
     }
 
     // Este filter es para la búsqueda de rutinas:
@@ -99,8 +99,8 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
                 for(Routine routine : allRoutines) {
                     if(routine.getName().toLowerCase().contains(charSequence.toString().toLowerCase()))
                         filteredList.add(routine);
-                    else if( Soundex.similarity(routine.getName().toUpperCase(), charSequence.toString().toUpperCase()) > 0.5)
-                        filteredList.add(routine);
+                    //else if( Soundex.similarity(routine.getName().toLowerCase(), charSequence.toString().toLowerCase()) > 0.5)
+                      //  filteredList.add(routine);
                 }
             }
 

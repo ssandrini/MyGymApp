@@ -1,14 +1,45 @@
-package ar.edu.itba.mygymapp.backend.models;
+package ar.edu.itba.mygymapp.backend.apimodels;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class RegisterCredentials {
 
+    @SerializedName("username")
+    @Expose
     private String username;
+    @SerializedName("password")
+    @Expose
     private String password;
+    @SerializedName("firstName")
+    @Expose
     private String firstName;
+    @SerializedName("lastName")
+    @Expose
     private String lastName;
+    @SerializedName("email")
+    @Expose
     private String email;
+    @SerializedName("avatarUrl")
+    @Expose
     private String avatarUrl;
 
+    /**
+     * No args constructor for use in serialization
+     *
+     */
+    public RegisterCredentials() {
+    }
+
+    /**
+     *
+     * @param firstName
+     * @param lastName
+     * @param password
+     * @param avatarUrl
+     * @param email
+     * @param username
+     */
     public RegisterCredentials(String username, String password, String firstName, String lastName, String email, String avatarUrl) {
         super();
         this.username = username;
@@ -66,4 +97,5 @@ public class RegisterCredentials {
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }
+
 }

@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import ar.edu.itba.mygymapp.backend.models.Routine;
+
 public class FullRoutine {
 
     @SerializedName("id")
@@ -174,5 +176,9 @@ public class FullRoutine {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public Routine toRoutine() {
+        return new Routine(this.getId(),this.getName(),this.getDetail(), this.getAverageRating(), isPublic, this.getDifficulty(), this.getUser(), this.getCategory(), this.getMetadata(), isFavourite);
     }
 }

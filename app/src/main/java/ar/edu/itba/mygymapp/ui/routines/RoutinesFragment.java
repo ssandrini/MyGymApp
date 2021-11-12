@@ -17,6 +17,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import ar.edu.itba.mygymapp.R;
+import ar.edu.itba.mygymapp.backend.App;
+import ar.edu.itba.mygymapp.backend.apimodels.FullRoutine;
+import ar.edu.itba.mygymapp.backend.repository.Resource;
+import ar.edu.itba.mygymapp.backend.repository.Status;
 import ar.edu.itba.mygymapp.databinding.FragmentRoutinesBinding;
 import ar.edu.itba.mygymapp.backend.models.Routine;
 
@@ -25,15 +29,14 @@ public class RoutinesFragment extends Fragment {
     private RoutinesViewModel routinesViewModel;
     private RoutinesAdapter routinesAdapter;
     private ArrayList<Routine> routines = new ArrayList<>();
-
+    private App app;
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         routinesViewModel = new ViewModelProvider(this).get(RoutinesViewModel.class);
-
+        app = (App) getActivity().getApplication();
         binding = FragmentRoutinesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         routinesAdapter = new RoutinesAdapter(getContext());
-        populateRoutines();
         routinesAdapter.setRoutines(routines);
 
         binding.routinesRecView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -41,6 +44,7 @@ public class RoutinesFragment extends Fragment {
 
         setHasOptionsMenu(true);
 
+        initRoutines();
         return root;
     }
 
@@ -74,7 +78,6 @@ public class RoutinesFragment extends Fragment {
             }
 
             public boolean onQueryTextSubmit(String query) {
-
                 searchItem.collapseActionView();
                 return true;
             }
@@ -116,11 +119,18 @@ public class RoutinesFragment extends Fragment {
 
     }
 
-    private void populateRoutines() {
-        routines.add(new Routine(0, "Calistenia", "Get those moves", 4.3, true, "rookie", null, null, null, true));
-        routines.add(new Routine(0, "Boxeo", "Get those moves", 3.3, true, "rookie", null, null, null, true));
-        routines.add(new Routine(0, "Home", "Get those moves", 2.7, true, "rookie", null, null, null, true));
-        routines.add(new Routine(0, "HIIT", "Get those moves", 1.5, true, "rookie", null, null, null, true));
-
+    public void initRoutines() {
+        app.getRoutineRepository().getRoutines().observe(getViewLifecycleOwner(), r -> {
+            if (r.getStatus() == Status.SUCCESS) {
+                assert r.getData() != null;
+                for (FullRoutine fr :r.getData().getContent()) {
+                    routines.add(fr.toRoutine());
+                };
+                routinesAdapter.setRoutines(routines);
+            } else {
+                Resource.defaultResourceHandler(r);
+            }
+        });
     }
+
 }

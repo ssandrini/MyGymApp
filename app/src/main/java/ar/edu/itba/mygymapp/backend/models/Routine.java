@@ -5,16 +5,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
-
+import ar.edu.itba.mygymapp.backend.apimodels.Category;
+import ar.edu.itba.mygymapp.backend.apimodels.PublicUser;
 
 public class Routine implements Serializable {
     private int id;
     private String name;
     private String detail;
-    private Double score;
+    private Integer score;
     private boolean isPublic;
     private String difficulty;
-    private User user;
+    private PublicUser user;
     private Category category;
     private Object metadata;
     private boolean favourite;
@@ -65,7 +66,7 @@ public class Routine implements Serializable {
         return categoryComparator;
     }
 
-    public Routine(int id, String name, String detail, Double score, boolean isPublic, String difficulty, User user, Category category, Object metadata, boolean favourite) {
+    public Routine(int id, String name, String detail, Integer score, boolean isPublic, String difficulty, PublicUser user, Category category, Object metadata, boolean favourite) {
         this.id = id;
         this.name = name;
         this.detail = detail;
@@ -81,7 +82,7 @@ public class Routine implements Serializable {
 
     }
 
-    public Routine(int id, String name, String detail, Double score, boolean isPublic, String difficulty, User user, Category category, Object metadata, boolean favourite, ArrayList<Cycle> cycles) {
+    public Routine(int id, String name, String detail, Integer score, boolean isPublic, String difficulty, PublicUser user, Category category, Object metadata, boolean favourite, ArrayList<Cycle> cycles) {
         this(id, name, detail, score, isPublic, difficulty, user, category, metadata, favourite);
         this.cycles = cycles;
     }
@@ -187,11 +188,11 @@ public class Routine implements Serializable {
         this.detail = detail;
     }
 
-    public Double getScore() {
+    public Integer getScore() {
         return score;
     }
 
-    public void setScore(Double score) {
+    public void setScore(Integer score) {
         this.score = score;
     }
 
@@ -211,11 +212,11 @@ public class Routine implements Serializable {
         this.difficulty = difficulty;
     }
 
-    public User getUser() {
+    public PublicUser getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(PublicUser user) {
         this.user = user;
     }
 

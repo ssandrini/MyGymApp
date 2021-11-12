@@ -1,10 +1,12 @@
 package ar.edu.itba.mygymapp.backend.apimodels;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 
-public class Category {
+public class Category implements Comparable<Category> {
 
     @SerializedName("id")
     @Expose
@@ -60,4 +62,9 @@ public class Category {
         this.detail = detail;
     }
 
+
+    @Override
+    public int compareTo(@NonNull Category category) {
+        return this.name.compareTo(category.name);
+    }
 }

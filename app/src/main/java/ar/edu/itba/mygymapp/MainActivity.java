@@ -92,10 +92,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void populateRoutines() {
         ArrayList<Routine> routines = new ArrayList<Routine>();
-        routines.add(new Routine(0, "Boxeo", "Get those moves", 3.3, true, "rookie", null, null, null, true));
-        routines.add(new Routine(0, "Home", "Get those moves", 2.7, true, "rookie", null, null, null, true));
-        routines.add(new Routine(0, "Calistenia", "Get those moves", 4.3, true, "rookie", null, null, null, true));
-        routines.add(new Routine(0, "HIIT", "Get those moves", 1.5, true, "rookie", null, null, null, true));
+        routines.add(new Routine(0, "Boxeo", "Get those moves", 3, true, "rookie", null, null, null, true));
+        routines.add(new Routine(0, "Home", "Get those moves", 3, true, "rookie", null, null, null, true));
+        routines.add(new Routine(0, "Calistenia", "Get those moves", 4, true, "rookie", null, null, null, true));
+        routines.add(new Routine(0, "HIIT", "Get those moves", 2, true, "rookie", null, null, null, true));
 
         ArrayList<CycleExercise> exercises = new ArrayList<>();
         exercises.add(new CycleExercise("Sentadillas", "Ejercicio", "Para las piernas", 2, 3, 60, 5, null));

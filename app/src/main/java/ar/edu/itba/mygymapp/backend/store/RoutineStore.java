@@ -2,9 +2,7 @@ package ar.edu.itba.mygymapp.backend.store;
 
 import java.util.ArrayList;
 
-import ar.edu.itba.mygymapp.backend.models.Category;
 import ar.edu.itba.mygymapp.backend.models.Routine;
-import ar.edu.itba.mygymapp.backend.models.User;
 
 public class RoutineStore {
     private static ArrayList<Routine> routines;

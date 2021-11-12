@@ -8,7 +8,7 @@ import ar.edu.itba.mygymapp.backend.apimodels.FullRoutine;
 import ar.edu.itba.mygymapp.backend.apimodels.FullUser;
 import ar.edu.itba.mygymapp.backend.apimodels.PagedList;
 import ar.edu.itba.mygymapp.backend.apimodels.Token;
-import ar.edu.itba.mygymapp.backend.models.RegisterCredentials;
+import ar.edu.itba.mygymapp.backend.apimodels.RegisterCredentials;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;

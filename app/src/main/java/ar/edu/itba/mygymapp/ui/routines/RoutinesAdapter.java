@@ -99,8 +99,8 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
                 for(Routine routine : allRoutines) {
                     if(routine.getName().toLowerCase().contains(charSequence.toString().toLowerCase()))
                         filteredList.add(routine);
-                    //else if( Soundex.similarity(routine.getName().toLowerCase(), charSequence.toString().toLowerCase()) > 0.5)
-                      //  filteredList.add(routine);
+                    else if( Soundex.similarity(routine.getName(), charSequence.toString()) > 0.5)
+                        filteredList.add(routine);
                 }
             }
 
@@ -141,26 +141,72 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
     }
 
     private static class Soundex {
-        //                                   A,  B,  C,  D,  E,  F,  G,  H,  I,  J,  K,  L,  M,  N,  O,  P,  Q,  R,  S,  T,  U,  V,  W,  X,  Y,  Z
-        private static final char data[] = {'0','1','2','3','0','1','2','0','0','2','2','4','5','5','0','1','2','6','2','3','0','1','0','2','0','2'};
 
-        public static String encode (String input) {
+        public static String encode(String s)
+        {
+            char[] x = s.toUpperCase().toCharArray();
 
-            char [] ans = {'0','0','0','0'};
-            ans[0] = input.charAt(0);
+            char firstLetter = x[0];
 
-            char lastCode = data[ input.charAt(0) - 65 ];
-            int index = 1;
-            char current;
+            for (int i = 0; i < x.length; i++) {
+                switch (x[i]) {
+                    case 'B':
+                    case 'F':
+                    case 'P':
+                    case 'V': {
+                        x[i] = '1';
+                        break;
+                    }
 
-            for(int i = 1; i < input.length() && index < 4; i++, lastCode = current) {
-                current = data [ input.charAt(i) - 65 ];
-                if( current != '0' && current != lastCode ) {
-                    ans[index++] = current;
+                    case 'C':
+                    case 'G':
+                    case 'J':
+                    case 'K':
+                    case 'Q':
+                    case 'S':
+                    case 'X':
+                    case 'Z': {
+                        x[i] = '2';
+                        break;
+                    }
+
+                    case 'D':
+                    case 'T': {
+                        x[i] = '3';
+                        break;
+                    }
+
+                    case 'L': {
+                        x[i] = '4';
+                        break;
+                    }
+
+                    case 'M':
+                    case 'N': {
+                        x[i] = '5';
+                        break;
+                    }
+
+                    case 'R': {
+                        x[i] = '6';
+                        break;
+                    }
+
+                    default: {
+                        x[i] = '0';
+                        break;
+                    }
                 }
             }
 
-            return new String(ans);
+            String output = "" + firstLetter;
+
+            for (int i = 1; i < x.length; i++)
+                if (x[i] != x[i - 1] && x[i] != '0')
+                    output += x[i];
+
+            output = output + "0000";
+            return output.substring(0, 4);
         }
 
         public static double similarity(String in1, String in2) {

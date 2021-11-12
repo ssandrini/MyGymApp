@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.mut_jaeryo.circletimer.CircleTimer;
 
 import ar.edu.itba.mygymapp.R;
+import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.models.Cycle;
 import ar.edu.itba.mygymapp.backend.models.CycleExercise;
 import ar.edu.itba.mygymapp.backend.models.Routine;
@@ -28,6 +29,8 @@ public class RoutineExecutionActivity extends AppCompatActivity {
     private int cycleIndex = 0;
     private int exerciseIndex = 0;
     private int cyclesLength;
+    private Integer routineId;
+    private App app;
     private CircleTimer timer;
     private boolean runningTimer = true;
     private boolean started = true;
@@ -40,7 +43,10 @@ public class RoutineExecutionActivity extends AppCompatActivity {
         root = binding.getRoot();
         setContentView(root);
 
-        routine = RoutineStore.getRoutines().get(0);
+        app = (App) this.getApplication();
+        Intent i = getIntent();
+        routineId = i.getIntExtra("routineId", -1);
+        routine = app.getRoutineRepository().getCacheRoutineById(routineId);
         cyclesLength = routine.getCycles().size();
 
         setExercise(routine.getCycles().get(0).getExercises().get(0));

@@ -31,8 +31,13 @@ public class RoutineRepository {
     public void addCacheRoutine(Routine routine) {
         this.cacheRoutines.add(routine);
     }
-    public Routine getCacheRoutineByIdx(int idx) {
-        return this.cacheRoutines.get(idx);
+
+    public Routine getCacheRoutineById(Integer id) {
+        for (Routine r: cacheRoutines) {
+            if(r.getId() == id)
+                return r;
+        }
+        return null;
     }
 
     public LiveData<Resource<PagedList<FullRoutine>>> getRoutines() {

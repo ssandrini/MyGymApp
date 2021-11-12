@@ -40,13 +40,11 @@ public class RoutineExecutionActivityAlt extends AppCompatActivity {
         root = binding.getRoot();
         setContentView(root);
 
-//        routine = RoutineStore.getRoutines().get(0);
         app = (App) this.getApplication();
         Intent i = getIntent();
-//        routineId = i.getIntExtra("routineId", -1);
-        routine = app.getRoutineRepository().getCacheRoutineByIdx(0);
+        routineId = i.getIntExtra("routineId", -1);
+        routine = app.getRoutineRepository().getCacheRoutineById(routineId);
 
-        Log.d("ROUTINE", routine.toString());
         setCurrentExercise(routine.getCycles().get(0).getExercises().get(0));
 
         exercises = new ArrayList<>();

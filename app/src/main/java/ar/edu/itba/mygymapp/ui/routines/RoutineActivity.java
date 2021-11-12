@@ -94,6 +94,7 @@ public class RoutineActivity extends AppCompatActivity {
                                     binding.cyclesRecView.setLayoutManager(new LinearLayoutManager(this));
                                     binding.cyclesRecView.setAdapter(cyclesAdapter);
                                     cyclesAdapter.notifyDataSetChanged();
+
                                 } else {
                                     defaultResourceHandler(r);
                                     if (r.getStatus() == Status.ERROR)
@@ -116,7 +117,7 @@ public class RoutineActivity extends AppCompatActivity {
             }
         });
 
-        app.getRoutineRepository().addCacheRoutine(routine);
+
 
         binding.calendarBtn.setOnClickListener(view -> {
             Intent calIntent = new Intent(this, SchedulerActivity.class);
@@ -126,9 +127,10 @@ public class RoutineActivity extends AppCompatActivity {
 
         binding.playBtn.setOnClickListener(view -> {
             if (routine != null) {
-                Intent exIntent = new Intent(this, RoutineExecutionActivityAlt.class);
-//       exIntent.putExtra("routineId", routine.getId());
-//                exIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                app.getRoutineRepository().addCacheRoutine(routine);
+                Intent exIntent = new Intent(this, RoutineExecutionActivity.class);
+                exIntent.putExtra("routineId", routine.getId());
+                //exIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 //           Log.e("DESPUES DEL PUT", "paso");
                 startActivity(exIntent);
             }

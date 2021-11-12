@@ -4,19 +4,35 @@ package ar.edu.itba.mygymapp.backend.repository;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
+import java.util.ArrayList;
+
 import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.api.ApiClient;
 import ar.edu.itba.mygymapp.backend.api.ApiResponse;
 import ar.edu.itba.mygymapp.backend.api.ApiRoutineService;
 import ar.edu.itba.mygymapp.backend.apimodels.FullRoutine;
 import ar.edu.itba.mygymapp.backend.apimodels.PagedList;
+import ar.edu.itba.mygymapp.backend.models.Routine;
 
 public class RoutineRepository {
 
     private final ApiRoutineService apiService;
+    private ArrayList<Routine> cacheRoutines = new ArrayList<>();
+
 
     public RoutineRepository(App application) {
         this.apiService = ApiClient.create(application, ApiRoutineService.class);
+    }
+
+    public ArrayList<Routine> getCacheRoutines() {
+        return this.cacheRoutines;
+    }
+
+    public void addCacheRoutine(Routine routine) {
+        this.cacheRoutines.add(routine);
+    }
+    public Routine getCacheRoutineByIdx(int idx) {
+        return this.cacheRoutines.get(idx);
     }
 
     public LiveData<Resource<PagedList<FullRoutine>>> getRoutines() {

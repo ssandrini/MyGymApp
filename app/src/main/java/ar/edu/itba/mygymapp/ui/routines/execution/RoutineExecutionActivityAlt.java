@@ -1,6 +1,7 @@
 package ar.edu.itba.mygymapp.ui.routines.execution;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 
+import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.models.Cycle;
 import ar.edu.itba.mygymapp.backend.models.CycleExercise;
 import ar.edu.itba.mygymapp.backend.models.Routine;
@@ -24,9 +26,11 @@ public class RoutineExecutionActivityAlt extends AppCompatActivity {
     private RoutineExecutionAltBinding binding;
     private View root;
     private Routine routine;
+    private Integer routineId;
     private ExercisesQueueAdapter adapter;
     private ArrayList<CycleExercise> exercises;
     private int currentExercise = 0;
+    private App app;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,8 +40,13 @@ public class RoutineExecutionActivityAlt extends AppCompatActivity {
         root = binding.getRoot();
         setContentView(root);
 
-        routine = RoutineStore.getRoutines().get(0);
+//        routine = RoutineStore.getRoutines().get(0);
+        app = (App) this.getApplication();
+        Intent i = getIntent();
+//        routineId = i.getIntExtra("routineId", -1);
+        routine = app.getRoutineRepository().getCacheRoutineByIdx(0);
 
+        Log.d("ROUTINE", routine.toString());
         setCurrentExercise(routine.getCycles().get(0).getExercises().get(0));
 
         exercises = new ArrayList<>();

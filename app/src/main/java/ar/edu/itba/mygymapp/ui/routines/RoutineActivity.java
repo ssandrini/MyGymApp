@@ -116,6 +116,8 @@ public class RoutineActivity extends AppCompatActivity {
             }
         });
 
+        app.getRoutineRepository().addCacheRoutine(routine);
+
         binding.calendarBtn.setOnClickListener(view -> {
             Intent calIntent = new Intent(this, SchedulerActivity.class);
             calIntent.putExtra(ID_PARENT_EXTRA, 2);
@@ -123,10 +125,13 @@ public class RoutineActivity extends AppCompatActivity {
         });
 
         binding.playBtn.setOnClickListener(view -> {
-            Intent exIntent = new Intent(this, RoutineExecutionActivityAlt.class);
-//           exIntent.putExtra("abc", routine);
+            if (routine != null) {
+                Intent exIntent = new Intent(this, RoutineExecutionActivityAlt.class);
+//       exIntent.putExtra("routineId", routine.getId());
+//                exIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 //           Log.e("DESPUES DEL PUT", "paso");
-            startActivity(exIntent);
+                startActivity(exIntent);
+            }
         });
 
         binding.reviewBtn.setOnClickListener(new View.OnClickListener() {

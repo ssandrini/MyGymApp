@@ -144,6 +144,6 @@ public class FullCycleExercise implements Comparable<FullCycleExercise> {
     }
 
     public CycleExercise toCycleExercise() {
-        return new CycleExercise(getExercise().getName(), getExercise().getDetail(), getExercise().getType(), getExercise().getId(), getOrder(), getDuration(), getRepetitions(), getMetadata());
+        return new CycleExercise(getExercise().getName(), getExercise().getType(), getExercise().getDetail(), getExercise().getId(), getOrder(), getDuration(), getRepetitions(), getMetadata());
     }
 }

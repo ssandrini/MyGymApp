@@ -136,9 +136,18 @@ public class Routine implements Serializable {
     }
 
     public void setCycles(ArrayList<Cycle> cycles) {
+
         this.cycles = cycles;
     }
 
+    public void sortCycles() {
+        this.cycles.sort(new Comparator<Cycle>() {
+            @Override
+            public int compare(Cycle c1, Cycle c2) {
+                return c1.getId() - c2.getId();
+            }
+        });
+    }
     public void addCycle(Cycle cycle) {
         this.cycles.add(cycle);
     }

@@ -75,7 +75,7 @@ public class RoutineActivity extends AppCompatActivity {
                 binding.collapsingToolbarLayout.setTitle(routine.getName());
                 Glide.with(this).asBitmap().load(routine.getRoutineImageUrl()).placeholder(R.drawable.r1).into(binding.routineImageView);
 
-                app.getCycleRepository().getCycles(routineId).observe(this, rCycle -> {
+                app.getCycleRepository().getCycles(routineId, 0, 10, "id", "asc").observe(this, rCycle -> {
                     if (rCycle.getStatus() == Status.SUCCESS) {
                         ArrayList<Cycle> cycles = new ArrayList<>();
                         for (FullCycle fullCycle : rCycle.getData().getContent()) {
@@ -127,6 +127,7 @@ public class RoutineActivity extends AppCompatActivity {
 
         binding.playBtn.setOnClickListener(view -> {
             if (routine != null) {
+                routine.sortCycles();
                 app.getRoutineRepository().addCacheRoutine(routine);
                 Intent exIntent = new Intent(this, RoutineExecutionActivity.class);
                 exIntent.putExtra("routineId", routine.getId());

@@ -24,5 +24,9 @@ public interface ApiCycleService {
     @GET("cycles/{cycleId}/exercises")
     LiveData<ApiResponse<PagedList<FullCycleExercise>>> getCycleExercises(@Path("cycleId") int cycleId);
 
+    @GET("cycles/{cycleId}/exercises")
+    LiveData<ApiResponse<PagedList<FullCycleExercise>>> getCycleExercises(@Path("cycleId") int cycleId,
+                                                                          @QueryMap Map<String, String> options);
+
 
 }

@@ -57,5 +57,6 @@
     <string name="cancel_edit">Cancelar</string>
     <string name="share_details_of_your_own_experience">Comparte detalles sobre tu propia experiencia</string>
 
-
+    <string name="added_fav">Marcada como favorita</string>
+    <string name="deleted_fav">Desmarcada como favorita</string>
 </resources>

@@ -17,12 +17,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
 import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.apimodels.FullCycle;
 import ar.edu.itba.mygymapp.backend.apimodels.FullCycleExercise;
+import ar.edu.itba.mygymapp.backend.apimodels.FullRoutine;
 import ar.edu.itba.mygymapp.backend.apimodels.FullUser;
 import ar.edu.itba.mygymapp.backend.models.Routine;
 import ar.edu.itba.mygymapp.R;
@@ -46,6 +48,7 @@ public class RoutineActivity extends AppCompatActivity {
     private ExercisesAdapter exercisesAdapter;
     private CyclesAdapter cyclesAdapter;
     private Routine routine;
+    private boolean isFav = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +65,15 @@ public class RoutineActivity extends AppCompatActivity {
         setContentView(root);
 
         Intent i = getIntent();
+
+        String routineImageUrl = i.getStringExtra("routineImageUrl");
         Integer routineId = i.getIntExtra("routineId", -1);
+        Log.d("FAV ANTES DE ISFAV", String.valueOf(isFav));
+        isFav = isFavourite(routineId);
+        Log.d("FAV DSP DE ISFAV", String.valueOf(isFav));
+//
         // falta el chequeo de si da -1
+
 
         app.getRoutineRepository().getRoutine(routineId).observe(this, r -> {
             if (r.getStatus() == Status.SUCCESS) {
@@ -73,7 +83,9 @@ public class RoutineActivity extends AppCompatActivity {
                 binding.rScore.setRating(routine.getScore().floatValue());
                 binding.rDetail.setText(routine.getDetail());
                 binding.collapsingToolbarLayout.setTitle(routine.getName());
-                Glide.with(this).asBitmap().load(routine.getRoutineImageUrl()).placeholder(R.drawable.r1).into(binding.routineImageView);
+                Glide.with(this).asBitmap().load(routineImageUrl).placeholder(R.drawable.r1).into(binding.routineImageView);
+
+
 
                 app.getCycleRepository().getCycles(routineId, 0, 10, "order", "asc").observe(this, rCycle -> {
                     if (rCycle.getStatus() == Status.SUCCESS) {
@@ -86,7 +98,7 @@ public class RoutineActivity extends AppCompatActivity {
                             Cycle aux = fullCycle.toCycle();
                             cycles.add(aux);
                             cyclesAdapter.notifyDataSetChanged();
-                            app.getCycleRepository().getCycleExercises(fullCycle.getId()).observe(this, rEx -> {
+                            app.getCycleRepository().getCycleExercises(fullCycle.getId(), 0, 10, "order", "asc").observe(this, rEx -> {
                                 if (rEx.getStatus() == Status.SUCCESS) {
                                     ArrayList<CycleExercise> cycleExercises = new ArrayList<>();
                                     for (FullCycleExercise fullCycleExercise : rEx.getData().getContent()) {
@@ -146,6 +158,14 @@ public class RoutineActivity extends AppCompatActivity {
         });
     }
 
+    private boolean isFavourite(int routineId) {
+        for (Routine favRoutine : app.getRoutineRepository().getFavRoutines()) {
+            if (routineId == favRoutine.getId()) return true;
+        }
+        return false;
+    }
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -164,6 +184,14 @@ public class RoutineActivity extends AppCompatActivity {
         MenuItem favItem = menu.findItem(R.id.action_fav);
         MenuItem shareItem = menu.findItem(R.id.action_share);
 
+        Log.d("FAV ON CREATE OPTS MENU", String.valueOf(isFav));
+
+        if (isFav) {
+            favItem.setIcon(R.drawable.ic_yes_fav);
+        } else {
+            favItem.setIcon(R.drawable.ic_not_fav);
+        }
+
         favItem.setVisible(true);
         shareItem.setVisible(true);
 
@@ -174,6 +202,32 @@ public class RoutineActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             finish();
+        } else if (item.getItemId() == R.id.action_share) {
+            finish();
+        } else if (item.getItemId() == R.id.action_fav) {
+
+
+            if (!isFav) {
+                item.setIcon(R.drawable.ic_yes_fav);
+                app.getFavouriteRepository().addFavourite(routine.getId()).observe(this, r -> {
+                    if (r.getStatus() == Status.SUCCESS) {
+                        isFav = !isFav;
+                        app.getRoutineRepository().addFavRoutine(routine);
+//                        Snackbar.make(item.getActionView(), R.string.added_fav,  Snackbar.LENGTH_SHORT).show();
+                    }
+                });
+            } else {
+                item.setIcon(R.drawable.ic_not_fav);
+                app.getFavouriteRepository().deleteFavourite(routine.getId()).observe(this, r -> {
+                    if (r.getStatus() == Status.SUCCESS) {
+//                        Toast.makeText(this, R.string.deleted_fav, Toast.LENGTH_SHORT).show();
+                        isFav = !isFav;
+
+                        app.getRoutineRepository().removeFavRoutine(routine.getId());
+//                        Snackbar.make(item.getActionView(), R.string.deleted_fav, Snackbar.LENGTH_SHORT).show();
+                    }
+                });
+            }
         }
         return super.onOptionsItemSelected(item);
     }

@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBar.toolbar);
 
-        populateRoutines();
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
@@ -90,26 +89,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void populateRoutines() {
-        ArrayList<Routine> routines = new ArrayList<Routine>();
-        routines.add(new Routine(0, "Boxeo", "Get those moves", 3, true, "rookie", null, null, null, true));
-        routines.add(new Routine(0, "Home", "Get those moves", 3, true, "rookie", null, null, null, true));
-        routines.add(new Routine(0, "Calistenia", "Get those moves", 4, true, "rookie", null, null, null, true));
-        routines.add(new Routine(0, "HIIT", "Get those moves", 2, true, "rookie", null, null, null, true));
 
-        ArrayList<CycleExercise> exercises = new ArrayList<>();
-        exercises.add(new CycleExercise("Sentadillas", "Ejercicio", "Para las piernas", 2, 3, 60, 5, null));
-        exercises.add(new CycleExercise("Flexiones", "Ejercicio", "Para el pecho", 0, 1, 20, 10, null));
-        exercises.add(new CycleExercise("Dominadas", "Ejercicio", "Para la espalda", 1, 2, 30, 5, null));
-        ArrayList<Cycle> cycles = new ArrayList<>();
-        cycles.add(new Cycle(0, "Ciclo A", "Calentando", "Calentamiento", 1, 10, null, exercises));
-        cycles.add(new Cycle(1, "Ciclo B", "Calentando2", "Entrenando", 2, 10, null, exercises));
-        cycles.add(new Cycle(2, "Ciclo C", "Calentando3", "Enfriamiento", 3, 10, null, exercises));
-
-        for (Routine routine : routines) {
-            routine.setCycles(cycles);
-        }
-
-        RoutineStore.setRoutines(routines);
-    }
 }

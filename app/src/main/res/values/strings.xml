@@ -59,4 +59,7 @@
     <string name="verification">Account verification</string>
     <string name="verification_text">Thank you for registering at MyGym, we´ve sent you an email to the adress specified before. Please coppy the verification code and the same mail below.</string>
     <string name="share_details_of_your_own_experience">Share details of your own experience</string>
+
+    <string name="added_fav">Marked as favourite</string>
+    <string name="deleted_fav">Not marked as favourite</string>
 </resources>

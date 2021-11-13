@@ -91,7 +91,19 @@ public class HomeFragment extends Fragment {
         binding.recentsRecView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         binding.recentsRecView.setAdapter(recentsAdapter);
 
+        binding.consoleBtn.setOnClickListener(view -> {
+
+            StringBuilder s = new StringBuilder();
+            for (Routine favRoutine : app.getRoutineRepository().getFavRoutines()) {
+                s.append(favRoutine.getId() + favRoutine.getName() );
+                s.append('\n');
+            }
+            Log.d("FAVS", s.toString());
+            Log.d("ALL ROUTINES", app.getRoutineRepository().getCacheRoutines().toString());
+        });
+
         initRoutines();
+        initFavourites();
         return root;
     }
 
@@ -105,6 +117,7 @@ public class HomeFragment extends Fragment {
         Intent intent = new Intent(getContext(), RoutineActivity.class);
         startActivity(intent);
     }
+
 
     public void initRoutines() {
         app.getRoutineRepository().getRoutines().observe(getViewLifecycleOwner(), r -> {
@@ -123,4 +136,15 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+
+    private void initFavourites() {
+        app.getFavouriteRepository().getFavourites().observe(getViewLifecycleOwner(), r -> {
+            if (r.getStatus() == Status.SUCCESS) {
+                for (FullRoutine fullRoutine : r.getData().getContent()) {
+                    app.getRoutineRepository().addFavRoutine(fullRoutine.toRoutine());
+                }
+            }
+        });
+    }
+
 }

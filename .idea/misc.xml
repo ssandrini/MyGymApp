@@ -36,12 +36,14 @@
         <entry key="app/src/main/res/drawable-anydpi/ic_home.xml" value="0.5375" />
         <entry key="app/src/main/res/drawable-anydpi/ic_login.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_next.xml" value="0.5833333333333334" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_not_fav.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_pause.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_play.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_previous.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_previous2.xml" value="0.5166666666666667" />
         <entry key="app/src/main/res/drawable-anydpi/ic_routine.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_share.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_yes_fav.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.321025641025641" />
         <entry key="app/src/main/res/drawable-xhdpi/side_nav_bar.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable/button_background_blue.xml" value="0.25" />

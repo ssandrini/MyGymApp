@@ -18,7 +18,7 @@ public class Routine implements Serializable {
     private PublicUser user;
     private Category category;
     private Object metadata;
-    private boolean favourite;
+//    private boolean favourite;
     private int[] duration;
     private String routineImageUrl;
     private ArrayList<Cycle> cycles;
@@ -68,7 +68,7 @@ public class Routine implements Serializable {
 
     public Routine(int id, String name, String detail, int score,
                    boolean isPublic, String difficulty, PublicUser user,
-                   Category category, Object metadata, boolean favourite) {
+                   Category category, Object metadata) {
         this.id = id;
         this.name = name;
         this.detail = detail;
@@ -78,13 +78,12 @@ public class Routine implements Serializable {
         this.user = user;
         this.category = category;
         this.metadata = metadata;
-        this.favourite = favourite;
         this.duration = new int[]{15, 10};
         this.routineImageUrl = routineImageUrl != null ? routineImageUrl : chooseImage();
     }
 
     public Routine(int id, String name, String detail, Integer score, boolean isPublic, String difficulty, PublicUser user, Category category, Object metadata, boolean favourite, ArrayList<Cycle> cycles) {
-        this(id, name, detail, score, isPublic, difficulty, user, category, metadata, favourite);
+        this(id, name, detail, score, isPublic, difficulty, user, category, metadata);
         this.cycles = cycles;
     }
 
@@ -246,13 +245,7 @@ public class Routine implements Serializable {
         this.metadata = metadata;
     }
 
-    public boolean isFavourite() {
-        return favourite;
-    }
 
-    public void setFavourite(boolean favourite) {
-        this.favourite = favourite;
-    }
 
     @Override
     public String toString() {
@@ -266,7 +259,6 @@ public class Routine implements Serializable {
                 ", user=" + user +
                 ", category=" + category +
                 ", metadata=" + metadata +
-                ", favourite=" + favourite +
                 ", duration=" + Arrays.toString(duration) +
                 ", cycles=" + cycles +
                 '}';

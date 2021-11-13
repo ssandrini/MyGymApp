@@ -64,7 +64,10 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), RoutineActivity.class);
+
                 intent.putExtra("routineId", routines.get(holder.getAdapterPosition()).getId());
+                intent.putExtra("routineImageUrl", routines.get(holder.getAdapterPosition()).getRoutineImageUrl());
+
                 view.getContext().startActivity(intent);
             }
         });

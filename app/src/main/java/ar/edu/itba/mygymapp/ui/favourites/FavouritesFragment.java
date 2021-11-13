@@ -41,7 +41,7 @@ public class FavouritesFragment extends Fragment {
         View root = binding.getRoot();
 
         adapter = new RoutinesAdapter(getContext());
-        adapter.setRoutines(routines);
+        adapter.setRoutines(app.getRoutineRepository().getFavRoutines());
 
         DisplayMetrics displayMetrics= root.getContext().getResources().getDisplayMetrics();
         float dpWidth=displayMetrics.widthPixels/displayMetrics.density;
@@ -52,7 +52,7 @@ public class FavouritesFragment extends Fragment {
             binding.favsRecView.setLayoutManager(new LinearLayoutManager(getContext()));
         }
         binding.favsRecView.setAdapter(adapter);
-        initRoutines();
+//        initRoutines();
         return root;
     }
 

@@ -40,8 +40,6 @@ public class FullRoutine {
     @Expose
     private Object metadata;
 
-    private boolean isFavourite = false;
-
     /**
      * No args constructor for use in serialization
      *
@@ -167,13 +165,6 @@ public class FullRoutine {
         this.metadata = metadata;
     }
 
-    public boolean isFavourite() {
-        return isFavourite;
-    }
-
-    public void setFavourite(boolean favourite) {
-        isFavourite = favourite;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -191,6 +182,6 @@ public class FullRoutine {
     public Routine toRoutine() {
         return new Routine(this.getId(),this.getName(), this.getDetail(), this.getScore(),
                 this.isIsPublic(), this.getDifficulty(), this.getPublicUser(),
-                this.getCategory(), this.getMetadata(), this.isFavourite());
+                this.getCategory(), this.getMetadata());
     }
 }

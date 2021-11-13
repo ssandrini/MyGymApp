@@ -66,4 +66,23 @@ public class CycleRepository {
         }.asLiveData();
     }
 
+    public LiveData<Resource<PagedList<FullCycleExercise>>> getCycleExercises(int cycleId,
+                                                                              int page,
+                                                                              int size,
+                                                                              String orderBy,
+                                                                              String direction) {
+        return new NetworkBoundResource<PagedList<FullCycleExercise>, PagedList<FullCycleExercise>>() {
+            @NonNull
+            @Override
+            protected LiveData<ApiResponse<PagedList<FullCycleExercise>>> createCall() {
+                Map<String, String> options = new LinkedHashMap<>();
+                options.put("page", String.valueOf(page));
+                options.put("size", String.valueOf(size));
+                options.put("orderBy", orderBy);
+                options.put("direction", direction);
+                return apiService.getCycleExercises(cycleId, options);
+            }
+        }.asLiveData();
+    }
+
 }

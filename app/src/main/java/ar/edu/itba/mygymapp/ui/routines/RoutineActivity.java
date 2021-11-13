@@ -75,12 +75,17 @@ public class RoutineActivity extends AppCompatActivity {
                 binding.collapsingToolbarLayout.setTitle(routine.getName());
                 Glide.with(this).asBitmap().load(routine.getRoutineImageUrl()).placeholder(R.drawable.r1).into(binding.routineImageView);
 
-                app.getCycleRepository().getCycles(routineId, 0, 10, "id", "asc").observe(this, rCycle -> {
+                app.getCycleRepository().getCycles(routineId, 0, 10, "order", "asc").observe(this, rCycle -> {
                     if (rCycle.getStatus() == Status.SUCCESS) {
                         ArrayList<Cycle> cycles = new ArrayList<>();
+                        cyclesAdapter = new CyclesAdapter(cycles);
+                        binding.cyclesRecView.setLayoutManager(new LinearLayoutManager(this));
+                        binding.cyclesRecView.setAdapter(cyclesAdapter);
+
                         for (FullCycle fullCycle : rCycle.getData().getContent()) {
                             Cycle aux = fullCycle.toCycle();
-
+                            cycles.add(aux);
+                            cyclesAdapter.notifyDataSetChanged();
                             app.getCycleRepository().getCycleExercises(fullCycle.getId()).observe(this, rEx -> {
                                 if (rEx.getStatus() == Status.SUCCESS) {
                                     ArrayList<CycleExercise> cycleExercises = new ArrayList<>();
@@ -88,13 +93,9 @@ public class RoutineActivity extends AppCompatActivity {
                                         cycleExercises.add(fullCycleExercise.toCycleExercise());
                                     }
                                     aux.setExercises(cycleExercises);
-                                    cycles.add(aux);
                                     routine.setCycles(cycles);
-                                    cyclesAdapter = new CyclesAdapter(routine.getCycles());
-                                    binding.cyclesRecView.setLayoutManager(new LinearLayoutManager(this));
-                                    binding.cyclesRecView.setAdapter(cyclesAdapter);
-                                    cyclesAdapter.notifyDataSetChanged();
 
+                                    cyclesAdapter.notifyDataSetChanged();
                                 } else {
                                     defaultResourceHandler(r);
                                     if (r.getStatus() == Status.ERROR)
@@ -143,6 +144,13 @@ public class RoutineActivity extends AppCompatActivity {
                 openDialog();
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+
     }
 
     public void openDialog() {

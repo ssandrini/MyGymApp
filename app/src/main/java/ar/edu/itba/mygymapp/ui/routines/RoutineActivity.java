@@ -138,11 +138,23 @@ public class RoutineActivity extends AppCompatActivity {
             startActivity(calIntent);
         });
 
-        binding.playBtn.setOnClickListener(view -> {
+        binding.normalFab.setOnClickListener(view -> {
             if (routine != null) {
                 routine.sortCycles();
                 app.getRoutineRepository().addCacheRoutine(routine);
                 Intent exIntent = new Intent(this, RoutineExecutionActivity.class);
+                exIntent.putExtra("routineId", routine.getId());
+                //exIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+//           Log.e("DESPUES DEL PUT", "paso");
+                startActivity(exIntent);
+            }
+        });
+
+        binding.queueFab.setOnClickListener(view -> {
+            if (routine != null) {
+                routine.sortCycles();
+                app.getRoutineRepository().addCacheRoutine(routine);
+                Intent exIntent = new Intent(this, RoutineExecutionActivityAlt.class);
                 exIntent.putExtra("routineId", routine.getId());
                 //exIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 //           Log.e("DESPUES DEL PUT", "paso");

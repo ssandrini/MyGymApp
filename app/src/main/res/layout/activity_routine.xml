@@ -139,38 +139,68 @@
 
             </androidx.recyclerview.widget.RecyclerView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:gravity="center"
-                android:padding="20dp">
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/calendarBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="30dp"
-                    android:backgroundTint="@color/purple_500"
-                    app:srcCompat="@drawable/ic_calendar_today_white_24dp"
-
-                    />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/playBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_marginLeft="30dp"
-                    android:backgroundTint="@color/purple_500"
-                    app:srcCompat="@drawable/ic_play" />
-
-
-            </LinearLayout>
 
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        xmlns:fab="http://schemas.android.com/apk/res-auto"
+        android:gravity="center|bottom"
+        android:padding="20dp">
+
+
+
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/calendarBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+          android:tint="@color/purple_500"
+
+            fab:fab_colorNormal="@color/purple_500"
+            android:src="@drawable/ic_calendar_today_white_24dp"
+            >
+
+        </com.github.clans.fab.FloatingActionButton>
+        <com.github.clans.fab.FloatingActionMenu
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:menu_icon="@drawable/ic_play_white"
+
+            fab:menu_colorNormal="@color/purple_500"
+
+            >
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/normalFab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                fab:fab_size="mini"
+                fab:fab_label="Detailed"
+
+                fab:menu_colorNormal="@color/purple_200"
+                android:src="@drawable/ic_fab_normal"/>
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/queueFab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                fab:menu_colorNormal="@color/purple_200"
+                fab:fab_size="mini"
+                fab:fab_label="Queue"
+                android:src="@drawable/ic_fab_queue"/>
+        </com.github.clans.fab.FloatingActionMenu>
+
+
+
+
+
+
+
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

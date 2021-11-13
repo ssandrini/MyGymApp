@@ -69,62 +69,6 @@
                 android:textAppearance="?attr/textAppearanceHeadline4"
                 android:textStyle="bold" />
 
-            <LinearLayout
-              android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-
-                >
-                <RatingBar
-                    android:id="@+id/rScore"
-                    android:theme="@style/RatingBar2"
-                    style="?android:attr/ratingBarStyleIndicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:numStars="5"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp" />
-                <Space
-                    android:layout_width="20dp"
-                    android:layout_height="40dp"/>
-                <Button
-                    android:id="@+id/reviewBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:text="Review">
-
-                </Button>
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/reviewLayout"
-                android:layout_height="wrap_content"
-                 android:layout_width="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                android:visibility="gone"
-                >
-                <RatingBar
-                    android:id="@+id/rScoreVote"
-                    android:theme="@style/RatingBar2"
-                    style="?android:attr/ratingBarStyleIndicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-
-                    android:numStars="5"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Escribe tu review"
-                    >
-
-                </TextView>
-            </LinearLayout>
             <TextView
                 android:id="@+id/rDetail"
                 android:layout_width="match_parent"
@@ -134,6 +78,43 @@
                 android:paddingBottom="5dp"
                 android:text="@string/loremipsum"
                 android:textAppearance="?attr/textAppearanceBody1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RatingBar
+                    android:id="@+id/rScore"
+                    style="?android:attr/ratingBarStyleIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="0"
+                    android:numStars="5"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:theme="@style/RatingBar2" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        android:id="@+id/reviewBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        android:text="Review">
+
+                    </Button>
+                </LinearLayout>
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/rDifficulty"

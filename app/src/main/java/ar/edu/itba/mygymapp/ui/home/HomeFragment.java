@@ -99,7 +99,13 @@ public class HomeFragment extends Fragment {
                 s.append('\n');
             }
             Log.d("FAVS", s.toString());
-            Log.d("ALL ROUTINES", app.getRoutineRepository().getCacheRoutines().toString());
+
+            StringBuilder s2= new StringBuilder();
+            for (Routine cacheR : app.getRoutineRepository().getCacheRoutines()) {
+                s2.append(cacheR.getId() + cacheR.getName() );
+                s2.append('\n');
+            }
+            Log.d("ALL ROUTINES", s2.toString());
         });
 
         initRoutines();

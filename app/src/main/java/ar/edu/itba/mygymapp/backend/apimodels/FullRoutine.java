@@ -21,9 +21,9 @@ public class FullRoutine {
     @SerializedName("date")
     @Expose
     private long date;
-    @SerializedName("averageRating")
+    @SerializedName("score")
     @Expose
-    private int averageRating;
+    private int score;
     @SerializedName("isPublic")
     @Expose
     private boolean isPublic;
@@ -54,7 +54,7 @@ public class FullRoutine {
      * @param date
      * @param difficulty
      * @param metadata
-     * @param averageRating
+     * @param score
      * @param name
      * @param isPublic
      * @param id
@@ -62,13 +62,13 @@ public class FullRoutine {
      * @param category
      * @param publicUser
      */
-    public FullRoutine(int id, String name, String detail, long date, int averageRating, boolean isPublic, String difficulty, PublicUser publicUser, Category category, Object metadata) {
+    public FullRoutine(int id, String name, String detail, long date, int score, boolean isPublic, String difficulty, PublicUser publicUser, Category category, Object metadata) {
         super();
         this.id = id;
         this.name = name;
         this.detail = detail;
         this.date = date;
-        this.averageRating = averageRating;
+        this.score = score;
         this.isPublic = isPublic;
         this.difficulty = difficulty;
         this.publicUser = publicUser;
@@ -109,12 +109,28 @@ public class FullRoutine {
         this.date = date;
     }
 
-    public int getAverageRating() {
-        return averageRating;
+    public int getScore() {
+        return score;
     }
 
-    public void setAverageRating(int averageRating) {
-        this.averageRating = averageRating;
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public boolean isPublic() {
+        return isPublic;
+    }
+
+    public void setPublic(boolean aPublic) {
+        isPublic = aPublic;
+    }
+
+    public PublicUser getPublicUser() {
+        return publicUser;
+    }
+
+    public void setPublicUser(PublicUser publicUser) {
+        this.publicUser = publicUser;
     }
 
     public boolean isIsPublic() {
@@ -133,13 +149,7 @@ public class FullRoutine {
         this.difficulty = difficulty;
     }
 
-    public PublicUser getUser() {
-        return publicUser;
-    }
 
-    public void setUser(PublicUser publicUser) {
-        this.publicUser = publicUser;
-    }
 
     public Category getCategory() {
         return category;
@@ -179,6 +189,8 @@ public class FullRoutine {
     }
 
     public Routine toRoutine() {
-        return new Routine(this.getId(),this.getName(),this.getDetail(), this.getAverageRating(), isPublic, this.getDifficulty(), this.getUser(), this.getCategory(), this.getMetadata(), isFavourite);
+        return new Routine(this.getId(),this.getName(), this.getDetail(), this.getScore(),
+                this.isIsPublic(), this.getDifficulty(), this.getPublicUser(),
+                this.getCategory(), this.getMetadata(), this.isFavourite());
     }
 }

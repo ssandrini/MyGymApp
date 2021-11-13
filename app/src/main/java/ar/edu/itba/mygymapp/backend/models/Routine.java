@@ -12,7 +12,7 @@ public class Routine implements Serializable {
     private int id;
     private String name;
     private String detail;
-    private Integer score;
+    private int score;
     private boolean isPublic;
     private String difficulty;
     private PublicUser user;
@@ -66,7 +66,9 @@ public class Routine implements Serializable {
         return categoryComparator;
     }
 
-    public Routine(int id, String name, String detail, Integer score, boolean isPublic, String difficulty, PublicUser user, Category category, Object metadata, boolean favourite) {
+    public Routine(int id, String name, String detail, int score,
+                   boolean isPublic, String difficulty, PublicUser user,
+                   Category category, Object metadata, boolean favourite) {
         this.id = id;
         this.name = name;
         this.detail = detail;

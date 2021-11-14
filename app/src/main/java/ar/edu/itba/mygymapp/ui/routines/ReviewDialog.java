@@ -56,7 +56,7 @@ public class ReviewDialog extends AppCompatDialogFragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 assert getArguments() != null;
                 int routineId = getArguments().getInt("routineId");
-                Review body = new Review(score.getNumStars(), review.getText().toString()  ) ;
+                Review body = new Review( (int) (score.getRating() * 2), review.getText().toString()  ) ;
                 app.getReviewRepository().addReview(routineId, body).observe(getActivity(), r -> {
                     if (r.getStatus() == Status.SUCCESS) {
 //                        Toast.makeText(getContext(), R.string.review_success, Toast.LENGTH_SHORT).show();

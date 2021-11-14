@@ -39,7 +39,7 @@
             android:layout_height="48dp"
             android:gravity="center"
 
-            android:backgroundTint="#F44336"
+            android:backgroundTint="@color/logoutColor"
             app:icon="@drawable/ic_logout"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"

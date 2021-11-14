@@ -15,7 +15,7 @@
         android:layout_height="96dp"
         app:civ_border_width="2dp"
         android:src="@drawable/avatar"
-        app:civ_border_color="#FF000000"/>
+        app:civ_border_color="@color/primaryTextColor"/>
 
 
     <TextView
@@ -42,7 +42,7 @@
         android:id="@+id/reviewText"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:background="#E8E8E8"
+        android:background="@color/white"
         android:gravity="top|start"
         android:hint="@string/share_details_of_your_own_experience"
         android:inputType="textMultiLine"

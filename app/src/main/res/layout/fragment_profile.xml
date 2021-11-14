@@ -21,7 +21,7 @@
             android:layout_width="220dp"
             android:layout_height="220dp"
             android:src="@drawable/avatar"
-            app:civ_border_color="@color/colorAccent"
+            app:civ_border_color="@color/primaryTextColor"
             app:civ_border_width="2dp" />
 
         <ImageView
@@ -51,7 +51,7 @@
         android:layout_marginBottom="10dp"
         android:text="@string/email_hint"
         android:textColor="?android:attr/textColorSecondary"
-        android:textColorHint="#636060"
+        android:textColorHint="@color/hintColor"
         android:visibility="visible"
         android:textSize="17sp"/>
 
@@ -62,7 +62,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/purple_500">
+        android:background="@color/secondaryTextColor">
 
     </View>
 
@@ -132,14 +132,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="@color/colorAccent"/>
+                android:backgroundTint="@color/primaryTextColor"/>
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/saveBtn"
                 android:text="@string/profile_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="@color/secondaryTextColor"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -157,7 +158,7 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/purple_200"
+            app:cardBackgroundColor="@color/highlightColor"
             app:cardCornerRadius="15dp"
             app:cardElevation="10dp"
             app:contentPadding="10dp">
@@ -242,7 +243,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:backgroundTint="@color/colorAccent"/>
+            android:backgroundTint="@color/primaryTextColor"/>
     </LinearLayout>
 
 

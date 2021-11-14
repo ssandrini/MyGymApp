@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:collapsedTitleTextAppearance="@style/routineActivity"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="@color/secondaryTextColor"
             app:expandedTitleMarginEnd="100dp"
             app:expandedTitleMarginStart="16dp"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
@@ -109,7 +109,7 @@
                         android:id="@+id/reviewBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:backgroundTint="@color/secondaryTextColor"
 
                         android:text="Review">
 
@@ -162,9 +162,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-          android:tint="@color/purple_500"
+          android:tint="@color/secondaryTextColor"
 
-            fab:fab_colorNormal="@color/purple_500"
+            fab:fab_colorNormal="@color/secondaryTextColor"
             android:src="@drawable/ic_calendar_today_white_24dp"
             >
 
@@ -174,7 +174,7 @@
             android:layout_height="wrap_content"
             app:menu_icon="@drawable/ic_play_white"
 
-            fab:menu_colorNormal="@color/purple_500"
+            fab:menu_colorNormal="@color/secondaryTextColor"
 
             >
 
@@ -184,17 +184,17 @@
                 android:layout_height="wrap_content"
                 fab:fab_size="mini"
                 fab:fab_label="Detailed"
-                android:tint="@color/purple_200"
-                fab:menu_colorNormal="@color/purple_200"
+                android:tint="@color/highlightColor"
+                fab:menu_colorNormal="@color/highlightColor"
                 android:src="@drawable/ic_fab_normal"/>
             <com.github.clans.fab.FloatingActionButton
                 android:id="@+id/queueFab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                fab:menu_colorNormal="@color/purple_200"
+                fab:menu_colorNormal="@color/highlightColor"
                 fab:fab_size="mini"
                 fab:fab_label="Queue"
-                android:tint="@color/purple_200"
+                android:tint="@color/highlightColor"
                 android:src="@drawable/ic_fab_queue"/>
         </com.github.clans.fab.FloatingActionMenu>
 

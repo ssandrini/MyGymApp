@@ -11,7 +11,7 @@
         android:layout_margin="8dp"
         android:layout_marginTop="12dp"
         android:padding="8dp"
-        app:cardBackgroundColor="@color/purple_200"
+        app:cardBackgroundColor="@color/highlightColor"
         app:cardElevation="10dp"
         app:cardCornerRadius="25dp"
         >
@@ -63,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:progressBackgroundTint="@color/black"
+                    android:progressBackgroundTint="@color/itemTextColor"
                     android:numStars="5"
                     android:theme="@style/RatingBar2"
                     style="?android:attr/ratingBarStyleSmall"

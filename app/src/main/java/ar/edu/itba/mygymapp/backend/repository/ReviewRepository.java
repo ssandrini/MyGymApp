@@ -7,6 +7,7 @@ import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.api.ApiClient;
 import ar.edu.itba.mygymapp.backend.api.ApiResponse;
 import ar.edu.itba.mygymapp.backend.api.ApiReviewService;
+import ar.edu.itba.mygymapp.backend.apimodels.PagedList;
 import ar.edu.itba.mygymapp.backend.apimodels.Review;
 
 public class ReviewRepository {
@@ -28,4 +29,15 @@ public class ReviewRepository {
         }.asLiveData();
     }
 
+    public LiveData<Resource<PagedList<Review>>> getReviews(int routineId) {
+        return new NetworkBoundResource<PagedList<Review>, PagedList<Review>>()
+        {
+            @NonNull
+            @Override
+            protected LiveData<ApiResponse<PagedList<Review>>> createCall() {
+                return apiService.getReviews(routineId);
+            }
+        }.asLiveData();
+
+    }
 }

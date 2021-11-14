@@ -80,7 +80,7 @@ public class RoutineActivity extends AppCompatActivity {
                 routine = r.getData().toRoutine();
                 binding.rName.setText(routine.getName());
                 binding.rDifficulty.setText(routine.getDifficulty());
-                binding.rScore.setRating(routine.getScore().floatValue());
+                binding.rScore.setRating(routine.getScore().floatValue() / 2);
                 binding.rDetail.setText(routine.getDetail());
                 binding.collapsingToolbarLayout.setTitle(routine.getName());
                 Glide.with(this).asBitmap().load(routineImageUrl).placeholder(R.drawable.r1).into(binding.routineImageView);
@@ -187,6 +187,10 @@ public class RoutineActivity extends AppCompatActivity {
 
     public void openDialog() {
         ReviewDialog reviewDialog = new ReviewDialog();
+        Bundle args = new Bundle();
+        args.putInt("routineId", routine.getId());
+
+        reviewDialog.setArguments(args);
         reviewDialog.show(getSupportFragmentManager(), "Review Dialog");
     }
 
@@ -243,4 +247,6 @@ public class RoutineActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }

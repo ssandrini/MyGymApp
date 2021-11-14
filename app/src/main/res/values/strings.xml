@@ -62,4 +62,6 @@
 
     <string name="added_fav">Marked as favourite</string>
     <string name="deleted_fav">Not marked as favourite</string>
+    <string name="review_success">Review sent</string>
+
 </resources>

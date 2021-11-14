@@ -182,7 +182,7 @@
                 android:layout_height="wrap_content"
                 fab:fab_size="mini"
                 fab:fab_label="Detailed"
-
+                android:tint="@color/purple_200"
                 fab:menu_colorNormal="@color/purple_200"
                 android:src="@drawable/ic_fab_normal"/>
             <com.github.clans.fab.FloatingActionButton
@@ -192,6 +192,7 @@
                 fab:menu_colorNormal="@color/purple_200"
                 fab:fab_size="mini"
                 fab:fab_label="Queue"
+                android:tint="@color/purple_200"
                 android:src="@drawable/ic_fab_queue"/>
         </com.github.clans.fab.FloatingActionMenu>
 

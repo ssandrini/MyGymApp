@@ -52,7 +52,7 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.routineName.setText(routines.get(position).getName());
-        holder.routineScore.setRating(routines.get(position).getScore().floatValue());
+        holder.routineScore.setRating(routines.get(position).getScore().floatValue() / 2);
         holder.routineDuration.setText(routines.get(position).getDurationStr());
 
         Glide.with(holder.parent.getContext())

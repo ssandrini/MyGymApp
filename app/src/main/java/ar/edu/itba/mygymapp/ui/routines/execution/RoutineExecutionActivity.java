@@ -2,14 +2,17 @@ package ar.edu.itba.mygymapp.ui.routines.execution;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.ColorUtils;
 
 import com.mut_jaeryo.circletimer.CircleTimer;
 
@@ -172,13 +175,28 @@ public class RoutineExecutionActivity extends AppCompatActivity {
         durationSb.append(String.valueOf(exercise.getDuration()));
         durationSb.append("''");
         binding.exerciseDuration.setText(durationSb.toString());
-
+        binding.exerciseCard.setCardBackgroundColor(cardColor(exercise.getType()));
         StringBuilder repsSb = new StringBuilder();
         repsSb.append('x');
         repsSb.append(String.valueOf(exercise.getRepetitions()));
         binding.exerciseReps.setText(repsSb.toString());
 
 //        startTimer(exercise);
+    }
+
+    private int cardColor(String type) {
+        int res;
+        switch (type) {
+            case "exercise":
+                res = Color.rgb(00,96,88);
+                break;
+            case "rest":
+                res = Color.CYAN;
+                break;
+            default:
+                res = Color.BLACK;
+        }
+        return res;
     }
 
     private void setCycle(Cycle cycle) {

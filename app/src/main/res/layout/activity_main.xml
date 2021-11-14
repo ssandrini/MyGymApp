@@ -26,5 +26,25 @@
         app:itemTextAppearance="@style/NavigationText"
         app:headerLayout="@layout/nav_header_main"
         android:fitsSystemWindows="false"
-        app:menu="@menu/navigation_menu" />
+        app:menu="@menu/navigation_menu" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:clickable="true"
+            android:orientation="vertical">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/logoutBtn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+
+            android:backgroundTint="#F44336"
+            app:icon="@drawable/ic_logout"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:text="Log out" />
+        </LinearLayout>
+        </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

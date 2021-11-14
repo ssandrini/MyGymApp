@@ -8,6 +8,8 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
+        android:paddingTop="30dp"
+
         android:id="@+id/favsRecView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

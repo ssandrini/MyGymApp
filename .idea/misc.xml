@@ -43,6 +43,7 @@
         <entry key="app/src/main/res/drawable-anydpi/ic_previous2.xml" value="0.5166666666666667" />
         <entry key="app/src/main/res/drawable-anydpi/ic_routine.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_share.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_url.xml" value="0.5656565656565656" />
         <entry key="app/src/main/res/drawable-anydpi/ic_yes_fav.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.321025641025641" />
         <entry key="app/src/main/res/drawable-xhdpi/side_nav_bar.xml" value="0.5833333333333334" />
@@ -72,12 +73,14 @@
         <entry key="app/src/main/res/layout/content_main.xml" value="0.5515625" />
         <entry key="app/src/main/res/layout/content_menu.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/layout/exercise_list_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/exercise_queue_list_item.xml" value="0.3814814814814815" />
         <entry key="app/src/main/res/layout/fragment_favourites.xml" value="0.24201680672268908" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_my_exercises.xml" value="0.3409090909090909" />
         <entry key="app/src/main/res/layout/fragment_my_routines.xml" value="0.5515625" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_routines.xml" value="0.5515625" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/home_sections_divider.xml" value="0.45" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.5" />
@@ -86,6 +89,7 @@
         <entry key="app/src/main/res/layout/routine_execution.xml" value="0.55" />
         <entry key="app/src/main/res/layout/routine_list_item.xml" value="0.375" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.5140845070422535" />
+        <entry key="app/src/main/res/menu/explore_menu.xml" value="0.5515625" />
         <entry key="app/src/main/res/menu/gender_menu.xml" value="0.2953125" />
         <entry key="app/src/main/res/menu/navigation_menu.xml" value="0.75" />
         <entry key="app/src/main/res/menu/toolbar_menu.xml" value="0.5515625" />

@@ -5,10 +5,14 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.apimodels.FullRoutine;
 import ar.edu.itba.mygymapp.backend.repository.Resource;
@@ -50,13 +55,13 @@ public class HomeFragment extends Fragment {
         sb.append("Good ");
         Calendar c = Calendar.getInstance();
         int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
-        if(timeOfDay >= 0 && timeOfDay < 12){
+        if (timeOfDay >= 0 && timeOfDay < 12) {
             sb.append("morning");
-        }else if(timeOfDay >= 12 && timeOfDay < 16){
+        } else if (timeOfDay >= 12 && timeOfDay < 16) {
             sb.append("afternoon");
-        }else if(timeOfDay >= 16 && timeOfDay < 21){
+        } else if (timeOfDay >= 16 && timeOfDay < 21) {
             sb.append("evening");
-        }else if(timeOfDay >= 21 && timeOfDay < 24){
+        } else if (timeOfDay >= 21 && timeOfDay < 24) {
             sb.append("night");
         }
 
@@ -64,13 +69,13 @@ public class HomeFragment extends Fragment {
         sb.append(app.getUserRepository().getUser().getUsername());
         sb.append("! \uD83D\uDC4B ");
         binding.welcomeHeader.setText(sb.toString());
-        DisplayMetrics displayMetrics= root.getContext().getResources().getDisplayMetrics();
-        float dpWidth=displayMetrics.widthPixels/displayMetrics.density;
-        float dpHeight=displayMetrics.heightPixels/displayMetrics.density;
-        Log.d("tamaño:",String.valueOf(dpWidth));
-        if(dpWidth>=700){
+        DisplayMetrics displayMetrics = root.getContext().getResources().getDisplayMetrics();
+        float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
+        float dpHeight = displayMetrics.heightPixels / displayMetrics.density;
+        Log.d("tamaño:", String.valueOf(dpWidth));
+        if (dpWidth >= 700) {
             binding.welcomeHeader.setTextSize(30);
-           binding.recomendedRoutine.setTextSize(17);
+            binding.recomendedRoutine.setTextSize(17);
 
         }
         myRoutinesAdapter = new RoutinesAdapter(getContext());
@@ -95,18 +100,19 @@ public class HomeFragment extends Fragment {
 
             StringBuilder s = new StringBuilder();
             for (Routine favRoutine : app.getRoutineRepository().getFavRoutines()) {
-                s.append(favRoutine.getId() + favRoutine.getName() );
+                s.append(favRoutine.getId() + favRoutine.getName());
                 s.append('\n');
             }
             Log.d("FAVS", s.toString());
 
-            StringBuilder s2= new StringBuilder();
+            StringBuilder s2 = new StringBuilder();
             for (Routine cacheR : app.getRoutineRepository().getCacheRoutines()) {
-                s2.append(cacheR.getId() + cacheR.getName() );
+                s2.append(cacheR.getId() + cacheR.getName());
                 s2.append('\n');
             }
             Log.d("ALL ROUTINES", s2.toString());
         });
+
 
         initRoutines();
         initFavourites();
@@ -129,9 +135,10 @@ public class HomeFragment extends Fragment {
         app.getRoutineRepository().getRoutines().observe(getViewLifecycleOwner(), r -> {
             if (r.getStatus() == Status.SUCCESS) {
                 assert r.getData() != null;
-                for (FullRoutine fr :r.getData().getContent()) {
+                for (FullRoutine fr : r.getData().getContent()) {
                     routines.add(fr.toRoutine());
-                };
+                }
+                ;
 
                 myRoutinesAdapter.notifyDataSetChanged();
                 highlightsAdapter.notifyDataSetChanged();
@@ -153,4 +160,47 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.explore_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 }
+
+
+//    @Override
+//    public void onPrepareOptionsMenu(@NonNull Menu menu) {
+//        MenuItem urlItem = menu.findItem(R.id.action_url);
+//        urlItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
+//            @Override
+//            public boolean onMenuItemActionExpand(MenuItem menuItem) {
+//                // Do something when expanded
+//                return true;  // Return true to expand action view
+//            }
+//
+//            @Override
+//            public boolean onMenuItemActionCollapse(MenuItem menuItem) {
+//                // Do something when action item collapses
+//                return true;  // Return true to collapse action view
+//            }
+//        });
+//        SearchView searchView = (SearchView) searchItem.getActionView();
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            public boolean onQueryTextChange(String newText) {
+//                routinesAdapter.getFilter().filter(newText);
+//                return false;
+//            }
+//
+//            public boolean onQueryTextSubmit(String query) {
+//                searchItem.collapseActionView();
+//                return true;
+//            }
+//        });
+//        searchItem.setVisible(true);
+//        MenuItem optionsItem = menu.findItem(R.id.action_options);
+//        urlItem.setVisible(true);
+        //super.onPrepareOptionsMenu(menu);  CREO que esta línea no va.
+
+//        super.onPrepareOptionsMenu(menu);
+//    }
+//}

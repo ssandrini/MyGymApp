@@ -64,4 +64,5 @@
     <string name="deleted_fav">Not marked as favourite</string>
     <string name="review_success">Review sent</string>
 
+    <string name="url">Routine URL</string>
 </resources>

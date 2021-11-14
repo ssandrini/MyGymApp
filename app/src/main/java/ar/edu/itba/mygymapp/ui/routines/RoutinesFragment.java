@@ -1,6 +1,8 @@
 package ar.edu.itba.mygymapp.ui.routines;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
@@ -41,7 +44,14 @@ public class RoutinesFragment extends Fragment {
 
         binding.routinesRecView.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.routinesRecView.setAdapter(routinesAdapter);
-
+        DisplayMetrics displayMetrics= root.getContext().getResources().getDisplayMetrics();
+        float dpWidth=displayMetrics.widthPixels/displayMetrics.density;
+        Log.d("tamaño:",String.valueOf(dpWidth));
+        if(dpWidth>=700){
+            binding.routinesRecView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        }else {
+            binding.routinesRecView.setLayoutManager(new LinearLayoutManager(getContext()));
+        }
         setHasOptionsMenu(true);
 
         initRoutines();

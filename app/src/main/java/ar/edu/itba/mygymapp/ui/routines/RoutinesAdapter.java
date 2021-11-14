@@ -3,6 +3,7 @@ package ar.edu.itba.mygymapp.ui.routines;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,9 +64,10 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), RoutineActivity.class);
-
-                intent.putExtra("routineId", routines.get(holder.getAdapterPosition()).getId());
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("http://mygym.com/routine?id=" + routines.get(holder.getAdapterPosition()).getId()) );
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                intent.putExtra("routineId", routines.get(holder.getAdapterPosition()).getId());
                 intent.putExtra("routineImageUrl", routines.get(holder.getAdapterPosition()).getRoutineImageUrl());
 
                 view.getContext().startActivity(intent);

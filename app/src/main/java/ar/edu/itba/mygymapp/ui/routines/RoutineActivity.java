@@ -49,7 +49,8 @@ public class RoutineActivity extends AppCompatActivity {
     private CyclesAdapter cyclesAdapter;
     private Routine routine;
     private boolean isFav = false;
-
+    private  int routineId;
+    private String routineImageUrl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,8 +67,9 @@ public class RoutineActivity extends AppCompatActivity {
 
         Intent i = getIntent();
 
-        String routineImageUrl = i.getStringExtra("routineImageUrl");
-        Integer routineId = i.getIntExtra("routineId", -1);
+        routineId = Integer.parseInt(i.getData().getQueryParameter("id"));
+        routineImageUrl = i.getStringExtra("routineImageUrl");
+
         Log.d("FAV ANTES DE ISFAV", String.valueOf(isFav));
         isFav = isFavourite(routineId);
         Log.d("FAV DSP DE ISFAV", String.valueOf(isFav));
@@ -201,6 +203,8 @@ public class RoutineActivity extends AppCompatActivity {
         MenuItem favItem = menu.findItem(R.id.action_fav);
         MenuItem shareItem = menu.findItem(R.id.action_share);
 
+
+
         Log.d("FAV ON CREATE OPTS MENU", String.valueOf(isFav));
 
         if (isFav) {
@@ -220,7 +224,13 @@ public class RoutineActivity extends AppCompatActivity {
         if (item.getItemId() == android.R.id.home) {
             finish();
         } else if (item.getItemId() == R.id.action_share) {
-            finish();
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "MyGym");
+            String shareMessage = "\n" + "\uD83D\uDD25 Hey, take a look at this routine \uD83D\uDCAA " + "\n";
+            shareMessage = shareMessage + "http://fithub.com/routine?id=" + routine.getId()+ "\n\n";
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+            startActivity(Intent.createChooser(shareIntent, "Choose one"));
         } else if (item.getItemId() == R.id.action_fav) {
 
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="whiteTextColor">#fff</color>
+    <color name="white">#fff</color>
     <color name="hintColor">#636060</color>
     <color name="primaryTextColor">#11CFC5</color>
     <color name="secondaryTextColor">#FF6200EE</color>

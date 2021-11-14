@@ -7,6 +7,7 @@
     <color name="secondaryTextColor">#FF6200EE</color>
     <color name="highlightColor">#FFBB86FC</color>
     <color name="exCardColor">#009688</color>
+    <color name="addPicColor">#00BCD4</color>
     <color name="itemTextColor">#000</color>
     <color name="logoutColor">#F44336</color>
 </resources>

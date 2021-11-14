@@ -22,7 +22,7 @@
             app:expandedTitleMarginEnd="100dp"
             app:expandedTitleMarginStart="16dp"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
-            app:title="Rutina">
+            app:title="🏋️">
 
             <ImageView
                 android:id="@+id/routineImageView"

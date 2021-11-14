@@ -82,7 +82,8 @@ public class RoutineActivity extends AppCompatActivity {
                 binding.rDifficulty.setText(routine.getDifficulty());
                 binding.rScore.setRating(routine.getScore().floatValue() / 2);
                 binding.rDetail.setText(routine.getDetail());
-                binding.collapsingToolbarLayout.setTitle(routine.getName());
+//                binding.collapsingToolbarLayout.setTitle("\uD83C\uDFCB" + "  " + routine.getName());
+                binding.collapsingToolbarLayout.setTitle( routine.getName());
                 Glide.with(this).asBitmap().load(routineImageUrl).placeholder(R.drawable.r1).into(binding.routineImageView);
 
 

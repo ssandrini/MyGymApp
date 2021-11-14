@@ -160,6 +160,7 @@
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/highlightColor"
             app:cardCornerRadius="15dp"
+            android:id="@+id/userDataBox"
             app:cardElevation="10dp"
             app:contentPadding="10dp">
 
@@ -177,6 +178,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/cardFirstName"
                         android:layout_marginRight="10dp"
                         android:fontFamily="@font/google_sans_bold"
                         android:text="@string/profile_first_name"
@@ -200,6 +202,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
+                        android:id="@+id/cardLastName"
                         android:fontFamily="@font/google_sans_bold"
                         android:text="@string/profile_last_name"
                         style="@style/profileCard"/>
@@ -221,6 +224,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
+                        android:id="@+id/cardGender"
                         android:fontFamily="@font/google_sans_bold"
                         android:text="@string/gender"
                         style="@style/profileCard"/>

@@ -5,6 +5,7 @@ import static android.app.Activity.RESULT_OK;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -63,6 +65,24 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
         // register the UI widgets with their appropriate IDs
         BSelectImage = binding.changePhoto;
         IVPreviewImage = binding.avatar;
+        DisplayMetrics displayMetrics= root.getContext().getResources().getDisplayMetrics();
+        float dpWidth=displayMetrics.widthPixels/displayMetrics.density;
+        if(dpWidth>=700) {
+            binding.editButton.setTextSize(23);
+            binding.cancelBtn.setTextSize(23);
+            binding.saveBtn.setTextSize(23);
+            binding.firstName.setTextSize(20);
+            binding.lastName.setTextSize(20);
+            binding.profileEmail.setTextSize(20);
+            binding.profileUsername.setTextSize(21);
+            binding.userDataBox.setLayoutParams(new LinearLayout.LayoutParams(500,300));
+            binding.setFname.setTextSize(22);
+            binding.cardFirstName.setTextSize(22);
+            binding.cardLastName.setTextSize(22);
+            binding.setLname.setTextSize(22);
+            binding.cardGender.setTextSize(22);
+            binding.setGender.setTextSize(22);
+        }
 
         // handle the Choose Image button to trigger
         // the image chooser function

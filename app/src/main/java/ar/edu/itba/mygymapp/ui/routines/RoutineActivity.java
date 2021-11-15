@@ -59,7 +59,7 @@ public class RoutineActivity extends AppCompatActivity {
         View root = binding.getRoot();
         CollapsingToolbarLayout cToolbar = binding.collapsingToolbarLayout;
         Toolbar toolbar = binding.toolbarMain;
-        setSupportActionBar(toolbar);
+//        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 

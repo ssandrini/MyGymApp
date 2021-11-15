@@ -114,7 +114,7 @@ public class RoutineActivity extends AppCompatActivity {
                                 } else {
                                     defaultResourceHandler(r);
                                     if (r.getStatus() == Status.ERROR)
-                                        Toast.makeText(getApplicationContext(), "No cargo el ejercicio del ciclo", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), getText(R.string.error_exercise), Toast.LENGTH_LONG).show();
                                 }
                             });
                         }
@@ -122,7 +122,7 @@ public class RoutineActivity extends AppCompatActivity {
                     } else {
                         defaultResourceHandler(r);
                         if (r.getStatus() == Status.ERROR)
-                            Toast.makeText(getApplicationContext(),"No cargo el ciclo",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),getText(R.string.error_cycle),Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -232,6 +232,7 @@ public class RoutineActivity extends AppCompatActivity {
             sb.append(routine.getName() + " by " + routine.getUser().getUsername() + "\n");
             sb.append(routine.getDetail() + "\n\n");
             sb.append("http://mygym.com/routine?id=" + routine.getId() + "\n\n");
+
             String shareMessage = sb.toString();
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
             startActivity(Intent.createChooser(shareIntent, "Choose one"));

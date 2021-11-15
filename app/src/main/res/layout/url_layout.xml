@@ -8,7 +8,7 @@
          android:layout_width="wrap_content"
         android:textAppearance="?attr/textAppearanceHeadline5"
         android:padding="15dp"
-        android:text="Ingrese URL de la rutina"
+        android:text="@string/url_layout"
         android:textStyle="bold"
         >
 

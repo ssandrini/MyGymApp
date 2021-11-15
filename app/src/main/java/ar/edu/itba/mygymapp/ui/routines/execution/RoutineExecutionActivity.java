@@ -88,8 +88,8 @@ public class RoutineExecutionActivity extends AppCompatActivity {
 
 
         binding.closeBtn.setOnClickListener(view -> {
-            new AlertDialog.Builder(this,  R.style.AlertDialogStyle).setTitle("Are you sure you want to exit?").setCancelable(false)
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            new AlertDialog.Builder(this,  R.style.AlertDialogStyle).setTitle(getText(R.string.exit_question)).setCancelable(false)
+                    .setPositiveButton(getText(R.string.yes), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             finish();

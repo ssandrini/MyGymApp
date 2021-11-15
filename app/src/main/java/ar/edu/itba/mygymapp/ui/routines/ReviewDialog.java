@@ -46,7 +46,7 @@ public class ReviewDialog extends AppCompatDialogFragment {
         Glide.with(view.getContext()).load(app.getUserRepository().getUser().getAvatarUrl()).placeholder(R.drawable.avatar).into(userAvatarReview);
 
 
-        builder.setView(view).setTitle("Review").setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setView(view).setTitle(getText(R.string.review)).setNegativeButton(getText(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 // Es el que cierra (creo no hay que hacer nada aca)

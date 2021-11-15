@@ -157,15 +157,15 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
         lastName = lnView.getText().toString();
 
         if (firstName.trim().length() == 0) {
-            fnView.setError("Invalid first name");
+            fnView.setError(getText(R.string.invalid_first_name));
             error = true;
         }
         if (lastName.trim().length() == 0) {
-            lnView.setError("Invalid last name");
+            lnView.setError(getText(R.string.invalid_last_name));
             error = true;
         }
         if (error) {
-            Toast.makeText(getActivity(),"Invalid data", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),getText(R.string.invalid_data), Toast.LENGTH_SHORT).show();
             return ;
         }
     }

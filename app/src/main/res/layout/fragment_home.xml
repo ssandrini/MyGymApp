@@ -26,7 +26,7 @@
                         <TextView
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
-                            android:text="Good morning, User! 👋 "
+                            android:text="@string/good_morning"
                             android:id="@+id/welcomeHeader"
                             android:fontFamily="@font/google_sans_bold"
                             android:textAppearance="?attr/textAppearanceHeadline5"
@@ -35,7 +35,7 @@
                         <TextView
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
-                            android:text="How about doing Calisthenics today?"
+                            android:text="@string/recommended_routine"
                             android:id="@+id/recomendedRoutine"
                             android:fontFamily="@font/google_sans"
                             android:textAppearance="?attr/textAppearanceBody2"

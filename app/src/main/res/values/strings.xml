@@ -3,6 +3,7 @@
     <string name="user_hint">Username</string>
     <string name="password_hint">Password</string>
     <string name="log_in">Log In</string>
+    <string name="log_out">Log Out</string>
     <string name="register">Register now</string>
     <string name="register_text">Don\'t have an account yet?</string>
     <string name="invalid_username">Invalid username</string>
@@ -65,4 +66,29 @@
     <string name="review_success">Review sent</string>
 
     <string name="url">Routine URL</string>
+
+    <string name="invalid_first_name">Invalid first name</string>
+    <string name="invalid_last_name">Invalid last name</string>
+    <string name="invalid_data">Invalid data</string>
+    <string name="exit_question">Are you sure you want to exit?</string>
+    <string name="yes">Yes</string>
+    <string name="review">Review</string>
+    <string name="cancel">Cancel</string>
+    <string name="error_exercise">Couldn\'t load exercise in cycle</string>
+    <string name="error_cycle">Couldn\'t load cycle</string>
+    <string name="routine">Routine</string>
+    <string name="hard">Hard</string>
+    <string name="when">When are you playing this routine?</string>
+    <string name="monday">Monday</string>
+    <string name="Tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="accept">Accept</string>
+    <string name="cycle">Cycle</string>
+    <string name="good_morning">Good morning, User! 👋 </string>
+    <string name="recommended_routine">How about doing Calisthenics today?</string>
+    <string name="url_layout">Type the routine\'s URL</string>
 </resources>

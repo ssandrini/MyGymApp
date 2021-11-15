@@ -67,7 +67,10 @@ public class RoutineActivity extends AppCompatActivity {
 
         Intent i = getIntent();
 
-        routineId = Integer.parseInt(i.getData().getQueryParameter("id"));
+        routineId = (i.getIntExtra("routineId", -1));
+        if (routineId == -1) {
+            routineId = Integer.parseInt(i.getData().getQueryParameter("id"));
+        }
         routineImageUrl = i.getStringExtra("routineImageUrl");
 
         Log.d("FAV ANTES DE ISFAV", String.valueOf(isFav));

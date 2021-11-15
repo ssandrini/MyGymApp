@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
+        urlItem.setVisible(false);
         return super.onCreateOptionsMenu(menu);
     }
 

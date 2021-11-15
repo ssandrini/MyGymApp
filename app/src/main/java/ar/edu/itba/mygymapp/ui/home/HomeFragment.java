@@ -86,6 +86,7 @@ public class HomeFragment extends Fragment {
         highlightsAdapter.setRoutines(routines);
         recentsAdapter.setRoutines(routines);
 
+        binding.consoleBtn.setVisibility(View.GONE);
 
         binding.myroutinesRecView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         binding.myroutinesRecView.setAdapter(myRoutinesAdapter);
@@ -113,7 +114,7 @@ public class HomeFragment extends Fragment {
             Log.d("ALL ROUTINES", s2.toString());
         });
 
-
+        setHasOptionsMenu(true);
         initRoutines();
         initFavourites();
         return root;
@@ -160,12 +161,27 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    /*
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.explore_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
+
+        MenuItem urlItem = menu.findItem(R.id.action_url);
+        urlItem.setVisible(true);
     }
+
+     */
+
+
+    @Override
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
+        MenuItem urlItem = menu.findItem(R.id.action_url);
+        urlItem.setVisible(true);
+    }
+
 }
+
 
 
 //    @Override

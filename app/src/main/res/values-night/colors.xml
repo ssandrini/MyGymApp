@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="whiteTextColor">#fff</color>
+    <color name="white">#fff</color>
+    <color name="hintColor">#636060</color>
+    <color name="primaryTextColor">#11CFC5</color>
+    <color name="secondaryTextColor">#FF6200EE</color>
+    <color name="highlightColor">#FFBB86FC</color>
+    <color name="exCardColor">#009688</color>
+    <color name="addPicColor">#00BCD4</color>
+    <color name="itemTextColor">#000</color>
+    <color name="logoutColor">#F44336</color>
+</resources>

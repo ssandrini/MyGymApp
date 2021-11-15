@@ -22,7 +22,7 @@ public class NotifyHandlerReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         // Create an Intent for the activity you want to start
         Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse("http://fithub.com/routine?id=" + intent.getIntExtra(ID_EXTRA,1)));
+        i.setData(Uri.parse("http://mygym.com/routine?id=" + intent.getIntExtra(ID_EXTRA,1)));
         i.setPackage("com.example.fithub_mobile");
     // Create the TaskStackBuilder and add the intent, which inflates the back stack
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);

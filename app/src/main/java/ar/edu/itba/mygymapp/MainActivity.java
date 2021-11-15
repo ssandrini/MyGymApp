@@ -1,15 +1,20 @@
 package ar.edu.itba.mygymapp;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.view.Window;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -74,8 +79,42 @@ public class MainActivity extends AppCompatActivity {
         optionsItem.setVisible(false);
         searchItem.setVisible(false);
 
+        MenuItem urlItem = menu.findItem(R.id.action_url);
+        urlItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                showUrlDialog();
+                return true;
+            }
+        });
+
         return super.onCreateOptionsMenu(menu);
     }
+
+    private void showUrlDialog() {
+        Dialog dialog = new Dialog(MainActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.url_layout);
+
+        EditText url = dialog.findViewById(R.id.editUrl);
+        MaterialButton playUrlBtn = dialog.findViewById(R.id.playUrlRoutine);
+        playUrlBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url.getText().toString()));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                intent.putExtra("routineId", routines.get(holder.getAdapterPosition()).getId());
+                intent.putExtra("routineImageUrl", "https://i.imgur.com/UHka8EZ.png");
+
+                view.getContext().startActivity(intent);
+            }
+        });
+
+        dialog.show();
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {

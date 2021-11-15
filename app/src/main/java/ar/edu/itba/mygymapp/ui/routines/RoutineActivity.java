@@ -228,7 +228,7 @@ public class RoutineActivity extends AppCompatActivity {
             shareIntent.setType("text/plain");
             shareIntent.putExtra(Intent.EXTRA_SUBJECT, "MyGym");
             String shareMessage = "\n" + "\uD83D\uDD25 Hey, take a look at this routine \uD83D\uDCAA " + "\n";
-            shareMessage = shareMessage + "http://fithub.com/routine?id=" + routine.getId()+ "\n\n";
+            shareMessage = shareMessage + "http://mygym.com/routine?id=" + routine.getId()+ "\n\n";
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
             startActivity(Intent.createChooser(shareIntent, "Choose one"));
         } else if (item.getItemId() == R.id.action_fav) {

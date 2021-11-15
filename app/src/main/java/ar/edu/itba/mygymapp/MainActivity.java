@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         app = (App) this.getApplication();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-//        setSupportActionBar(binding.appBar.toolbar);
+        setSupportActionBar(binding.appBar.toolbar);
 
 
         DrawerLayout drawer = binding.drawerLayout;

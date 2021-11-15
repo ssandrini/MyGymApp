@@ -227,8 +227,12 @@ public class RoutineActivity extends AppCompatActivity {
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
             shareIntent.putExtra(Intent.EXTRA_SUBJECT, "MyGym");
-            String shareMessage = "\n" + "\uD83D\uDD25 Hey, take a look at this routine \uD83D\uDCAA " + "\n";
-            shareMessage = shareMessage + "http://mygym.com/routine?id=" + routine.getId()+ "\n\n";
+            StringBuilder sb = new StringBuilder();
+            sb.append("\n \uD83D\uDCAA Hey, take a look at this routine  \uD83D\uDD25\n\n");
+            sb.append(routine.getName() + " by " + routine.getUser().getUsername() + "\n");
+            sb.append(routine.getDetail() + "\n\n");
+            sb.append("http://mygym.com/routine?id=" + routine.getId() + "\n\n");
+            String shareMessage = sb.toString();
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
             startActivity(Intent.createChooser(shareIntent, "Choose one"));
         } else if (item.getItemId() == R.id.action_fav) {

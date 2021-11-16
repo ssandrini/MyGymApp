@@ -96,7 +96,6 @@ public class RoutinesFragment extends Fragment {
     private void showFilterDialog(MenuItem item) {
         Dialog dialog = new Dialog(getActivity());
 //        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         dialog.setCancelable(true);
         dialog.setContentView(R.layout.filter_dialog);
         Button searchButton = dialog.findViewById(R.id.button5);

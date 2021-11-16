@@ -123,7 +123,9 @@ public class RoutineExecutionActivity extends AppCompatActivity {
                     cycleReps++;
                 }
                 exerciseIndex = 0;
-
+                StringBuilder sb = new StringBuilder();
+                sb.append(cycleReps+1).append(" / ").append(routine.getCycles().get(cycleIndex).getRepetitions());
+                binding.cycleIter.setText(sb.toString());
             } else {
                 exerciseIndex++;
             }
@@ -149,6 +151,9 @@ public class RoutineExecutionActivity extends AppCompatActivity {
                 else {
                     cycleReps--;
                 }
+                StringBuilder sb = new StringBuilder();
+                sb.append(cycleReps+1).append(" / ").append(routine.getCycles().get(cycleIndex).getRepetitions());
+                binding.cycleIter.setText(sb.toString());
                 exerciseIndex = routine.getCycles().get(cycleIndex).getExercises().size() - 1;
             } else {
                 exerciseIndex--;
@@ -213,9 +218,9 @@ public class RoutineExecutionActivity extends AppCompatActivity {
     private void setCycle(Cycle cycle) {
         binding.cycleName.setText(cycle.getName());
         StringBuilder s = new StringBuilder();
-        s.append(String.valueOf(cycle.getOrder()));
+        s.append(String.valueOf("1"));
         s.append(" / ");
-        s.append(String.valueOf(cyclesLength));
+        s.append(String.valueOf(cycle.getRepetitions()));
         binding.cycleIter.setText(s.toString());
     }
 }

@@ -96,13 +96,4 @@
     <string name="night">Buenas noches</string>
     <string name="send">Enviar</string>
 
-    <string name="sort_spinner_title">Ordenar por</string>
-    <string name="view_spinner_title">Visualizar</string>
-
-    <string-array name="sort_by">
-        <item name="date">Fecha</item>
-        <item name="score">Puntuación</item>
-        <item name="difficulty">Dificultad</item>
-        <item name="category">Categoría</item>
-    </string-array>
 </resources>

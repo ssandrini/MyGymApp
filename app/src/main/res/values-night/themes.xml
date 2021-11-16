@@ -14,4 +14,17 @@
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">@font/google_sans</item>
     </style>
+    <style name="Base.Theme.MyGymApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:forceDarkAllowed" tools:targetApi="q">true</item>
+        <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/google_sans</item>
+    </style>
+
+    <style name="Theme.NavDrawer.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:fontFamily">@font/google_sans</item>
+    </style>
+
+    <style name="Theme.NavDrawer.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:fontFamily">@font/google_sans</item>
+    </style>
 </resources>

@@ -97,8 +97,6 @@
     <string name="afternoon">Good afternoon</string>
     <string name="evening">Good evening</string>
     <string name="night">Good night</string>
-    <string name="sort_spinner_title">Sort by</string>
-    <string name="view_spinner_title">View</string>
     <string name="send">Send</string>
 
     <string-array name="sort_by">

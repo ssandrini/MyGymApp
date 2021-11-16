@@ -185,6 +185,7 @@
                 android:layout_height="wrap_content"
                 fab:fab_size="mini"
                 fab:fab_label="@string/detailed"
+                fab:fab_colorNormal="@color/highlightColor"
                 android:tint="@color/highlightColor"
                 fab:menu_colorNormal="@color/highlightColor"
                 android:src="@drawable/ic_fab_normal"/>
@@ -195,6 +196,7 @@
                 fab:menu_colorNormal="@color/highlightColor"
                 fab:fab_size="mini"
                 fab:fab_label="@string/queue"
+                fab:fab_colorNormal="@color/highlightColor"
                 android:tint="@color/highlightColor"
                 android:src="@drawable/ic_fab_queue"/>
         </com.github.clans.fab.FloatingActionMenu>

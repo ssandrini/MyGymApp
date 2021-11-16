@@ -237,6 +237,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/editButton"
             app:icon="@drawable/ic_pencil"
+            app:iconTint="@color/iconColor"
             app:iconGravity="end"
             android:text="@string/edit_profile"
             android:layout_width="wrap_content"

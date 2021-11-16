@@ -95,6 +95,18 @@
     <string name="view_spinner_title">Ver</string>
     <string name="sort_spinner_title">Ordenar por</string>
 
+    <string-array name="sort_by">
+        <item name="date"> Fecha</item>
+        <item name="score">Puntaje</item>
+        <item name="difficulty">Dificultad</item>
+        <item name="category">Categoría</item>
+    </string-array>
+
+    <string-array name="direction">
+        <item name="asc">Ascendente</item>
+        <item name="desc">Descendente</item>
+    </string-array>
+
     <string name="morning">Buenos días</string>
     <string name="afternoon">Buenas tardes</string>
     <string name="evening">Buenas tardes</string>

@@ -12,4 +12,6 @@
     <color name="logoutColor">#F44336</color>
     <color name="boxColor">#D9D1ED</color>
     <color name="titleColor">#636060</color>
+    <color name="picColor">#FF6200EE</color>
+    <color name="iconColor">#333333</color>
 </resources>

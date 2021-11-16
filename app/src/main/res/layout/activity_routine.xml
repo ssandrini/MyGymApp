@@ -61,6 +61,7 @@
             android:padding="14dp">
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/rName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

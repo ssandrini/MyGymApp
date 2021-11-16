@@ -5,20 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.routines.execution.RoutineExecutionActivityAlt"
-    >
+    tools:context=".ui.routines.execution.RoutineExecutionActivityAlt">
 
-    <TextView
-        android:id="@+id/currentTitle"
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+    <ImageView
+        android:id="@+id/closeBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
+        android:src="@drawable/ic_close"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/currentTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="10dp"
         android:text="Current exercise"
         android:textAppearance="?attr/textAppearanceHeadline4"
+        app:layout_constraintTop_toBottomOf="@+id/top"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/currentExercise"
@@ -136,23 +157,24 @@
 
     <TextView
         android:id="@+id/nextExercisesTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currentExercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="10dp"
         android:text="Next exercises"
-        android:textAppearance="?attr/textAppearanceHeadline4" />
+        android:textAppearance="?attr/textAppearanceHeadline4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentExercise" />
 
     <ScrollView
         android:id="@+id/scrollViewQueue"
-        app:layout_constraintTop_toBottomOf="@+id/nextExercisesTitle"
-        app:layout_constraintBottom_toTopOf="@id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="380dp"
-        android:padding="10dp">
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/nextExercisesTitle">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/queueRecView"
 

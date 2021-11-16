@@ -1,17 +1,20 @@
 package ar.edu.itba.mygymapp.ui.routines.execution;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 
+import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.models.Cycle;
 import ar.edu.itba.mygymapp.backend.models.CycleExercise;
@@ -75,6 +78,18 @@ public class RoutineExecutionActivityAlt extends AppCompatActivity {
                 currentExercise++;
                 setCurrentExercise(adapter.next());
             }
+        });
+
+        binding.closeBtn.setOnClickListener(view -> {
+            new AlertDialog.Builder(this,  R.style.AlertDialogStyle).setTitle(getText(R.string.exit_question)).setCancelable(false)
+                    .setPositiveButton(getText(R.string.yes), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
         });
     }
 

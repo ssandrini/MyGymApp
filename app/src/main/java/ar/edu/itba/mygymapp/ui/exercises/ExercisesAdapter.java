@@ -1,5 +1,7 @@
 package ar.edu.itba.mygymapp.ui.exercises;
 
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Icon;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,8 +40,22 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.name.setText(exercises.get(position).getName());
-        holder.type.setText(exercises.get(position).getType());
+//        holder.type.setText(exercises.get(position).getType());
         holder.detail.setText(exercises.get(position).getDetail());
+
+        StringBuilder s1 = new StringBuilder();
+        s1.append(String.valueOf(exercises.get(position).getDuration()));
+        s1.append("''");
+
+        StringBuilder s2 = new StringBuilder();
+        s2.append("x");
+        s2.append(exercises.get(position).getRepetitions());
+
+        holder.duration.setText(s1.toString());
+        holder.reps.setText(s2.toString());
+
+        holder.type.setImageResource(getIcon(exercises.get(position).getType()));
+
 
         if (exercises.get(position).isExpanded()) {
             TransitionManager.beginDelayedTransition(holder.parent);
@@ -69,23 +85,39 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
         notifyDataSetChanged();
     }
 
+    private int getIcon(String type) {
+        if (type.equals("rest")) {
+            return R.drawable.ic_rest;
+        } else {
+            return R.drawable.ic_fitness;
+        }
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView name, type, detail;
+        private TextView name, detail;
         private MaterialCardView parent;
+        private TextView duration, reps;
 
         private ImageView expandMoreBtn, expandLessBtn;
         private ConstraintLayout expandedConstraintLayout, collapsedRelLayout;
 
+        private ImageView type;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name);
-            type = itemView.findViewById(R.id.type);
+
             detail = itemView.findViewById(R.id.detail);
             parent = itemView.findViewById(R.id.parent);
             expandMoreBtn = itemView.findViewById(R.id.expandMoreBtn);
             expandLessBtn = itemView.findViewById(R.id.expandLessBtn);
             expandedConstraintLayout = itemView.findViewById(R.id.expandedConstraintLayout);
             collapsedRelLayout = itemView.findViewById(R.id.collapsedRelLayout);
+
+            duration = itemView.findViewById(R.id.duration);
+            reps = itemView.findViewById(R.id.reps);
+
+            type = itemView.findViewById(R.id.type);
 
             collapsedRelLayout.setOnClickListener(new View.OnClickListener() {
                 @Override

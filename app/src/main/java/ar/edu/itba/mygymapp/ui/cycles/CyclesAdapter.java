@@ -49,10 +49,12 @@ public class CyclesAdapter extends RecyclerView.Adapter<CyclesAdapter.ViewHolder
         holder.cycleExsRecView.setLayoutManager(new LinearLayoutManager(holder.parent.getContext()));
         holder.cycleExsRecView.setAdapter(adapter);
 
+        holder.cycleReps.setText("x" + cycles.get(position).getRepetitions());
+
         if (cycles.get(position).isExpanded()) {
             TransitionManager.beginDelayedTransition(holder.parent);
             holder.expandedRelativeLayout.setVisibility(View.VISIBLE);
-            holder.expandCycle.setVisibility(View.GONE);
+            holder.expandCycle.setVisibility(View.INVISIBLE);
         } else {
             TransitionManager.beginDelayedTransition(holder.parent);
             holder.expandedRelativeLayout.setVisibility(View.GONE);
@@ -71,7 +73,7 @@ public class CyclesAdapter extends RecyclerView.Adapter<CyclesAdapter.ViewHolder
         private RecyclerView cycleExsRecView;
         private RelativeLayout expandedRelativeLayout, collapsedRelLayout;
         private ImageView expandCycle, collapseCycle;
-
+        private TextView cycleReps;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             cycleName = itemView.findViewById(R.id.cycleName);
@@ -81,7 +83,7 @@ public class CyclesAdapter extends RecyclerView.Adapter<CyclesAdapter.ViewHolder
             expandCycle = itemView.findViewById(R.id.expandCycle);
             collapseCycle = itemView.findViewById(R.id.collapseCycle);
             collapsedRelLayout = itemView.findViewById(R.id.collapsedRelLayout);
-
+cycleReps = itemView.findViewById(R.id.cycleReps);
             collapsedRelLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

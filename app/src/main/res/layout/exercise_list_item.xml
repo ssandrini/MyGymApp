@@ -32,6 +32,7 @@
              android:layout_height="wrap_content">
 
              <ImageView
+                 android:id="@+id/type"
                  android:layout_width="25dp"
                  android:layout_height="25dp"
                  android:layout_marginStart="12dp"
@@ -84,19 +85,31 @@
              android:layout_height="wrap_content"
              android:layout_below="@+id/collapsedRelLayout"
              android:id="@+id/expandedConstraintLayout"
-             android:visibility="gone"
+
              >
 
              <TextView
-                 android:id="@+id/type"
+                 android:id="@+id/duration"
                  android:fontFamily="@font/google_sans_italic"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:layout_marginStart="16dp"
                  android:layout_marginTop="8dp"
-                 android:text="Type of exercise"
+                 android:text="30''"
                  app:layout_constraintStart_toStartOf="parent"
                  app:layout_constraintTop_toTopOf="parent" />
+
+             <TextView
+                 android:id="@+id/reps"
+                 android:fontFamily="@font/google_sans_italic"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginStart="16dp"
+                 android:layout_marginTop="8dp"
+                 android:text="x45"
+                 app:layout_constraintStart_toEndOf="@id/duration"
+                 app:layout_constraintTop_toTopOf="parent"
+                 />
 
              <TextView
                  android:id="@+id/detail"
@@ -108,7 +121,7 @@
                  android:text="Description"
                  app:layout_constraintBottom_toBottomOf="parent"
                  app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toBottomOf="@+id/type"
+                 app:layout_constraintTop_toBottomOf="@+id/duration"
                  app:layout_constraintVertical_bias="1.0" />
 
 

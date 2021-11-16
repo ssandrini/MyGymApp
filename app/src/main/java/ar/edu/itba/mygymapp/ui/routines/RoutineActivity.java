@@ -9,32 +9,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.android.material.snackbar.Snackbar;
-
 import java.util.ArrayList;
-
 import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.apimodels.FullCycle;
 import ar.edu.itba.mygymapp.backend.apimodels.FullCycleExercise;
-import ar.edu.itba.mygymapp.backend.apimodels.FullRoutine;
-import ar.edu.itba.mygymapp.backend.apimodels.FullUser;
 import ar.edu.itba.mygymapp.backend.models.Routine;
 import ar.edu.itba.mygymapp.R;
-import ar.edu.itba.mygymapp.backend.repository.Resource;
 import ar.edu.itba.mygymapp.backend.repository.Status;
 import ar.edu.itba.mygymapp.databinding.ActivityRoutineBinding;
 import ar.edu.itba.mygymapp.backend.models.Cycle;
 import ar.edu.itba.mygymapp.ui.cycles.CyclesAdapter;
 import ar.edu.itba.mygymapp.backend.models.CycleExercise;
-
 import ar.edu.itba.mygymapp.ui.exercises.ExercisesAdapter;
 import ar.edu.itba.mygymapp.ui.routines.execution.RoutineExecutionActivity;
 import ar.edu.itba.mygymapp.ui.routines.execution.RoutineExecutionActivityAlt;

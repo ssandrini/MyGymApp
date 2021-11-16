@@ -49,7 +49,9 @@ public class RoutineExecutionActivityAlt extends AppCompatActivity {
 
         exercises = new ArrayList<>();
         for (Cycle cycle : routine.getCycles()) {
-            exercises.addAll(cycle.getExercises());
+            for(int j = 0; j < cycle.getRepetitions(); j++) {
+                exercises.addAll(cycle.getExercises());
+            }
         }
         CycleExercise aux = exercises.get(0);
         exercises.remove(0);

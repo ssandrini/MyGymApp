@@ -32,12 +32,12 @@ public class RoutineExecutionActivity extends AppCompatActivity {
     private int cycleIndex = 0;
     private int exerciseIndex = 0;
     private int cyclesLength;
+    private int cycleReps = 0;
     private Integer routineId;
     private App app;
     private CircleTimer timer;
     private boolean runningTimer = true;
     private boolean started = true;
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +51,6 @@ public class RoutineExecutionActivity extends AppCompatActivity {
         routineId = i.getIntExtra("routineId", -1);
         routine = app.getRoutineRepository().getCacheRoutineById(routineId);
         cyclesLength = routine.getCycles().size();
-
         setExercise(routine.getCycles().get(0).getExercises().get(0));
         setCycle(routine.getCycles().get(0));
         timer = findViewById(R.id.timer);
@@ -115,9 +114,16 @@ public class RoutineExecutionActivity extends AppCompatActivity {
                 if (cycleIndex == cyclesLimit) {
                     return;
                 }
-                cycleIndex++;
-                setCycle(routine.getCycles().get(cycleIndex));
+                if(cycleReps == routine.getCycles().get(cycleIndex).getRepetitions() - 1) {
+                    cycleIndex++;
+                    setCycle(routine.getCycles().get(cycleIndex));
+                    cycleReps = 0;
+                }
+                else {
+                    cycleReps++;
+                }
                 exerciseIndex = 0;
+
             } else {
                 exerciseIndex++;
             }
@@ -135,12 +141,17 @@ public class RoutineExecutionActivity extends AppCompatActivity {
                 if (cycleIndex == 0) {
                     return;
                 }
-                cycleIndex--;
-                setCycle(routine.getCycles().get(cycleIndex));
+                if(cycleReps == 0) {
+                    cycleIndex--;
+                    setCycle(routine.getCycles().get(cycleIndex));
+                    cycleReps = routine.getCycles().get(cycleIndex).getRepetitions() - 1;
+                }
+                else {
+                    cycleReps--;
+                }
                 exerciseIndex = routine.getCycles().get(cycleIndex).getExercises().size() - 1;
             } else {
                 exerciseIndex--;
-
             }
             setExercise(routine.getCycles().get(cycleIndex).getExercises().get(exerciseIndex));
             startTimer(routine.getCycles().get(cycleIndex).getExercises().get(exerciseIndex));

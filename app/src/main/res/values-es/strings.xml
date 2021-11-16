@@ -67,7 +67,7 @@
     <string name="invalid_first_name">Nombre inválido</string>
     <string name="invalid_last_name">Apellido inválido</string>
     <string name="invalid_data">Data inválida</string>
-    <string name="exit_question">Estas seguro que deseas salir?</string>
+    <string name="exit_question">¿Estas seguro que deseas salir?</string>
     <string name="yes">Sí</string>
     <string name="review">Reseña</string>
     <string name="cancel">Cancelar</string>
@@ -75,7 +75,7 @@
     <string name="error_cycle">No cargo el ciclo</string>
     <string name="routine">Rutina</string>
     <string name="hard">Difīcil</string>
-    <string name="when">Cuando quieres reproducir esta rutina?</string>
+    <string name="when">¿Cuando quieres reproducir esta rutina?</string>
     <string name="monday">Lunes</string>
     <string name="Tuesday">Martes</string>
     <string name="wednesday">Miércoles</string>
@@ -95,5 +95,6 @@
     <string name="evening">Buenas tardes</string>
     <string name="night">Buenas noches</string>
     <string name="send">Enviar</string>
-
+    <string name="detailed">Detallada</string>
+    <string name="queue">Encolada</string>
 </resources>

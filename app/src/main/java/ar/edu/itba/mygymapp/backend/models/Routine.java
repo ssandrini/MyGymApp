@@ -19,57 +19,68 @@ public class Routine implements Serializable {
     private PublicUser user;
     private Category category;
     private Object metadata;
-//    private boolean favourite;
+    private long date;
     private int[] duration;
     private String routineImageUrl;
     private ArrayList<Cycle> cycles;
 
-    private static final Comparator<Routine> scoreComparator = new Comparator<Routine>() {
+    private static final Comparator<Routine> scoreComparatorAsc = new Comparator<Routine>() {
         @Override
         public int compare(Routine routine, Routine t1) {
             return routine.getScore().compareTo(t1.getScore());
         }
     };
-    private static final Comparator<Routine> dateComparator = new Comparator<Routine>() {
+    private static final Comparator<Routine> scoreComparatorDesc = new Comparator<Routine>() {
         @Override
         public int compare(Routine routine, Routine t1) {
-            return 0;
+            return t1.getScore().compareTo(routine.getScore());
         }
     };
-    private static final Comparator<Routine> categoryComparator = new Comparator<Routine>() {
+
+    private static final Comparator<Routine> dateComparatorAsc = new Comparator<Routine>() {
+        @Override
+        public int compare(Routine routine, Routine t1) {
+            return Long.compare(routine.getDate(), t1.getDate());
+        }
+    };
+    private static final Comparator<Routine> dateComparatorDesc = new Comparator<Routine>() {
+        @Override
+        public int compare(Routine routine, Routine t1) {
+            return Long.compare(t1.getDate(), routine.getDate());
+        }
+    };
+
+    private static final Comparator<Routine> categoryComparatorAsc = new Comparator<Routine>() {
         @Override
         public int compare(Routine routine, Routine t1) {
             return routine.getCategory().compareTo(t1.getCategory());
         }
     };
-    private static final Comparator<Routine> difficultyComparator = new Comparator<Routine>() {
+    private static final Comparator<Routine> categoryComparatorDesc = new Comparator<Routine>() {
+        @Override
+        public int compare(Routine routine, Routine t1) {
+            return t1.getCategory().compareTo(routine.getCategory());
+        }
+    };
+
+    private static final Comparator<Routine> difficultyComparatorAsc = new Comparator<Routine>() {
         @Override
         public int compare(Routine routine, Routine t1) {
             return routine.mapDifficulty().compareTo(t1.mapDifficulty());
         }
     };
+    private static final Comparator<Routine> difficultyComparatorDesc = new Comparator<Routine>() {
+        @Override
+        public int compare(Routine routine, Routine t1) {
+            return t1.mapDifficulty().compareTo(routine.mapDifficulty());
+        }
+    };
 
     public static ArrayList<String> routineImages = new ArrayList<>();
 
-    public static Comparator<Routine> getScoreComparator() {
-        return scoreComparator;
-    }
-
-    public static Comparator<Routine> getDateComparator() {
-        return dateComparator;
-    }
-
-    public static Comparator<Routine> getDifficultyComparator() {
-        return difficultyComparator;
-    }
-
-    public static Comparator<Routine> getCategoryComparator() {
-        return categoryComparator;
-    }
-
     public Routine(int id, String name, String detail, int score,
                    boolean isPublic, String difficulty, PublicUser user,
-                   Category category, Object metadata) {
+                   Category category, Object metadata, long date) {
         this.id = id;
         this.name = name;
         this.detail = detail;
@@ -81,10 +92,11 @@ public class Routine implements Serializable {
         this.metadata = metadata;
         this.duration = new int[]{15, 10};
         this.routineImageUrl = routineImageUrl != null ? routineImageUrl : chooseImage();
+        this.date = date;
     }
 
-    public Routine(int id, String name, String detail, Integer score, boolean isPublic, String difficulty, PublicUser user, Category category, Object metadata, boolean favourite, ArrayList<Cycle> cycles) {
-        this(id, name, detail, score, isPublic, difficulty, user, category, metadata);
+    public Routine(int id, String name, String detail, Integer score, boolean isPublic, String difficulty, PublicUser user, Category category, Object metadata,long date, boolean favourite, ArrayList<Cycle> cycles) {
+        this(id, name, detail, score, isPublic, difficulty, user, category, metadata,date);
         this.cycles = cycles;
     }
 
@@ -244,6 +256,50 @@ public class Routine implements Serializable {
 
     public void setMetadata(Object metadata) {
         this.metadata = metadata;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public long getDate() {
+        return date;
+    }
+
+    public void setDate(long date) {
+        this.date = date;
+    }
+
+    public static Comparator<Routine> getScoreComparatorAsc() {
+        return scoreComparatorAsc;
+    }
+
+    public static Comparator<Routine> getScoreComparatorDesc() {
+        return scoreComparatorDesc;
+    }
+
+    public static Comparator<Routine> getDateComparatorAsc() {
+        return dateComparatorAsc;
+    }
+
+    public static Comparator<Routine> getDateComparatorDesc() {
+        return dateComparatorDesc;
+    }
+
+    public static Comparator<Routine> getCategoryComparatorAsc() {
+        return categoryComparatorAsc;
+    }
+
+    public static Comparator<Routine> getCategoryComparatorDesc() {
+        return categoryComparatorDesc;
+    }
+
+    public static Comparator<Routine> getDifficultyComparatorAsc() {
+        return difficultyComparatorAsc;
+    }
+
+    public static Comparator<Routine> getDifficultyComparatorDesc() {
+        return difficultyComparatorDesc;
     }
 
     @Override

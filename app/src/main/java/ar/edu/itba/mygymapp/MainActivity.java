@@ -2,6 +2,7 @@ package ar.edu.itba.mygymapp;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,8 +33,11 @@ import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.models.Cycle;
 import ar.edu.itba.mygymapp.backend.models.CycleExercise;
 import ar.edu.itba.mygymapp.backend.models.Routine;
+import ar.edu.itba.mygymapp.backend.repository.Resource;
+import ar.edu.itba.mygymapp.backend.repository.Status;
 import ar.edu.itba.mygymapp.backend.store.RoutineStore;
 import ar.edu.itba.mygymapp.databinding.ActivityMainBinding;
+import ar.edu.itba.mygymapp.ui.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private App app;
     private AppBarConfiguration mAppBarConfiguration, tAppBarConfiguration;
     private ActivityMainBinding binding;
+    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBar.toolbar);
 
+        sp = getSharedPreferences("login", MODE_PRIVATE);
+        if (!sp.getBoolean("logged", false)) {
+            goToLogin();
+        }
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
@@ -69,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        binding.logoutBtn.setOnClickListener(view -> {
+            logOut();
+        });
     }
 
     @Override
@@ -128,5 +141,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void logOut(){
 
+
+        app.getUserRepository().logout().observe(this, r -> {
+            if (r.getStatus() == Status.SUCCESS) {
+                sp.edit().putBoolean("logged",false).apply();
+                goToLogin();
+            } else {
+                Resource.defaultResourceHandler(r);
+            }
+        });
+
+    }
+
+    private void goToLogin() {
+        Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);
+        finish();
+    }
 }

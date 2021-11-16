@@ -29,6 +29,8 @@ public class LoginActivity extends AppCompatActivity {
     private ActivityLoginBinding binding;
     private SharedPreferences sharedPreferences;
     private View root;
+    private App app;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +38,14 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         root=binding.getRoot();
+
+        app = (App)getApplication();
+
+
+        if (sharedPreferences.getBoolean("logged", false)) {
+            getCurrentUser();
+        }
+
         DisplayMetrics displayMetrics= root.getContext().getResources().getDisplayMetrics();
         float dpWidth=displayMetrics.widthPixels/displayMetrics.density;
         float dpHeight=displayMetrics.heightPixels/displayMetrics.density;
@@ -77,22 +87,13 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         Credentials credentials = new Credentials(username, password);
-        App app = (App)getApplication();
+
         app.getUserRepository().login(credentials).observe(this, r -> {
             if (r.getStatus() == Status.SUCCESS) {
                 app.getPreferences().setAuthToken(r.getData().getToken());
-                //sharedPreferences.edit().putBoolean("logged",true).apply();
+                sharedPreferences.edit().putBoolean("logged",true).apply();
 
-                app.getUserRepository().getCurrentUser().observe(this, res -> {
-                    if (res.getStatus() == Status.SUCCESS) {
-                        FullUser user;
-                        user = res.getData();
-                        app.getUserRepository().setUser(user);
-                        goToMainActivity();
-                    } else {
-                        Resource.defaultResourceHandler(res);
-                    }
-                });
+                getCurrentUser();
 
             } else {
                 defaultResourceHandler(r);
@@ -124,5 +125,19 @@ public class LoginActivity extends AppCompatActivity {
     public void goToRegister(View view) {
         Intent intent = new Intent(this, register.class);
         startActivity(intent);
+    }
+
+    public void getCurrentUser() {
+        app.getUserRepository().getCurrentUser().observe(this, res -> {
+            if (res.getStatus() == Status.SUCCESS) {
+                FullUser user;
+                user = res.getData();
+                app.getUserRepository().setUser(user);
+                goToMainActivity();
+                finish();
+            } else {
+                Resource.defaultResourceHandler(res);
+            }
+        });
     }
 }

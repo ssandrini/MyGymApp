@@ -70,7 +70,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
 
-                    android:src="@drawable/ic_fitness"
+                    android:src="@drawable/ic_dumbbell"
                     app:layout_constraintBottom_toTopOf="@+id/type"
                     app:layout_constraintEnd_toStartOf="@+id/name"
                     app:layout_constraintHorizontal_bias="0.0"

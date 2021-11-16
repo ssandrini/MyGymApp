@@ -35,7 +35,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginStart="12dp"
-                    android:src="@drawable/ic_fitness"
+                    android:src="@drawable/ic_dumbbell"
 
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

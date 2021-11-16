@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Objects;
 import java.util.Random;
 import ar.edu.itba.mygymapp.backend.apimodels.Category;
 import ar.edu.itba.mygymapp.backend.apimodels.PublicUser;
@@ -260,5 +261,18 @@ public class Routine implements Serializable {
                 ", duration=" + Arrays.toString(duration) +
                 ", cycles=" + cycles +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Routine routine = (Routine) o;
+        return id == routine.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

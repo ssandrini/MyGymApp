@@ -29,7 +29,8 @@ public class RoutineRepository {
     }
 
     public void addCacheRoutine(Routine routine) {
-        this.cacheRoutines.add(routine);
+        if(!cacheRoutines.contains(routine))
+            this.cacheRoutines.add(routine);
     }
 
     public Routine getCacheRoutineById(Integer id) {
@@ -49,7 +50,8 @@ public class RoutineRepository {
     }
 
     public void addFavRoutine(Routine routine) {
-        this.favRoutines.add(routine);
+        if(!favRoutines.contains(routine))
+            this.favRoutines.add(routine);
     }
 
     public void removeFavRoutine(int routineId) {

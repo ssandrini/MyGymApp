@@ -58,7 +58,7 @@
     <string name="difficulty">Difficulty</string>
     <string name="category">Category</string>
     <string name="verification">Account verification</string>
-    <string name="verification_text">Thank you for registering at MyGym, we´ve sent you an email to the adress specified before. Please coppy the verification code and the same mail below.</string>
+    <string name="verification_text">Thank you for registering at MyGym, we´ve sent you an email to the address specified before. Please copy the verification code and the same mail below.</string>
     <string name="share_details_of_your_own_experience">Share details of your own experience</string>
 
     <string name="added_fav">Marked as favourite</string>
@@ -115,7 +115,6 @@
         <item name="asc">Ascendant</item>
         <item name="desc">Descendant</item>
     </string-array>
-    <string name="play">Play</string>
     <string name="detailed">Detailed</string>
     <string name="queue">Queue</string>
 </resources>

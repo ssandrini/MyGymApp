@@ -99,6 +99,7 @@
     <string name="night">Good night</string>
     <string name="sort_spinner_title">Sort by</string>
     <string name="view_spinner_title">View</string>
+    <string name="send">Send</string>
 
     <string-array name="sort_by">
         <item name="date">Date</item>

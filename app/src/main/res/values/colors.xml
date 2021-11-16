@@ -10,4 +10,5 @@
     <color name="addPicColor">#00BCD4</color>
     <color name="itemTextColor">#000</color>
     <color name="logoutColor">#F44336</color>
+    <color name="boxColor">#D9D1ED</color>
 </resources>

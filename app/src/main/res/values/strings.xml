@@ -115,4 +115,7 @@
         <item name="asc">Ascendant</item>
         <item name="desc">Descendant</item>
     </string-array>
+    <string name="play">Play</string>
+    <string name="detailed">Detailed</string>
+    <string name="queue">Queue</string>
 </resources>

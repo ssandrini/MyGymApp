@@ -182,6 +182,6 @@ public class FullRoutine {
     public Routine toRoutine() {
         return new Routine(this.getId(),this.getName(), this.getDetail(), this.getScore(),
                 this.isIsPublic(), this.getDifficulty(), this.getPublicUser(),
-                this.getCategory(), this.getMetadata());
+                this.getCategory(), this.getMetadata(), this.getDate());
     }
 }

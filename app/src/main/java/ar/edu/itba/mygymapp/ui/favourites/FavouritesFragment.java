@@ -32,7 +32,6 @@ public class FavouritesFragment extends Fragment {
     private FragmentFavouritesBinding binding;
     private App app;
     RoutinesAdapter adapter;
-
     private ArrayList<Routine> routines = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -45,7 +44,8 @@ public class FavouritesFragment extends Fragment {
         View root = binding.getRoot();
 
         adapter = new RoutinesAdapter(getContext());
-        adapter.setRoutines(app.getRoutineRepository().getFavRoutines());
+        initRoutines();
+        adapter.setRoutines(routines);
 
         DisplayMetrics displayMetrics= root.getContext().getResources().getDisplayMetrics();
         float dpWidth=displayMetrics.widthPixels/displayMetrics.density;
@@ -56,7 +56,7 @@ public class FavouritesFragment extends Fragment {
             binding.favsRecView.setLayoutManager(new LinearLayoutManager(getContext()));
         }
         binding.favsRecView.setAdapter(adapter);
-//        initRoutines();
+
         return root;
     }
 
@@ -67,7 +67,7 @@ public class FavouritesFragment extends Fragment {
     }
 
     public void initRoutines() {
-        app.getRoutineRepository().getRoutines().observe(getViewLifecycleOwner(), r -> {
+        app.getFavouriteRepository().getFavourites().observe(getViewLifecycleOwner(), r -> {
             if (r.getStatus() == Status.SUCCESS) {
                 assert r.getData() != null;
                 for (FullRoutine fr :r.getData().getContent()) {

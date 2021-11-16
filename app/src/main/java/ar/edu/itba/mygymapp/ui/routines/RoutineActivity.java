@@ -167,7 +167,7 @@ public class RoutineActivity extends AppCompatActivity {
     }
 
     private boolean isFavourite(int routineId) {
-        for (Routine favRoutine : app.getRoutineRepository().getFavRoutines()) {
+        for (Routine favRoutine : app.getFavouriteRepository().getFavRoutines()) {
             if (routineId == favRoutine.getId()) return true;
         }
         return false;
@@ -237,7 +237,7 @@ public class RoutineActivity extends AppCompatActivity {
                 app.getFavouriteRepository().addFavourite(routine.getId()).observe(this, r -> {
                     if (r.getStatus() == Status.SUCCESS) {
                         isFav = !isFav;
-                        app.getRoutineRepository().addFavRoutine(routine);
+
 //                        Snackbar.make(item.getActionView(), R.string.added_fav,  Snackbar.LENGTH_SHORT).show();
                     }
                 });
@@ -247,8 +247,6 @@ public class RoutineActivity extends AppCompatActivity {
                     if (r.getStatus() == Status.SUCCESS) {
 //                        Toast.makeText(this, R.string.deleted_fav, Toast.LENGTH_SHORT).show();
                         isFav = !isFav;
-
-                        app.getRoutineRepository().removeFavRoutine(routine.getId());
 //                        Snackbar.make(item.getActionView(), R.string.deleted_fav, Snackbar.LENGTH_SHORT).show();
                     }
                 });
@@ -258,4 +256,7 @@ public class RoutineActivity extends AppCompatActivity {
     }
 
 
+    public void setRaiting(float value) {
+        binding.rScore.setRating(value);
+    }
 }

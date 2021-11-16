@@ -18,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.LifecycleOwner;
 
 import com.bumptech.glide.Glide;
@@ -25,7 +26,9 @@ import com.bumptech.glide.Glide;
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.apimodels.Review;
+import ar.edu.itba.mygymapp.backend.models.Routine;
 import ar.edu.itba.mygymapp.backend.repository.Status;
+import ar.edu.itba.mygymapp.databinding.ActivityRoutineBinding;
 
 public class ReviewDialog extends AppCompatDialogFragment {
     private App app;
@@ -33,6 +36,8 @@ public class ReviewDialog extends AppCompatDialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         app = (App) getActivity().getApplication();
+        FragmentActivity fragmentActivity = getActivity();
+        RoutineActivity routineActivity = (RoutineActivity) fragmentActivity;
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.review_layout, null);
@@ -59,10 +64,15 @@ public class ReviewDialog extends AppCompatDialogFragment {
                 Review body = new Review( (int) (score.getRating() * 2), review.getText().toString()  ) ;
                 app.getReviewRepository().addReview(routineId, body).observe(getActivity(), r -> {
                     if (r.getStatus() == Status.SUCCESS) {
-//                        Toast.makeText(getContext(), R.string.review_success, Toast.LENGTH_SHORT).show();
+                        app.getRoutineRepository().getRoutine(routineId).observe(fragmentActivity, r2 -> {
+                            if(r2.getStatus() == Status.SUCCESS) {
+                                routineActivity.setRaiting(r2.getData().getScore()/2.0f);
+                                Toast.makeText(fragmentActivity, R.string.review_success, Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
                     }
                 });
-                //Aca deberiamos crear la review y mandarla a la API.
             }
         });
         return builder.create();

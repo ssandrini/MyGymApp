@@ -18,7 +18,6 @@ public class RoutineRepository {
 
     private final ApiRoutineService apiService;
     private ArrayList<Routine> cacheRoutines = new ArrayList<>();
-    private ArrayList<Routine> favRoutines = new ArrayList<>();
 
     public RoutineRepository(App application) {
         this.apiService = ApiClient.create(application, ApiRoutineService.class);
@@ -39,23 +38,6 @@ public class RoutineRepository {
                 return r;
         }
         return null;
-    }
-
-    public ArrayList<Routine> getFavRoutines() {
-        return favRoutines;
-    }
-
-    public void setFavRoutines(ArrayList<Routine> favRoutines) {
-        this.favRoutines = favRoutines;
-    }
-
-    public void addFavRoutine(Routine routine) {
-        if(!favRoutines.contains(routine))
-            this.favRoutines.add(routine);
-    }
-
-    public void removeFavRoutine(int routineId) {
-        this.favRoutines.removeIf(r -> r.getId() == routineId);
     }
 
     public LiveData<Resource<PagedList<FullRoutine>>> getRoutines() {

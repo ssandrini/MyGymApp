@@ -99,7 +99,7 @@ public class HomeFragment extends Fragment {
         binding.consoleBtn.setOnClickListener(view -> {
 
             StringBuilder s = new StringBuilder();
-            for (Routine favRoutine : app.getRoutineRepository().getFavRoutines()) {
+            for (Routine favRoutine : app.getFavouriteRepository().getFavRoutines()) {
                 s.append(favRoutine.getId() + favRoutine.getName());
                 s.append('\n');
             }
@@ -154,7 +154,7 @@ public class HomeFragment extends Fragment {
         app.getFavouriteRepository().getFavourites().observe(getViewLifecycleOwner(), r -> {
             if (r.getStatus() == Status.SUCCESS) {
                 for (FullRoutine fullRoutine : r.getData().getContent()) {
-                    app.getRoutineRepository().addFavRoutine(fullRoutine.toRoutine());
+                    app.getFavouriteRepository().addFavourite(fullRoutine.toRoutine());
                 }
             }
         });
@@ -179,6 +179,13 @@ public class HomeFragment extends Fragment {
         urlItem.setVisible(true);
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        System.out.println("dale puto");
+        initRoutines();
+    }
 }
 
 

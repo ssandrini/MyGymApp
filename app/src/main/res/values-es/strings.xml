@@ -90,4 +90,8 @@
     <string name="url_layout">Ingrese URL de la rutina</string>
     <string name="profile_saved">Perfil guardado</string>
 
+    <string name="morning">Buenos días</string>
+    <string name="afternoon">Buenas tardes</string>
+    <string name="evening">Buenas tardes</string>
+    <string name="night">Buenas noches</string>
 </resources>

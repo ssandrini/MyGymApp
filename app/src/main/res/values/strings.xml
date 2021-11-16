@@ -92,4 +92,10 @@
     <string name="recommended_routine">How about doing Calisthenics today?</string>
     <string name="url_layout">Type the routine\'s URL</string>
     <string name="profile_saved">Profile saved</string>
+
+    <string name="morning">Good morning</string>
+    <string name="afternoon">Good afternoon</string>
+    <string name="evening">Good evening</string>
+    <string name="night">Good night</string>
+
 </resources>

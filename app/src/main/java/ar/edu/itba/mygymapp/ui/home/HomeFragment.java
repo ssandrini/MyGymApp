@@ -52,17 +52,16 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
         app = (App) getActivity().getApplication();
         StringBuilder sb = new StringBuilder();
-        sb.append("Good ");
         Calendar c = Calendar.getInstance();
         int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
         if (timeOfDay >= 0 && timeOfDay < 12) {
-            sb.append("morning");
+            sb.append(getResources().getString(R.string.morning));
         } else if (timeOfDay >= 12 && timeOfDay < 16) {
-            sb.append("afternoon");
+            sb.append(getResources().getString(R.string.afternoon));
         } else if (timeOfDay >= 16 && timeOfDay < 21) {
-            sb.append("evening");
+            sb.append(getResources().getString(R.string.evening));
         } else if (timeOfDay >= 21 && timeOfDay < 24) {
-            sb.append("night");
+            sb.append(getResources().getString(R.string.night));
         }
 
         sb.append(", ");

@@ -33,7 +33,6 @@
             android:layout_width="40dp"
             android:layout_height="63dp"
             android:src="@drawable/ic_account">
-
         </ImageView>
 
         <EditText
@@ -83,6 +82,7 @@
         android:drawableEnd="@drawable/ic_login"
         android:fontFamily="@font/google_sans_bold"
         android:backgroundTint="@color/secondaryTextColor"
+        android:textColor="@color/white"
         android:text="@string/log_in" />
 
     <TextView
@@ -101,7 +101,7 @@
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/primaryTextColor"
         android:fontFamily="@font/google_sans_bold"
-
+        android:textColor="@color/white"
         android:text="@string/register"
         android:textStyle="bold" />
 

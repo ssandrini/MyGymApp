@@ -11,4 +11,5 @@
     <color name="itemTextColor">#000</color>
     <color name="logoutColor">#F44336</color>
     <color name="boxColor">#D9D1ED</color>
+    <color name="titleColor">#636060</color>
 </resources>

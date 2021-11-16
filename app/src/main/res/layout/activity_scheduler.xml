@@ -37,58 +37,45 @@
                 android:id="@+id/checkBox_mon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/secondaryTextColor"
-                android:text="@string/monday"
-                android:textColor="@color/secondaryTextColor" />
+                android:text="@string/monday" />
 
             <CheckBox
                 android:id="@+id/checkBox_tue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/secondaryTextColor"
-                android:text="@string/Tuesday"
-                android:textColor="@color/secondaryTextColor" />
+                android:text="@string/Tuesday" />
 
             <CheckBox
                 android:id="@+id/checkBox_wed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/secondaryTextColor"
-                android:text="@string/wednesday"
-                android:textColor="@color/secondaryTextColor" />
+                android:text="@string/wednesday" />
 
             <CheckBox
                 android:id="@+id/checkBox_thu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/secondaryTextColor"
                 android:text="@string/thursday"
-                android:textColor="@color/secondaryTextColor" />
+                />
 
             <CheckBox
                 android:id="@+id/checkBox_fri"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/secondaryTextColor"
-                android:text="@string/friday"
-                android:textColor="@color/secondaryTextColor" />
+                android:text="@string/friday" />
 
 
             <CheckBox
                 android:id="@+id/checkBox_sat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/secondaryTextColor"
-                android:text="@string/saturday"
-                android:textColor="@color/secondaryTextColor" />
+                android:text="@string/saturday" />
 
             <CheckBox
                 android:id="@+id/checkBox_sun"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/secondaryTextColor"
-                android:text="@string/sunday"
-                android:textColor="@color/secondaryTextColor" />
+                android:text="@string/sunday"/>
         </LinearLayout>
 
 
@@ -97,7 +84,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@color/whiteTextColor"
             android:headerBackground="@color/secondaryTextColor" />
 
         <LinearLayout
@@ -116,6 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@color/logoutColor"
+                android:textColor="@color/white"
                 android:text="@string/cancel" />
 
             <View
@@ -128,6 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="@string/accept" />
 
             <View

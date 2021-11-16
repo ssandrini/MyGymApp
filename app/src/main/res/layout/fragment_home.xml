@@ -54,6 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/section_highlights"
+                    android:textColor="@color/titleColor"
                     android:textStyle="bold"
                     android:textSize="@dimen/headerTextSize"
                     android:fontFamily="@font/google_sans_bold"
@@ -74,6 +75,8 @@
                     android:layout_height="wrap_content"
 
                     android:text="@string/myRoutines_title"
+                    android:textColor="@color/titleColor"
+
                     android:textStyle="bold"
                     android:textSize="@dimen/headerTextSize"
                     android:fontFamily="@font/google_sans_bold"
@@ -95,6 +98,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/google_sans_bold"
                     android:text="@string/recents_title"
+                    android:textColor="@color/titleColor"
                     android:textStyle="bold"
                     android:textSize="@dimen/headerTextSize"
                     android:padding="40px"

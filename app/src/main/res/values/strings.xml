@@ -98,5 +98,21 @@
     <string name="evening">Good evening</string>
     <string name="night">Good night</string>
     <string name="send">Send</string>
+    <string name="play">Play</string>
 
+    <string name="view_spinner_title">View</string>
+    <string name="sort_spinner_title">Sort by</string>
+
+
+    <string-array name="sort_by">
+        <item name="date">Date</item>
+        <item name="score">Score</item>
+        <item name="difficulty">Difficulty</item>
+        <item name="category">Category</item>
+    </string-array>
+
+    <string-array name="direction">
+        <item name="asc">Ascendant</item>
+        <item name="desc">Descendant</item>
+    </string-array>
 </resources>

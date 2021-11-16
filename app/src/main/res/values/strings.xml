@@ -23,7 +23,7 @@
 
 
     <string-array name="genders">
-        <item>Not Specified</item>
+        <item>Other</item>
         <item>Female</item>
         <item>Male</item>
     </string-array>

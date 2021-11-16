@@ -31,7 +31,7 @@ import ar.edu.itba.mygymapp.backend.repository.Resource;
 import ar.edu.itba.mygymapp.backend.repository.Status;
 import ar.edu.itba.mygymapp.databinding.FragmentProfileBinding;
 
-public class ProfileFragment extends Fragment implements AdapterView.OnItemSelectedListener{
+public class ProfileFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     private ProfileViewModel profileViewModel;
     private FragmentProfileBinding binding;
     private View root;
@@ -42,6 +42,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
     String genderText;
     // One Preview Image
     private ImageView IVPreviewImage;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         app = (App) getActivity().getApplication();
@@ -50,7 +51,6 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
 
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         root = binding.getRoot();
-
 
 
         binding.saveBtn.setOnClickListener(this::saveProfile);
@@ -66,9 +66,9 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
         // register the UI widgets with their appropriate IDs
         BSelectImage = binding.changePhoto;
         IVPreviewImage = binding.avatar;
-        DisplayMetrics displayMetrics= root.getContext().getResources().getDisplayMetrics();
-        float dpWidth=displayMetrics.widthPixels/displayMetrics.density;
-        if(dpWidth>=700) {
+        DisplayMetrics displayMetrics = root.getContext().getResources().getDisplayMetrics();
+        float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
+        if (dpWidth >= 700) {
             binding.editButton.setTextSize(23);
             binding.cancelBtn.setTextSize(23);
             binding.saveBtn.setTextSize(23);
@@ -76,7 +76,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
             binding.lastName.setTextSize(20);
             binding.profileEmail.setTextSize(20);
             binding.profileUsername.setTextSize(21);
-            binding.userDataBox.setLayoutParams(new LinearLayout.LayoutParams(500,300));
+            binding.userDataBox.setLayoutParams(new LinearLayout.LayoutParams(500, 300));
             binding.setFname.setTextSize(22);
             binding.cardFirstName.setTextSize(22);
             binding.cardLastName.setTextSize(22);
@@ -147,7 +147,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
     }
 
 
-    public void saveProfile(View view){
+    public void saveProfile(View view) {
         EditText fnView, lnView;
         String firstName, lastName;
         Spinner spinner;
@@ -168,8 +168,8 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
             error = true;
         }
         if (error) {
-            Toast.makeText(getActivity(),getText(R.string.invalid_data), Toast.LENGTH_SHORT).show();
-            return ;
+            Toast.makeText(getActivity(), getText(R.string.invalid_data), Toast.LENGTH_SHORT).show();
+            return;
         }
 
         FullUser aux = app.getUserRepository().getUser();
@@ -219,15 +219,27 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
 
     }
 
+    String genderToString(String gender) {
+        String[] genders = getResources().getStringArray(R.array.genders);
+        switch (gender) {
+            case "other":
+                return genders[0];
+            case "female":
+                return genders[1];
+            default:
+                return genders[2];
+        }
+    }
+
     void loadProfileData() {
-         user = app.getUserRepository().getUser();
+        user = app.getUserRepository().getUser();
         ImageView userImageView = binding.avatar;
         Glide.with(this).asBitmap().load(user.getAvatarUrl()).placeholder(R.drawable.avatar).into(userImageView);
         binding.profileUsername.setText(user.getUsername());
         binding.profileEmail.setText(user.getEmail());
         binding.setFname.setText(user.getFirstName());
         binding.setLname.setText(user.getLastName());
-        binding.setGender.setText(user.getGender());
+        binding.setGender.setText(genderToString(user.getGender()));
 
         binding.firstName.setText(user.getFirstName());
         binding.lastName.setText(user.getLastName());

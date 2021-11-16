@@ -198,4 +198,14 @@ public class FullUser {
         this.verified = verified;
     }
 
+    public int getGenderId() {
+        switch (this.gender) {
+            case "other":
+                return 0;
+            case "female":
+                return 1;
+            default:
+                return 2;
+        }
+    }
 }

@@ -86,7 +86,8 @@
     <string name="accept">Aceptar</string>
     <string name="cycle">Ciclo</string>
     <string name="good_morning">Buen día, Usuario! 👋 </string>
-    <string name="recommended_routine">Porque no pruebas Calistenia hoy?</string>
+    <string name="recommended_routine">¿Por qué no pruebas Calistenia hoy?</string>
     <string name="url_layout">Ingrese URL de la rutina</string>
+    <string name="profile_saved">Perfil guardado</string>
 
 </resources>

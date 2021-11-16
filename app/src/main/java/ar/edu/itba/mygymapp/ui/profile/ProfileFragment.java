@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
@@ -26,6 +27,8 @@ import com.bumptech.glide.Glide;
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.apimodels.FullUser;
+import ar.edu.itba.mygymapp.backend.repository.Resource;
+import ar.edu.itba.mygymapp.backend.repository.Status;
 import ar.edu.itba.mygymapp.databinding.FragmentProfileBinding;
 
 public class ProfileFragment extends Fragment implements AdapterView.OnItemSelectedListener{
@@ -34,7 +37,9 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
     private View root;
     private App app;
     private ImageView BSelectImage;
+    private FullUser user;
     int SELECT_PICTURE = 200;
+    String genderText;
     // One Preview Image
     private ImageView IVPreviewImage;
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -46,21 +51,17 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         root = binding.getRoot();
 
-        FullUser user = app.getUserRepository().getUser();
-        ImageView userImageView = binding.avatar;
-        Glide.with(this).asBitmap().load(user.getAvatarUrl()).placeholder(R.drawable.avatar).into(userImageView);
-        binding.profileUsername.setText(user.getUsername());
-        binding.profileEmail.setText(user.getEmail());
-        binding.setFname.setText(user.getFirstName());
-        binding.setLname.setText(user.getLastName());
-        binding.setGender.setText(user.getGender());
+
 
         binding.saveBtn.setOnClickListener(this::saveProfile);
         Spinner spinner = binding.gender;
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(), R.array.genders, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
+        loadProfileData();
 
         // register the UI widgets with their appropriate IDs
         BSelectImage = binding.changePhoto;
@@ -149,10 +150,12 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
     public void saveProfile(View view){
         EditText fnView, lnView;
         String firstName, lastName;
+        Spinner spinner;
         boolean error = false;
 
         fnView = binding.firstName;
         lnView = binding.lastName;
+        spinner = binding.gender;
         firstName = fnView.getText().toString();
         lastName = lnView.getText().toString();
 
@@ -168,6 +171,22 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
             Toast.makeText(getActivity(),getText(R.string.invalid_data), Toast.LENGTH_SHORT).show();
             return ;
         }
+
+        FullUser aux = app.getUserRepository().getUser();
+        aux.setFirstName(firstName);
+        aux.setLastName(lastName);
+        aux.setGender(genderText);
+        app.getUserRepository().setUser(aux);
+        app.getUserRepository().editCurrentUser(aux).observe((LifecycleOwner) view.getContext(), r -> {
+            if (r.getStatus() == Status.SUCCESS) {
+                binding.infoLayout.setVisibility(View.VISIBLE);
+                binding.editLayout.setVisibility(View.GONE);
+                Toast.makeText(view.getContext(), R.string.profile_saved, Toast.LENGTH_SHORT).show();
+                loadProfileData();
+            } else {
+                Resource.defaultResourceHandler(r);
+            }
+        });
     }
 
     @Override
@@ -178,11 +197,42 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        String text = adapterView.getItemAtPosition(i).toString();
+        switch (i) {
+            case 0:
+                genderText = "other";
+                break;
+            case 1:
+                genderText = "female";
+                break;
+            case 2:
+                genderText = "male";
+                break;
+
+
+        }
+
+
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    void loadProfileData() {
+         user = app.getUserRepository().getUser();
+        ImageView userImageView = binding.avatar;
+        Glide.with(this).asBitmap().load(user.getAvatarUrl()).placeholder(R.drawable.avatar).into(userImageView);
+        binding.profileUsername.setText(user.getUsername());
+        binding.profileEmail.setText(user.getEmail());
+        binding.setFname.setText(user.getFirstName());
+        binding.setLname.setText(user.getLastName());
+        binding.setGender.setText(user.getGender());
+
+        binding.firstName.setText(user.getFirstName());
+        binding.lastName.setText(user.getLastName());
+
+        binding.gender.setSelection(user.getGenderId());
+        genderText = user.getGender();
     }
 }

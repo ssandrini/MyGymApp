@@ -94,4 +94,6 @@
     <string name="afternoon">Buenas tardes</string>
     <string name="evening">Buenas tardes</string>
     <string name="night">Buenas noches</string>
+    <string name="send">Enviar</string>
+
 </resources>

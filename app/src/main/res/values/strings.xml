@@ -97,5 +97,6 @@
     <string name="afternoon">Good afternoon</string>
     <string name="evening">Good evening</string>
     <string name="night">Good night</string>
+    <string name="send">Send</string>
 
 </resources>

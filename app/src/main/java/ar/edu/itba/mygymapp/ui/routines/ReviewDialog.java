@@ -51,7 +51,7 @@ public class ReviewDialog extends AppCompatDialogFragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 // Es el que cierra (creo no hay que hacer nada aca)
             }
-        }).setPositiveButton("Send", new DialogInterface.OnClickListener() {
+        }).setPositiveButton( R.string.send, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 assert getArguments() != null;

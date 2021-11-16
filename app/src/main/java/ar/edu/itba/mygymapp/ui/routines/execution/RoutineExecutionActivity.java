@@ -111,7 +111,7 @@ public class RoutineExecutionActivity extends AppCompatActivity {
             int cyclesLimit = cyclesLength - 1;
 
             if (exerciseIndex == cycleExercisesLength - 1) {
-                if (cycleIndex == cyclesLimit) {
+                if (cycleIndex == cyclesLimit && cycleReps == routine.getCycles().get(cycleIndex).getRepetitions() - 1) {
                     return;
                 }
                 if(cycleReps == routine.getCycles().get(cycleIndex).getRepetitions() - 1) {
@@ -140,7 +140,7 @@ public class RoutineExecutionActivity extends AppCompatActivity {
         public void onClick(View view) {
 
             if (exerciseIndex == 0) {
-                if (cycleIndex == 0) {
+                if (cycleIndex == 0 && cycleReps == 0) {
                     return;
                 }
                 if(cycleReps == 0) {

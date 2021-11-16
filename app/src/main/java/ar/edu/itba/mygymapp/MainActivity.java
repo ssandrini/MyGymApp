@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         MenuItem searchItem = menu.findItem(R.id.action_search);
-        MenuItem optionsItem = menu.findItem(R.id.action_options);
+        MenuItem optionsItem = menu.findItem(R.id.action_filter);
         optionsItem.setVisible(false);
         searchItem.setVisible(false);
 

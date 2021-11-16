@@ -16,26 +16,27 @@
 
 
     <item
-        android:id="@+id/action_options"
+        android:id="@+id/action_filter"
         android:title="@string/order_by"
-        app:showAsAction="never">
+        android:icon="@drawable/ic_filter"
+        app:showAsAction="always">
 
-        <menu>
-            <group  android:checkableBehavior="single">
-                <item
-                    android:id="@+id/date"
-                    android:title="@string/date" />
-                <item
-                    android:id="@+id/score"
-                    android:title="@string/score" />
-                <item
-                    android:id="@+id/difficulty"
-                    android:title="@string/difficulty" />
-                <item
-                    android:id="@+id/category"
-                    android:title="@string/category" />
-            </group>
-        </menu>
+<!--        <menu>-->
+<!--            <group  android:checkableBehavior="single">-->
+<!--                <item-->
+<!--                    android:id="@+id/date"-->
+<!--                    android:title="@string/date" />-->
+<!--                <item-->
+<!--                    android:id="@+id/score"-->
+<!--                    android:title="@string/score" />-->
+<!--                <item-->
+<!--                    android:id="@+id/difficulty"-->
+<!--                    android:title="@string/difficulty" />-->
+<!--                <item-->
+<!--                    android:id="@+id/category"-->
+<!--                    android:title="@string/category" />-->
+<!--            </group>-->
+<!--        </menu>-->
 
     </item>
 

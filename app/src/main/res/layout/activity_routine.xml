@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:collapsedTitleTextAppearance="@style/routineActivity"
-            app:contentScrim="@color/secondaryTextColor"
+            app:contentScrim="@color/surface"
+            android:elevation="4dp"
             app:expandedTitleMarginEnd="100dp"
             app:expandedTitleMarginStart="16dp"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
@@ -31,16 +32,15 @@
                 android:scaleType="fitEnd" />
 
 
-            <androidx.appcompat.widget.Toolbar
+            <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar_main"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
                 app:navigationIcon="?attr/homeAsUpIndicator"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 app:titleTextAppearance="@style/NavigationText">
 
-            </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.MaterialToolbar>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 

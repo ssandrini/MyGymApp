@@ -13,13 +13,13 @@
 
         >
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorSurface"
-
-            app:popupTheme="@style/Theme.NavDrawer.PopupOverlay" />
+            android:elevation="1dp"
+            />
 
     </com.google.android.material.appbar.AppBarLayout>
 

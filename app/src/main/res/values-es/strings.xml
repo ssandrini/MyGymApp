@@ -143,5 +143,6 @@
     <string name="ucrop_rotate">Rotar</string>
     <string name="ucrop_scale">Escala</string>
     <string name="ucrop_crop">Recortar</string>
+    <string name="no_my_routines">Todavía no tienes rutinas</string>
     <!-- uCrop string resource end -->
 </resources>

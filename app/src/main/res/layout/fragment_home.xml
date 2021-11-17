@@ -85,6 +85,17 @@
 
                 </TextView>
 
+                <TextView
+                    android:id="@+id/no_my_routines"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/no_my_routines"
+                    android:gravity="center_horizontal"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:paddingLeft="10dp"
                     android:id="@+id/myroutinesRecView"

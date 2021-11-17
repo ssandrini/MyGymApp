@@ -3,6 +3,8 @@ package ar.edu.itba.mygymapp.backend.repository;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
+import java.util.ArrayList;
+
 import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.api.ApiClient;
 import ar.edu.itba.mygymapp.backend.api.ApiResponse;
@@ -18,6 +20,7 @@ public class UserRepository {
 
     private FullUser user;
     private final ApiUserService apiService;
+    private ArrayList<Integer> ids = new ArrayList<>();
     public UserRepository(App app) {
         this.apiService = ApiClient.create(app, ApiUserService.class);
         user = null;
@@ -95,5 +98,9 @@ public class UserRepository {
                 return apiService.editCurrentUser(user);
             }
         }.asLiveData();
+    }
+
+    public void addExecution(Integer id) {
+        ids.add(id);
     }
 }

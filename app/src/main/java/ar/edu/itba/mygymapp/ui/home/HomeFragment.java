@@ -42,9 +42,7 @@ public class HomeFragment extends Fragment {
     private View root;
 
     private ArrayList<Routine> routines = new ArrayList<>();
-    /*
-        En realidad voy a tener 3 arrayList que voy a obtener del store/api
-     */
+    private ArrayList<Routine> myRoutines = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
@@ -81,7 +79,7 @@ public class HomeFragment extends Fragment {
         highlightsAdapter = new RoutinesAdapter(getContext());
         recentsAdapter = new RoutinesAdapter(getContext());
 
-        myRoutinesAdapter.setRoutines(routines);
+        myRoutinesAdapter.setRoutines(myRoutines);
         highlightsAdapter.setRoutines(routines);
         recentsAdapter.setRoutines(routines);
 
@@ -136,13 +134,21 @@ public class HomeFragment extends Fragment {
             if (r.getStatus() == Status.SUCCESS) {
                 assert r.getData() != null;
                 for (FullRoutine fr : r.getData().getContent()) {
-                    routines.add(fr.toRoutine());
+                    Routine aux = fr.toRoutine();
+                    routines.add(aux);
+                    if(fr.getPublicUser().getId() == app.getUserRepository().getUser().getId())
+                        myRoutines.add(aux);
                 }
-                ;
 
                 myRoutinesAdapter.notifyDataSetChanged();
                 highlightsAdapter.notifyDataSetChanged();
                 recentsAdapter.notifyDataSetChanged();
+
+                if(myRoutines.isEmpty()) {
+                    binding.noMyRoutines.setVisibility(View.VISIBLE);
+                } else {
+                    binding.noMyRoutines.setVisibility(View.GONE);
+                }
 
             } else {
                 Resource.defaultResourceHandler(r);

@@ -147,5 +147,6 @@
     <string name="notif_text">¡Vamos a entrenar!</string>
     <string name="error_notif">Debes seleccionar al menos un día</string>
     <string name="success_notif">La alarma se ha creado correctamente</string>
+    <string name="choose_day">Elige los días</string>
     <!-- uCrop string resource end -->
 </resources>

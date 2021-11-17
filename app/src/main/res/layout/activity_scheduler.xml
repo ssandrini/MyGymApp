@@ -33,9 +33,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:headerBackground="@color/secondaryTextColor" />
+            android:headerBackground="?attr/colorPrimaryVariant" />
 
 
+        <TextView android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+            android:text="@string/choose_day"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            >
+
+        </TextView>
         <ca.antonious.materialdaypicker.MaterialDayPicker
             android:id="@+id/day_picker"
             android:layout_width="match_parent"
@@ -75,6 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/accept"
+                android:backgroundTint="?attr/colorPrimaryVariant"
                 android:textColor="@color/white" />
 
             <View

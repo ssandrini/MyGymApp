@@ -33,10 +33,9 @@ import io.github.muddz.styleabletoast.StyleableToast;
 
 public class RoutineActivity extends AppCompatActivity {
 
-    static final private String ID_PARENT_EXTRA = "com.example.fithub_mobile.ID_PARENT";
+    static final private String ID_PARENT_EXTRA = "ar.edu.itba.mygymapp.ID_PARENT";
     private App app;
     private ActivityRoutineBinding binding;
-    private ExercisesAdapter exercisesAdapter;
     private CyclesAdapter cyclesAdapter;
     private Routine routine;
     private boolean isFav = false;

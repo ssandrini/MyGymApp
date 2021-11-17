@@ -204,10 +204,10 @@ public class RoutineExecutionActivity extends AppCompatActivity {
         int res;
         switch (type) {
             case "exercise":
-                res = Color.rgb(00,96,88);
+                res = getResources().getColor(R.color.design_default_color_secondary);
                 break;
             case "rest":
-                res = Color.CYAN;
+                res = getResources().getColor(R.color.design_default_color_secondary_variant);
                 break;
             default:
                 res = Color.BLACK;

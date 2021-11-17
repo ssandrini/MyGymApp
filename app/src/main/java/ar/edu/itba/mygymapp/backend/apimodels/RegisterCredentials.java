@@ -17,12 +17,16 @@ public class RegisterCredentials {
     @SerializedName("lastName")
     @Expose
     private String lastName;
+    @SerializedName("gender")
+    @Expose
+    private String gender;
     @SerializedName("email")
     @Expose
     private String email;
     @SerializedName("avatarUrl")
     @Expose
     private String avatarUrl;
+
 
     /**
      * No args constructor for use in serialization
@@ -40,12 +44,13 @@ public class RegisterCredentials {
      * @param email
      * @param username
      */
-    public RegisterCredentials(String username, String password, String firstName, String lastName, String email, String avatarUrl) {
+    public RegisterCredentials(String username, String password, String firstName, String lastName, String gender, String email, String avatarUrl) {
         super();
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.gender = gender;
         this.email = email;
         this.avatarUrl = avatarUrl;
     }

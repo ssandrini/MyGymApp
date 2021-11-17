@@ -9,7 +9,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import ar.edu.itba.mygymapp.MainActivity;
 import ar.edu.itba.mygymapp.R;
+import ar.edu.itba.mygymapp.backend.App;
+import ar.edu.itba.mygymapp.backend.apimodels.EmailConfirmation;
+import ar.edu.itba.mygymapp.backend.repository.Resource;
+import ar.edu.itba.mygymapp.backend.repository.Status;
 import ar.edu.itba.mygymapp.databinding.ActivityConfirmationBinding;
+import ar.edu.itba.mygymapp.ui.login.LoginActivity;
 
 public class ConfirmationActivity extends AppCompatActivity {
 
@@ -50,14 +55,22 @@ public class ConfirmationActivity extends AppCompatActivity {
             return ;
         }
 
-        // confirmar con la API, si falla enviar OTRO toast, sino la linea siguiente
-        goToMainActivity();
+        App app = (App)getApplication();
+        app.getUserRepository().verifyEmail(new EmailConfirmation(email,code)).observe(this, r -> {
+            if (r.getStatus() == Status.SUCCESS) {
+                Toast.makeText(getApplicationContext(),getText(R.string.success_verification),Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this, LoginActivity.class);
+                startActivity(i);
+                finish();
+            } else {
+                Resource.defaultResourceHandler(r);
+                if (r.getStatus() == Status.ERROR) {
+                    Toast.makeText(getApplicationContext(), getText(R.string.fail_verification), Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        });
 
-    }
-
-    public void goToMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 
 }

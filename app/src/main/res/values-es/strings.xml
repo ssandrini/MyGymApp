@@ -114,4 +114,6 @@
     <string name="send">Enviar</string>
     <string name="detailed">Detallada</string>
     <string name="queue">Encolada</string>
+    <string name="register_success">Register successful. Please confirm your email to proceed.</string>
+    <string name="success_verification">Account verified successfully</string>
 </resources>

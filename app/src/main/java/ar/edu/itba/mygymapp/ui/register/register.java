@@ -14,6 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import ar.edu.itba.mygymapp.MainActivity;
 import ar.edu.itba.mygymapp.R;
+import ar.edu.itba.mygymapp.backend.App;
+import ar.edu.itba.mygymapp.backend.apimodels.RegisterCredentials;
+import ar.edu.itba.mygymapp.backend.repository.Resource;
+import ar.edu.itba.mygymapp.backend.repository.Status;
 import ar.edu.itba.mygymapp.databinding.ActivityRegisterBinding;
 
 public class register extends AppCompatActivity {
@@ -77,12 +81,20 @@ public class register extends AppCompatActivity {
             return;
         }
 
-        goToConfirmationActivity();
-    }
+        RegisterCredentials registerCredentials = new RegisterCredentials(username, password,"-","-","other",mail,"https://flic.kr/p/3ntH2u");
+        App app = (App) getApplication();
+        app.getUserRepository().register(registerCredentials).observe(this, r -> {
+            if (r.getStatus() == Status.SUCCESS) {
+                Toast.makeText(getApplicationContext(),getText(R.string.register_success),Toast.LENGTH_LONG).show();
+                goToConfirmationActivity();
+            } else {
+                Resource.defaultResourceHandler(r);
+                if (r.getStatus() == Status.ERROR) {
+                    Toast.makeText(getApplicationContext(), getText(R.string.existing_account), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
-    public void goToMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 
     public void goToConfirmationActivity() {

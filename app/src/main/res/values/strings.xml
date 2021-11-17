@@ -117,4 +117,8 @@
     </string-array>
     <string name="detailed">Detailed</string>
     <string name="queue">Queue</string>
+    <string name="register_success">Register successful. Please confirm your email to proceed.</string>
+    <string name="existing_account">This account already exists</string>
+    <string name="success_verification">Account verified successfully</string>
+    <string name="fail_verification">Invalid code or email</string>
 </resources>

@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration, tAppBarConfiguration;
     private ActivityMainBinding binding;
     private SharedPreferences sp;
+    private ImageView userImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         View headerView = navigationView.getHeaderView(0);
-        ImageView userImageView = headerView.findViewById(R.id.userImageView);
+        userImageView = headerView.findViewById(R.id.userImageView);
         TextView headerText = headerView.findViewById(R.id.usernameHeader);
 
 
@@ -159,5 +160,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
         finish();
+    }
+
+    public void setUserImage(Uri uri) {
+        userImageView.setImageURI(uri);
     }
 }

@@ -1,7 +1,5 @@
 package ar.edu.itba.mygymapp.ui.profile;
 
-import static android.app.Activity.RESULT_OK;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,6 +24,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.bumptech.glide.Glide;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 
+import ar.edu.itba.mygymapp.MainActivity;
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.apimodels.FullUser;
@@ -43,7 +42,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
     private FullUser user;
     String genderText;
     private ImageView IVPreviewImage;
-
+    private MainActivity mainActivity;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         app = (App) getActivity().getApplication();
@@ -53,6 +52,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         root = binding.getRoot();
 
+        mainActivity = (MainActivity) getActivity();
 
         binding.saveBtn.setOnClickListener(this::saveProfile);
         Spinner spinner = binding.gender;
@@ -130,6 +130,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
         app.getUserRepository().editCurrentUser(aux).observe((LifecycleOwner) getContext(), r -> {
             if (r.getStatus() == Status.SUCCESS) {
                 IVPreviewImage.setImageURI(uri);
+                mainActivity.setUserImage(uri);
             } else {
                 Resource.defaultResourceHandler(r);
             }

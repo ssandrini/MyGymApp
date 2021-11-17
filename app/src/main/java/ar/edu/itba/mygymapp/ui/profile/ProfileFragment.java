@@ -18,11 +18,13 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
+import com.github.dhaval2404.imagepicker.ImagePicker;
 
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.backend.App;
@@ -39,9 +41,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
     private App app;
     private ImageView BSelectImage;
     private FullUser user;
-    int SELECT_PICTURE = 200;
     String genderText;
-    // One Preview Image
     private ImageView IVPreviewImage;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -111,42 +111,31 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
         return root;
     }
 
-    // this function is triggered when
-    // the Select Image Button is clicked
     void imageChooser() {
-
-        // create an instance of the
-        // intent of the type image
-        Intent i = new Intent();
-        i.setType("image/*");
-        i.setAction(Intent.ACTION_GET_CONTENT);
-
-        // pass the constant to compare it
-        // with the returned requestCode
-        startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
+        ImagePicker.with(this)
+                .crop()	    			//Crop image(Optional), Check Customization for more option
+                .compress(1024)			//Final image size will be less than 1 MB(Optional)
+                .maxResultSize(220, 220)	//Final image resolution will be less than 1080 x 1080(Optional)
+                .start();
     }
 
-    // this function is triggered when user
-    // selects the image from the imageChooser
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Uri uri = data.getData();
 
-        if (resultCode == RESULT_OK) {
-
-            // compare the resultCode with the
-            // SELECT_PICTURE constant
-            if (requestCode == SELECT_PICTURE) {
-                // Get the url of the image from data
-                Uri selectedImageUri = data.getData();
-                if (null != selectedImageUri) {
-                    // update the preview image in the layout
-                    IVPreviewImage.setImageURI(selectedImageUri);
-                }
+        FullUser aux = app.getUserRepository().getUser();
+        aux.setAvatarUrl(uri.toString());
+        app.getUserRepository().setUser(aux);
+        app.getUserRepository().editCurrentUser(aux).observe((LifecycleOwner) getContext(), r -> {
+            if (r.getStatus() == Status.SUCCESS) {
+                IVPreviewImage.setImageURI(uri);
+            } else {
+                Resource.defaultResourceHandler(r);
             }
-        }
-    }
+        });
 
+    }
 
     public void saveProfile(View view) {
         EditText fnView, lnView;

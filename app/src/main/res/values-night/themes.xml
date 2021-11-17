@@ -3,21 +3,25 @@
     <style name="Theme.MyGymApp" parent="Base.Theme.MyGymApp">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/highlightColor</item>
-        <item name="colorPrimaryVariant">@color/secondaryTextColor</item>
+        <item name="colorPrimaryVariant">@color/</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/primaryTextColor</item>
         <item name="colorSecondaryVariant">@color/primaryTextColor</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorSurface</item>
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">@font/google_sans</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="android:colorBackground">@color/surface</item>
+
     </style>
     <style name="Base.Theme.MyGymApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:forceDarkAllowed" tools:targetApi="q">true</item>
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">@font/google_sans</item>
+
     </style>
 
     <style name="Theme.NavDrawer.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">

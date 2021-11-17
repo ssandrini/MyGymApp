@@ -3,11 +3,14 @@ package ar.edu.itba.mygymapp.ui.login;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -31,7 +34,9 @@ public class LoginActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private View root;
     private App app;
-
+    private EditText passEditText;
+    private boolean passwordVisible = false;
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +66,31 @@ public class LoginActivity extends AppCompatActivity {
         }
         binding.loginBtn.setOnClickListener(this::login);
         binding.registerBtn.setOnClickListener(this::goToRegister);
+
+        passEditText = binding.password;
+        passEditText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                final int Right=2;
+                if(motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                    if(motionEvent.getRawX() >= passEditText.getRight() - passEditText.getCompoundDrawables()[Right].getBounds().width()) {
+                        int selection = passEditText.getSelectionEnd();
+                        if(passwordVisible) {
+                            passEditText.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_visibility_off_24,0);
+                            passEditText.setTransformationMethod(new PasswordTransformationMethod());
+                            passwordVisible=false;
+                        }else {
+                            passEditText.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_visibility_24,0);
+                            passEditText.setTransformationMethod(null);
+                            passwordVisible=true;
+                        }
+                        passEditText.setSelection(selection);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
     }
 
     public void login(View view) {

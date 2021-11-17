@@ -11,9 +11,11 @@ import android.os.Build;
 import android.view.MenuItem;
 import android.widget.CheckBox;
 import java.util.Calendar;
+import java.util.List;
 
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.databinding.ActivitySchedulerBinding;
+import ca.antonious.materialdaypicker.MaterialDayPicker;
 import io.github.muddz.styleabletoast.StyleableToast;
 
 import android.widget.TimePicker;
@@ -30,7 +32,7 @@ public class SchedulerActivity extends AppCompatActivity {
     static final private String ID_PARENT_EXTRA = "ar.edu.itba.mygymapp.ID_PARENT";
     static final private String MESSAGE_EXTRA ="ar.edu.itba.mygymapp.MESSAGE";
     private ActivitySchedulerBinding binding;
-    private CheckBox[] days;
+    private List<MaterialDayPicker.Weekday> days;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,42 +52,28 @@ public class SchedulerActivity extends AppCompatActivity {
         }
 
         TimePicker timePicker = binding.timePicker;
-        days = new CheckBox[7];
-        days[0] = binding.checkBoxSun;
-        days[1] = binding.checkBoxMon;
-        days[2] = binding.checkBoxTue;
-        days[3] = binding.checkBoxWed;
-        days[4] = binding.checkBoxThu;
-        days[5] = binding.checkBoxFri;
-        days[6] = binding.checkBoxSat;
-
+        MaterialDayPicker materialDayPicker = binding.dayPicker;
 
         binding.acceptBtnSch.setOnClickListener(v->{
             Calendar calendar = Calendar.getInstance();
             AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-            boolean flag = false;
-            for (int i = 0; i < 7; i++) {
-                if(days[i].isChecked()) {
-                    flag = true;
-                }
-            }
-            if(flag) {
-                for (int i = 0; i < 7; i++) {
-                    if (days[i].isChecked()) {
-                        calendar.setTimeInMillis(System.currentTimeMillis());
-                        int today = calendar.get(Calendar.DAY_OF_WEEK);
-                        int diff = (7 + (i+1) - today ) % 7;
-                        calendar.add(Calendar.DATE,diff);
-                        calendar.set(Calendar.HOUR_OF_DAY, timePicker.getHour());
-                        calendar.set(Calendar.MINUTE, timePicker.getMinute());
-                        Log.d("CALENDAR",calendar.toString());
-                        Intent pending = new Intent( this, NotifyHandlerReceiver.class );
-                        pending.putExtra(DAY_EXTRA,42+i);
-                        pending.putExtra(ID_EXTRA,getIntent().getIntExtra(ID_PARENT_EXTRA,0));
-                        pending.putExtra(MESSAGE_EXTRA, getText(R.string.notif_text));
-                        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingNotifyIntent = PendingIntent.getBroadcast(this, 42+i, pending, PendingIntent.FLAG_UPDATE_CURRENT);
-                        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY * 7, pendingNotifyIntent);
-                    }
+            days = materialDayPicker.getSelectedDays();
+            if(!days.isEmpty()) {
+                for(MaterialDayPicker.Weekday weekday : days) {
+                    int i = weekday.ordinal();
+                    calendar.setTimeInMillis(System.currentTimeMillis());
+                    int today = calendar.get(Calendar.DAY_OF_WEEK);
+                    int diff = (7 + (i+1) - today ) % 7;
+                    calendar.add(Calendar.DATE,diff);
+                    calendar.set(Calendar.HOUR_OF_DAY, timePicker.getHour());
+                    calendar.set(Calendar.MINUTE, timePicker.getMinute());
+                    Log.d("CALENDAR",calendar.toString());
+                    Intent pending = new Intent( this, NotifyHandlerReceiver.class );
+                    pending.putExtra(DAY_EXTRA,42+i);
+                    pending.putExtra(ID_EXTRA,getIntent().getIntExtra(ID_PARENT_EXTRA,0));
+                    pending.putExtra(MESSAGE_EXTRA, getText(R.string.notif_text));
+                    @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingNotifyIntent = PendingIntent.getBroadcast(this, 42+i, pending, PendingIntent.FLAG_UPDATE_CURRENT);
+                    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY * 7, pendingNotifyIntent);
                 }
                 StyleableToast.makeText(getApplicationContext(), getText(R.string.success_notif).toString(), Toast.LENGTH_LONG, R.style.successToast).show();
                 finish();

@@ -15,6 +15,8 @@
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/activity_scheduler.xml" value="0.25" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/app_bar.xml" value="0.15353260869565216" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/avatar.xml" value="0.10597826086956522" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/classic_divider.xml" value="0.19429347826086957" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/cycle_list_item.xml" value="0.19429347826086957" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/filter_dialog.xml" value="0.25" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/fragment_home.xml" value="0.20489977728285078" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/fragment_profile.xml" value="0.15353260869565216" />
@@ -24,6 +26,7 @@
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/review_layout.xml" value="0.25" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/routine_execution_alt.xml" value="0.16757246376811594" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/routine_list_item.xml" value="0.15353260869565216" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/url_layout.xml" value="0.13697916666666668" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/menu/qr_menu.xml" value="0.16354166666666667" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/menu/toolbar_routine.xml" value="0.16770833333333332" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/xml/file_path.xml" value="0.14479166666666668" />

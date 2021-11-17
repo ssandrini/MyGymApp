@@ -17,6 +17,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.view.MenuInflater;
 import ar.edu.itba.mygymapp.BuildConfig;
@@ -36,42 +37,43 @@ import android.text.format.DateFormat;
 public class QrActivity extends AppCompatActivity {
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
-    private static final String[] PERMISSION_STORAGE = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE,
-    };
+    private static final String[] PERMISSION_STORAGE = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE,};
 
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.qr_activity);
-        //QrActivityBinding binding = QrActivityBinding.inflate(getLayoutInflater());
-
         int id = getIntent().getIntExtra(RoutineActivity.EXTRA_ID,0);
         String title = getIntent().getStringExtra(RoutineActivity.EXTRA_TITLE);
-        ((TextView)findViewById(R.id.qrTitle)).setText("QR");
-        ((TextView)findViewById(R.id.qrRoutineName)).setText(title);
+        if(id == 0)
+            System.out.println("esto ta mal");
+        TextView titleTextView = findViewById(R.id.qrRoutineName);
+        titleTextView.setText(title);
+        Button backButton = findViewById(R.id.qr_back);
+        Button shareButton = findViewById(R.id.qr_share);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                verifyStoragePermission(QrActivity.this);
+                takeScreenShot(getWindow().getDecorView());
+            }
+        });
 
         Bitmap myBitmap = QRCode.from("http://mygym.com/routine?id="+ id).bitmap();
         ImageView myImage = findViewById(R.id.qr_code);
         myImage.setImageBitmap(myBitmap);
+
     }
 
-    /*
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.qr_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.share_qr){
-            verifyStoragePermission(QrActivity.this);
-            takeScreenShot(getWindow().getDecorView());
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    */
     private void takeScreenShot(View view) {
 
         //This is used to provide file name with Date a format

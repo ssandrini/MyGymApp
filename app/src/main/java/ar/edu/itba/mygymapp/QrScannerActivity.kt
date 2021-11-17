@@ -1,4 +1,4 @@
-package ar.edu.itba.mygymapp.ui.routines
+package ar.edu.itba.mygymapp
 
 import android.content.Context
 import android.content.Intent
@@ -21,18 +21,15 @@ class QrScannerActivity : AppCompatActivity() {
     private lateinit var context : Context
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(ar.edu.itba.mygymapp.R.layout.activity_qr_scanner)
+        setContentView(R.layout.activity_qr_scanner)
         context = this;
-
-        val ab = supportActionBar
-        ab!!.setDisplayHomeAsUpEnabled(true)
 
         setUpPermissions()
         codeScanner()
     }
 
     private fun codeScanner() {
-        val scannerView = findViewById<CodeScannerView>(ar.edu.itba.mygymapp.R.id.scanner_view)
+        val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
         codeScanner = CodeScanner(this, scannerView)
 
         codeScanner.apply {
@@ -48,7 +45,7 @@ class QrScannerActivity : AppCompatActivity() {
                 runOnUiThread{
                     val i = Intent(Intent.ACTION_VIEW)
                     i.data = Uri.parse(it.text);
-                    i.setPackage("com.example.fithub_mobile")
+                    i.setPackage("ar.edu.itba.mygymapp")
                     // Create the TaskStackBuilder and add the intent, which inflates the back stack
                     i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(i)
@@ -99,12 +96,6 @@ class QrScannerActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) {
-            finish()
-        }
-        return super.onOptionsItemSelected(item)
     }
 
 }

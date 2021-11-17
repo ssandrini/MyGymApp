@@ -6,10 +6,12 @@
         <entry key="../../../../layout/custom_preview.xml" value="0.58125" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2203125" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/drawable/ic_baseline_qr_code_24.xml" value="0.18385416666666668" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/drawable/ic_baseline_qr_code_scanner_24.xml" value="0.16510416666666666" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/drawable/ic_baseline_visibility_off_24.xml" value="0.2046875" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/activity_qr_scanner.xml" value="0.2" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/activity_routine.xml" value="0.24096385542168675" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/activity_scheduler.xml" value="0.25" />
@@ -28,6 +30,7 @@
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/routine_list_item.xml" value="0.15353260869565216" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/url_layout.xml" value="0.13697916666666668" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/menu/qr_menu.xml" value="0.16354166666666667" />
+        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/menu/toolbar_menu.xml" value="0.14895833333333333" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/menu/toolbar_routine.xml" value="0.16770833333333332" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/xml/file_path.xml" value="0.14479166666666668" />
         <entry key="app/src/main/res/drawable-anydpi/ic_add.xml" value="0.5833333333333334" />

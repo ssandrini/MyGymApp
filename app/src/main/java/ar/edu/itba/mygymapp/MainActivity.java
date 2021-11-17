@@ -102,6 +102,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         urlItem.setVisible(false);
+
+        MenuItem scanQrItem = menu.findItem(R.id.action_scan_qr);
+        scanQrItem.setVisible(false);
         return super.onCreateOptionsMenu(menu);
     }
 

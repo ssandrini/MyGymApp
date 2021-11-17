@@ -13,11 +13,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -26,13 +24,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 import ar.edu.itba.mygymapp.MainActivity;
+import ar.edu.itba.mygymapp.QrScannerActivity;
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.apimodels.FullRoutine;
@@ -194,7 +192,14 @@ public class RoutinesFragment extends Fragment {
         searchItem.setVisible(true);
         MenuItem optionsItem = menu.findItem(R.id.action_filter);
         optionsItem.setVisible(true);
-        //super.onPrepareOptionsMenu(menu);  CREO que esta línea no va.
+
+        MenuItem scanQrItem = menu.findItem(R.id.action_scan_qr);
+        scanQrItem.setVisible(true);
+        scanQrItem.setOnMenuItemClickListener(menuItem -> {
+                Intent i = new Intent(getContext(), QrScannerActivity.class);
+                startActivity(i);
+                return true;
+        });
     }
 
     public void initRoutines() {

@@ -152,5 +152,7 @@
     <string name="no_recents">Aún no has ejecutado rutinas</string>
     <string name="share">Compartir</string>
     <string name="action_take_qr">Take QR</string>
+    <string name="scan_qr">Scan QR</string>
+    <string name="scan_your_code">Scan your code</string>
     <!-- uCrop string resource end -->
 </resources>

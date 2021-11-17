@@ -150,5 +150,7 @@
     <string name="choose_day">Elige los días</string>
     <string name="no_highlights">Todavía no hay rutinas destacadas</string>
     <string name="no_recents">Aún no has ejecutado rutinas</string>
+    <string name="share">Compartir</string>
+    <string name="action_take_qr">Take QR</string>
     <!-- uCrop string resource end -->
 </resources>

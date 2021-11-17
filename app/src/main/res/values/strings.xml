@@ -153,4 +153,6 @@
     <string name="no_highlights">Todavía no hay rutinas destacadas</string>
     <string name="no_recents">Aún no has ejecutado rutinas</string>
     <string name="choose_day">Choose days</string>
+    <string name="share">Compartir</string>
+    <string name="action_take_qr">Take QR</string>
 </resources>

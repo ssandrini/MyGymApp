@@ -14,4 +14,10 @@
         android:title="@string/action_share"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/action_take_qr"
+        android:icon="@drawable/ic_baseline_qr_code_24"
+        android:title="@string/action_take_qr"
+        app:showAsAction="ifRoom" />
+
 </menu>

@@ -49,9 +49,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.routines.QrActivity"
+            android:exported="true"/>
+
         <receiver
             android:name=".ui.scheduler.NotifyHandlerReceiver"
             android:enabled="true" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="ar.edu.itba.mygymapp.ui.routines.QrActivity.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
+        </provider>
     </application>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 

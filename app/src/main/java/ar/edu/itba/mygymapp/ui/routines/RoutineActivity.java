@@ -34,6 +34,8 @@ import io.github.muddz.styleabletoast.StyleableToast;
 public class RoutineActivity extends AppCompatActivity {
 
     static final private String ID_PARENT_EXTRA = "ar.edu.itba.mygymapp.ID_PARENT";
+    public static final String EXTRA_ID = "ar.edu.itba.mygymapp.EXTRA_ID";
+    static final public String EXTRA_TITLE = "ar.edu.itba.mygymapp.EXTRA_TITLE";
     private App app;
     private ActivityRoutineBinding binding;
     private CyclesAdapter cyclesAdapter;
@@ -196,7 +198,7 @@ public class RoutineActivity extends AppCompatActivity {
 
         MenuItem favItem = menu.findItem(R.id.action_fav);
         MenuItem shareItem = menu.findItem(R.id.action_share);
-
+        MenuItem qrItem = menu.findItem(R.id.action_take_qr);
 
 
         Log.d("FAV ON CREATE OPTS MENU", String.valueOf(isFav));
@@ -209,6 +211,7 @@ public class RoutineActivity extends AppCompatActivity {
 
         favItem.setVisible(true);
         shareItem.setVisible(true);
+        qrItem.setVisible(true);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -252,6 +255,11 @@ public class RoutineActivity extends AppCompatActivity {
                     }
                 });
             }
+        } else if ((item.getItemId() == R.id.action_take_qr)) {
+            Intent i = new Intent(this, QrActivity.class);
+            i.putExtra(EXTRA_ID,routineId);
+            i.putExtra(EXTRA_TITLE, routine.getName());
+            startActivity(i);
         }
         return super.onOptionsItemSelected(item);
     }

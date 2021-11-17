@@ -88,7 +88,8 @@
             android:id="@+id/password"
             android:layout_width="225dp"
             android:layout_height="63dp"
-
+            android:drawableRight="@drawable/ic_baseline_visibility_off_24"
+            android:longClickable="false"
             android:ems="10"
             android:hint="@string/password_hint"
             android:inputType="textPassword"/>
@@ -113,6 +114,8 @@
             android:layout_width="225dp"
             android:layout_height="63dp"
             android:ems="10"
+            android:drawableRight="@drawable/ic_baseline_visibility_off_24"
+            android:longClickable="false"
             android:hint="@string/pwdConfirm"
             android:inputType="textPassword"
            />

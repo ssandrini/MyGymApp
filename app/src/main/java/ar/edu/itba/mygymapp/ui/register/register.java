@@ -1,10 +1,13 @@
 package ar.edu.itba.mygymapp.ui.register;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -23,7 +26,10 @@ import io.github.muddz.styleabletoast.StyleableToast;
 
 public class register extends AppCompatActivity {
     private ActivityRegisterBinding binding;
+    private boolean passwordVisible1;
+    private boolean passwordVisible2;
     View root;
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +48,54 @@ public class register extends AppCompatActivity {
             binding.password2.setTextSize(23);
 
         }
+
+        binding.password.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                final int Right=2;
+                if(motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                    if(motionEvent.getRawX() >= binding.password.getRight() - binding.password.getCompoundDrawables()[Right].getBounds().width()) {
+                        int selection = binding.password.getSelectionEnd();
+                        if(passwordVisible1) {
+                            binding.password.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_visibility_off_24,0);
+                            binding.password.setTransformationMethod(new PasswordTransformationMethod());
+                            passwordVisible1=false;
+                        }else {
+                            binding.password.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_visibility_24,0);
+                            binding.password.setTransformationMethod(null);
+                            passwordVisible1=true;
+                        }
+                        binding.password.setSelection(selection);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        binding.password2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                final int Right=2;
+                if(motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                    if(motionEvent.getRawX() >= binding.password2.getRight() - binding.password2.getCompoundDrawables()[Right].getBounds().width()) {
+                        int selection = binding.password2.getSelectionEnd();
+                        if(passwordVisible2) {
+                            binding.password2.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_visibility_off_24,0);
+                            binding.password2.setTransformationMethod(new PasswordTransformationMethod());
+                            passwordVisible2=false;
+                        }else {
+                            binding.password2.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_visibility_24,0);
+                            binding.password2.setTransformationMethod(null);
+                            passwordVisible2=true;
+                        }
+                        binding.password2.setSelection(selection);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
     }
 
     private void registration(View view) {

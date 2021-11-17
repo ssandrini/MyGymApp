@@ -48,7 +48,7 @@
         android:id="@+id/profile_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/email_hint"
         android:textColor="?android:attr/textColorSecondary"
         android:textColorHint="@color/hintColor"

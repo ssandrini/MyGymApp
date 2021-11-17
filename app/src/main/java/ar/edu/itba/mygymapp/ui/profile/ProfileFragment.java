@@ -1,5 +1,6 @@
 package ar.edu.itba.mygymapp.ui.profile;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -122,19 +123,29 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Uri uri = data.getData();
 
-        FullUser aux = app.getUserRepository().getUser();
-        aux.setAvatarUrl(uri.toString());
-        app.getUserRepository().setUser(aux);
-        app.getUserRepository().editCurrentUser(aux).observe((LifecycleOwner) getContext(), r -> {
-            if (r.getStatus() == Status.SUCCESS) {
-                IVPreviewImage.setImageURI(uri);
-                mainActivity.setUserImage(uri);
-            } else {
-                Resource.defaultResourceHandler(r);
-            }
-        });
+
+        if (resultCode == Activity.RESULT_OK) {
+            //Image Uri will not be null for RESULT_OK
+            Uri uri = data.getData();
+            FullUser aux = app.getUserRepository().getUser();
+            aux.setAvatarUrl(uri.toString());
+            app.getUserRepository().setUser(aux);
+            app.getUserRepository().editCurrentUser(aux).observe((LifecycleOwner) getContext(), r -> {
+                if (r.getStatus() == Status.SUCCESS) {
+                    IVPreviewImage.setImageURI(uri);
+                    mainActivity.setUserImage(uri);
+                } else {
+                    Resource.defaultResourceHandler(r);
+                }
+            });
+
+        } else if (resultCode == ImagePicker.RESULT_ERROR) {
+            StyleableToast.makeText(getActivity(), getText(R.string.error_failed_to_create_camera_image_file).toString(), Toast.LENGTH_LONG, R.style.errorToast).show();
+        } else {
+
+        }
+
 
     }
 

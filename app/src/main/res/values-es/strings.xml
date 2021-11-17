@@ -116,4 +116,32 @@
     <string name="queue">Encolada</string>
     <string name="register_success">Register successful. Please confirm your email to proceed.</string>
     <string name="success_verification">Account verified successfully</string>
+    <string name="existing_account">This account already exists</string>
+    <string name="fail_verification">Invalid code or email</string>
+
+    <string name="image_picker_provider_authority_suffix" translatable="false">.imagepicker.provider</string>
+
+    <string name="title_choose_image_provider">Elige</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="title_gallery">Galería</string>
+    <string name="title_camera">Cámara</string>
+
+    <string name="permission_camera_denied">
+        <![CDATA[Camera permission is needed to take a picture. Please allow permission from Settings > Permissions.]]></string>
+
+    <string name="error_failed_to_create_camera_image_file">Error al crear imagen</string>
+    <string name="error_failed_pick_gallery_image">Error al seleccionar imagen</string>
+    <string name="error_failed_to_crop_image">Error al recortar imagen</string>
+    <string name="error_failed_to_compress_image">Error al comprimir imagen</string>
+    <string name="error_task_cancelled">Tarea cancelada</string>
+    <string name="error_camera_app_not_found">No es posible abrir la cámara</string>
+
+    <!-- uCrop string resource start -->
+    <string name="ucrop_label_original">Original</string>
+    <string name="ucrop_label_edit_photo">Editar imgen</string>
+    <string name="ucrop_menu_crop">Recortar</string>
+    <string name="ucrop_rotate">Rotar</string>
+    <string name="ucrop_scale">Escala</string>
+    <string name="ucrop_crop">Recortar</string>
+    <!-- uCrop string resource end -->
 </resources>

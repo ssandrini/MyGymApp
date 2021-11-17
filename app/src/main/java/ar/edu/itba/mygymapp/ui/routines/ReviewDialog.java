@@ -29,6 +29,7 @@ import ar.edu.itba.mygymapp.backend.apimodels.Review;
 import ar.edu.itba.mygymapp.backend.models.Routine;
 import ar.edu.itba.mygymapp.backend.repository.Status;
 import ar.edu.itba.mygymapp.databinding.ActivityRoutineBinding;
+import io.github.muddz.styleabletoast.StyleableToast;
 
 public class ReviewDialog extends AppCompatDialogFragment {
     private App app;
@@ -67,6 +68,7 @@ public class ReviewDialog extends AppCompatDialogFragment {
                         app.getRoutineRepository().getRoutine(routineId).observe(fragmentActivity, r2 -> {
                             if(r2.getStatus() == Status.SUCCESS) {
                                 routineActivity.setRaiting(r2.getData().getScore()/2.0f);
+                                //StyleableToast.makeText(fragmentActivity, getText(R.string.review_success).toString(), Toast.LENGTH_LONG, R.style.successToast).show();
                                 Toast.makeText(fragmentActivity, R.string.review_success, Toast.LENGTH_SHORT).show();
                             }
                         });

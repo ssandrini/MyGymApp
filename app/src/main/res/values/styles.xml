@@ -106,4 +106,29 @@
         <item name="cornerSizeBottomLeft">0dp</item>
     </style>
 
+    <style name="errorToast">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#000</item>
+        <item name="stFont">@font/google_sans</item>
+        <item name="stTextSize">18sp</item>
+        <item name="stColorBackground">#f00</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stStrokeWidth">3dp</item>
+        <item name="stStrokeColor">#fff</item>
+        <item name="stLength">LONG</item>
+        <item name="stRadius">20dp</item>
+    </style>
+
+    <style name="successToast">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#000</item>
+        <item name="stFont">@font/google_sans</item>
+        <item name="stTextSize">18sp</item>
+        <item name="stColorBackground">#00913f</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stStrokeWidth">3dp</item>
+        <item name="stStrokeColor">#fff</item>
+        <item name="stLength">LONG</item>
+        <item name="stRadius">20dp</item>
+    </style>
 </resources>

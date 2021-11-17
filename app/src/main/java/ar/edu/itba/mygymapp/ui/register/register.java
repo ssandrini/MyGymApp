@@ -19,6 +19,7 @@ import ar.edu.itba.mygymapp.backend.apimodels.RegisterCredentials;
 import ar.edu.itba.mygymapp.backend.repository.Resource;
 import ar.edu.itba.mygymapp.backend.repository.Status;
 import ar.edu.itba.mygymapp.databinding.ActivityRegisterBinding;
+import io.github.muddz.styleabletoast.StyleableToast;
 
 public class register extends AppCompatActivity {
     private ActivityRegisterBinding binding;
@@ -77,7 +78,7 @@ public class register extends AppCompatActivity {
             }
         }
         if (error) {
-            Toast.makeText(getApplicationContext(), getText(R.string.invalid_registration), Toast.LENGTH_SHORT).show();
+            StyleableToast.makeText(getApplicationContext(), getText(R.string.invalid_registration).toString(), Toast.LENGTH_LONG, R.style.errorToast).show();
             return;
         }
 
@@ -85,12 +86,12 @@ public class register extends AppCompatActivity {
         App app = (App) getApplication();
         app.getUserRepository().register(registerCredentials).observe(this, r -> {
             if (r.getStatus() == Status.SUCCESS) {
-                Toast.makeText(getApplicationContext(),getText(R.string.register_success),Toast.LENGTH_LONG).show();
+                StyleableToast.makeText(getApplicationContext(), getText(R.string.register_success).toString(), Toast.LENGTH_LONG, R.style.successToast).show();
                 goToConfirmationActivity();
             } else {
                 Resource.defaultResourceHandler(r);
                 if (r.getStatus() == Status.ERROR) {
-                    Toast.makeText(getApplicationContext(), getText(R.string.existing_account), Toast.LENGTH_LONG).show();
+                    StyleableToast.makeText(getApplicationContext(), getText(R.string.existing_account).toString(), Toast.LENGTH_LONG, R.style.errorToast).show();
                 }
             }
         });

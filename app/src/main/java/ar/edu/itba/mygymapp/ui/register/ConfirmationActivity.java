@@ -15,6 +15,7 @@ import ar.edu.itba.mygymapp.backend.repository.Resource;
 import ar.edu.itba.mygymapp.backend.repository.Status;
 import ar.edu.itba.mygymapp.databinding.ActivityConfirmationBinding;
 import ar.edu.itba.mygymapp.ui.login.LoginActivity;
+import io.github.muddz.styleabletoast.StyleableToast;
 
 public class ConfirmationActivity extends AppCompatActivity {
 
@@ -51,22 +52,21 @@ public class ConfirmationActivity extends AppCompatActivity {
         }
 
         if (error) {
-            Toast.makeText(getApplicationContext(), getText(R.string.invalid_confirmation), Toast.LENGTH_SHORT).show();
+            StyleableToast.makeText(getApplicationContext(), getText(R.string.invalid_confirmation).toString(), Toast.LENGTH_LONG, R.style.errorToast).show();
             return ;
         }
 
         App app = (App)getApplication();
         app.getUserRepository().verifyEmail(new EmailConfirmation(email,code)).observe(this, r -> {
             if (r.getStatus() == Status.SUCCESS) {
-                Toast.makeText(getApplicationContext(),getText(R.string.success_verification),Toast.LENGTH_SHORT).show();
+                StyleableToast.makeText(getApplicationContext(), getText(R.string.success_verification).toString(), Toast.LENGTH_LONG, R.style.successToast).show();
                 Intent i = new Intent(this, LoginActivity.class);
                 startActivity(i);
                 finish();
             } else {
                 Resource.defaultResourceHandler(r);
                 if (r.getStatus() == Status.ERROR) {
-                    Toast.makeText(getApplicationContext(), getText(R.string.fail_verification), Toast.LENGTH_SHORT).show();
-                    finish();
+                    StyleableToast.makeText(getApplicationContext(), getText(R.string.fail_verification).toString(), Toast.LENGTH_LONG, R.style.errorToast).show();
                 }
             }
         });

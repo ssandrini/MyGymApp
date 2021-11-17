@@ -30,6 +30,7 @@ import ar.edu.itba.mygymapp.backend.apimodels.FullUser;
 import ar.edu.itba.mygymapp.backend.repository.Resource;
 import ar.edu.itba.mygymapp.backend.repository.Status;
 import ar.edu.itba.mygymapp.databinding.FragmentProfileBinding;
+import io.github.muddz.styleabletoast.StyleableToast;
 
 public class ProfileFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     private ProfileViewModel profileViewModel;
@@ -168,7 +169,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
             error = true;
         }
         if (error) {
-            Toast.makeText(getActivity(), getText(R.string.invalid_data), Toast.LENGTH_SHORT).show();
+            StyleableToast.makeText(getActivity(), getText(R.string.invalid_data).toString(), Toast.LENGTH_LONG, R.style.errorToast).show();
             return;
         }
 
@@ -181,7 +182,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
             if (r.getStatus() == Status.SUCCESS) {
                 binding.infoLayout.setVisibility(View.VISIBLE);
                 binding.editLayout.setVisibility(View.GONE);
-                Toast.makeText(view.getContext(), R.string.profile_saved, Toast.LENGTH_SHORT).show();
+                StyleableToast.makeText(view.getContext(), getText(R.string.profile_saved).toString(), Toast.LENGTH_LONG, R.style.successToast).show();
                 loadProfileData();
             } else {
                 Resource.defaultResourceHandler(r);

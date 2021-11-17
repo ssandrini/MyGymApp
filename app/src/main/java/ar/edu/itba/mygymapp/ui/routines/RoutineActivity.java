@@ -29,6 +29,7 @@ import ar.edu.itba.mygymapp.ui.exercises.ExercisesAdapter;
 import ar.edu.itba.mygymapp.ui.routines.execution.RoutineExecutionActivity;
 import ar.edu.itba.mygymapp.ui.routines.execution.RoutineExecutionActivityAlt;
 import ar.edu.itba.mygymapp.ui.scheduler.SchedulerActivity;
+import io.github.muddz.styleabletoast.StyleableToast;
 
 public class RoutineActivity extends AppCompatActivity {
 
@@ -106,8 +107,9 @@ public class RoutineActivity extends AppCompatActivity {
                                     cyclesAdapter.notifyDataSetChanged();
                                 } else {
                                     defaultResourceHandler(r);
-                                    if (r.getStatus() == Status.ERROR)
-                                        Toast.makeText(getApplicationContext(), getText(R.string.error_exercise), Toast.LENGTH_LONG).show();
+                                    if (r.getStatus() == Status.ERROR) {
+                                        StyleableToast.makeText(getApplicationContext(), getText(R.string.error_exercise).toString(), Toast.LENGTH_LONG, R.style.errorToast).show();
+                                    }
                                 }
                             });
                         }
@@ -115,14 +117,14 @@ public class RoutineActivity extends AppCompatActivity {
                     } else {
                         defaultResourceHandler(r);
                         if (r.getStatus() == Status.ERROR)
-                            Toast.makeText(getApplicationContext(),getText(R.string.error_cycle),Toast.LENGTH_LONG).show();
+                            StyleableToast.makeText(getApplicationContext(), getText(R.string.error_cycle).toString(), Toast.LENGTH_LONG, R.style.errorToast).show();
                     }
                 });
 
             } else {
                 defaultResourceHandler(r);
                 if (r.getStatus() == Status.ERROR)
-                    Toast.makeText(getApplicationContext(), getText(R.string.invalid_login), Toast.LENGTH_LONG).show();
+                    StyleableToast.makeText(getApplicationContext(), getText(R.string.invalid_login).toString(), Toast.LENGTH_LONG, R.style.errorToast).show();
             }
         });
 

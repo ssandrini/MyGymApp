@@ -23,6 +23,7 @@ import ar.edu.itba.mygymapp.backend.repository.Resource;
 import ar.edu.itba.mygymapp.backend.repository.Status;
 import ar.edu.itba.mygymapp.databinding.ActivityLoginBinding;
 import ar.edu.itba.mygymapp.ui.register.register;
+import io.github.muddz.styleabletoast.StyleableToast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -82,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (error) {
-            Toast.makeText(getApplicationContext(), getText(R.string.invalid_login), Toast.LENGTH_SHORT).show();
+            StyleableToast.makeText(getApplicationContext(), getText(R.string.invalid_login).toString(), Toast.LENGTH_LONG, R.style.errorToast).show();
             return ;
         }
 
@@ -97,8 +98,9 @@ public class LoginActivity extends AppCompatActivity {
 
             } else {
                 defaultResourceHandler(r);
-                if (r.getStatus() == Status.ERROR)
-                    Toast.makeText(getApplicationContext(),getText(R.string.invalid_login),Toast.LENGTH_LONG).show();
+                if (r.getStatus() == Status.ERROR) {
+                    StyleableToast.makeText(getApplicationContext(), getText(R.string.invalid_login).toString(), Toast.LENGTH_LONG, R.style.errorToast).show();
+                }
             }
         });
 

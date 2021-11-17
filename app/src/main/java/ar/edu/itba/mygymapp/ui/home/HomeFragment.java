@@ -179,13 +179,6 @@ public class HomeFragment extends Fragment {
         urlItem.setVisible(true);
     }
 
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        System.out.println("dale puto");
-        initRoutines();
-    }
 }
 
 

@@ -24,4 +24,5 @@
     <color name="picColor">#FFBB86FC</color>
     <color name="iconColor">#fff</color>
 
+    <color name="dividerColor">@color/black</color>
 </resources>

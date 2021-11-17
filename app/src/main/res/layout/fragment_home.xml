@@ -8,6 +8,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             tools:context=".ui.home.HomeFragment"
             android:orientation="vertical">
 
@@ -18,7 +19,7 @@
 
                 </Button>
                 <LinearLayout android:layout_height="wrap_content"
-
+                    android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
                     android:layout_marginTop="20dp"
                     android:gravity="center"
@@ -59,12 +60,14 @@
                     android:textSize="@dimen/headerTextSize"
                     android:fontFamily="@font/google_sans_bold"
                     android:padding="40px"
+
                     >
                 </TextView>
                 <androidx.recyclerview.widget.RecyclerView
                     android:paddingLeft="10dp"
                     android:id="@+id/highlightsRecView"
                     android:layout_width="match_parent"
+                    android:layout_marginBottom="10dp"
                     android:layout_height="wrap_content">
 
                 </androidx.recyclerview.widget.RecyclerView>
@@ -99,6 +102,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:paddingLeft="10dp"
                     android:id="@+id/myroutinesRecView"
+                    android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -121,6 +125,7 @@
                     android:paddingLeft="10dp"
                     android:id="@+id/recentsRecView"
                     android:paddingBottom="15dp"
+                    
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 

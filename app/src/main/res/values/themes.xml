@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">@color/secondaryTextColor</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">@font/google_sans</item>
         <item name="colorOnBackground">@color/white</item>
@@ -20,6 +20,8 @@
         <item name="colorSurface">@color/purple_200</item>
         <item name="android:colorBackground">@color/surface</item>
         <item name="android:colorError">@color/error</item>
+
+
     </style>
 
     <style name="Base.Theme.MyGymApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">

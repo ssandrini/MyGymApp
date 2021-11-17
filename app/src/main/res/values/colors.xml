@@ -31,4 +31,7 @@
     <color name="iconColor">#333333</color>
     <color name="semiblackColor">#1a1a1a</color>
 
+
+    <color name="dividerColor">#BDBDBD</color>
+    <color name="drawerlayout">@color/black</color>
 </resources>

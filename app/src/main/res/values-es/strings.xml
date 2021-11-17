@@ -144,5 +144,8 @@
     <string name="ucrop_scale">Escala</string>
     <string name="ucrop_crop">Recortar</string>
     <string name="no_my_routines">Todavía no tienes rutinas</string>
+    <string name="notif_text">¡Vamos a entrenar!</string>
+    <string name="error_notif">Debes seleccionar al menos un día</string>
+    <string name="success_notif">La alarma se ha creado correctamente</string>
     <!-- uCrop string resource end -->
 </resources>

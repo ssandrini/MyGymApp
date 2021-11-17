@@ -131,7 +131,7 @@ public class RoutineActivity extends AppCompatActivity {
 
         binding.calendarBtn.setOnClickListener(view -> {
             Intent calIntent = new Intent(this, SchedulerActivity.class);
-            calIntent.putExtra(ID_PARENT_EXTRA, 2);
+            calIntent.putExtra(ID_PARENT_EXTRA, routineId);
             startActivity(calIntent);
         });
 

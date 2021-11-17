@@ -11,8 +11,14 @@ import android.os.Build;
 import android.view.MenuItem;
 import android.widget.CheckBox;
 import java.util.Calendar;
+
+import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.databinding.ActivitySchedulerBinding;
+import io.github.muddz.styleabletoast.StyleableToast;
+
 import android.widget.TimePicker;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +28,7 @@ public class SchedulerActivity extends AppCompatActivity {
     static final private String DAY_EXTRA = "ar.edu.itba.mygymapp.DAY";
     static final private String ID_EXTRA = "ar.edu.itba.mygymapp.ID";
     static final private String ID_PARENT_EXTRA = "ar.edu.itba.mygymapp.ID_PARENT";
+    static final private String MESSAGE_EXTRA ="ar.edu.itba.mygymapp.MESSAGE";
     private ActivitySchedulerBinding binding;
     private CheckBox[] days;
 
@@ -56,24 +63,36 @@ public class SchedulerActivity extends AppCompatActivity {
         binding.acceptBtnSch.setOnClickListener(v->{
             Calendar calendar = Calendar.getInstance();
             AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-
-            for (int i = 0; i < 7; i++){
-                if (days[i].isChecked()){
-                    calendar.setTimeInMillis(System.currentTimeMillis());
-                    int today = calendar.get(Calendar.DAY_OF_WEEK);
-                    int diff = (7 + (i+1) - today ) % 7;
-                    calendar.add(Calendar.DATE,diff);
-                    calendar.set(Calendar.HOUR_OF_DAY, timePicker.getHour());
-                    calendar.set(Calendar.MINUTE, timePicker.getMinute());
-                    Log.d("CALENDAR",calendar.toString());
-                    Intent pending = new Intent( this, NotifyHandlerReceiver.class );
-                    pending.putExtra(DAY_EXTRA,42+i);
-                    pending.putExtra(ID_EXTRA,getIntent().getIntExtra(ID_PARENT_EXTRA,0));
-                    @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingNotifyIntent = PendingIntent.getBroadcast(this, 42+i, pending, PendingIntent.FLAG_UPDATE_CURRENT);
-                    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY * 7, pendingNotifyIntent);
+            boolean flag = false;
+            for (int i = 0; i < 7; i++) {
+                if(days[i].isChecked()) {
+                    flag = true;
                 }
             }
-            finish();
+            if(flag) {
+                for (int i = 0; i < 7; i++) {
+                    if (days[i].isChecked()) {
+                        calendar.setTimeInMillis(System.currentTimeMillis());
+                        int today = calendar.get(Calendar.DAY_OF_WEEK);
+                        int diff = (7 + (i+1) - today ) % 7;
+                        calendar.add(Calendar.DATE,diff);
+                        calendar.set(Calendar.HOUR_OF_DAY, timePicker.getHour());
+                        calendar.set(Calendar.MINUTE, timePicker.getMinute());
+                        Log.d("CALENDAR",calendar.toString());
+                        Intent pending = new Intent( this, NotifyHandlerReceiver.class );
+                        pending.putExtra(DAY_EXTRA,42+i);
+                        pending.putExtra(ID_EXTRA,getIntent().getIntExtra(ID_PARENT_EXTRA,0));
+                        pending.putExtra(MESSAGE_EXTRA, getText(R.string.notif_text));
+                        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingNotifyIntent = PendingIntent.getBroadcast(this, 42+i, pending, PendingIntent.FLAG_UPDATE_CURRENT);
+                        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY * 7, pendingNotifyIntent);
+                    }
+                }
+                StyleableToast.makeText(getApplicationContext(), getText(R.string.success_notif).toString(), Toast.LENGTH_LONG, R.style.successToast).show();
+                finish();
+            }
+            else {
+                StyleableToast.makeText(getApplicationContext(), getText(R.string.error_notif).toString(), Toast.LENGTH_LONG, R.style.errorToast).show();
+            }
         });
 
         binding.cancelBtnSch.setOnClickListener(v->{

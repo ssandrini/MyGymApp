@@ -12,12 +12,12 @@ import android.app.NotificationManager;
 public class NotifyHandlerReceiver extends BroadcastReceiver {
     static final private String DAY_EXTRA = "ar.edu.itba.mygymapp.DAY";
     static final private String ID_EXTRA = "ar.edu.itba.mygymapp.ID";
-
+    static final private String MESSAGE_EXTRA ="ar.edu.itba.mygymapp.MESSAGE";
     public void onReceive(Context context, Intent intent) {
         // Create an Intent for the activity you want to start
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse("http://mygym.com/routine?id=" + intent.getIntExtra(ID_EXTRA,1)));
-        i.setPackage("ar.edu.itba.mygym");
+        i.setPackage("ar.edu.itba.mygymapp");
         // Create the TaskStackBuilder and add the intent, which inflates the back stack
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
         stackBuilder.addNextIntentWithParentStack(i);
@@ -25,15 +25,15 @@ public class NotifyHandlerReceiver extends BroadcastReceiver {
         PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 
         int id = intent.getIntExtra(DAY_EXTRA,42);
+        String message = intent.getStringExtra(MESSAGE_EXTRA);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, String.valueOf(id))
                 .setContentTitle("MyGym")
-                .setContentText("¡Vamos a entrenar!")
+                .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setSmallIcon(R.drawable.logo)
                 .setAutoCancel(true)
                 .setContentIntent(resultPendingIntent);
         NotificationManager managerCompat  = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE );
         managerCompat.notify(id,builder.build());
-
     }
 }

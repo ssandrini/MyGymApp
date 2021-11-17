@@ -41,8 +41,10 @@ public class HomeFragment extends Fragment {
     private RoutinesAdapter recentsAdapter;
     private View root;
 
-    private ArrayList<Routine> routines = new ArrayList<>();
+    private ArrayList<Routine> highlights = new ArrayList<>();
     private ArrayList<Routine> myRoutines = new ArrayList<>();
+    private ArrayList<Routine> recents = new ArrayList<>();
+
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
@@ -80,8 +82,8 @@ public class HomeFragment extends Fragment {
         recentsAdapter = new RoutinesAdapter(getContext());
 
         myRoutinesAdapter.setRoutines(myRoutines);
-        highlightsAdapter.setRoutines(routines);
-        recentsAdapter.setRoutines(routines);
+        highlightsAdapter.setRoutines(highlights);
+        recentsAdapter.setRoutines(recents);
 
         binding.consoleBtn.setVisibility(View.GONE);
 
@@ -134,20 +136,34 @@ public class HomeFragment extends Fragment {
             if (r.getStatus() == Status.SUCCESS) {
                 assert r.getData() != null;
                 for (FullRoutine fr : r.getData().getContent()) {
+                    /* Aca hay que obtener y dividir en secciones*/
                     Routine aux = fr.toRoutine();
-                    routines.add(aux);
+                    recents.add(aux);
+                    if(aux.getScore() >= 7)
+                        highlights.add(aux);
                     if(fr.getPublicUser().getId() == app.getUserRepository().getUser().getId())
                         myRoutines.add(aux);
                 }
 
-                myRoutinesAdapter.notifyDataSetChanged();
-                highlightsAdapter.notifyDataSetChanged();
-                recentsAdapter.notifyDataSetChanged();
+                if(highlights.isEmpty()) {
+                    binding.noHighlights.setVisibility(View.VISIBLE);
+                } else {
+                    binding.noHighlights.setVisibility(View.GONE);
+                    highlightsAdapter.notifyDataSetChanged();
+                }
 
                 if(myRoutines.isEmpty()) {
                     binding.noMyRoutines.setVisibility(View.VISIBLE);
                 } else {
                     binding.noMyRoutines.setVisibility(View.GONE);
+                    myRoutinesAdapter.notifyDataSetChanged();
+                }
+
+                if(recents.isEmpty()) {
+                    binding.noRecents.setVisibility(View.VISIBLE);
+                } else {
+                    binding.noRecents.setVisibility(View.GONE);
+                    recentsAdapter.notifyDataSetChanged();
                 }
 
             } else {

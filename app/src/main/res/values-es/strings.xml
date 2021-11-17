@@ -148,5 +148,7 @@
     <string name="error_notif">Debes seleccionar al menos un día</string>
     <string name="success_notif">La alarma se ha creado correctamente</string>
     <string name="choose_day">Elige los días</string>
+    <string name="no_highlights">Todavía no hay rutinas destacadas</string>
+    <string name="no_recents">Aún no has ejecutado rutinas</string>
     <!-- uCrop string resource end -->
 </resources>

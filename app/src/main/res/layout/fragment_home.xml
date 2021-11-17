@@ -63,6 +63,16 @@
 
                     >
                 </TextView>
+                <TextView
+                    android:id="@+id/no_highlights"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/no_highlights"
+                    android:gravity="center_horizontal"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    />
                 <androidx.recyclerview.widget.RecyclerView
                     android:paddingLeft="10dp"
                     android:id="@+id/highlightsRecView"
@@ -120,7 +130,16 @@
                     >
 
                 </TextView>
-
+                <TextView
+                    android:id="@+id/no_recents"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/no_recents"
+                    android:gravity="center_horizontal"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    />
                 <androidx.recyclerview.widget.RecyclerView
                     android:paddingLeft="10dp"
                     android:id="@+id/recentsRecView"

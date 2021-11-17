@@ -109,7 +109,7 @@
                         android:id="@+id/reviewBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/secondaryTextColor"
+                        android:backgroundTint="?attr/colorPrimaryVariant"
 
                         android:text="@string/review"
                         android:textColor="@color/white">
@@ -163,9 +163,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-          android:tint="@color/secondaryTextColor"
+          android:tint="?attr/colorPrimaryVariant"
 
-            fab:fab_colorNormal="@color/secondaryTextColor"
+            fab:fab_colorNormal="?attr/colorPrimaryVariant"
             android:src="@drawable/ic_calendar_today_white_24dp"
             >
 
@@ -175,7 +175,7 @@
             android:layout_height="wrap_content"
             app:menu_icon="@drawable/ic_play_white"
 
-            fab:menu_colorNormal="@color/secondaryTextColor"
+            fab:menu_colorNormal="?attr/colorPrimaryVariant"
 
             >
 

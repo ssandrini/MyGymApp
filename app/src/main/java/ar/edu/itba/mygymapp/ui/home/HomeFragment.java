@@ -124,6 +124,13 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        recents.clear();
+        initRoutines();
+    }
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
@@ -149,7 +156,8 @@ public class HomeFragment extends Fragment {
                             for(FullExecution exec : ex.getData().getContent()) {
                                 if(exec.getDuration() == app.getUserRepository().getUser().getId()) {
                                     aux.setLastActivity(exec.getDate());
-                                    recents.add(aux);
+                                    if(!recents.contains(aux))
+                                        recents.add(aux);
                                     break;
                                 }
                             }
@@ -168,9 +176,9 @@ public class HomeFragment extends Fragment {
                         }
                     });
 
-                    if(aux.getScore() >= 7)
+                    if(aux.getScore() >= 7 && !highlights.contains(aux))
                         highlights.add(aux);
-                    if(fr.getPublicUser().getId() == app.getUserRepository().getUser().getId())
+                    if(fr.getPublicUser().getId() == app.getUserRepository().getUser().getId() && !myRoutines.contains(aux))
                         myRoutines.add(aux);
                 }
 

@@ -125,7 +125,7 @@ public class QrActivity extends AppCompatActivity {
         try {
             this.startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, "No App Available", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getText(R.string.no_app), Toast.LENGTH_SHORT).show();
         }
     }
 

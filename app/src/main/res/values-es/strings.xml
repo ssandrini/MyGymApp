@@ -154,5 +154,7 @@
     <string name="action_take_qr">Take QR</string>
     <string name="scan_qr">Scan QR</string>
     <string name="scan_your_code">Scan your code</string>
+    <string name="no_perm">You need the camera permission to be able to scan codes</string>
+    <string name="no_app">No App Available</string>
     <!-- uCrop string resource end -->
 </resources>

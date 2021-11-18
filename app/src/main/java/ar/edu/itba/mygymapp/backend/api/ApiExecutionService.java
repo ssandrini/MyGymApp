@@ -14,6 +14,6 @@ public interface ApiExecutionService {
     @POST("executions/{routineId}/")
     LiveData<ApiResponse<Void>> addExecution(@Path("routineId") int routineId, @Body Execution execution);
 
-    @GET("executions/{routineId}/")
+    @GET("executions/{routineId}?page=0&size=50&orderBy=date&direction=desc")
     LiveData<ApiResponse<PagedList<FullExecution>>> getExecutions(@Path("routineId") int routineId);
 }

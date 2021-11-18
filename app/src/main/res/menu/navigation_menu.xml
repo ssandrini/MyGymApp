@@ -24,7 +24,7 @@
             android:title="@string/section_favourites" />
         <item
             android:id="@+id/nav_profile"
-            android:icon="@drawable/ic_account"
+            android:icon="@drawable/ic_profile"
             android:title="@string/section_profile"
             />
     </group>

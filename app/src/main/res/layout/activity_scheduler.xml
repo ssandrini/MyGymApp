@@ -84,8 +84,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/accept"
-                android:backgroundTint="?attr/colorPrimaryVariant"
-                android:textColor="@color/white" />
+                android:backgroundTint="?attr/colorPrimary"
+       />
 
             <View
                 android:layout_width="0dp"

@@ -4,6 +4,7 @@ import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -68,8 +69,8 @@ public class ReviewDialog extends AppCompatDialogFragment {
                         app.getRoutineRepository().getRoutine(routineId).observe(fragmentActivity, r2 -> {
                             if(r2.getStatus() == Status.SUCCESS) {
                                 routineActivity.setRaiting(r2.getData().getScore()/2.0f);
-                                //StyleableToast.makeText(fragmentActivity, getText(R.string.review_success).toString(), Toast.LENGTH_LONG, R.style.successToast).show();
-                                Toast.makeText(fragmentActivity, R.string.review_success, Toast.LENGTH_SHORT).show();
+                                String text = fragmentActivity.getText(R.string.review_success).toString();
+                                StyleableToast.makeText(fragmentActivity, text, Toast.LENGTH_LONG, R.style.successToast).show();
                             }
                         });
 

@@ -37,20 +37,22 @@
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             android:text="@string/recommended_routine"
-                            android:id="@+id/recomendedRoutine"
+                            android:id="@+id/recommendedRoutine"
                             android:fontFamily="@font/google_sans"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:paddingBottom="10dp"
                             />
-                        <include
-
-                            layout="@layout/routine_list_item"
-                            >
-
-                        </include>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recommendedRecyclerView"
+                            android:layout_width="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_height="wrap_content">
+                        </androidx.recyclerview.widget.RecyclerView>
                 </LinearLayout>
 
-                <include layout="@layout/home_sections_divider"/>
+                <include
+                    android:id="@+id/divider1"
+                    layout="@layout/home_sections_divider"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

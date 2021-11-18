@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
 
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.backend.App;
@@ -43,11 +44,13 @@ public class HomeFragment extends Fragment {
     private RoutinesAdapter myRoutinesAdapter;
     private RoutinesAdapter highlightsAdapter;
     private RoutinesAdapter recentsAdapter;
+    private RoutinesAdapter recommendedAdapter;
     private View root;
 
     private ArrayList<Routine> highlights = new ArrayList<>();
     private ArrayList<Routine> myRoutines = new ArrayList<>();
     private ArrayList<Routine> recents = new ArrayList<>();
+    private ArrayList<Routine> recommended = new ArrayList<>();
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -55,6 +58,10 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         app = (App) getActivity().getApplication();
+        recommendedAdapter = new RoutinesAdapter(getContext());
+        recommendedAdapter.setRoutines(recommended);
+        binding.recommendedRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.recommendedRecyclerView.setAdapter(recommendedAdapter);
         StringBuilder sb = new StringBuilder();
         Calendar c = Calendar.getInstance();
         int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
@@ -72,13 +79,44 @@ public class HomeFragment extends Fragment {
         sb.append(app.getUserRepository().getUser().getUsername());
         sb.append("! \uD83D\uDC4B ");
         binding.welcomeHeader.setText(sb.toString());
+        app.getRoutineRepository().getRoutines().observe(getViewLifecycleOwner(), r -> {
+            if (r.getStatus() == Status.SUCCESS) {
+                assert r.getData() != null;
+                int maxScore = 0;
+                FullRoutine maxScoreRoutine = null;
+                for (FullRoutine fr : r.getData().getContent()) {
+                    if(fr.getScore() > maxScore) {
+                        maxScore = fr.getScore();
+                        maxScoreRoutine = fr;
+                    }
+                }
+                if(maxScoreRoutine != null) {
+                   // binding.welcomeHeader.setVisibility(View.VISIBLE);
+                   // binding.recommendedRecyclerView.setVisibility(View.VISIBLE);
+                    //binding.divider1.getRoot().setVisibility(View.VISIBLE);
+                    System.out.println("entro");
+                    recommended.add(maxScoreRoutine.toRoutine());
+                    recommendedAdapter.notifyDataSetChanged();
+                } else {
+                    binding.welcomeHeader.setVisibility(View.GONE);
+                    binding.recommendedRecyclerView.setVisibility(View.GONE);
+                    binding.divider1.getRoot().setVisibility(View.GONE);
+                }
+            }
+            else if(r.getStatus() == Status.LOADING) {
+                //showLoadingGif();
+            }
+            else {
+                //
+            }
+        });
         DisplayMetrics displayMetrics = root.getContext().getResources().getDisplayMetrics();
         float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
         float dpHeight = displayMetrics.heightPixels / displayMetrics.density;
         Log.d("tamaño:", String.valueOf(dpWidth));
         if (dpWidth >= 700) {
             binding.welcomeHeader.setTextSize(30);
-            binding.recomendedRoutine.setTextSize(17);
+            binding.recommendedRoutine.setTextSize(17);
 
         }
         myRoutinesAdapter = new RoutinesAdapter(getContext());

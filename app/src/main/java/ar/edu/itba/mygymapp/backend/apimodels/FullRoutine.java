@@ -182,7 +182,7 @@ public class FullRoutine {
     public Routine toRoutine() {
         Category aux = this.getCategory();
         if (aux == null) {
-            aux = new Category(100, "Soccer", null);
+            aux = new Category(100, "Default", null);
         }
         return new Routine(this.getId(),this.getName(), this.getDetail(), this.getScore(),
                 this.isIsPublic(), this.getDifficulty(), this.getPublicUser(),

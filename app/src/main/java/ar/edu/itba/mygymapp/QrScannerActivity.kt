@@ -6,7 +6,6 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -14,7 +13,8 @@ import androidx.core.content.ContextCompat
 import com.budiyev.android.codescanner.*
 
 private const val CAMERA_REQ_CODE = 101
-
+/* FUENTE: https://github.com/yuriy-budiyev/code-scanner */
+/* Hecho en Kotlin porque en Java vimos algunas Issues */
 
 class QrScannerActivity : AppCompatActivity() {
     private lateinit var codeScanner: CodeScanner

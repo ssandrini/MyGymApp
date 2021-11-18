@@ -11,7 +11,6 @@
     <string name="invalid_login">Invalid credentials</string>
     <string name="section_routines">Routines</string>
     <string name="section_explore">Explore</string>
-
     <string name="section_profile">Profile</string>
     <string name="profile_first_name">First name</string>
     <string name="profile_last_name">Last name</string>
@@ -20,18 +19,14 @@
     <string name="profile_photo">Change avatar</string>
     <string name="edit_profile">Edit</string>
     <string name="cancel_edit">Cancel</string>
-
-
     <string-array name="genders">
         <item>Other</item>
         <item>Female</item>
         <item>Male</item>
     </string-array>
-
     <string name="gender">Gender</string>
     <string name="femenine">Femenine</string>
     <string name="masculine">Masculine</string>
-
     <string name="nav_header_desc">User image</string>
     <string name="nav_header_title">Kanye West</string>
     <string name="section_favourites">Favourites</string>
@@ -60,13 +55,10 @@
     <string name="verification">Account verification</string>
     <string name="verification_text">Thank you for registering at MyGym, we´ve sent you an email to the address specified before. Please copy the verification code and the same mail below.</string>
     <string name="share_details_of_your_own_experience">Share details of your own experience</string>
-
     <string name="added_fav">Marked as favourite</string>
     <string name="deleted_fav">Not marked as favourite</string>
     <string name="review_success">Review sent</string>
-
     <string name="url">Routine URL</string>
-
     <string name="invalid_first_name">Invalid first name</string>
     <string name="invalid_last_name">Invalid last name</string>
     <string name="invalid_data">Invalid data</string>
@@ -92,25 +84,20 @@
     <string name="recommended_routine">How about doing Calisthenics today?</string>
     <string name="url_layout">Type the routine\'s URL</string>
     <string name="profile_saved">Profile saved</string>
-
     <string name="morning">Good morning</string>
     <string name="afternoon">Good afternoon</string>
     <string name="evening">Good evening</string>
     <string name="night">Good night</string>
     <string name="send">Send</string>
     <string name="play">Play</string>
-
     <string name="view_spinner_title">View</string>
     <string name="sort_spinner_title">Sort by</string>
-
-
     <string-array name="sort_by">
         <item name="date">Date</item>
         <item name="score">Score</item>
         <item name="difficulty">Difficulty</item>
         <item name="category">Category</item>
     </string-array>
-
     <string-array name="direction">
         <item name="asc">Ascendant</item>
         <item name="desc">Descendant</item>
@@ -121,25 +108,19 @@
     <string name="existing_account">This account already exists</string>
     <string name="success_verification">Account verified successfully</string>
     <string name="fail_verification">Invalid code or email</string>
-
     <string name="image_picker_provider_authority_suffix" translatable="false">.imagepicker.provider</string>
-
     <string name="title_choose_image_provider">Choose</string>
     <string name="action_cancel">Cancel</string>
     <string name="title_gallery">Gallery</string>
     <string name="title_camera">Camera</string>
-
     <string name="permission_camera_denied">
         <![CDATA[Camera permission is needed to take a picture. Please allow permission from Settings > Permissions.]]></string>
-
     <string name="error_failed_to_create_camera_image_file">Failed to create Camera image file</string>
     <string name="error_failed_pick_gallery_image">Failed to pick Gallery image</string>
     <string name="error_failed_to_crop_image">Failed to crop image</string>
     <string name="error_failed_to_compress_image">Failed to compress image</string>
     <string name="error_task_cancelled">Task Cancelled</string>
     <string name="error_camera_app_not_found">Camera app not found</string>
-
-    <!-- uCrop string resource start -->
     <string name="ucrop_label_original">Original</string>
     <string name="ucrop_label_edit_photo">Edit Photo</string>
     <string name="ucrop_menu_crop">Crop</string>

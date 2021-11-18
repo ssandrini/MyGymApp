@@ -7,16 +7,16 @@
     <string name="log_out">Cerrar sesión</string>
     <string name="register">Registrarme ahora</string>
     <string name="register_text">¿Todavía no tienes una cuenta?</string>
-    <string name="invalid_username">Usuario invalido</string>
-    <string name="invalid_password">Contraseña invalido</string>
-    <string name="invalid_login">Credenciales invalidas</string>
+    <string name="invalid_username">Usuario inválido</string>
+    <string name="invalid_password">Contraseña inválido</string>
+    <string name="invalid_login">Credenciales inválidas</string>
     <string name="section_routines">Rutinas</string>
     <string name="section_explore">Explorar</string>
     <string name="section_profile">Perfil</string>
     <string name="nav_header_desc">Foto del usuario</string>
     <string name="nav_header_title">Kanye West</string>
     <string name="section_favourites">Favoritos</string>
-    <string name="email">Mail</string>
+    <string name="email">Email</string>
     <string name="pwdConfirm">Confirmar contraseña</string>
     <string name="action_search">Buscar</string>
     <string name="loremipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
@@ -26,53 +26,49 @@
     <string name="code">Código</string>
     <string name="email_hint">Email</string>
     <string name="confirm">Confirmar</string>
-    <string name="invalid_confirmation">Email o coódigo inválidos</string>
+    <string name="invalid_confirmation">Email o código inválidos</string>
     <string name="invalid_email">Email inválido</string>
     <string name="invalid_code">Código inválido</string>
-    <string name="action_share">Share</string>
-    <string name="action_fav">Add to favourites</string>
-    <string name="invalid_registration">Credenciales invalidas</string>
+    <string name="action_share">Compartir</string>
+    <string name="action_fav">Agregar a favoritos</string>
+    <string name="invalid_registration">Credenciales inválidas</string>
     <string name="invalid_password_confirmation">Las contraseñas no coinciden</string>
     <string name="order_by">Ordenar por</string>
     <string name="date">Fecha</string>
     <string name="score">Puntaje</string>
     <string name="difficulty">Dificultad</string>
     <string name="category">Categoría</string>
-
     <string name="profile_first_name">Nombre</string>
     <string name="profile_last_name">Apellido</string>
     <string name="profile_save">Guardar</string>
-    <string name="profile_phone">Telefono</string>
+    <string name="profile_phone">Teléfono</string>
     <string name="profile_photo">Cambiar avatar</string>
     <string-array name="genders">
         <item>Otro</item>
         <item>Femenino</item>
         <item>Masculino</item>
     </string-array>
-    <string name="gender">Genero</string>
+    <string name="gender">Género</string>
     <string name="femenine">Femenino</string>
     <string name="masculine">Masculino</string>
     <string name="verification">Verificación de cuenta</string>
-    <string name="verification_text">Gracias por registrarte en MyGym, acabamos de enviarte un mail a la dirección especificada previamente. Porfavor ingrese el codigo de verificacion y su mail debajo.</string>
+    <string name="verification_text">Gracias por registrarte en MyGym, acabamos de enviarte un email a la dirección especificada previamente. Por favor ingrese el código de verificación y su email debajo.</string>
     <string name="edit_profile">Editar</string>
     <string name="cancel_edit">Cancelar</string>
     <string name="share_details_of_your_own_experience">Comparte detalles sobre tu propia experiencia</string>
-
     <string name="added_fav">Marcada como favorita</string>
     <string name="deleted_fav">Desmarcada como favorita</string>
-
     <string name="review_success">Reseña enviada</string>
     <string name="url">URL de la rutina</string>
-
     <string name="invalid_first_name">Nombre inválido</string>
     <string name="invalid_last_name">Apellido inválido</string>
-    <string name="invalid_data">Data inválida</string>
-    <string name="exit_question">¿Estas seguro que deseas salir?</string>
+    <string name="invalid_data">Datos inválidos</string>
+    <string name="exit_question">¿Estás seguro que deseas salir?</string>
     <string name="yes">Sí</string>
     <string name="review">Reseña</string>
     <string name="cancel">Cancelar</string>
-    <string name="error_exercise">No cargo el ejercicio del ciclo</string>
-    <string name="error_cycle">No cargo el ciclo</string>
+    <string name="error_exercise">No se pudo cargar el ejercicio del ciclo</string>
+    <string name="error_cycle">No se pudo cargar el ciclo</string>
     <string name="routine">Rutina</string>
     <string name="hard">Difīcil</string>
     <string name="when">¿Cuando quieres reproducir esta rutina?</string>
@@ -89,24 +85,19 @@
     <string name="recommended_routine">¿Por qué no pruebas Calistenia hoy?</string>
     <string name="url_layout">Ingrese URL de la rutina</string>
     <string name="profile_saved">Perfil guardado</string>
-
     <string name="play">Ejecutar</string>
-
     <string name="view_spinner_title">Ver</string>
     <string name="sort_spinner_title">Ordenar por</string>
-
     <string-array name="sort_by">
         <item name="date"> Fecha</item>
         <item name="score">Puntaje</item>
         <item name="difficulty">Dificultad</item>
         <item name="category">Categoría</item>
     </string-array>
-
     <string-array name="direction">
         <item name="asc">Ascendente</item>
         <item name="desc">Descendente</item>
     </string-array>
-
     <string name="morning">Buenos días</string>
     <string name="afternoon">Buenas tardes</string>
     <string name="evening">Buenas tardes</string>
@@ -114,29 +105,23 @@
     <string name="send">Enviar</string>
     <string name="detailed">Detallada</string>
     <string name="queue">Encolada</string>
-    <string name="register_success">Register successful. Please confirm your email to proceed.</string>
-    <string name="success_verification">Account verified successfully</string>
-    <string name="existing_account">This account already exists</string>
-    <string name="fail_verification">Invalid code or email</string>
-
+    <string name="register_success">Se ha registrado correctamente. Por favor confirma tu email para continuar.</string>
+    <string name="success_verification">Su cuenta se ha verificado correctamente</string>
+    <string name="existing_account">Esta cuenta ya existe</string>
+    <string name="fail_verification">Código o email inválido</string>
     <string name="image_picker_provider_authority_suffix" translatable="false">.imagepicker.provider</string>
-
     <string name="title_choose_image_provider">Elige</string>
     <string name="action_cancel">Cancelar</string>
     <string name="title_gallery">Galería</string>
     <string name="title_camera">Cámara</string>
-
     <string name="permission_camera_denied">
-        <![CDATA[Camera permission is needed to take a picture. Please allow permission from Settings > Permissions.]]></string>
-
+        <![CDATA[Los permisos de la cámara son necesarios para tomar una foto.]]></string>
     <string name="error_failed_to_create_camera_image_file">Error al crear imagen</string>
     <string name="error_failed_pick_gallery_image">Error al seleccionar imagen</string>
     <string name="error_failed_to_crop_image">Error al recortar imagen</string>
     <string name="error_failed_to_compress_image">Error al comprimir imagen</string>
     <string name="error_task_cancelled">Tarea cancelada</string>
     <string name="error_camera_app_not_found">No es posible abrir la cámara</string>
-
-    <!-- uCrop string resource start -->
     <string name="ucrop_label_original">Original</string>
     <string name="ucrop_label_edit_photo">Editar imgen</string>
     <string name="ucrop_menu_crop">Recortar</string>
@@ -153,8 +138,7 @@
     <string name="share">Compartir</string>
     <string name="action_take_qr">Take QR</string>
     <string name="scan_qr">Scan QR</string>
-    <string name="scan_your_code">Scan your code</string>
-    <string name="no_perm">You need the camera permission to be able to scan codes</string>
-    <string name="no_app">No App Available</string>
-    <!-- uCrop string resource end -->
+    <string name="scan_your_code">Escanea tu código</string>
+    <string name="no_perm">Debes habilitar los permisos de la cámara para escanear</string>
+    <string name="no_app">Aplicación no disponible</string>
 </resources>

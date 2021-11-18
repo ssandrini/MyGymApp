@@ -19,11 +19,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.List;
 
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.apimodels.Execution;
+import ar.edu.itba.mygymapp.backend.apimodels.FullExecution;
 import ar.edu.itba.mygymapp.backend.apimodels.FullRoutine;
 import ar.edu.itba.mygymapp.backend.repository.Resource;
 import ar.edu.itba.mygymapp.backend.repository.Status;
@@ -144,13 +146,10 @@ public class HomeFragment extends Fragment {
                     app.getExecutionRepository().getExecutions(fr.getId()).observe(getViewLifecycleOwner(), ex -> {
                         if(ex.getStatus() == Status.SUCCESS) {
                             assert ex.getData() != null;
-                            for(Execution exec : ex.getData().getContent()) {
-                                System.out.println(exec.getDuration());
-                                System.out.println(app.getUserRepository().getUser().getId());
+                            for(FullExecution exec : ex.getData().getContent()) {
                                 if(exec.getDuration() == app.getUserRepository().getUser().getId()) {
-                                    System.out.println("puto");
-                                    System.out.println(aux);
-                                    recents.add(0,aux);
+                                    aux.setLastActivity(exec.getDate());
+                                    recents.add(aux);
                                     break;
                                 }
                             }
@@ -158,6 +157,12 @@ public class HomeFragment extends Fragment {
                                 binding.noRecents.setVisibility(View.VISIBLE);
                             } else {
                                 binding.noRecents.setVisibility(View.GONE);
+                                recents.sort(new Comparator<Routine>() {
+                                    @Override
+                                    public int compare(Routine routine, Routine t1) {
+                                        return Long.compare(t1.getLastActivity(), routine.getLastActivity());
+                                    }
+                                });
                                 recentsAdapter.notifyDataSetChanged();
                             }
                         }

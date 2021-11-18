@@ -7,6 +7,7 @@ import ar.edu.itba.mygymapp.backend.api.ApiClient;
 import ar.edu.itba.mygymapp.backend.api.ApiExecutionService;
 import ar.edu.itba.mygymapp.backend.api.ApiResponse;
 import ar.edu.itba.mygymapp.backend.apimodels.Execution;
+import ar.edu.itba.mygymapp.backend.apimodels.FullExecution;
 import ar.edu.itba.mygymapp.backend.apimodels.PagedList;
 
 public class ExecutionRepository {
@@ -27,12 +28,12 @@ public class ExecutionRepository {
         }.asLiveData();
     }
 
-    public LiveData<Resource<PagedList<Execution>>> getExecutions(int routineId) {
-        return new NetworkBoundResource<PagedList<Execution>, PagedList<Execution>>()
+    public LiveData<Resource<PagedList<FullExecution>>> getExecutions(int routineId) {
+        return new NetworkBoundResource<PagedList<FullExecution>, PagedList<FullExecution>>()
         {
             @NonNull
             @Override
-            protected LiveData<ApiResponse<PagedList<Execution>>> createCall() {
+            protected LiveData<ApiResponse<PagedList<FullExecution>>> createCall() {
                 return apiService.getExecutions(routineId);
             }
         }.asLiveData();

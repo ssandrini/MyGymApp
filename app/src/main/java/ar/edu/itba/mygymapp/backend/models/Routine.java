@@ -23,6 +23,7 @@ public class Routine implements Serializable {
     private int[] duration;
     private String routineImageUrl;
     private ArrayList<Cycle> cycles;
+    private long lastActivity;
 
     private static final Comparator<Routine> scoreComparatorAsc = new Comparator<Routine>() {
         @Override
@@ -93,11 +94,13 @@ public class Routine implements Serializable {
         this.duration = new int[]{15, 10};
         this.routineImageUrl = routineImageUrl != null ? routineImageUrl : chooseImage();
         this.date = date;
+        this.lastActivity = 0;
     }
 
     public Routine(int id, String name, String detail, Integer score, boolean isPublic, String difficulty, PublicUser user, Category category, Object metadata,long date, boolean favourite, ArrayList<Cycle> cycles) {
         this(id, name, detail, score, isPublic, difficulty, user, category, metadata,date);
         this.cycles = cycles;
+        this.lastActivity = 0;
     }
 
 
@@ -335,5 +338,13 @@ public class Routine implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public long getLastActivity() {
+        return lastActivity;
+    }
+
+    public void setLastActivity(long lastActivity) {
+        this.lastActivity = lastActivity;
     }
 }

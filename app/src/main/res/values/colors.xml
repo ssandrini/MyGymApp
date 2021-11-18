@@ -30,6 +30,8 @@
     <color name="picColor">#FF6200EE</color>
     <color name="iconColor">#333333</color>
     <color name="semiblackColor">#1a1a1a</color>
+    <color name="colorNav">#fff</color>
+
 
 
     <color name="dividerColor">#BDBDBD</color>

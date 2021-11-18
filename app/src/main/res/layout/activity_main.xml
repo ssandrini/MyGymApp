@@ -24,6 +24,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:itemTextAppearance="@style/NavigationText"
+        android:backgroundTint="@color/colorNav"
         app:headerLayout="@layout/nav_header_main"
         android:fitsSystemWindows="false"
         app:menu="@menu/navigation_menu" >

@@ -141,4 +141,12 @@
     <string name="scan_your_code">Escanea tu código</string>
     <string name="no_perm">Debes habilitar los permisos de la cámara para escanear</string>
     <string name="no_app">Aplicación no disponible</string>
+
+    <string-array name="difficulties">
+        <item name="rookie">Novato</item>
+        <item name="beginner">Principiante</item>
+        <item name="intermediate">Intermedio</item>
+        <item name="advanced">Avanzado</item>
+        <item name="expert">Experto</item>
+    </string-array>
 </resources>

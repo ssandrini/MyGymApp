@@ -180,8 +180,12 @@ public class FullRoutine {
     }
 
     public Routine toRoutine() {
+        Category aux = this.getCategory();
+        if (aux == null) {
+            aux = new Category(100, "Soccer", null);
+        }
         return new Routine(this.getId(),this.getName(), this.getDetail(), this.getScore(),
                 this.isIsPublic(), this.getDifficulty(), this.getPublicUser(),
-                this.getCategory(), this.getMetadata(), this.getDate());
+                aux, this.getMetadata(), this.getDate());
     }
 }

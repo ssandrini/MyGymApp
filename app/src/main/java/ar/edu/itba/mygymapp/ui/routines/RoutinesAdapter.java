@@ -54,8 +54,10 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
 
         holder.routineName.setText(routines.get(position).getName());
         holder.routineScore.setRating(routines.get(position).getScore().floatValue() / 2);
-        holder.routineDuration.setText(routines.get(position).getDurationStr());
-
+        holder.routineCategory.setText(routines.get(position).getCategory().getName());
+        String[] difficulty = mContext.getResources().getStringArray(R.array.difficulties);
+        holder.routineDifficulty.setText(difficulty[routines.get(position).mapDifficulty()-1]);
+        
         Glide.with(holder.parent.getContext())
                 .asBitmap()
                 .load(routines.get(position).getRoutineImageUrl())
@@ -136,7 +138,7 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView routineName,  routineDuration;
+        private TextView routineName, routineDifficulty, routineCategory;
         private RatingBar routineScore;
         private MaterialCardView parent;
         private ImageView routineImg;
@@ -144,7 +146,8 @@ public class RoutinesAdapter extends RecyclerView.Adapter<RoutinesAdapter.ViewHo
             super(itemView);
             routineName = itemView.findViewById(R.id.routineName);
             routineScore = itemView.findViewById(R.id.routineScore);
-            routineDuration = itemView.findViewById(R.id.routineDuration);
+            routineDifficulty = itemView.findViewById(R.id.routineDifficulty);
+            routineCategory = itemView.findViewById(R.id.routineCategory);
             routineImg = itemView.findViewById(R.id.routineImg);
             parent = itemView.findViewById(R.id.card);
         }

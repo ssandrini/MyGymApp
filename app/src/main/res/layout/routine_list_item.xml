@@ -62,7 +62,7 @@
                     android:id="@+id/routineScore"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:progressBackgroundTint="@color/itemTextColor"
                     android:numStars="5"
                     android:theme="@style/RatingBar2"
@@ -74,18 +74,29 @@
 
 
                 </RatingBar>
-
                 <TextView
-                    android:id="@+id/routineDuration"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/routineDifficulty"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:padding="2dp"
-                    android:text="Duration"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary"
-                    app:layout_constraintStart_toStartOf="@+id/routineScore"
-                    app:layout_constraintTop_toBottomOf="@+id/routineScore" />
+                    android:layout_width="wrap_content"
+                    android:text="Difficulty"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/routineScore"
+                    android:layout_marginTop="4dp"
+                    >
+
+                </TextView>
+                <TextView
+                    android:id="@+id/routineCategory"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Category"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/routineDifficulty"
+                    android:layout_marginTop="4dp"
+                    >
+
+                </TextView>
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

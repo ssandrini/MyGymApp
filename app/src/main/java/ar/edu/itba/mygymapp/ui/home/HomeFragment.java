@@ -19,9 +19,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.backend.App;
+import ar.edu.itba.mygymapp.backend.apimodels.Execution;
 import ar.edu.itba.mygymapp.backend.apimodels.FullRoutine;
 import ar.edu.itba.mygymapp.backend.repository.Resource;
 import ar.edu.itba.mygymapp.backend.repository.Status;
@@ -136,9 +138,31 @@ public class HomeFragment extends Fragment {
             if (r.getStatus() == Status.SUCCESS) {
                 assert r.getData() != null;
                 for (FullRoutine fr : r.getData().getContent()) {
-                    /* Aca hay que obtener y dividir en secciones*/
+
                     Routine aux = fr.toRoutine();
-                    recents.add(aux);
+
+                    app.getExecutionRepository().getExecutions(fr.getId()).observe(getViewLifecycleOwner(), ex -> {
+                        if(ex.getStatus() == Status.SUCCESS) {
+                            assert ex.getData() != null;
+                            for(Execution exec : ex.getData().getContent()) {
+                                System.out.println(exec.getDuration());
+                                System.out.println(app.getUserRepository().getUser().getId());
+                                if(exec.getDuration() == app.getUserRepository().getUser().getId()) {
+                                    System.out.println("puto");
+                                    System.out.println(aux);
+                                    recents.add(0,aux);
+                                    break;
+                                }
+                            }
+                            if(recents.isEmpty()) {
+                                binding.noRecents.setVisibility(View.VISIBLE);
+                            } else {
+                                binding.noRecents.setVisibility(View.GONE);
+                                recentsAdapter.notifyDataSetChanged();
+                            }
+                        }
+                    });
+
                     if(aux.getScore() >= 7)
                         highlights.add(aux);
                     if(fr.getPublicUser().getId() == app.getUserRepository().getUser().getId())
@@ -157,13 +181,6 @@ public class HomeFragment extends Fragment {
                 } else {
                     binding.noMyRoutines.setVisibility(View.GONE);
                     myRoutinesAdapter.notifyDataSetChanged();
-                }
-
-                if(recents.isEmpty()) {
-                    binding.noRecents.setVisibility(View.VISIBLE);
-                } else {
-                    binding.noRecents.setVisibility(View.GONE);
-                    recentsAdapter.notifyDataSetChanged();
                 }
 
             } else {

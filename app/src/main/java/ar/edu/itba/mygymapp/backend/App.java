@@ -3,6 +3,7 @@ package ar.edu.itba.mygymapp.backend;
 import android.app.Application;
 
 import ar.edu.itba.mygymapp.backend.repository.CycleRepository;
+import ar.edu.itba.mygymapp.backend.repository.ExecutionRepository;
 import ar.edu.itba.mygymapp.backend.repository.ExerciseImageRepository;
 import ar.edu.itba.mygymapp.backend.repository.FavouriteRepository;
 import ar.edu.itba.mygymapp.backend.repository.ReviewRepository;
@@ -19,6 +20,7 @@ public class App extends Application {
     private CycleRepository cycleRepository;
     private ExerciseImageRepository exerciseImageRepository;
     private ReviewRepository reviewRepository;
+    private ExecutionRepository executionRepository;
     public AppPreferences getPreferences() { return preferences; }
     public UserRepository getUserRepository() {
         return userRepository;
@@ -38,7 +40,7 @@ public class App extends Application {
     public ReviewRepository getReviewRepository() {
         return reviewRepository;
     }
-
+    public ExecutionRepository getExecutionRepository() { return executionRepository;}
     @Override
     public void onCreate() {
         super.onCreate();
@@ -49,5 +51,6 @@ public class App extends Application {
         cycleRepository = new CycleRepository(this);
         exerciseImageRepository = new ExerciseImageRepository(this);
         reviewRepository = new ReviewRepository(this);
+        executionRepository = new ExecutionRepository(this);
     }
 }

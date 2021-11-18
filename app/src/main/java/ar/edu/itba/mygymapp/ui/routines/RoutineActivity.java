@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import java.util.ArrayList;
 import ar.edu.itba.mygymapp.backend.App;
+import ar.edu.itba.mygymapp.backend.apimodels.Execution;
 import ar.edu.itba.mygymapp.backend.apimodels.FullCycle;
 import ar.edu.itba.mygymapp.backend.apimodels.FullCycleExercise;
 import ar.edu.itba.mygymapp.backend.models.Routine;
@@ -141,10 +142,10 @@ public class RoutineActivity extends AppCompatActivity {
             if (routine != null) {
                 routine.sortCycles();
                 app.getRoutineRepository().addCacheRoutine(routine);
+                Execution aux = new Execution(app.getUserRepository().getUser().getId(), false);
+                app.getExecutionRepository().addExecution(routineId, aux).observe(this, ex -> { });
                 Intent exIntent = new Intent(this, RoutineExecutionActivity.class);
                 exIntent.putExtra("routineId", routine.getId());
-                //exIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//           Log.e("DESPUES DEL PUT", "paso");
                 startActivity(exIntent);
             }
         });
@@ -153,10 +154,10 @@ public class RoutineActivity extends AppCompatActivity {
             if (routine != null) {
                 routine.sortCycles();
                 app.getRoutineRepository().addCacheRoutine(routine);
+                Execution aux = new Execution(app.getUserRepository().getUser().getId(), false);
+                app.getExecutionRepository().addExecution(routineId, aux).observe(this, ex -> { });
                 Intent exIntent = new Intent(this, RoutineExecutionActivityAlt.class);
                 exIntent.putExtra("routineId", routine.getId());
-                //exIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//           Log.e("DESPUES DEL PUT", "paso");
                 startActivity(exIntent);
             }
         });

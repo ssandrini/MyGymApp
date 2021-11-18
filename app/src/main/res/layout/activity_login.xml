@@ -83,8 +83,8 @@
         android:layout_marginTop="10dp"
         android:drawableEnd="@drawable/ic_login"
         android:fontFamily="@font/google_sans_bold"
-        android:backgroundTint="@color/secondaryTextColor"
         android:textColor="@color/white"
+        android:backgroundTint="#6363fa"
         android:text="@string/log_in" />
 
     <TextView

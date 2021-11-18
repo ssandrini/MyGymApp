@@ -54,12 +54,18 @@ public class Routine implements Serializable {
     private static final Comparator<Routine> categoryComparatorAsc = new Comparator<Routine>() {
         @Override
         public int compare(Routine routine, Routine t1) {
+            if(routine.getCategory() == null || t1.getCategory() == null) {
+                return 0;
+            }
             return routine.getCategory().compareTo(t1.getCategory());
         }
     };
     private static final Comparator<Routine> categoryComparatorDesc = new Comparator<Routine>() {
         @Override
         public int compare(Routine routine, Routine t1) {
+            if(routine.getCategory() == null || t1.getCategory() == null) {
+                return 0;
+            }
             return t1.getCategory().compareTo(routine.getCategory());
         }
     };

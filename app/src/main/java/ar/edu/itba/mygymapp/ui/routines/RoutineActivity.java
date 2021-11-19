@@ -19,6 +19,7 @@ import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.apimodels.Execution;
 import ar.edu.itba.mygymapp.backend.apimodels.FullCycle;
 import ar.edu.itba.mygymapp.backend.apimodels.FullCycleExercise;
+import ar.edu.itba.mygymapp.backend.apimodels.FullRoutine;
 import ar.edu.itba.mygymapp.backend.models.Routine;
 import ar.edu.itba.mygymapp.R;
 import ar.edu.itba.mygymapp.backend.repository.Status;
@@ -65,13 +66,6 @@ public class RoutineActivity extends AppCompatActivity {
             routineId = Integer.parseInt(i.getData().getQueryParameter("id"));
         }
         routineImageUrl = i.getStringExtra("routineImageUrl");
-
-        Log.d("FAV ANTES DE ISFAV", String.valueOf(isFav));
-        isFav = isFavourite(routineId);
-        Log.d("FAV DSP DE ISFAV", String.valueOf(isFav));
-//
-        // falta el chequeo de si da -1
-
 
         app.getRoutineRepository().getRoutine(routineId).observe(this, r -> {
             if (r.getStatus() == Status.SUCCESS) {
@@ -170,19 +164,28 @@ public class RoutineActivity extends AppCompatActivity {
         });
     }
 
-    private boolean isFavourite(int routineId) {
-        for (Routine favRoutine : app.getFavouriteRepository().getFavRoutines()) {
-            if (routineId == favRoutine.getId()) return true;
-        }
-        return false;
+    private void isFavourite(int routineId) {
+        app.getFavouriteRepository().getFavourites().observe(this, f -> {
+            if(f.getStatus() == Status.SUCCESS) {
+                for(FullRoutine fr : f.getData().getContent()) {
+                    if(fr.getId() == routineId) {
+                        isFav = true;
+                    }
+                }
+                MenuItem favItem = binding.toolbarMain.getMenu().findItem(R.id.action_fav);
+                if (isFav) {
+                    favItem.setIcon(R.drawable.ic_yes_fav);
+                } else {
+                    favItem.setIcon(R.drawable.ic_not_fav);
+                }
+            }
+        });
     }
 
 
     @Override
     protected void onStart() {
         super.onStart();
-
-
     }
 
     public void openDialog() {
@@ -202,18 +205,11 @@ public class RoutineActivity extends AppCompatActivity {
         MenuItem qrItem = menu.findItem(R.id.action_take_qr);
 
 
-        Log.d("FAV ON CREATE OPTS MENU", String.valueOf(isFav));
-
-        if (isFav) {
-            favItem.setIcon(R.drawable.ic_yes_fav);
-        } else {
-            favItem.setIcon(R.drawable.ic_not_fav);
-        }
-
         favItem.setVisible(true);
         shareItem.setVisible(true);
         qrItem.setVisible(true);
 
+        isFavourite(routineId);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -235,24 +231,18 @@ public class RoutineActivity extends AppCompatActivity {
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
             startActivity(Intent.createChooser(shareIntent, "Choose one"));
         } else if (item.getItemId() == R.id.action_fav) {
-
-
             if (!isFav) {
-                item.setIcon(R.drawable.ic_yes_fav);
                 app.getFavouriteRepository().addFavourite(routine.getId()).observe(this, r -> {
                     if (r.getStatus() == Status.SUCCESS) {
                         isFav = !isFav;
-
-//                        Snackbar.make(item.getActionView(), R.string.added_fav,  Snackbar.LENGTH_SHORT).show();
+                        item.setIcon(R.drawable.ic_yes_fav);
                     }
                 });
             } else {
-                item.setIcon(R.drawable.ic_not_fav);
                 app.getFavouriteRepository().deleteFavourite(routine.getId()).observe(this, r -> {
                     if (r.getStatus() == Status.SUCCESS) {
-//                        Toast.makeText(this, R.string.deleted_fav, Toast.LENGTH_SHORT).show();
                         isFav = !isFav;
-//                        Snackbar.make(item.getActionView(), R.string.deleted_fav, Snackbar.LENGTH_SHORT).show();
+                        item.setIcon(R.drawable.ic_not_fav);;
                     }
                 });
             }

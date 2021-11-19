@@ -132,18 +132,19 @@ public class Routine implements Serializable {
 
     private String chooseImage() {
 
-        routineImages.add("https://i.imgur.com/oASE3GD.png");
-        routineImages.add("https://i.imgur.com/ai0es5T.png");
-        routineImages.add("https://i.imgur.com/H9oKNDZ.png");
-        routineImages.add("https://i.imgur.com/UHka8EZ.png");
-        routineImages.add("https://i.imgur.com/UZaGvjH.png");
-        routineImages.add("https://i.imgur.com/XlVqftC.png");
+      //  routineImages.add("https://i.imgur.com/oASE3GD.png");
+      //  routineImages.add("https://i.imgur.com/ai0es5T.png");
+      //  routineImages.add("https://i.imgur.com/H9oKNDZ.png");
+      //  routineImages.add("https://i.imgur.com/UHka8EZ.png");
+      //  routineImages.add("https://i.imgur.com/UZaGvjH.png");
+       // routineImages.add("https://i.imgur.com/XlVqftC.png");
         routineImages.add("https://i.imgur.com/A7HOKir.png");
-        routineImages.add("https://i.imgur.com/GCzizlz.png");
-        Random random = new Random();
-        int i = routineImages.size();
+       // routineImages.add("https://i.imgur.com/GCzizlz.png");
+     //   Random random = new Random();
+       // int i = routineImages.size();
 
-        return routineImages.get(random.nextInt(i));
+       // return routineImages.get(random.nextInt(i));
+        return routineImages.get(0);
     }
 
     public String getRoutineImageUrl() {

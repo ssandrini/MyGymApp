@@ -34,11 +34,9 @@ public class FavouritesFragment extends Fragment {
     RoutinesAdapter adapter;
     private ArrayList<Routine> routines = new ArrayList<>();
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         app = (App) getActivity().getApplication();
-        favouritesViewModel =
-                new ViewModelProvider(this).get(FavouritesViewModel.class);
+        favouritesViewModel = new ViewModelProvider(this).get(FavouritesViewModel.class);
 
         binding = FragmentFavouritesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

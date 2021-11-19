@@ -99,6 +99,7 @@ public class HomeFragment extends Fragment {
                     recommendedAdapter.notifyDataSetChanged();
                 } else {
                     binding.welcomeHeader.setVisibility(View.GONE);
+                    binding.recommendedRoutine.setVisibility(View.GONE);
                     binding.recommendedRecyclerView.setVisibility(View.GONE);
                     binding.divider1.getRoot().setVisibility(View.GONE);
                 }
@@ -138,6 +139,7 @@ public class HomeFragment extends Fragment {
         binding.recentsRecView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         binding.recentsRecView.setAdapter(recentsAdapter);
 
+        /*
         binding.consoleBtn.setOnClickListener(view -> {
 
             StringBuilder s = new StringBuilder();
@@ -154,10 +156,11 @@ public class HomeFragment extends Fragment {
             }
             Log.d("ALL ROUTINES", s2.toString());
         });
+         */
 
         setHasOptionsMenu(true);
         initRoutines();
-        initFavourites();
+        //initFavourites();
         return root;
     }
 
@@ -240,6 +243,7 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    /*
     private void initFavourites() {
         app.getFavouriteRepository().getFavourites().observe(getViewLifecycleOwner(), r -> {
             if (r.getStatus() == Status.SUCCESS) {
@@ -249,6 +253,8 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+     */
+
 
     /*
     @Override

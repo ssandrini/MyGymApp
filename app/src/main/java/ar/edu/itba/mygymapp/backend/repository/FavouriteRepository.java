@@ -17,7 +17,6 @@ import ar.edu.itba.mygymapp.backend.models.Routine;
 public class FavouriteRepository {
 
     private final ApiFavouritesService apiService;
-    private ArrayList<Routine> cacheRoutines = new ArrayList<>();
 
     public FavouriteRepository(App application) {
         this.apiService = ApiClient.create(application, ApiFavouritesService.class);
@@ -58,12 +57,4 @@ public class FavouriteRepository {
         }.asLiveData();
     }
 
-    public ArrayList<Routine> getFavRoutines() {
-        return cacheRoutines;
-    }
-
-    public void addFavourite(Routine routine) {
-        if(!cacheRoutines.contains(routine))
-            cacheRoutines.add(routine);
-    }
 }

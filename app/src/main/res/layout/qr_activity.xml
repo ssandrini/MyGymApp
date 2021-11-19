@@ -7,6 +7,25 @@
     android:orientation="vertical"
     tools:context=".ui.routines.QrActivity">
 
+
+    <TextView
+        android:id="@+id/qrRoutineName"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:textAlignment="center"
+        android:padding="4dp"
+        android:text="@string/routine"
+        android:textAppearance="?attr/textAppearanceHeadline4"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/qr_code"
+        android:layout_width="match_parent"
+        android:layout_height="335dp"
+        android:layout_margin="40dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,35 +38,18 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="20dp"
-            android:text="back"/>
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"/>
+            android:layout_marginRight="20dp"
+            android:text="back"
+            android:backgroundTint="@color/colorAccent"/>
         <Button
             android:id="@+id/qr_share"
             android:text="share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="20dp"
+            android:backgroundTint="@color/highlightColor"/>
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/qrRoutineName"
-        android:layout_marginLeft="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="4dp"
-        android:text="@string/routine"
-        android:textAppearance="?attr/textAppearanceHeadline4"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/qr_code"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="40dp"/>
 
 </LinearLayout>

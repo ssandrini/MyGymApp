@@ -205,15 +205,21 @@ public class RoutinesFragment extends Fragment {
     public void initRoutines() {
         app.getRoutineRepository().getRoutines().observe(getViewLifecycleOwner(), r -> {
             if (r.getStatus() == Status.SUCCESS) {
+                binding.loadingRoutines.setVisibility(View.GONE);
+                binding.noRoutinesYet.setVisibility(View.GONE);
                 assert r.getData() != null;
                 for (FullRoutine fr :r.getData().getContent()) {
                     routines.add(fr.toRoutine());
                 };
                 routinesAdapter.setRoutines(routines);
+                if (routines.isEmpty()) {
+                    binding.noRoutinesYet.setVisibility(View.VISIBLE);
+//                    binding.routinesRecView.setVisibility(View.GONE);
+                }
                 sortIndex = 0;
                 direction = 0;
-            } else {
-                Resource.defaultResourceHandler(r);
+            } else if (r.getStatus() == Status.LOADING){
+                binding.loadingRoutines.setVisibility(View.VISIBLE);
             }
         });
     }

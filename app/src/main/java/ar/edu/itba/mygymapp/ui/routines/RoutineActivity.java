@@ -74,6 +74,14 @@ public class RoutineActivity extends AppCompatActivity {
                 binding.rDifficulty.setText(routine.getDifficulty());
                 binding.rScore.setRating(routine.getScore().floatValue() / 2);
                 binding.rDetail.setText(routine.getDetail());
+                String[] difficulty = getResources().getStringArray(R.array.difficulties);
+                StringBuilder sb = new StringBuilder();
+                sb.append(getResources().getString(R.string.difficulty)).append(": ");
+                sb.append(difficulty[routine.mapDifficulty()-1]);
+                binding.rDifficulty.setText(sb.toString());
+                binding.rCategory.setText(routine.getCategory().getName());
+
+
 //                binding.collapsingToolbarLayout.setTitle("\uD83C\uDFCB" + "  " + routine.getName());
                 binding.collapsingToolbarLayout.setTitle( routine.getName());
                 Glide.with(this).asBitmap().load(routineImageUrl).placeholder(R.drawable.r1).into(binding.routineImageView);
@@ -133,7 +141,7 @@ public class RoutineActivity extends AppCompatActivity {
         });
 
         binding.normalFab.setOnClickListener(view -> {
-            if (routine != null) {
+            if (routine != null && routine.getCycles() != null && !routine.getCycles().isEmpty()) {
                 routine.sortCycles();
                 app.getRoutineRepository().addCacheRoutine(routine);
                 Execution aux = new Execution(app.getUserRepository().getUser().getId(), false);
@@ -141,11 +149,13 @@ public class RoutineActivity extends AppCompatActivity {
                 Intent exIntent = new Intent(this, RoutineExecutionActivity.class);
                 exIntent.putExtra("routineId", routine.getId());
                 startActivity(exIntent);
+            } else {
+                StyleableToast.makeText(getApplicationContext(), getText(R.string.missing_routine).toString(), Toast.LENGTH_SHORT, R.style.errorToast).show();
             }
         });
 
         binding.queueFab.setOnClickListener(view -> {
-            if (routine != null) {
+            if (routine != null && routine.getCycles() != null && !routine.getCycles().isEmpty()) {
                 routine.sortCycles();
                 app.getRoutineRepository().addCacheRoutine(routine);
                 Execution aux = new Execution(app.getUserRepository().getUser().getId(), false);
@@ -153,6 +163,8 @@ public class RoutineActivity extends AppCompatActivity {
                 Intent exIntent = new Intent(this, RoutineExecutionActivityAlt.class);
                 exIntent.putExtra("routineId", routine.getId());
                 startActivity(exIntent);
+            } else {
+                StyleableToast.makeText(getApplicationContext(), getText(R.string.missing_routine).toString(), Toast.LENGTH_SHORT, R.style.errorToast).show();
             }
         });
 

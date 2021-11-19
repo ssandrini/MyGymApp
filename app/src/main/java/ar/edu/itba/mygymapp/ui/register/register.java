@@ -10,6 +10,7 @@ import android.util.Patterns;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -28,6 +29,7 @@ public class register extends AppCompatActivity {
     private ActivityRegisterBinding binding;
     private boolean passwordVisible1;
     private boolean passwordVisible2;
+    private   ProgressBar pb;
     View root;
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -139,17 +141,21 @@ public class register extends AppCompatActivity {
         RegisterCredentials registerCredentials = new RegisterCredentials(username, password,"-","-","other",mail,"https://flic.kr/p/3ntH2u");
         App app = (App) getApplication();
         app.getUserRepository().register(registerCredentials).observe(this, r -> {
+
             if (r.getStatus() == Status.SUCCESS) {
-                StyleableToast.makeText(getApplicationContext(), getText(R.string.register_success).toString(), Toast.LENGTH_LONG, R.style.successToast).show();
+                pb.setVisibility(View.GONE);
+                StyleableToast.makeText(getApplicationContext(), getText(R.string.register_success).toString(), Toast.LENGTH_SHORT, R.style.successToast).show();
                 goToConfirmationActivity();
-            } else {
-                Resource.defaultResourceHandler(r);
-                if (r.getStatus() == Status.ERROR) {
-                    StyleableToast.makeText(getApplicationContext(), getText(R.string.existing_account).toString(), Toast.LENGTH_LONG, R.style.errorToast).show();
-                }
+                finish();
+            } else if (r.getStatus() == Status.ERROR) {
+                pb.setVisibility(View.GONE);
+                StyleableToast.makeText(getApplicationContext(), getText(R.string.existing_account).toString(), Toast.LENGTH_LONG, R.style.errorToast).show();
+            }
+            else if (r.getStatus() == Status.LOADING){
+                pb = binding.progressBar;
+                pb.setVisibility(View.VISIBLE);
             }
         });
-
     }
 
     public void goToConfirmationActivity() {

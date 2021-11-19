@@ -37,7 +37,7 @@
             android:layout_height="63dp"
 
             android:ems="10"
-            android:hint="@string/user_hint"
+            android:hint="@string/user_hint_r"
 
             android:inputType="textPersonName"
             android:maxLength="20" />
@@ -91,7 +91,7 @@
             android:drawableRight="@drawable/ic_baseline_visibility_off_24"
             android:longClickable="false"
             android:ems="10"
-            android:hint="@string/password_hint"
+            android:hint="@string/password_hint_r"
             android:inputType="textPassword"/>
     </LinearLayout>
 
@@ -123,11 +123,20 @@
     </LinearLayout>
 
 
+    <ProgressBar
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:id="@+id/progress_bar"
+        android:layout_height="wrap_content"
+         android:layout_width="wrap_content"
+       >
+
+    </ProgressBar>
     <Button
         android:id="@+id/registerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/google_sans_bold"
         android:text="@string/register"
         android:textColor="@color/white"

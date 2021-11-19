@@ -98,6 +98,7 @@ public class HomeFragment extends Fragment {
                     recommended.add(maxScoreRoutine.toRoutine());
                     recommendedAdapter.notifyDataSetChanged();
                 } else {
+
                     binding.welcomeHeader.setVisibility(View.GONE);
                     binding.recommendedRoutine.setVisibility(View.GONE);
                     binding.recommendedRecyclerView.setVisibility(View.GONE);

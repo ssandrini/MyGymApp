@@ -21,7 +21,6 @@
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/review_layout.xml" value="0.25" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/routine_execution_alt.xml" value="0.16757246376811594" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/routine_list_item.xml" value="0.15353260869565216" />
-        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/menu/toolbar_routine.xml" value="0.33" />
         <entry key="app/src/main/res/drawable-anydpi/ic_account.xml" value="0.321025641025641" />
         <entry key="app/src/main/res/drawable-anydpi/ic_add.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_add_photo.xml" value="0.18385416666666668" />
@@ -42,6 +41,7 @@
         <entry key="app/src/main/res/drawable-anydpi/ic_previous.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_previous2.xml" value="0.5166666666666667" />
         <entry key="app/src/main/res/drawable-anydpi/ic_profile.xml" value="0.321025641025641" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_review.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_routine.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_share.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_url.xml" value="0.321025641025641" />
@@ -79,7 +79,7 @@
         <entry key="app/src/main/res/layout/filter_dialog.xml" value="0.5515625" />
         <entry key="app/src/main/res/layout/fragment_favourites.xml" value="0.24201680672268908" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.3390625" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1329639889196676" />
         <entry key="app/src/main/res/layout/fragment_my_exercises.xml" value="0.3409090909090909" />
         <entry key="app/src/main/res/layout/fragment_my_routines.xml" value="0.5515625" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.335" />

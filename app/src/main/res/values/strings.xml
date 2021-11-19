@@ -2,6 +2,11 @@
     <string name="app_name">MyGym</string>
     <string name="user_hint">Username</string>
     <string name="password_hint">Password</string>
+    <string name="user_hint_r">* Username</string>
+    <string name="password_hint_r">* Password</string>
+    <string name="email">* Email</string>
+    <string name="pwdConfirm">* Repeat password</string>
+
     <string name="log_in">Log In</string>
     <string name="log_out">Log Out</string>
     <string name="register">Register now</string>
@@ -30,8 +35,7 @@
     <string name="nav_header_desc">User image</string>
     <string name="nav_header_title">Kanye West</string>
     <string name="section_favourites">Favourites</string>
-    <string name="email">Email</string>
-    <string name="pwdConfirm">Repeat password</string>
+
     <string name="action_search">Search</string>
     <string name="loremipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="section_highlights">Highlights</string>
@@ -45,7 +49,7 @@
     <string name="invalid_code">Invalid code</string>
     <string name="action_share">Share</string>
     <string name="action_fav">Add to favourites</string>
-    <string name="invalid_registration">Invalid credentials</string>
+    <string name="invalid_registration">Required fields missing</string>
     <string name="invalid_password_confirmation">Passwords don´t match</string>
     <string name="order_by">Order by</string>
     <string name="date">Date</string>
@@ -53,7 +57,7 @@
     <string name="difficulty">Difficulty</string>
     <string name="category">Category</string>
     <string name="verification">Account verification</string>
-    <string name="verification_text">Thank you for registering at MyGym, we´ve sent you an email to the address specified before. Please copy the verification code and the same mail below.</string>
+    <string name="verification_text">We´ve sent you an email with the verification code</string>
     <string name="share_details_of_your_own_experience">Share details of your own experience</string>
     <string name="added_fav">Marked as favourite</string>
     <string name="deleted_fav">Not marked as favourite</string>
@@ -131,7 +135,7 @@
     <string name="notif_text">Let\'s train!</string>
     <string name="error_notif">Select at least one day</string>
     <string name="success_notif">Your alarm has been created</string>
-    <string name="no_highlights">You don\'t have any highlighted routines</string>
+    <string name="no_highlights">No highlighted routines yet</string>
     <string name="no_recents">You haven\'t executed any routine</string>
     <string name="choose_day">Choose days</string>
     <string name="share">Share</string>
@@ -140,6 +144,9 @@
     <string name="scan_your_code">Scan your code</string>
     <string name="no_perm">You need the camera permission to be able to scan codes</string>
     <string name="no_app">No App Available</string>
+    <string name="looks_like_there_are_no_routines_yet">Looks like there are no routines yet!</string>
+    <string name="missing_routine">Missing routine information</string>
+    <string name="review_text">Review this routine</string>
 
     <string-array name="difficulties">
         <item name="rookie">Rookie</item>

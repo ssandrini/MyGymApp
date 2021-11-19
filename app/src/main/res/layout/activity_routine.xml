@@ -80,14 +80,30 @@
                 android:text="@string/loremipsum"
                 android:textAppearance="?attr/textAppearanceBody1" />
 
-            <LinearLayout
-                android:layout_marginTop="10dp"
+            <TextView
+                android:id="@+id/rDifficulty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="Difficulty"
+                android:textAppearance="?attr/textAppearanceBody1" />
+
+            <TextView
+                android:id="@+id/rCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="Category"
+                android:textAppearance="?attr/textAppearanceBody1" />
+
 
                 <RatingBar
                     android:id="@+id/rScore"
+                    android:layout_marginTop="10dp"
                     style="?android:attr/ratingBarStyleIndicator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -97,39 +113,9 @@
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-
-                    android:orientation="horizontal">
 
 
-                    <Button
-                        android:id="@+id/reviewBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="?attr/colorPrimaryVariant"
 
-                        android:text="@string/review"
-                        android:textColor="@color/white">
-
-                    </Button>
-                </LinearLayout>
-            </LinearLayout>
-
-
-            <TextView
-                android:id="@+id/rDifficulty"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:text="@string/hard"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textStyle="italic"
-                android:visibility="gone" />
 
 
             <include layout="@layout/classic_divider" />
@@ -142,7 +128,40 @@
 
             </androidx.recyclerview.widget.RecyclerView>
 
+            <include layout="@layout/classic_divider" />
 
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:paddingBottom="30dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+
+                    android:text="@string/review_text"
+                    android:textSize="16dp"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/reviewBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="?attr/colorPrimaryVariant"
+                    app:icon="@drawable/ic_review"
+                    app:iconTint="@color/white"
+                    android:text="@string/review"
+                    android:textColor="@color/white">
+
+                </com.google.android.material.button.MaterialButton>
+            </LinearLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -151,6 +170,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+
         xmlns:fab="http://schemas.android.com/apk/res-auto"
         android:gravity="center|bottom"
         android:padding="20dp">

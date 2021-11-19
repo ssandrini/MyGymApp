@@ -3,6 +3,8 @@
     <string name="app_name">MyGym</string>
     <string name="user_hint">Usuario</string>
     <string name="password_hint">Contraseña</string>
+    <string name="user_hint_r">* Usuario</string>
+    <string name="password_hint_r">* Contraseña</string>
     <string name="log_in">Iniciar sesión</string>
     <string name="log_out">Cerrar sesión</string>
     <string name="register">Registrarme ahora</string>
@@ -16,22 +18,22 @@
     <string name="nav_header_desc">Foto del usuario</string>
     <string name="nav_header_title">Kanye West</string>
     <string name="section_favourites">Favoritos</string>
-    <string name="email">Email</string>
-    <string name="pwdConfirm">Confirmar contraseña</string>
+    <string name="email">* Correo electrónico</string>
+    <string name="pwdConfirm">* Repetir contraseña</string>
     <string name="action_search">Buscar</string>
     <string name="loremipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="section_highlights">Destacadas</string>
     <string name="myRoutines_title">Mis rutinas</string>
     <string name="recents_title">Recientes</string>
     <string name="code">Código</string>
-    <string name="email_hint">Email</string>
+    <string name="email_hint">Correo electrónico</string>
     <string name="confirm">Confirmar</string>
-    <string name="invalid_confirmation">Email o código inválidos</string>
-    <string name="invalid_email">Email inválido</string>
+    <string name="invalid_confirmation">Correo electrónico o código inválidos</string>
+    <string name="invalid_email">Correo electrónico inválido</string>
     <string name="invalid_code">Código inválido</string>
     <string name="action_share">Compartir</string>
     <string name="action_fav">Agregar a favoritos</string>
-    <string name="invalid_registration">Credenciales inválidas</string>
+    <string name="invalid_registration">Complete los campos obligatorios</string>
     <string name="invalid_password_confirmation">Las contraseñas no coinciden</string>
     <string name="order_by">Ordenar por</string>
     <string name="date">Fecha</string>
@@ -52,7 +54,7 @@
     <string name="femenine">Femenino</string>
     <string name="masculine">Masculino</string>
     <string name="verification">Verificación de cuenta</string>
-    <string name="verification_text">Gracias por registrarte en MyGym, acabamos de enviarte un email a la dirección especificada previamente. Por favor ingrese el código de verificación y su email debajo.</string>
+    <string name="verification_text">Acabamos de enviarle un código de verificación a su correo electrónico</string>
     <string name="edit_profile">Editar</string>
     <string name="cancel_edit">Cancelar</string>
     <string name="share_details_of_your_own_experience">Comparte detalles sobre tu propia experiencia</string>
@@ -105,10 +107,10 @@
     <string name="send">Enviar</string>
     <string name="detailed">Detallada</string>
     <string name="queue">Encolada</string>
-    <string name="register_success">Se ha registrado correctamente. Por favor confirma tu email para continuar.</string>
+    <string name="register_success">Se ha registrado correctamente. Por favor verifique su correo electrónico</string>
     <string name="success_verification">Su cuenta se ha verificado correctamente</string>
     <string name="existing_account">Esta cuenta ya existe</string>
-    <string name="fail_verification">Código o email inválido</string>
+    <string name="fail_verification">Código o correo electrónico inválido</string>
     <string name="image_picker_provider_authority_suffix" translatable="false">.imagepicker.provider</string>
     <string name="title_choose_image_provider">Elige</string>
     <string name="action_cancel">Cancelar</string>
@@ -141,6 +143,9 @@
     <string name="scan_your_code">Escanea tu código</string>
     <string name="no_perm">Debes habilitar los permisos de la cámara para escanear</string>
     <string name="no_app">Aplicación no disponible</string>
+    <string name="looks_like_there_are_no_routines_yet">Parece que todavía no hay rutinas!</string>
+    <string name="missing_routine">La rutina no tiene ejercicios</string>
+    <string name="review_text">Opina acerca de esta rutina</string>
 
     <string-array name="difficulties">
         <item name="rookie">Novato</item>

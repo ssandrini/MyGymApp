@@ -25,7 +25,7 @@
         <item>Male</item>
     </string-array>
     <string name="gender">Gender</string>
-    <string name="femenine">Femenine</string>
+    <string name="femenine">Female</string>
     <string name="masculine">Masculine</string>
     <string name="nav_header_desc">User image</string>
     <string name="nav_header_title">Kanye West</string>
@@ -127,14 +127,14 @@
     <string name="ucrop_rotate">Rotate</string>
     <string name="ucrop_scale">Scale</string>
     <string name="ucrop_crop">Crop</string>
-    <string name="no_my_routines">Todavía no tienes rutinas</string>
-    <string name="notif_text">¡Vamos a entrenar!</string>
-    <string name="error_notif">Debes seleccionar al menos un día</string>
-    <string name="success_notif">La alarma se ha creado correctamente</string>
-    <string name="no_highlights">Todavía no hay rutinas destacadas</string>
-    <string name="no_recents">Aún no has ejecutado rutinas</string>
+    <string name="no_my_routines">You don\'t have any routines</string>
+    <string name="notif_text">Let\'s train!</string>
+    <string name="error_notif">Select at least one day</string>
+    <string name="success_notif">Your alarm has been created</string>
+    <string name="no_highlights">You don\'t have any highlighted routines</string>
+    <string name="no_recents">You haven\'t executed any routine</string>
     <string name="choose_day">Choose days</string>
-    <string name="share">Compartir</string>
+    <string name="share">Share</string>
     <string name="action_take_qr">Take QR</string>
     <string name="scan_qr">Scan QR</string>
     <string name="scan_your_code">Scan your code</string>

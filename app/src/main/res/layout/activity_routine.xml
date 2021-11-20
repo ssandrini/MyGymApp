@@ -157,7 +157,9 @@
 
 
 
-            <include layout="@layout/classic_divider" />
+            <include
+
+                layout="@layout/classic_divider" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/cyclesRecView"

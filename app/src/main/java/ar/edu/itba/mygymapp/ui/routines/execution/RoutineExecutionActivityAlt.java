@@ -79,7 +79,7 @@ public class RoutineExecutionActivityAlt extends AppCompatActivity {
                 setCurrentExercise(adapter.next());
             } else {
                 finish();
-   
+
             }
 
         });

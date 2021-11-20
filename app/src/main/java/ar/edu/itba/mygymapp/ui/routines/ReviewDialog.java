@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -52,32 +53,40 @@ public class ReviewDialog extends AppCompatDialogFragment {
         ImageView userAvatarReview = view.findViewById(R.id.userAvatarReview);
         Glide.with(view.getContext()).load(app.getUserRepository().getUser().getAvatarUrl()).placeholder(R.drawable.avatar).into(userAvatarReview);
 
+        Button cancel = view.findViewById(R.id.cancelBtn);
+        Button post = view.findViewById(R.id.postBtn);
 
-        builder.setView(view).setTitle(getText(R.string.review)).setNegativeButton(getText(R.string.cancel), new DialogInterface.OnClickListener() {
+        cancel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                // Es el que cierra (creo no hay que hacer nada aca)
+            public void onClick(View view) {
+                dismiss();
             }
-        }).setPositiveButton( R.string.send, new DialogInterface.OnClickListener() {
+        });
+        post.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(View view) {
                 assert getArguments() != null;
                 int routineId = getArguments().getInt("routineId");
-                Review body = new Review( (int) (score.getRating() * 2), review.getText().toString()  ) ;
+                Review body = new Review((int) (score.getRating() * 2), review.getText().toString());
                 app.getReviewRepository().addReview(routineId, body).observe(getActivity(), r -> {
                     if (r.getStatus() == Status.SUCCESS) {
                         app.getRoutineRepository().getRoutine(routineId).observe(fragmentActivity, r2 -> {
-                            if(r2.getStatus() == Status.SUCCESS) {
-                                routineActivity.setRaiting(r2.getData().getScore()/2.0f);
+                            if (r2.getStatus() == Status.SUCCESS) {
+                                routineActivity.setRaiting(r2.getData().getScore() / 2.0f);
                                 String text = fragmentActivity.getText(R.string.review_success).toString();
                                 StyleableToast.makeText(fragmentActivity, text, Toast.LENGTH_LONG, R.style.successToast).show();
+                                dismiss();
                             }
                         });
 
                     }
                 });
+
             }
         });
+
+        builder.setView(view).setTitle(getText(R.string.review));
         return builder.create();
     }
 

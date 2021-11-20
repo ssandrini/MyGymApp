@@ -143,11 +143,20 @@
     <string name="scan_your_code">Escanea tu código</string>
     <string name="no_perm">Debes habilitar los permisos de la cámara para escanear</string>
     <string name="no_app">Aplicación no disponible</string>
-    <string name="looks_like_there_are_no_routines_yet">Parece que todavía no hay rutinas!</string>
+    <string name="looks_like_there_are_no_routines_yet">¡Parece que todavía no hay rutinas!</string>
     <string name="missing_routine">La rutina no tiene ejercicios</string>
     <string name="review_text">Opina acerca de esta rutina</string>
     <string name="category_label">Categoría: </string>
     <string name="difficulty_label">Dificultad: </string>
+    <string name="post_review">Publicar</string>
+    <string name="share_text">Compartir</string>
+    <string name="back_text">Volver</string>
+    <string name="looks_like_there_are_no_fav_routines_yet" >
+        ¡Parece que todavía no hay rutinas favoritas!
+    </string>
+    <string name="add_fav" >
+        Agrega alguna usando el botón ❤
+    </string>
 
     <string-array name="difficulties">
         <item name="rookie">Novato</item>

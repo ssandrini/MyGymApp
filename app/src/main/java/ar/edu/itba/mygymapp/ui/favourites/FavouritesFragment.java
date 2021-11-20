@@ -67,15 +67,20 @@ public class FavouritesFragment extends Fragment {
     public void initRoutines() {
         app.getFavouriteRepository().getFavourites().observe(getViewLifecycleOwner(), r -> {
             if (r.getStatus() == Status.SUCCESS) {
+                binding.loadingRoutines.setVisibility(View.GONE);
+                binding.noRoutinesYet.setVisibility(View.GONE);
                 assert r.getData() != null;
                 for (FullRoutine fr :r.getData().getContent()) {
                     routines.add(fr.toRoutine());
                 };
-
+                if (routines.isEmpty()) {
+                    binding.noRoutinesYet.setVisibility(View.VISIBLE);
+//                    binding.routinesRecView.setVisibility(View.GONE);
+                }
                 adapter.notifyDataSetChanged();
 
-            } else {
-                Resource.defaultResourceHandler(r);
+            } else if (r.getStatus() == Status.LOADING){
+                binding.loadingRoutines.setVisibility(View.VISIBLE);
             }
         });
     }

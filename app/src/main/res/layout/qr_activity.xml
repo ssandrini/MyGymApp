@@ -25,31 +25,37 @@
         android:layout_width="match_parent"
         android:layout_height="335dp"
         android:layout_margin="40dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:gravity="center|bottom"
-        android:padding="10dp">
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        >
+
+
         <Button
             android:id="@+id/qr_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="back"
-            android:backgroundTint="@color/colorAccent"/>
+            android:layout_gravity="start"
+            android:backgroundTint="?attr/colorSecondary"
+            android:layout_marginRight="30dp"
+            android:text="@string/back_text"
+
+            />
         <Button
             android:id="@+id/qr_share"
-            android:text="share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="@color/highlightColor"/>
+            android:layout_gravity="end"
+            android:layout_marginLeft="30dp"
+            android:text="@string/share_text"
+            android:textColor="@color/white" />
+
 
     </LinearLayout>
+
 
 </LinearLayout>

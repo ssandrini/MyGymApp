@@ -149,7 +149,14 @@
     <string name="review_text">Review this routine</string>
     <string name="category_label">Category: </string>
     <string name="difficulty_label">Difficulty: </string>
-
+    <string name="post_review">Post</string>
+    <string name="share_text">Share</string>
+    <string name="back_text">Back</string>
+    <string name="looks_like_there_are_no_fav_routines_yet" >Looks like there are no favourite routines yet!
+    </string>
+    <string name="add_fav" >
+        Add any using ❤ button
+    </string>
     <string-array name="difficulties">
         <item name="rookie">Rookie</item>
         <item name="beginner">Beginner</item>

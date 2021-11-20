@@ -27,7 +27,7 @@
     <color name="addPicColor">#00BCD4</color>
     <color name="itemTextColor">#000</color>
     <color name="logoutColor">#F44336</color>
-    <color name="boxColor">#D9D1ED</color>
+    <color name="boxColor">#e0e0e0</color>
     <color name="titleColor">#636060</color>
     <color name="picColor">#FF6200EE</color>
     <color name="iconColor">#333333</color>

@@ -64,7 +64,7 @@ public class RoutinesFragment extends Fragment {
         float dpWidth=displayMetrics.widthPixels/displayMetrics.density;
         Log.d("tamaño:",String.valueOf(dpWidth));
         if(dpWidth>=700){
-            binding.routinesRecView.setLayoutManager(new GridLayoutManager(getContext(),3));
+            binding.routinesRecView.setLayoutManager(new GridLayoutManager(getContext(),2));
 
         }else {
             binding.routinesRecView.setLayoutManager(new LinearLayoutManager(getContext()));

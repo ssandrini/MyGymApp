@@ -157,6 +157,10 @@
     <string name="add_fav" >
         Add any using ❤ button
     </string>
+    <string name="rest">Rest</string>
+    <string name="exercise">Exercise</string>
+    <string name="current_exercise">Current exercise</string>
+    <string name="next_exercises">Next exercises</string>
     <string-array name="difficulties">
         <item name="rookie">Rookie</item>
         <item name="beginner">Beginner</item>

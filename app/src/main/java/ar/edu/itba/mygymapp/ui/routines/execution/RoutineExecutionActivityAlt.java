@@ -99,7 +99,7 @@ public class RoutineExecutionActivityAlt extends AppCompatActivity {
 
     private void setCurrentExercise(CycleExercise exercise) {
         binding.name.setText(exercise.getName());
-        binding.type.setText(exercise.getType());
+        binding.type.setText(typeToStr(exercise.getType()));
         StringBuilder s1 = new StringBuilder();
         s1.append(String.valueOf(exercise.getDuration()));
         s1.append("''");
@@ -108,5 +108,14 @@ public class RoutineExecutionActivityAlt extends AppCompatActivity {
         s2.append("x");
         s2.append(exercise.getRepetitions());
         binding.currentReps.setText(s2.toString());
+    }
+
+    private String typeToStr(String type) {
+
+        if (type.equals("rest")) {
+            return getResources().getString(R.string.rest);
+        } else {
+            return getResources().getString(R.string.exercise);
+        }
     }
 }

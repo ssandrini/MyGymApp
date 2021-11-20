@@ -157,6 +157,10 @@
     <string name="add_fav" >
         Agrega alguna usando el botón ❤
     </string>
+    <string name="rest">Descanso</string>
+    <string name="exercise">Ejercicio</string>
+    <string name="current_exercise">Ejercicio actual</string>
+    <string name="next_exercises">Siguientes ejercicios</string>
 
     <string-array name="difficulties">
         <item name="rookie">Novato</item>

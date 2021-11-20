@@ -146,6 +146,8 @@
     <string name="looks_like_there_are_no_routines_yet">Parece que todavía no hay rutinas!</string>
     <string name="missing_routine">La rutina no tiene ejercicios</string>
     <string name="review_text">Opina acerca de esta rutina</string>
+    <string name="category_label">Categoría: </string>
+    <string name="difficulty_label">Dificultad: </string>
 
     <string-array name="difficulties">
         <item name="rookie">Novato</item>

@@ -25,5 +25,6 @@
     <color name="iconColor">#fff</color>
     <color name="colorNav">#1A1A1A</color>
 
+    <color name="surface2">@color/surface</color>
     <color name="dividerColor">@color/black</color>
 </resources>

@@ -147,6 +147,8 @@
     <string name="looks_like_there_are_no_routines_yet">Looks like there are no routines yet!</string>
     <string name="missing_routine">Missing routine information</string>
     <string name="review_text">Review this routine</string>
+    <string name="category_label">Category: </string>
+    <string name="difficulty_label">Difficulty: </string>
 
     <string-array name="difficulties">
         <item name="rookie">Rookie</item>

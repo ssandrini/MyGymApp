@@ -34,6 +34,7 @@
     <color name="daySelected">@color/purple_200</color>
 
 
+    <color name="surface2">@color/purple_500</color>
     <color name="dividerColor">#BDBDBD</color>
     <color name="drawerlayout">@color/black</color>
 </resources>

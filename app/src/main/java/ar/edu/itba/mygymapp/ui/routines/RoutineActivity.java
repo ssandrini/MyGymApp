@@ -67,6 +67,8 @@ public class RoutineActivity extends AppCompatActivity {
         }
         routineImageUrl = i.getStringExtra("routineImageUrl");
 
+
+
         app.getRoutineRepository().getRoutine(routineId).observe(this, r -> {
             if (r.getStatus() == Status.SUCCESS) {
                 routine = r.getData().toRoutine();
@@ -75,10 +77,8 @@ public class RoutineActivity extends AppCompatActivity {
                 binding.rScore.setRating(routine.getScore().floatValue() / 2);
                 binding.rDetail.setText(routine.getDetail());
                 String[] difficulty = getResources().getStringArray(R.array.difficulties);
-                StringBuilder sb = new StringBuilder();
-                sb.append(getResources().getString(R.string.difficulty)).append(": ");
-                sb.append(difficulty[routine.mapDifficulty()-1]);
-                binding.rDifficulty.setText(sb.toString());
+
+                binding.rDifficulty.setText(difficulty[routine.mapDifficulty()-1]);
                 binding.rCategory.setText(routine.getCategory().getName());
 
 

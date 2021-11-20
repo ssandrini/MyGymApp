@@ -249,7 +249,7 @@ android:layout_marginRight="35dp"
                 android:layout_height="wrap_content"
                 fab:fab_size="mini"
                 fab:fab_label="@string/detailed"
-                fab:fab_colorNormal="@color/colorAccent"
+                fab:fab_colorNormal="@color/type_of_ex"
                 android:src="@drawable/ic_fab_normal"/>
             <com.github.clans.fab.FloatingActionButton
                 android:id="@+id/queueFab"
@@ -257,7 +257,7 @@ android:layout_marginRight="35dp"
                 android:layout_height="wrap_content"
                 fab:fab_size="mini"
                 fab:fab_label="@string/queue"
-                fab:fab_colorNormal="@color/colorAccent"
+                fab:fab_colorNormal="@color/type_of_ex"
                 android:src="@drawable/ic_fab_queue"/>
         </com.github.clans.fab.FloatingActionMenu>
 

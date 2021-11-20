@@ -26,6 +26,7 @@
     <color name="picColor">#FFBB86FC</color>
     <color name="iconColor">#fff</color>
     <color name="colorNav">#1A1A1A</color>
+    <color name="type_of_ex">@color/purple_200</color>
 
     <color name="surface2">@color/surface</color>
     <color name="dividerColor">@color/black</color>

@@ -112,7 +112,9 @@ public class RoutineExecutionActivity extends AppCompatActivity {
 
             if (exerciseIndex == cycleExercisesLength - 1) {
                 if (cycleIndex == cyclesLimit && cycleReps == routine.getCycles().get(cycleIndex).getRepetitions() - 1) {
-                    return;
+                    finish();
+
+                    return ;
                 }
                 if(cycleReps == routine.getCycles().get(cycleIndex).getRepetitions() - 1) {
                     cycleIndex++;

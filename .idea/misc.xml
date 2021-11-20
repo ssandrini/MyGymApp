@@ -62,6 +62,7 @@
         <entry key="app/src/main/res/drawable/ic_register_hero.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/ic_side_bg.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/register_panel.xml" value="0.321025641025641" />
+        <entry key="app/src/main/res/layout-land/routine_execution.xml" value="0.209375" />
         <entry key="app/src/main/res/layout-large/fragment_routines.xml" value="0.413671875" />
         <entry key="app/src/main/res/layout/activity_confirmation.xml" value="0.13020833333333334" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.375" />

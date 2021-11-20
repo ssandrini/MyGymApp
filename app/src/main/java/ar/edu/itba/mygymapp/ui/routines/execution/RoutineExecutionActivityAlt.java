@@ -77,7 +77,11 @@ public class RoutineExecutionActivityAlt extends AppCompatActivity {
 
                 currentExercise++;
                 setCurrentExercise(adapter.next());
+            } else {
+                finish();
+   
             }
+
         });
 
         binding.closeBtn.setOnClickListener(view -> {

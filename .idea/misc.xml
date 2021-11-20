@@ -13,14 +13,12 @@
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/activity_routine.xml" value="0.24096385542168675" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/app_bar.xml" value="0.15353260869565216" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/avatar.xml" value="0.10597826086956522" />
-        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/exercise_list_item.xml" value="0.11413043478260869" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/filter_dialog.xml" value="0.25" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/fragment_profile.xml" value="0.15353260869565216" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/fragment_routines.xml" value="0.19972826086956522" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/nav_header_main.xml" value="0.2" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/review_layout.xml" value="0.25" />
-        <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/routine_execution.xml" value="0.15670289855072464" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/routine_execution_alt.xml" value="0.16757246376811594" />
         <entry key="..\:/Users/sandr/Santi/ITBA/MyGymApp/app/src/main/res/layout/routine_list_item.xml" value="0.15353260869565216" />
         <entry key="app/src/main/res/drawable-anydpi/ic_account.xml" value="0.321025641025641" />
@@ -64,6 +62,7 @@
         <entry key="app/src/main/res/drawable/ic_register_hero.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/ic_side_bg.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/register_panel.xml" value="0.321025641025641" />
+        <entry key="app/src/main/res/layout-land/fragment_profile.xml" value="0.45" />
         <entry key="app/src/main/res/layout/activity_confirmation.xml" value="0.13020833333333334" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.5515625" />

@@ -31,6 +31,7 @@
 
                 <TextView
                     android:layout_marginLeft="10dp"
+                    android:textColor="@color/anticolor"
                     android:id="@+id/cycleName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

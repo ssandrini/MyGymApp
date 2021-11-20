@@ -12,9 +12,8 @@
         android:gravity="fill_horizontal"
         android:orientation="horizontal"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingTop="10dp"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingBottom="10dp">
+>
 
         <include
             android:id="@+id/includeHeader"
@@ -38,5 +37,5 @@
     </LinearLayout>
 
 
-    <include layout="@layout/classic_divider"/>
+    <include layout="@layout/classic_divider" />
 </LinearLayout>

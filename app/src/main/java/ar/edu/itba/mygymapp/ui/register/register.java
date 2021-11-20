@@ -138,7 +138,7 @@ public class register extends AppCompatActivity {
             return;
         }
 
-        RegisterCredentials registerCredentials = new RegisterCredentials(username, password,"-","-","other",mail,"https://flic.kr/p/3ntH2u");
+        RegisterCredentials registerCredentials = new RegisterCredentials(username, password,"-","-","other",mail,"https://cdn0.iconfinder.com/data/icons/handsome-man-avatars/283/stock_man_avatar-17-1024.png");
         App app = (App) getApplication();
         app.getUserRepository().register(registerCredentials).observe(this, r -> {
 

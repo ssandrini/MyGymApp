@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.transition.TransitionManager;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
@@ -97,7 +98,7 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
         private TextView name, detail;
         private MaterialCardView parent;
         private TextView duration, reps;
-
+        private ImageView exerciseImage;
         private ImageView expandMoreBtn, expandLessBtn;
         private ConstraintLayout expandedConstraintLayout, collapsedRelLayout;
 
@@ -113,7 +114,7 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
             expandLessBtn = itemView.findViewById(R.id.expandLessBtn);
             expandedConstraintLayout = itemView.findViewById(R.id.expandedConstraintLayout);
             collapsedRelLayout = itemView.findViewById(R.id.collapsedRelLayout);
-
+            exerciseImage = itemView.findViewById(R.id.exerciseImage);
             duration = itemView.findViewById(R.id.duration);
             reps = itemView.findViewById(R.id.reps);
 

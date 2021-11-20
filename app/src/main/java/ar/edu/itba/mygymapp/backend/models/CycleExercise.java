@@ -8,6 +8,7 @@ public class CycleExercise {
     private int order;
     private int duration;
     private int repetitions;
+    private String exerciseImageUrl;
     private Object metadata;
 
     public CycleExercise(String name, String type, String detail, int id, int order, int duration, int repetitions, Object metadata) {
@@ -106,5 +107,13 @@ public class CycleExercise {
                 ", repetitions=" + repetitions +
                 ", metadata=" + metadata +
                 '}';
+    }
+
+    public String getExerciseImageUrl() {
+        return exerciseImageUrl;
+    }
+
+    public void setExerciseImageUrl(String exerciseImageUrl) {
+        this.exerciseImageUrl = exerciseImageUrl;
     }
 }

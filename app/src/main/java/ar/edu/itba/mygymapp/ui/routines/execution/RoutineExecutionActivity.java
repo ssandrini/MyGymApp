@@ -14,6 +14,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.ColorUtils;
 
+import com.bumptech.glide.Glide;
 import com.mut_jaeryo.circletimer.CircleTimer;
 
 import ar.edu.itba.mygymapp.R;
@@ -187,6 +188,7 @@ public class RoutineExecutionActivity extends AppCompatActivity {
     }
 
     private void setExercise(CycleExercise exercise) {
+        Glide.with(this).asBitmap().load(exercise.getExerciseImageUrl()).placeholder(R.drawable.r1).into(binding.exerciseImage);
         binding.exerciseName.setText(exercise.getName());
         binding.exerciseDescription.setText(exercise.getDetail());
         StringBuilder durationSb = new StringBuilder();

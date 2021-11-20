@@ -138,7 +138,6 @@ public class RoutineActivity extends AppCompatActivity {
             }
             });
 
-
         binding.calendarBtn.setOnClickListener(view -> {
             Intent calIntent = new Intent(this, SchedulerActivity.class);
             calIntent.putExtra(ID_PARENT_EXTRA, routineId);
@@ -152,6 +151,16 @@ public class RoutineActivity extends AppCompatActivity {
                 Execution aux = new Execution(app.getUserRepository().getUser().getId(), false);
                 app.getExecutionRepository().addExecution(routineId, aux).observe(this, ex -> {
                 });
+                for (Cycle cycle : routine.getCycles()) {
+                    for (CycleExercise exercise : cycle.getExercises()) {
+                        app.getExerciseImageRepository().getExerciseImages(exercise.getId()).observe(this, exImg -> {
+                            if(exImg.getStatus() == Status.SUCCESS) {
+                                if(exImg.getData().getContent() != null && !exImg.getData().getContent().isEmpty())
+                                    exercise.setExerciseImageUrl(exImg.getData().getContent().get(0).getUrl());
+                            }
+                        });
+                    }
+                }
                 Intent exIntent = new Intent(this, RoutineExecutionActivity.class);
                 exIntent.putExtra("routineId", routine.getId());
                 startActivity(exIntent);

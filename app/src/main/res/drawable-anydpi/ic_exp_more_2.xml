@@ -3,8 +3,9 @@
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24"
+    android:tint="@color/iconColor"
     android:alpha="@integer/material_motion_duration_long_1">
   <path
-      android:pathData="M12,8l-6,6 1.41,1.41L12,10.83l4.59,4.58L18,14z"
-      android:fillColor="#000000"/>
+      android:fillColor="@android:color/white"
+      android:pathData="M16.59,8.59L12,13.17 7.41,8.59 6,10l6,6 6,-6z"/>
 </vector>

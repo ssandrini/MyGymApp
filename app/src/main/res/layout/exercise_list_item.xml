@@ -37,7 +37,7 @@
                  android:layout_height="25dp"
                  android:layout_marginStart="12dp"
                  android:src="@drawable/ic_dumbbell"
-
+                 android:backgroundTint="@color/black"
                  app:layout_constraintBottom_toBottomOf="parent"
                  app:layout_constraintStart_toStartOf="parent"
                  app:layout_constraintTop_toTopOf="parent"
@@ -65,11 +65,10 @@
                  android:layout_height="wrap_content"
                  android:layout_marginStart="48dp"
                  android:paddingTop="6dp"
-android:textColor="@color/black"
+                 android:textColor="@color/black"
                  android:paddingBottom="6dp"
                  android:text="Exercise"
                  android:textSize="20sp"
-android:alpha="0.6"
                  app:layout_constraintBottom_toBottomOf="parent"
                  app:layout_constraintStart_toStartOf="parent"
                  app:layout_constraintTop_toTopOf="parent"
@@ -100,7 +99,6 @@ android:alpha="0.6"
 
                  android:textColor="@color/black"
 
-                 android:alpha="0.6"
                  app:layout_constraintStart_toStartOf="parent"
                  app:layout_constraintTop_toTopOf="parent" />
 
@@ -114,8 +112,6 @@ android:alpha="0.6"
                  android:text="x45"
                  android:textSize="16dp"
                  android:textColor="@color/black"
-
-                 android:alpha="0.6"
                  app:layout_constraintStart_toEndOf="@id/duration"
                  app:layout_constraintTop_toTopOf="parent" />
 
@@ -129,7 +125,6 @@ android:alpha="0.6"
                  android:text="Description"
                  android:textSize="16dp"
                  android:textColor="@color/black"
-
                  android:alpha="0.6"
                  app:layout_constraintBottom_toBottomOf="parent"
                  app:layout_constraintStart_toStartOf="parent"

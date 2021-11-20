@@ -30,12 +30,15 @@
         <entry key="app/src/main/res/drawable-anydpi/ic_dumbbell.xml" value="0.321025641025641" />
         <entry key="app/src/main/res/drawable-anydpi/ic_expand_less.xml" value="0.321025641025641" />
         <entry key="app/src/main/res/drawable-anydpi/ic_explore.xml" value="0.5833333333333334" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_favs.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_filter.xml" value="0.321025641025641" />
         <entry key="app/src/main/res/drawable-anydpi/ic_home.xml" value="0.5375" />
         <entry key="app/src/main/res/drawable-anydpi/ic_light_mode.xml" value="0.321025641025641" />
         <entry key="app/src/main/res/drawable-anydpi/ic_login.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_logout.xml" value="0.32916666666666666" />
         <entry key="app/src/main/res/drawable-anydpi/ic_next.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_pause.xml" value="0.5833333333333334" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_pencil.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_play.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_play_white.xml" value="0.5833333333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_previous.xml" value="0.5833333333333334" />

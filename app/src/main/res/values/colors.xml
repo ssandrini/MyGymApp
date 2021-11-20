@@ -17,6 +17,8 @@
     <color name="error">#CF6679</color>
     <color name="whiteTextColor">#fff</color>
     <color name="white">#fff</color>
+    <color name="white_light">#f5f5f5</color>
+    <color name="black_light">#515151</color>
     <color name="hintColor">#636060</color>
     <color name="primaryTextColor">#11CFC5</color>
     <color name="secondaryTextColor">#FF6200EE</color>
@@ -37,4 +39,9 @@
     <color name="surface2">@color/purple_500</color>
     <color name="dividerColor">#BDBDBD</color>
     <color name="drawerlayout">@color/black</color>
+
+    <color name="dialog_choose_icon_color">@color/anticolor_light</color>
+    <color name="dialog_choose_text_color">@color/anticolor_light</color>
+    <color name="anticolor">@color/black</color>
+    <color name="anticolor_light">@color/black_light</color>
 </resources>

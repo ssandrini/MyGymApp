@@ -88,8 +88,8 @@
     <string name="url_layout">Ingrese URL de la rutina</string>
     <string name="profile_saved">Perfil guardado</string>
     <string name="play">Ejecutar</string>
-    <string name="view_spinner_title">Ver</string>
-    <string name="sort_spinner_title">Ordenar por</string>
+    <string name="view_spinner_title">Ver:</string>
+    <string name="sort_spinner_title">Ordenar por:</string>
     <string-array name="sort_by">
         <item name="date"> Fecha</item>
         <item name="score">Puntaje</item>

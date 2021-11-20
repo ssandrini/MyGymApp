@@ -9,12 +9,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+
 import java.util.ArrayList;
+
 import ar.edu.itba.mygymapp.backend.App;
 import ar.edu.itba.mygymapp.backend.apimodels.Execution;
 import ar.edu.itba.mygymapp.backend.apimodels.FullCycle;
@@ -43,8 +47,9 @@ public class RoutineActivity extends AppCompatActivity {
     private CyclesAdapter cyclesAdapter;
     private Routine routine;
     private boolean isFav = false;
-    private  int routineId;
+    private int routineId;
     private String routineImageUrl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +73,6 @@ public class RoutineActivity extends AppCompatActivity {
         routineImageUrl = i.getStringExtra("routineImageUrl");
 
 
-
         app.getRoutineRepository().getRoutine(routineId).observe(this, r -> {
             if (r.getStatus() == Status.SUCCESS) {
                 routine = r.getData().toRoutine();
@@ -78,14 +82,13 @@ public class RoutineActivity extends AppCompatActivity {
                 binding.rDetail.setText(routine.getDetail());
                 String[] difficulty = getResources().getStringArray(R.array.difficulties);
 
-                binding.rDifficulty.setText(difficulty[routine.mapDifficulty()-1]);
+                binding.rDifficulty.setText(difficulty[routine.mapDifficulty() - 1]);
                 binding.rCategory.setText(routine.getCategory().getName());
 
-
+                binding.loadingRoutines.setVisibility(View.GONE);
 //                binding.collapsingToolbarLayout.setTitle("\uD83C\uDFCB" + "  " + routine.getName());
-                binding.collapsingToolbarLayout.setTitle( routine.getName());
+                binding.collapsingToolbarLayout.setTitle(routine.getName());
                 Glide.with(this).asBitmap().load(routineImageUrl).placeholder(R.drawable.r1).into(binding.routineImageView);
-
 
 
                 app.getCycleRepository().getCycles(routineId, 0, 10, "order", "asc").observe(this, rCycle -> {
@@ -125,13 +128,15 @@ public class RoutineActivity extends AppCompatActivity {
                     }
                 });
 
-            } else {
-                defaultResourceHandler(r);
-                if (r.getStatus() == Status.ERROR)
-                    StyleableToast.makeText(getApplicationContext(), getText(R.string.invalid_login).toString(), Toast.LENGTH_LONG, R.style.errorToast).show();
-            }
-        });
+            } else if (r.getStatus() == Status.LOADING) {
 
+                binding.loadingRoutines.setVisibility(View.VISIBLE);
+
+
+            } else if (r.getStatus() == Status.ERROR) {
+                StyleableToast.makeText(getApplicationContext(), getText(R.string.invalid_login).toString(), Toast.LENGTH_LONG, R.style.errorToast).show();
+            }
+            });
 
 
         binding.calendarBtn.setOnClickListener(view -> {
@@ -145,7 +150,8 @@ public class RoutineActivity extends AppCompatActivity {
                 routine.sortCycles();
                 app.getRoutineRepository().addCacheRoutine(routine);
                 Execution aux = new Execution(app.getUserRepository().getUser().getId(), false);
-                app.getExecutionRepository().addExecution(routineId, aux).observe(this, ex -> { });
+                app.getExecutionRepository().addExecution(routineId, aux).observe(this, ex -> {
+                });
                 Intent exIntent = new Intent(this, RoutineExecutionActivity.class);
                 exIntent.putExtra("routineId", routine.getId());
                 startActivity(exIntent);
@@ -159,7 +165,8 @@ public class RoutineActivity extends AppCompatActivity {
                 routine.sortCycles();
                 app.getRoutineRepository().addCacheRoutine(routine);
                 Execution aux = new Execution(app.getUserRepository().getUser().getId(), false);
-                app.getExecutionRepository().addExecution(routineId, aux).observe(this, ex -> { });
+                app.getExecutionRepository().addExecution(routineId, aux).observe(this, ex -> {
+                });
                 Intent exIntent = new Intent(this, RoutineExecutionActivityAlt.class);
                 exIntent.putExtra("routineId", routine.getId());
                 startActivity(exIntent);
@@ -178,9 +185,9 @@ public class RoutineActivity extends AppCompatActivity {
 
     private void isFavourite(int routineId) {
         app.getFavouriteRepository().getFavourites().observe(this, f -> {
-            if(f.getStatus() == Status.SUCCESS) {
-                for(FullRoutine fr : f.getData().getContent()) {
-                    if(fr.getId() == routineId) {
+            if (f.getStatus() == Status.SUCCESS) {
+                for (FullRoutine fr : f.getData().getContent()) {
+                    if (fr.getId() == routineId) {
                         isFav = true;
                     }
                 }
@@ -254,13 +261,14 @@ public class RoutineActivity extends AppCompatActivity {
                 app.getFavouriteRepository().deleteFavourite(routine.getId()).observe(this, r -> {
                     if (r.getStatus() == Status.SUCCESS) {
                         isFav = !isFav;
-                        item.setIcon(R.drawable.ic_not_fav);;
+                        item.setIcon(R.drawable.ic_not_fav);
+                        ;
                     }
                 });
             }
         } else if ((item.getItemId() == R.id.action_take_qr)) {
             Intent i = new Intent(this, QrActivity.class);
-            i.putExtra(EXTRA_ID,routineId);
+            i.putExtra(EXTRA_ID, routineId);
             i.putExtra(EXTRA_TITLE, routine.getName());
             startActivity(i);
         }

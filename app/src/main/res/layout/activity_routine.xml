@@ -167,7 +167,24 @@
 
             </androidx.recyclerview.widget.RecyclerView>
 
+            <LinearLayout
+                android:id="@+id/loadingRoutines"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:visibility="gone"
+                >
+                <ProgressBar
 
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textAppearance="?attr/textAppearanceHeadline4"
+                    android:text="@string/looks_like_there_are_no_routines_yet"
+                    >
+
+                </ProgressBar>
+            </LinearLayout>
 
             <include
 

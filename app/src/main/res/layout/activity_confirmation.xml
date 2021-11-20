@@ -40,7 +40,7 @@
         android:ems="10"
         android:hint="@string/code"
         android:inputType="textShortMessage"
-        android:maxLength="10"
+        android:maxLength="6"
         app:layout_constraintEnd_toEndOf="@+id/email"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/email"
@@ -72,7 +72,7 @@
         android:hint="@string/email_hint"
 
         android:inputType="textEmailAddress"
-        android:maxLength="20"
+        android:maxLength="40"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

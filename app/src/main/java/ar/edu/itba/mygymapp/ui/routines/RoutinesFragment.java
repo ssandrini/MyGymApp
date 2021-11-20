@@ -24,6 +24,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
@@ -62,7 +64,8 @@ public class RoutinesFragment extends Fragment {
         float dpWidth=displayMetrics.widthPixels/displayMetrics.density;
         Log.d("tamaño:",String.valueOf(dpWidth));
         if(dpWidth>=700){
-            binding.routinesRecView.setLayoutManager(new GridLayoutManager(getContext(),2));
+            binding.routinesRecView.setLayoutManager(new GridLayoutManager(getContext(),3));
+
         }else {
             binding.routinesRecView.setLayoutManager(new LinearLayoutManager(getContext()));
         }

@@ -62,7 +62,7 @@
             android:id="@+id/editTextTextEmailAddress"
             android:layout_width="225dp"
             android:layout_height="63dp"
-
+            android:maxLength="40"
             android:ems="10"
             android:hint="@string/email"
             android:inputType="textEmailAddress"/>
@@ -91,6 +91,7 @@
             android:drawableRight="@drawable/ic_baseline_visibility_off_24"
             android:longClickable="false"
             android:ems="10"
+            android:maxLength="40"
             android:hint="@string/password_hint_r"
             android:inputType="textPassword"/>
     </LinearLayout>
@@ -116,6 +117,7 @@
             android:ems="10"
             android:drawableRight="@drawable/ic_baseline_visibility_off_24"
             android:longClickable="false"
+            android:maxLength="40"
             android:hint="@string/pwdConfirm"
             android:inputType="textPassword"
            />

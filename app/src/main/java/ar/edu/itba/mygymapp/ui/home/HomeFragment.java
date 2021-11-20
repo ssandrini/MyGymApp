@@ -203,6 +203,7 @@ public class HomeFragment extends Fragment {
                                     break;
                                 }
                             }
+                            loadingGone();
                             if(recents.isEmpty()) {
                                 binding.noRecents.setVisibility(View.VISIBLE);
                             } else {
@@ -238,10 +239,24 @@ public class HomeFragment extends Fragment {
                     myRoutinesAdapter.notifyDataSetChanged();
                 }
 
-            } else {
-                Resource.defaultResourceHandler(r);
+            } else if (r.getStatus() == Status.LOADING){
+                loadingVisible();
             }
         });
+    }
+
+    private void loadingVisible() {
+        binding.loadingRoutines1.setVisibility(View.VISIBLE);
+        binding.loadingRoutines2.setVisibility(View.VISIBLE);
+        binding.loadingRoutines3.setVisibility(View.VISIBLE);
+        binding.loadingRoutines4.setVisibility(View.VISIBLE);
+    }
+
+    private void loadingGone() {
+        binding.loadingRoutines1.setVisibility(View.GONE);
+        binding.loadingRoutines2.setVisibility(View.GONE);
+        binding.loadingRoutines3.setVisibility(View.GONE);
+        binding.loadingRoutines4.setVisibility(View.GONE);
     }
 
     /*

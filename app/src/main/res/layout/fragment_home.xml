@@ -1,159 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-            tools:context=".ui.home.HomeFragment"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical"
+        tools:context=".ui.home.HomeFragment">
+
+        <Button
+            android:id="@+id/consoleBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Console">
+
+        </Button>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
             android:orientation="vertical">
 
-                <Button android:layout_height="wrap_content"
-                     android:layout_width="match_parent"
-                    android:text="Console"
-                    android:id="@+id/consoleBtn">
+            <TextView
+                android:id="@+id/welcomeHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/google_sans_bold"
+                android:text="@string/good_morning"
+                android:textAppearance="?attr/textAppearanceHeadline5" />
 
-                </Button>
-                <LinearLayout android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:text="@string/good_morning"
-                            android:id="@+id/welcomeHeader"
-                            android:fontFamily="@font/google_sans_bold"
-                            android:textAppearance="?attr/textAppearanceHeadline5"
-                            />
+            <TextView
+                android:id="@+id/recommendedRoutine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/google_sans"
+                android:paddingBottom="10dp"
+                android:text="@string/recommended_routine"
+                android:textAppearance="?attr/textAppearanceBody2" />
 
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:text="@string/recommended_routine"
-                            android:id="@+id/recommendedRoutine"
-                            android:fontFamily="@font/google_sans"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:paddingBottom="10dp"
-                            />
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/recommendedRecyclerView"
-                            android:layout_width="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:layout_height="wrap_content">
-                        </androidx.recyclerview.widget.RecyclerView>
-                </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recommendedRecyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"></androidx.recyclerview.widget.RecyclerView>
 
-                <include
-                    android:id="@+id/divider1"
-                    layout="@layout/home_sections_divider"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/section_highlights"
-                    android:textColor="@color/titleColor"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/headerTextSize"
-                    android:fontFamily="@font/google_sans_bold"
-                    android:padding="40px"
+            <ProgressBar
+                android:id="@+id/loadingRoutines1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/looks_like_there_are_no_routines_yet"
+                android:textAppearance="?attr/textAppearanceHeadline4"
+                android:visibility="gone">
 
-                    >
-                </TextView>
-                <TextView
-                    android:id="@+id/no_highlights"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:text="@string/no_highlights"
-                    android:gravity="center_horizontal"
-                    android:textAppearance="?attr/textAppearanceBody1"
-                    />
-                <androidx.recyclerview.widget.RecyclerView
-                    android:paddingLeft="10dp"
-                    android:id="@+id/highlightsRecView"
-                    android:layout_width="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:layout_height="wrap_content">
-
-                </androidx.recyclerview.widget.RecyclerView>
-
-                <include layout="@layout/home_sections_divider"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:text="@string/myRoutines_title"
-                    android:textColor="@color/titleColor"
-
-                    android:textStyle="bold"
-                    android:textSize="@dimen/headerTextSize"
-                    android:fontFamily="@font/google_sans_bold"
-                    android:padding="40px"
-                    >
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/no_my_routines"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:text="@string/no_my_routines"
-                    android:gravity="center_horizontal"
-                    android:textAppearance="?attr/textAppearanceBody1"
-                    />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:paddingLeft="10dp"
-                    android:id="@+id/myroutinesRecView"
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                </androidx.recyclerview.widget.RecyclerView>
-                <include layout="@layout/home_sections_divider"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/google_sans_bold"
-                    android:text="@string/recents_title"
-                    android:textColor="@color/titleColor"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/headerTextSize"
-                    android:padding="40px"
-                    >
-
-                </TextView>
-                <TextView
-                    android:id="@+id/no_recents"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:text="@string/no_recents"
-                    android:gravity="center_horizontal"
-                    android:textAppearance="?attr/textAppearanceBody1"
-                    />
-                <androidx.recyclerview.widget.RecyclerView
-                    android:paddingLeft="10dp"
-                    android:id="@+id/recentsRecView"
-                    android:paddingBottom="15dp"
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                </androidx.recyclerview.widget.RecyclerView>
-
-
-
-
+            </ProgressBar>
         </LinearLayout>
+
+        <include
+            android:id="@+id/divider1"
+            layout="@layout/home_sections_divider" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/google_sans_bold"
+            android:padding="40px"
+            android:text="@string/section_highlights"
+            android:textColor="@color/titleColor"
+            android:textSize="@dimen/headerTextSize"
+            android:textStyle="bold"
+
+            ></TextView>
+
+        <TextView
+            android:id="@+id/no_highlights"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal"
+            android:text="@string/no_highlights"
+            android:textAppearance="?attr/textAppearanceBody1" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/highlightsRecView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:paddingLeft="10dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <ProgressBar
+            android:id="@+id/loadingRoutines2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="@string/looks_like_there_are_no_routines_yet"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            android:visibility="gone" />
+
+        <include layout="@layout/home_sections_divider" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/google_sans_bold"
+            android:padding="40px"
+
+            android:text="@string/myRoutines_title"
+            android:textColor="@color/titleColor"
+            android:textSize="@dimen/headerTextSize"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/no_my_routines"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal"
+            android:text="@string/no_my_routines"
+            android:textAppearance="?attr/textAppearanceBody1" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/myroutinesRecView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:paddingLeft="10dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <ProgressBar
+            android:id="@+id/loadingRoutines3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="@string/looks_like_there_are_no_routines_yet"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            android:visibility="gone" />
+
+        <include layout="@layout/home_sections_divider" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/google_sans_bold"
+            android:padding="40px"
+            android:text="@string/recents_title"
+            android:textColor="@color/titleColor"
+            android:textSize="@dimen/headerTextSize"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/no_recents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal"
+            android:text="@string/no_recents"
+            android:textAppearance="?attr/textAppearanceBody1" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recentsRecView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:paddingLeft="10dp"
+            android:paddingBottom="15dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <ProgressBar
+            android:id="@+id/loadingRoutines4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="@string/looks_like_there_are_no_routines_yet"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            android:visibility="gone" />
+
+
+    </LinearLayout>
 </ScrollView>

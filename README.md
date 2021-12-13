@@ -5,6 +5,7 @@
  <li>Access through username and password</li>
  <li>View exercise routines and sort them by score, category, date, and difficulty</li>
  <li>Select an exercise routine, view its details and execute it</li>
+ <li>Bookmark exercise routines and consult them</li>
  <li>Share exercise routines through Android's mechanism</li>
  <li>Execute exercise routines in both simple and detailed mode</li>
  <li>Review exercise routines</li>
